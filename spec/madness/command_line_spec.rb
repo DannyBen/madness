@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe CommandLine do
-  let(:cli) { Madness::CommandLine.instance }
+  let(:cli) { Madness::CommandLine.clone.instance }
 
   describe '#execute' do
     context "without arguments" do
@@ -27,13 +27,12 @@ describe CommandLine do
       end
     end
 
-
-
     context "with an existing folder" do
       it "uses the folder as docroot" do
         expect(Server).to receive :run!
-        command = %w[docroot_fixture]
-        expect {cli.execute command}.to output(/path.*docroot_fixture/).to_stdout
+        command = %w[spec/fixtures/docroot]
+        expected = %r[path.*spec/fixtures/docroot]
+        expect {cli.execute command}.to output(expected).to_stdout
       end
     end
 
@@ -45,7 +44,5 @@ describe CommandLine do
       end
     end
 
-
   end
-
 end
