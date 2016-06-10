@@ -4,7 +4,7 @@ module Madness
   class ServerBase < Sinatra::Application
     helpers ServerHelper
 
-    config = Config.instance
+    config = Settings.instance
 
     Sass::Plugin.options[:template_location] = 'styles'
     Sass::Plugin.options[:css_location] = 'public/css'

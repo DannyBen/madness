@@ -51,7 +51,7 @@ module Madness
     end
 
     def config
-      @config ||= Config.instance
+      @config ||= Settings.instance
     end
   end
 end

@@ -2,7 +2,7 @@
 module Madness
   module ServerHelper
     def config 
-      @config ||= Config.instance
+      @config ||= Settings.instance
     end
 
     def docroot

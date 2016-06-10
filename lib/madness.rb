@@ -11,7 +11,7 @@ require 'docopt'
 require 'colsole'
 
 require "madness/version"
-require "madness/config"
+require "madness/settings"
 require "madness/server_helper"
 require "madness/server_base"
 require "madness/server"

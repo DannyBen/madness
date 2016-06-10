@@ -1,5 +1,5 @@
 module Madness
-  class Config
+  class Settings
     include Singleton
 
     attr_accessor :port, :bind, :path
