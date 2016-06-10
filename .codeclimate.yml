@@ -6,7 +6,7 @@ engines:
   eslint:
     enabled: true
   csslint:
-    enabled: true
+    enabled: false
   duplication:
     enabled: true
     config:
