@@ -1,0 +1,12 @@
+Gemfile.lock
+
+/dev
+/gems
+/coverage
+
+.sass-cache
+.bundle
+.byebug_history
+
+
+*.sublime-*

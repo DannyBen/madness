@@ -1,0 +1,25 @@
+== debug
+
+.markdown-body
+  nav
+    a.strong href="/" Home
+    - nav.each do |item|
+      a href="#{item.href}" class=('strong' if item.type == 'd')
+        = item.label 
+
+  main
+    .breadcrumbs
+      - breadcrumbs.each do |item|
+        a href="#{item.path}" = item.label
+        = " / " unless item.last
+
+    - if content.empty?
+      h1 Index
+      ul
+        - nav.each do |item|
+          li
+            a href="#{item.href}" class=('strong' if item.type == 'd')
+              = item.label 
+
+    - else
+      == content

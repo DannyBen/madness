@@ -1,0 +1,50 @@
+// @import "reset";
+// @import "responsive";
+@import "github-markdown";
+
+$top-margin: 10px;
+
+body {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+main {
+  padding: 0 20px 100px 20px;
+  margin-left: 250px;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.breadcrumbs {
+  padding-top: 7px;
+  margin-top: $top-margin;
+}
+
+nav {
+  background: #e4e4e4;
+  height: 100vh;
+  width: 250px;
+  overflow-y: auto;
+  position: fixed;
+  padding: $top-margin 0;
+  border-right: 1px solid #eee;
+  a {
+    &:hover {
+      background: #eee;
+    }
+    display: block;
+    padding: 7px 20px 7px 30px;
+    margin-bottom: 4px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  -webkit-border-radius: 3px;
+}

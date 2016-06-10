@@ -1,0 +1,23 @@
+Madness
+
+Usage:
+  madness [PATH] [options]
+  madness (-h|--help|--version)
+
+Parameters:
+  PATH:
+    This is the Quandl API path, for example: datasets/WIKI/AAPL.
+    Format is defaulted to CSV in most cases, but you can override it like
+    you normally would by appending it at the end, like 
+    datasets/WIKI/AAPL.json
+
+Options:
+  -p, --port <number>
+    Set server port number [default: 3000]
+
+  -b, --bind <address>
+    Set server listen address [default: 0.0.0.0]
+
+Examples:
+  madness
+  madness docs

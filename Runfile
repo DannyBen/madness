@@ -1,0 +1,20 @@
+name    "My Sinatra Baseline"
+summary "A baseline for Sinatra apps"
+
+help   "Start the server"
+action :server, :s do
+  Dir.chdir 'app' do
+    run 'ruby server.rb'
+  end
+end
+
+help   "Start an IRB console"
+action :console, :c do
+  run! 'bin/console'
+end
+
+usage  "ap COMMAND"
+help   "Awesome Print something"
+action :ap do |args|
+  run %Q[ruby -r./lib/boot.rb -e "ap #{args['COMMAND']}"]
+end
