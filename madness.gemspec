@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = "Start a markdown server in any directory"
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
-  s.files       = Dir['README.md', 'lib/**/*.rb', 'app/**/*' ]
+  s.files       = Dir['README.md', 'lib/**/*', 'app/**/*' ]
   s.executables = ["madness"]
   s.homepage    = 'https://github.com/DannyBen/madness'
   s.license     = 'MIT'
