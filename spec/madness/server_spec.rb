@@ -15,4 +15,16 @@ describe Server do
     end
   end
 
+  describe "sass plugin" do
+    let(:css) { 'app/public/css/main.css' }
+
+    it "generates css in the public folder" do
+      File.unlink css if File.exist? css
+      expect(File).not_to exist css
+      sleep 1
+      get '/css/main.css'
+      expect(File).to exist css      
+    end
+  end
+
 end
