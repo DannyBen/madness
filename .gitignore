@@ -4,6 +4,7 @@ Gemfile.lock
 /gems
 /coverage
 /doc
+/sample
 
 .sass-cache
 .bundle
