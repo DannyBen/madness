@@ -8,6 +8,7 @@ module Madness
 
     def execute(argv=[])
       evaluate_options(argv) unless argv.empty?
+      abort "Invalid path (#{config.path})" unless File.directory? config.path
       show_status
       Server.run!
     end
@@ -21,11 +22,12 @@ module Madness
         set_config args
       rescue Docopt::Exit => e
         puts e.message
+        exit
       end
     end
 
     def set_config(args)
-      config.path = args['PATH']
+      config.path = args['PATH'] if args['PATH']
       config.port = args['--port']
       config.bind = args['--bind']
     end
