@@ -6,8 +6,8 @@ module Madness
 
     config = Settings.instance
 
-    Sass::Plugin.options[:template_location] = 'styles'
-    Sass::Plugin.options[:css_location] = 'public/css'
+    Sass::Plugin.options[:template_location] = 'app/styles'
+    Sass::Plugin.options[:css_location] = 'app/public/css'
     Slim::Engine.set_options pretty: true
 
     use Sass::Plugin::Rack

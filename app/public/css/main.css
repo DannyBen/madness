@@ -583,7 +583,7 @@ main {
   margin-top: 10px; }
 
 nav {
-  background: #e4e4e4;
+  background: #eee;
   height: 100vh;
   width: 250px;
   overflow-y: auto;
@@ -595,7 +595,7 @@ nav {
     padding: 7px 20px 7px 30px;
     margin-bottom: 4px; }
     nav a:hover {
-      background: #eee; }
+      background: #e4e4e4; }
 
 ::-webkit-scrollbar {
   width: 6px; }
