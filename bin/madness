@@ -1,8 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'madness'
-
-# for dev
-# require File.dirname(__FILE__) + "/../lib/runfile"
-
 Madness::CommandLine.instance.execute ARGV

@@ -3,10 +3,10 @@ Gemfile.lock
 /dev
 /gems
 /coverage
+/doc
 
 .sass-cache
 .bundle
 .byebug_history
-
 
 *.sublime-*
