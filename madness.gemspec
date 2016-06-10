@@ -16,10 +16,10 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.required_ruby_version = ">= 2.0.0"
 
+  s.add_runtime_dependency 'sass', '~> 3.4'
   s.add_runtime_dependency 'sinatra', '~> 1.4'
   s.add_runtime_dependency 'sinatra-contrib', '~> 1.4'
   s.add_runtime_dependency 'slim', '~> 3.0'
-  s.add_runtime_dependency 'sass', '~> 3.4'
   s.add_runtime_dependency 'rdiscount', '~> 2.2'
   s.add_runtime_dependency 'docopt', '~> 0.5'
   s.add_runtime_dependency 'colsole', '~> 0.4'
