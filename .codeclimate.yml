@@ -1,9 +1,31 @@
 engines:
-  csslint:
-    enabled: false
+  rubocop:
+    enabled: true
 
   brakeman:
     enabled: true
     checks:
       CVE_2015_3227:
         enabled: false
+
+  eslint:
+    enabled: false
+
+  csslint:
+    enabled: false
+
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+
+ratings:
+  paths:
+  - app/**
+  - lib/**
+  - "**.rb"
+
+exclude_paths:
+- spec/**/*
+- "**/vendor/**/*"
