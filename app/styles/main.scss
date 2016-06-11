@@ -13,6 +13,9 @@ body {
 main {
   padding: 0 20px 100px 20px;
   margin-left: 250px;
+  border:1px solid #ccc;
+  border-width: 0px 1px;
+  min-height: 100vh;
 }
 
 .strong {
@@ -22,6 +25,7 @@ main {
 .breadcrumbs {
   padding-top: 7px;
   margin-top: $top-margin;
+  border-bottom: 1px solid #ccc;
 }
 
 nav {
@@ -30,7 +34,7 @@ nav {
   width: 250px;
   overflow-y: auto;
   position: fixed;
-  padding: $top-margin 0;
+  padding: $top-margin 0 100px 0;
   border-right: 1px solid #eee;
   a {
     &:hover {

@@ -573,14 +573,18 @@ body {
 
 main {
   padding: 0 20px 100px 20px;
-  margin-left: 250px; }
+  margin-left: 250px;
+  border: 1px solid #ccc;
+  border-width: 0px 1px;
+  min-height: 100vh; }
 
 .strong {
   font-weight: bold; }
 
 .breadcrumbs {
   padding-top: 7px;
-  margin-top: 10px; }
+  margin-top: 10px;
+  border-bottom: 1px solid #ccc; }
 
 nav {
   background: #eee;
@@ -588,7 +592,7 @@ nav {
   width: 250px;
   overflow-y: auto;
   position: fixed;
-  padding: 10px 0;
+  padding: 10px 0 100px 0;
   border-right: 1px solid #eee; }
   nav a {
     display: block;
