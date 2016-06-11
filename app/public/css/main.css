@@ -208,8 +208,6 @@
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; }
   .markdown-body td.line-numbers {
     background: #eee; }
-  .markdown-body td.code {
-    width: 100%; }
 
 body {
   max-width: 1300px;

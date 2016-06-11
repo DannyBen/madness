@@ -25,12 +25,12 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     * Bullet
 
 
-| Shortcut      | Result                       |
-|---------------|------------------------------|
-| F12           | Open console                 |
-| Ctrl+Shift+D  | Change console position      |
-| Ctrl+Shift+C  | Toggle inspect element       |
-| Ctrl+Shift+M  | Toggle Mobile device mode    |
+| Shortcut       | Result                       |
+|----------------|------------------------------|
+| <kbd>F12</kbd> | Open console                 |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>  | Change console position      |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>  | Toggle inspect element       |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>  | Toggle Mobile device mode    |
 
 This line has a `code snippet` in it, a **bold phrase**, and an *italic phrase*.
 
