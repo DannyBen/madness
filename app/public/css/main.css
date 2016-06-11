@@ -596,7 +596,7 @@ nav {
   border-right: 1px solid #eee; }
   nav a, nav span {
     display: block;
-    padding: 7px 20px 7px 30px;
+    padding: 3px 20px 3px 30px;
     margin-bottom: 4px; }
     nav a:hover, nav span:hover {
       background: #e4e4e4; }

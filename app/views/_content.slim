@@ -1,0 +1,10 @@
+- if content.empty?
+  h1 = nav.caption || "Index"
+  ul
+    - nav.links.each do |item|
+      li
+        a href="#{item.href}" class=('strong' if item.type == 'd')
+          = item.label 
+
+- else
+  == content

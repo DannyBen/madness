@@ -1,0 +1,9 @@
+nav
+  a.strong href="/" Home
+  
+  - if nav.caption
+    span.strong = "#{nav.caption}:"
+
+  - nav.links.each do |item|
+    a href="#{item.href}" class=('strong' if item.type == :dir)
+      = item.label 
