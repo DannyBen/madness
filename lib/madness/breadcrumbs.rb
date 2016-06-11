@@ -13,7 +13,7 @@ module Madness
     private
 
     def get_breadcrumbs
-      home = OpenStruct.new({ label: "Home", path: '/' })
+      home = OpenStruct.new({ label: "Home", href: '/' })
       result = breadcrumbs_maker(path).reverse.unshift home
       result.last.last = true
       result
@@ -23,7 +23,7 @@ module Madness
       parent, basename = File.split partial_path
       item = OpenStruct.new({ 
         label: basename.tr('-', ' '), 
-        partial_path: "/#{partial_path}" }
+        href: "/#{partial_path}" }
       )
       result = [item]
       result += breadcrumbs_maker parent unless parent == '.'

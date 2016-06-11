@@ -11,7 +11,7 @@
     - unless breadcrumbs.empty?
       .breadcrumbs
         - breadcrumbs.each do |item|
-          a href="#{item.path}" = item.label
+          a href="#{item.href}" = item.label
           = " / " unless item.last
 
     - if content.empty?
