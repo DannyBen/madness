@@ -24,5 +24,6 @@ end
 RSpec.configure do |config|
   config.include RSpecMixin
   config.include RSpecHtmlMatchers
+  config.include ServerHelper
 end
 

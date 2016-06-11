@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Settings do
-
-  let(:config) { Settings.clone.instance }
+  before do
+    config.reset
+  end
 
   it "sets default values" do
     expect(config.port).to eq '3000'

@@ -1,12 +1,9 @@
 require 'spec_helper'
 
 describe Server do
-
-  let(:settings) { Settings.instance }
-
   before do 
-    settings.reset
-    settings.path = 'spec/fixtures/docroot'
+    config.reset
+    config.path = 'spec/fixtures/docroot'
   end
 
   it "works" do

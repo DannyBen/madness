@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Document do
-  let(:config) { Settings.instance }
-
   before do
     config.reset
     config.path ='spec/fixtures/docroot'
