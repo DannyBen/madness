@@ -8,10 +8,11 @@
         = item.label 
 
   main
-    .breadcrumbs
-      - breadcrumbs.each do |item|
-        a href="#{item.path}" = item.label
-        = " / " unless item.last
+    - unless breadcrumbs.empty?
+      .breadcrumbs
+        - breadcrumbs.each do |item|
+          a href="#{item.path}" = item.label
+          = " / " unless item.last
 
     - if content.empty?
       h1 Index

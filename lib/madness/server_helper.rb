@@ -1,4 +1,3 @@
-
 module Madness
   module ServerHelper
     def config 
