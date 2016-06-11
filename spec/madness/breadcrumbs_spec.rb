@@ -6,6 +6,7 @@ describe Breadcrumbs do
     
     it "adds returns an array of OpenStructs" do
       expect(links).to be_an Array
+      expect(links.count).to eq 4
       expect(links.first).to be_an OpenStruct
     end
 
