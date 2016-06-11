@@ -1,3 +1,9 @@
 engines:
   csslint:
     enabled: false
+
+  brakeman:
+    enabled: true
+    checks:
+      CVE_2015_3227:
+        enabled: false
