@@ -23,7 +23,7 @@ describe Server do
       get '/Folder'
       expect(last_response.body).to have_tag '.breadcrumbs' do
         with_tag 'a', text: 'Home'
-        with_tag 'a', text: 'Folder'
+        with_tag 'span', text: 'Folder'
       end
     end
   end
@@ -40,7 +40,7 @@ describe Server do
       expect(last_response.body).to have_tag '.breadcrumbs' do
         with_tag 'a', text: 'Home'
         with_tag 'a', text: 'Folder'
-        with_tag 'a', text: 'File'
+        with_tag 'span', text: 'File'
       end
     end
   end

@@ -2,7 +2,7 @@
   .breadcrumbs
     - breadcrumbs.each do |item|
       - if item.last
-        = item.label
+        span = item.label
       - else
         a href="#{item.href}" = item.label
         = " / "
