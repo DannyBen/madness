@@ -51,19 +51,24 @@ describe Document do
   describe '#content' do
     it "adds h1 automatically to files" do
       doc = Document.new "File without H1"
-      expect(doc.content).to include "<h1>File without H1</h1>"
+      expect(doc.content).to have_tag :h1, text: "File without H1"
     end
 
     it "adds h1 automatically to folders" do
       doc = Document.new "Folder without H1"
-      expect(doc.content).to include "<h1>Folder without H1</h1>"
+      expect(doc.content).to have_tag :h1, text: "Folder without H1"
+    end
+
+    it "syntax highlights code" do
+      doc = Document.new "Code"
+      expect(doc.content).to include 'class="CodeRay"'
     end
 
     context "with auto h1 disabled" do
       it "does not add h1" do
         config.autoh1 = false
         doc = Document.new "File without H1"
-        expect(doc.content).not_to include "<h1>"
+        expect(doc.content).not_to have_tag :h1
       end
     end
   end

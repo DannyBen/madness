@@ -17,15 +17,12 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-- Bullet
-- Bullet
-    - Nested Bullet
-    - Nested Bullet
 
-1. Bullet
-2. Bullet
-    1. Nested Bullet
-    2. Nested Bullet
+* Bullet
+* Bullet
+    * Bullet
+    * Bullet
+    * Bullet
 
 
 | Shortcut      | Result                       |
@@ -35,9 +32,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 | Ctrl+Shift+C  | Toggle inspect element       |
 | Ctrl+Shift+M  | Toggle Mobile device mode    |
 
-
 This line has a `code snippet` in it, a **bold phrase**, and an *italic phrase*.
-
 
 ```ruby
 def hello
