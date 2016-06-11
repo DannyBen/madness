@@ -26,7 +26,20 @@ module Madness
     end
 
     def content!
-      File.exist?(file) ? RDiscount.new(File.read file).to_html : ""
+      if File.exist?(file)
+        html = RDiscount.new(File.read file).to_html
+        html = prepend_h1(html, file) if config.autoh1
+        html
+      else
+        ""
+      end
+    end
+
+    def prepend_h1(html, filename)
+      unless html[0..3] == "<h1>"
+        html = "<h1>#{File.basename(filename,'.md')}</h1>\n#{html}" 
+      end
+      html
     end
 
   end

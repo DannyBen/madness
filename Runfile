@@ -20,3 +20,8 @@ action :server, :s do |args|
   folder = args['--sample'] ? 'sample' : 'spec/fixtures/docroot'
   run "bundle exec bin/madness #{folder}"
 end
+
+help   "Run IRB console"
+action :console, :c do
+  run "bundle exec bin/console"
+end
