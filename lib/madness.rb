@@ -2,6 +2,7 @@ require 'singleton'
 
 require 'slim'
 require 'rdiscount'
+require 'coderay'
 require 'slim'
 require 'sass'
 require 'sinatra/base'

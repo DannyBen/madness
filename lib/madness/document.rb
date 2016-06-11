@@ -30,13 +30,18 @@ module Madness
 
     def content!
       if File.exist?(file)
-        html = RDiscount.new(File.read file).to_html
-        html = prepend_h1(html, file) if config.autoh1
-        html
+        html = markdown_to_html html
       else
         @type = :empty
         ""
       end
+    end
+
+    def markdown_to_html(html)
+      html = RDiscount.new(File.read file).to_html
+      html = syntax_highlight html
+      html = prepend_h1(html, file) if config.autoh1
+      html
     end
 
     def prepend_h1(html, filename)
@@ -50,6 +55,12 @@ module Madness
         html = "<h1>#{h1}</h1>\n#{html}" 
       end
       html
+    end
+
+    def syntax_highlight(html)
+      html.gsub(/\<code( class="(.+?)")\>(.+?)\<\/code\>/m) do
+        CodeRay.scan($3, $2).div
+      end
     end
 
   end
