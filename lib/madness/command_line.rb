@@ -41,7 +41,9 @@ module Madness
       config.path = args['PATH'] if args['PATH']
       config.port = args['--port']
       config.bind = args['--bind']
-      config.autoh1 = false if args['--noh1']
+      config.autoh1 = false if args['--no-auto-h1']
+      config.highlighter = false if args['--no-syntax']
+      config.line_numbers = false if args['--no-line-numbers']
     end
 
     def show_status

@@ -39,7 +39,7 @@ module Madness
 
     def markdown_to_html(html)
       html = RDiscount.new(File.read file).to_html
-      html = syntax_highlight html
+      html = syntax_highlight(html) if config.highlighter
       html = prepend_h1(html, file) if config.autoh1
       html
     end
@@ -59,8 +59,9 @@ module Madness
 
     def syntax_highlight(html)
       # Highlight only if language is provided
+      line_numbers = config.line_numbers ? :table : nil
       html.gsub(/\<code( class="(.+?)")\>(.+?)\<\/code\>/m) do
-        CodeRay.scan($3, $2).html css: :style, wrap: nil, line_numbers: :table
+        CodeRay.scan($3, $2).html css: :style, wrap: nil, line_numbers: line_numbers
       end
 
       # Highlight even without a language
