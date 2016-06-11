@@ -41,7 +41,7 @@ module Madness
       config.path = args['PATH'] if args['PATH']
       config.port = args['--port']
       config.bind = args['--bind']
-      config.autoh1 = false if args['--no-autoh1']
+      config.autoh1 = false if args['--noh1']
     end
 
     def show_status
