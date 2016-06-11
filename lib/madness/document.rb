@@ -58,9 +58,16 @@ module Madness
     end
 
     def syntax_highlight(html)
+      # Highlight only if language is provided
       html.gsub(/\<code( class="(.+?)")\>(.+?)\<\/code\>/m) do
-        CodeRay.scan($3, $2).div
+        CodeRay.scan($3, $2).html css: :style, wrap: nil, line_numbers: :table
       end
+
+      # Highlight even without a language
+      # html.gsub(/\<code( class="(.+?)")?\>(.+?)\<\/code\>/m) do
+      #   lang = $2 || :text
+      #   CodeRay.scan($3, lang).html css: :style, wrap: nil, line_numbers: :table
+      # end
     end
 
   end
