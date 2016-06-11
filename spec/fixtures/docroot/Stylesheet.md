@@ -39,3 +39,6 @@ def hello
   asd = 'asd'
 end
 ```
+
+<kbd>Alt</kbd>+<kbd>F2</kbd>
+
