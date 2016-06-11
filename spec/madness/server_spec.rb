@@ -12,19 +12,22 @@ describe Server do
   it "works" do
     get '/'
     expect(last_response).to be_ok
-    expect(last_response.body).to include "This is a docroot fixture"
+    expect(last_response.body).to have_tag 'h1', text: "This is a docroot fixture"
   end
 
   context "in subfolders" do
     it "works" do
       get '/Folder'
       expect(last_response).to be_ok
-      expect(last_response.body).to include "Sub folder #1"
+      expect(last_response.body).to have_tag 'h1', text: "Sub folder #1"
     end
 
     it "shows breadcrumbs" do
       get '/Folder'
-      expect(last_response.body).to include '<div class="breadcrumbs">'
+      expect(last_response.body).to have_tag '.breadcrumbs' do
+        with_tag 'a', text: 'Home'
+        with_tag 'a', text: 'Folder'
+      end
     end
   end
 
@@ -32,12 +35,16 @@ describe Server do
     it "works" do
       get '/Folder/File'
       expect(last_response).to be_ok
-      expect(last_response.body).to include "Nested File #1"
+      expect(last_response.body).to have_tag 'h1', text: "Nested File #1"
     end
 
     it "shows breadcrumbs" do
       get '/Folder/File'
-      expect(last_response.body).to include '<div class="breadcrumbs">'
+      expect(last_response.body).to have_tag '.breadcrumbs' do
+        with_tag 'a', text: 'Home'
+        with_tag 'a', text: 'Folder'
+        with_tag 'a', text: 'File'
+      end
     end
   end
 
@@ -45,7 +52,7 @@ describe Server do
     it "shows index" do
       get '/Empty+Folder'
       expect(last_response).to be_ok
-      expect(last_response.body).to include "Index"
+      expect(last_response.body).to have_tag 'h1', text: /Index/
     end
   end
 

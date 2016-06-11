@@ -15,13 +15,14 @@ ENV['RACK_ENV'] = 'test'
 include Madness
 
 # Bootstrap Sinatra testing with rspec
-module SpecMixin
+module RSpecMixin
   include Rack::Test::Methods
   def app() described_class end
 end
 
 # Configure RSpec
 RSpec.configure do |config|
-  config.include SpecMixin
+  config.include RSpecMixin
+  config.include RSpecHtmlMatchers
 end
 
