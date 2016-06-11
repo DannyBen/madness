@@ -5,4 +5,10 @@
 
   main
     == slim :_breadcrumbs, locals: { breadcrumbs: breadcrumbs }
-    == slim :_content, locals: { nav: nav, content: content }
+    == slim :_content, locals: { nav: nav, content: content}
+
+    - unless type == :file
+      - unless type == :empty
+        hr 
+      == slim :_index_nav, locals: { nav: nav }
+

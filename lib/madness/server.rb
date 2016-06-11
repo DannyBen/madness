@@ -14,6 +14,7 @@ module Madness
 
       slim :document, locals: { 
         content: content, 
+        type: doc.type,
         nav: nav, 
         breadcrumbs: breadcrumbs,
         debug: debug 

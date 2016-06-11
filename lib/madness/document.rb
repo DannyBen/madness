@@ -2,7 +2,7 @@ module Madness
   class Document
     include ServerHelper
 
-    attr_reader :file, :dir, :path
+    attr_reader :file, :dir, :path, :type
 
     def initialize(path)
       @path = path
@@ -12,12 +12,15 @@ module Madness
       if File.directory? base
         @file = "#{base}/README.md"
         @dir  = base
+        @type = :readme
       elsif File.exist? "#{base}.md"
         @file = "#{base}.md"
         @dir  = File.dirname file
+        @type = :file
       else
         @file = ''
         @dir  = docroot
+        @type = :empty
       end
     end
 
@@ -31,13 +34,20 @@ module Madness
         html = prepend_h1(html, file) if config.autoh1
         html
       else
+        @type = :empty
         ""
       end
     end
 
     def prepend_h1(html, filename)
       unless html[0..3] == "<h1>"
-        html = "<h1>#{File.basename(filename,'.md')}</h1>\n#{html}" 
+        if filename =~ /README.md/
+          h1 = File.basename File.dirname(filename)
+        else
+          h1 = File.basename(filename,'.md')
+        end
+
+        html = "<h1>#{h1}</h1>\n#{html}" 
       end
       html
     end

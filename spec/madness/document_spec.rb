@@ -49,9 +49,14 @@ describe Document do
   end
 
   describe '#content' do
-    it "adds h1 automatically" do
+    it "adds h1 automatically to files" do
       doc = Document.new "File without H1"
       expect(doc.content).to include "<h1>File without H1</h1>"
+    end
+
+    it "adds h1 automatically to folders" do
+      doc = Document.new "Folder without H1"
+      expect(doc.content).to include "<h1>Folder without H1</h1>"
     end
 
     context "with auto h1 disabled" do
