@@ -2,7 +2,7 @@ module Madness
   class Navigation
     include ServerHelper
 
-    attr_reader :links
+    attr_reader :links, :caption
 
     def initialize(dir)
       files = Dir["#{dir}/*.md"].map { |f| f.sub(/\.md$/, '') }
@@ -10,13 +10,16 @@ module Madness
 
       dirs  = Dir["#{dir}/*"].select { |f| File.directory? f }
 
+      @caption = File.basename(dir) unless dir == docroot
+
       @links = []
+
       dirs.sort.each do |item|
-        @links.push link(item, 'd')
+        @links.push link(item, :dir)
       end
 
       files.sort.each do |item|
-        @links.push link(item, 'f')
+        @links.push link(item, :file)
       end
     end
 

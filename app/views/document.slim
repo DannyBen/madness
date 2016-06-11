@@ -3,8 +3,12 @@
 .markdown-body
   nav
     a.strong href="/" Home
-    - nav.each do |item|
-      a href="#{item.href}" class=('strong' if item.type == 'd')
+    
+    - if nav.caption
+      span.strong = "#{nav.caption}:"
+
+    - nav.links.each do |item|
+      a href="#{item.href}" class=('strong' if item.type == :dir)
         = item.label 
 
   main
@@ -15,9 +19,9 @@
           = " / " unless item.last
 
     - if content.empty?
-      h1 Index
+      h1 = nav.caption || "Index"
       ul
-        - nav.each do |item|
+        - nav.links.each do |item|
           li
             a href="#{item.href}" class=('strong' if item.type == 'd')
               = item.label 

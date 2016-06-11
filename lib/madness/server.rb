@@ -9,7 +9,7 @@ module Madness
       dir     = doc.dir
       content = doc.content
 
-      nav = Navigation.new(dir).links
+      nav = Navigation.new(dir)
       breadcrumbs = Breadcrumbs.new(path).links
 
       slim :document, locals: { 
