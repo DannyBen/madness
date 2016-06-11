@@ -12,12 +12,22 @@ module Madness
 
       @links = []
       dirs.sort.each do |item|
-        @links.push OpenStruct.new({ label: File.basename(item).tr('-', ' '), href: item.sub(/^#{docroot}/, ''), type: 'd' })
+        @links.push link(item, 'd')
       end
 
       files.sort.each do |item|
-        @links.push OpenStruct.new({ label: File.basename(item).tr('-', ' '), href: item.sub(/^#{docroot}/, ''), type: 'f' })
+        @links.push link(item, 'f')
       end
+    end
+
+    private
+
+    def link(item, type)
+      OpenStruct.new({ 
+        label: File.basename(item).tr('-', ' '), 
+        href: item.sub(/^#{docroot}/, ''), 
+        type: type 
+      })
     end
   end
 end

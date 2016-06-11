@@ -6,7 +6,6 @@ module Madness
       debug = nil
 
       doc = Document.new path
-      file    = doc.file
       dir     = doc.dir
       content = doc.content
 
