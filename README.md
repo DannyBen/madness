@@ -8,9 +8,11 @@ Madness - Instant Markdown Server
 
 ---
 
+Screenshot
+--------------------------------------------------
+
 ![Screenshot]
 
----
 
 Install
 --------------------------------------------------
