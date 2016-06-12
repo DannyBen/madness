@@ -48,4 +48,4 @@ the same directory as the viewed file.
 
 ---
 
-[Screenshot]: https://raw.githubusercontent.com/DannyBen/madness/master/screenshot.gif
+[Screenshot]: https://raw.githubusercontent.com/DannyBen/madness/master/screenshot.png
