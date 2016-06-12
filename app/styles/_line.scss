@@ -1,0 +1,29 @@
+hr {
+  box-sizing: content-box;
+  // height: 0;
+  overflow: visible;
+  height: 0;
+  // margin: 15px 0;
+  overflow: hidden;
+  // background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  // border: 0 none;
+
+  border-bottom-color: #eee;
+
+  &::before {
+    display: table;
+    content: "";
+  }
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
