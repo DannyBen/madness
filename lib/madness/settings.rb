@@ -10,6 +10,7 @@ module Madness
     end
 
     def reset
+      @config_file = nil
       set_defaults
       load_from_file if config_file
     end

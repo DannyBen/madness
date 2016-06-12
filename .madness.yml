@@ -1,8 +1,0 @@
-# .madness.yml
----
-path: '.'
-port: '3000'
-bind: '0.0.0.0'
-autoh1: true
-highlighter: true
-line_numbers: true
