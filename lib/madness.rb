@@ -1,5 +1,4 @@
 require 'singleton'
-require 'logger'
 require 'yaml'
 
 require 'slim'
