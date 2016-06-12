@@ -47,9 +47,9 @@ describe Server do
 
   context "in an empty folder" do
     it "shows index" do
-      get '/Empty+Folder'
+      get '/Empty%20Folder'
       expect(last_response).to be_ok
-      expect(last_response.body).to have_tag 'h1', text: /Index/
+      expect(last_response.body).to have_tag 'h1', text: /Empty Folder/
     end
   end
 
@@ -59,6 +59,12 @@ describe Server do
       expect(last_response).to be_redirect
       follow_redirect!
       expect(last_request.url).to match /Redirect\/The%20only%20file%20here/
+    end
+
+    it "does not redirect if the file is README" do
+      get '/No%20Redirect'
+      expect(last_response).to be_ok
+      expect(last_response.body).to have_tag 'p', text: "Was not redirected"
     end
   end
 
