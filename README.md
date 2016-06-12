@@ -63,6 +63,23 @@ Example structure:
     └── Lists.md
 ```
 
+Configuration File
+--------------------------------------------------
+
+All the command line arguments can also be configured through a 
+configuration file. Create a file named `.madness.yml` in your 
+documentation directory, and modify any of the settings below.
+
+```yaml
+# .madness.yml
+---
+path: '.'
+port: '3000'
+bind: '0.0.0.0'
+autoh1: true
+highlighter: true
+line_numbers: true
+```
 
 
 ---
