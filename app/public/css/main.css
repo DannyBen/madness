@@ -146,8 +146,6 @@ code {
     content: "\00a0"; }
 
 pre {
-  margin-top: 0;
-  margin-bottom: 0;
   overflow: auto;
   line-height: 1.45;
   word-wrap: normal; }
@@ -175,6 +173,11 @@ pre {
 
 td.line-numbers {
   background: #eee; }
+
+table.CodeRay {
+  margin-bottom: 0; }
+  table.CodeRay pre {
+    margin-bottom: 0; }
 
 img {
   border-style: none;

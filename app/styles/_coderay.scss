@@ -5,3 +5,10 @@ td.line-numbers {
 td.code {
   // width: 100%;
 }
+
+table.CodeRay {
+  margin-bottom: 0;
+  pre {
+    margin-bottom: 0;
+  }
+}

@@ -8,6 +8,10 @@ Madness - Instant Markdown Server
 
 ---
 
+![Screenshot]
+
+---
+
 Install
 --------------------------------------------------
 
@@ -40,3 +44,8 @@ main file describing this directory.
 The navigation sidebar will show all the sub directories and files in 
 the same directory as the viewed file.
 
+
+
+---
+
+[Screenshot]: https://raw.githubusercontent.com/DannyBen/madness/master/screenshot.gif

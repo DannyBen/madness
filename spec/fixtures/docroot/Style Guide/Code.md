@@ -13,6 +13,8 @@ def execute(argv=[])
 end
 ```
 
+Any following paragraph should be properly margined.
+
 ## Overflow?
 
 ```ruby
@@ -42,3 +44,5 @@ class Server < ServerBase
   end
 end
 ```
+
+Any following paragraph should be properly margined.
