@@ -38,18 +38,19 @@ module Madness
     end
 
     def set_config(args)
-      config.path = args['PATH'] if args['PATH']
-      config.port = args['--port']
-      config.bind = args['--bind']
-      config.autoh1 = false if args['--no-auto-h1']
-      config.highlighter = false if args['--no-syntax']
-      config.line_numbers = false if args['--no-line-numbers']
+      config.path = args['PATH']   if args['PATH']
+      config.port = args['--port'] if args['--port']
+      config.bind = args['--bind'] if args['--bind']
+      config.autoh1       = false  if args['--no-auto-h1']
+      config.highlighter  = false  if args['--no-syntax']
+      config.line_numbers = false  if args['--no-line-numbers']
     end
 
     def show_status
       say_status :start, 'the madness'
       say_status :listen, "#{config.bind}:#{config.port}", :txtblu
       say_status :path, config.path, :txtblu
+      say_status :use, config.filename if config.file_exist?
       say "-" * 40
     end
 

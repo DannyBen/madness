@@ -10,6 +10,21 @@ module Madness
     end
 
     def reset
+      set_defaults
+      load_from_file if config_file
+    end
+
+    def file_exist?
+      File.exist? filename
+    end
+
+    def filename
+      '.madness.yml'
+    end
+
+    private
+
+    def set_defaults
       self.port   = '3000'
       self.bind   = '0.0.0.0'
       self.path   = '.'
@@ -18,5 +33,22 @@ module Madness
       self.line_numbers = true
     end
 
+    def load_from_file
+      config_file.each do |key, value|
+        instance_variable_set("@#{key}", value)
+      end
+    end
+
+    def config_file
+      @config_file ||= config_file!
+    end
+
+    def config_file!
+      if file_exist?
+        YAML.load_file filename 
+      else
+        {}
+      end
+    end
   end
 end
