@@ -9,5 +9,6 @@ Gemfile.lock
 .sass-cache
 .bundle
 .byebug_history
+madness.log
 
 *.sublime-*
