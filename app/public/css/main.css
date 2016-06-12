@@ -228,9 +228,12 @@ main {
   border: 1px solid #ccc;
   border-width: 0 1px;
   min-height: 100vh; }
+  main:before, main:after {
+    display: table;
+    content: ""; }
 
 .breadcrumbs {
-  margin-top: 10px;
+  margin-top: 6px;
   border-bottom: 1px solid #ccc; }
   .breadcrumbs a {
     display: inline-block;

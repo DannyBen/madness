@@ -1,7 +1,5 @@
 @import "manifest";
 
-$top-margin: 10px;
-
 body {
   max-width: 1300px;
   margin: 0 auto;
@@ -13,10 +11,19 @@ main {
   border:1px solid #ccc;
   border-width: 0 1px;
   min-height: 100vh;
+
+  &:before, &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    // clear: both;
+  }
 }
 
 .breadcrumbs {
-  margin-top: $top-margin;
+  margin-top: 6px;
   border-bottom: 1px solid #ccc;
   a {
     display: inline-block;
@@ -30,7 +37,7 @@ nav {
   width: 250px;
   overflow-y: auto;
   position: fixed;
-  padding: $top-margin 0 100px 0;
+  padding: 10px 0 100px 0;
   border-right: 1px solid #eee;
   a, span {
     &:hover {
