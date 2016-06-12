@@ -58,19 +58,14 @@ module Madness
     end
 
     def syntax_highlight(html)
-      # Highlight only if language is provided
       line_numbers = config.line_numbers ? :table : nil
-      html.gsub(/\<code( class="(.+?)")\>(.+?)\<\/code\>/m) do
-        CodeRay.scan($3, $2).html css: :style, wrap: nil, line_numbers: line_numbers
+      opts = { css: :style, wrap: nil, line_numbers: line_numbers }
+      html.gsub(/\<code class="(.+?)"\>(.+?)\<\/code\>/m) do
+        lang, code = $1, $2
+        code = CGI.unescapeHTML code
+        CodeRay.scan(code, lang).html opts
       end
-
-      # Highlight even without a language
-      # html.gsub(/\<code( class="(.+?)")?\>(.+?)\<\/code\>/m) do
-      #   lang = $2 || :text
-      #   CodeRay.scan($3, lang).html css: :style, wrap: nil, line_numbers: :table
-      # end
     end
-
   end
 end
 
