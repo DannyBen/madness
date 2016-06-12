@@ -1,4 +1,4 @@
-@import "github-markdown";
+@import "manifest";
 
 $top-margin: 10px;
 
@@ -13,10 +13,6 @@ main {
   border:1px solid #ccc;
   border-width: 0px 1px;
   min-height: 100vh;
-}
-
-.strong {
-  font-weight: bold;
 }
 
 .breadcrumbs {

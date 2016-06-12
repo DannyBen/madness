@@ -1,14 +1,13 @@
 == debug
 
-.markdown-body
-  == slim :_nav, locals: { nav: nav }
+== slim :_nav, locals: { nav: nav }
 
-  main
-    == slim :_breadcrumbs, locals: { breadcrumbs: breadcrumbs }
-    == slim :_content, locals: { nav: nav, content: content}
+main
+  == slim :_breadcrumbs, locals: { breadcrumbs: breadcrumbs }
+  == slim :_content, locals: { nav: nav, content: content}
 
-    - unless type == :file
-      - unless type == :empty
-        hr 
-      == slim :_index_nav, locals: { nav: nav }
+  - unless type == :file
+    - unless type == :empty
+      hr 
+    == slim :_index_nav, locals: { nav: nav }
 

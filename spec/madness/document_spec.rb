@@ -64,6 +64,12 @@ describe Document do
       expect(doc.content).to include 'class="CodeRay"'
     end
 
+    it "does not double escape html" do
+      doc = Document.new "Double Escape"
+      expect(doc.content).to include ' &gt; '
+      expect(doc.content).not_to include ' &amp; '
+    end
+
     context "with auto h1 disabled" do
       it "does not add h1" do
         config.autoh1 = false
