@@ -4,7 +4,7 @@ code {
   padding-bottom: 0.2em;
   margin: 0;
   // font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
+  background-color: #eee;
   border-radius: 3px;
   
   &:before, &:after {
@@ -36,10 +36,10 @@ pre {
   }
 
   code {
+    margin: 0;
     display: inline;
     max-width: initial;
     padding: 0;
-    margin: 0;
     overflow: initial;
     line-height: inherit;
     word-wrap: normal;
