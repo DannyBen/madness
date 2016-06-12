@@ -46,6 +46,23 @@ main file describing this directory.
 The navigation sidebar will show all the sub directories and files in 
 the same directory as the viewed file.
 
+Example structure:
+
+```
+./
+├── README.md
+├── Code.md
+├── Double Escape.md
+├── File-with-Dashes.md
+├── Folder
+│   └── File.md
+└── Another Folder
+    ├── README.md
+    ├── Headings.md
+    ├── Images.md
+    └── Lists.md
+```
+
 
 
 ---
