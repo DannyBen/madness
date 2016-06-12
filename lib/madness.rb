@@ -1,9 +1,9 @@
 require 'singleton'
+require 'yaml'
 
 require 'slim'
 require 'rdiscount'
 require 'coderay'
-require 'yaml'
 require 'sass'
 require 'sinatra/base'
 require "sinatra/reloader"

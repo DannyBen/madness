@@ -37,22 +37,27 @@ module Madness
       end
     end
 
+    def title
+      if file =~ /README.md/
+        result = File.basename File.dirname(file)
+      else
+        result = File.basename(file,'.md')
+      end
+      result.tr '-', ' '
+    end
+
+    private
+
     def markdown_to_html(html)
       html = RDiscount.new(File.read file).to_html
       html = syntax_highlight(html) if config.highlighter
-      html = prepend_h1(html, file) if config.autoh1
+      html = prepend_h1(html) if config.autoh1
       html
     end
 
-    def prepend_h1(html, filename)
+    def prepend_h1(html)
       unless html[0..3] == "<h1>"
-        if filename =~ /README.md/
-          h1 = File.basename File.dirname(filename)
-        else
-          h1 = File.basename(filename,'.md')
-        end
-
-        html = "<h1>#{h1}</h1>\n#{html}" 
+        html = "<h1>#{title}</h1>\n#{html}" 
       end
       html
     end

@@ -28,7 +28,7 @@ module Madness
     def link(item, type)
       OpenStruct.new({ 
         label: File.basename(item).tr('-', ' '), 
-        href: item.sub(/^#{docroot}/, ''), 
+        href: URI.escape(item.sub(/^#{docroot}/, '')), 
         type: type 
       })
     end

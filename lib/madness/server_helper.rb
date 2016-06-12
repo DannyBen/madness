@@ -7,5 +7,13 @@ module Madness
     def docroot
       @docroot ||= File.expand_path(config.path, Dir.pwd)
     end
+
+    def log(obj)
+      #:nocov:
+      open('madness.log', 'a') { |f|
+        f.puts obj.inspect
+      }
+      #:nocov:
+    end
   end
 end

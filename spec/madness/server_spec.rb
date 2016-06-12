@@ -53,6 +53,15 @@ describe Server do
     end
   end
 
+  context "in a folder with a single file" do
+    it "redirects to the file" do
+      get '/Redirect'
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.url).to match /Redirect\/The%20only%20file%20here/
+    end
+  end
+
   describe "sass plugin" do
     let(:css) { 'app/public/css/main.css' }
 
