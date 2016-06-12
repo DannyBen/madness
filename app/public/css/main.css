@@ -139,7 +139,7 @@ code {
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   margin: 0;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: #ddd;
   border-radius: 3px; }
   code:before, code:after {
     letter-spacing: -0.2em;
@@ -226,7 +226,7 @@ main {
   padding: 0 20px 100px 20px;
   margin-left: 250px;
   border: 1px solid #ccc;
-  border-width: 0px 1px;
+  border-width: 0 1px;
   min-height: 100vh; }
 
 .breadcrumbs {
