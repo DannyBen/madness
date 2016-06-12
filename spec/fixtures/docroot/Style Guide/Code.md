@@ -32,3 +32,13 @@ class Server < ServerBase
   end
 end
 ```
+
+## Without Syntax Highlighting
+
+```
+class Server < ServerBase
+  def serve(path, &block)
+    slim path
+  end
+end
+```
