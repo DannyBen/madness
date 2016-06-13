@@ -9,6 +9,7 @@ module Madness
       files.reject! { |f| File.basename(f) == 'README' }
 
       dirs  = Dir["#{dir}/*"].select { |f| File.directory? f }
+      dirs.reject! { |f| File.basename(f)[0] == '_' }
 
       @caption = File.basename(dir) unless dir == docroot
 
