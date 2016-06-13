@@ -1,4 +1,7 @@
 module Madness
+  
+  # Handle breadcumbs generation by converting a path to an array
+  # of links
   class Breadcrumbs
     attr_reader :path
 

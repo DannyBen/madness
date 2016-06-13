@@ -1,4 +1,7 @@
 module Madness
+
+  # All the methods that we may need inside of any server route.
+  # The module can also be included manually anywhere else.
   module ServerHelper
     def config 
       @config ||= Settings.instance

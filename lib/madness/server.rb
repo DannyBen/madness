@@ -1,5 +1,8 @@
+require 'madness/server_base'
+
 module Madness
 
+  # The Sinatra server
   class Server < ServerBase
     get '/*' do
       path = params[:splat].first

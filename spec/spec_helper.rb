@@ -17,7 +17,10 @@ include Madness
 # Bootstrap Sinatra testing with rspec
 module RSpecMixin
   include Rack::Test::Methods
-  def app() described_class end
+  def app() 
+    described_class.prepare
+    described_class 
+  end
 end
 
 # Configure RSpec

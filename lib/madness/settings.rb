@@ -1,4 +1,11 @@
 module Madness
+  
+  # Handle teh configuration options
+  # Each configuration option has three sources
+  # 1. The default value
+  # 2. The setting as provided in the ./.madness.yml
+  # 3. Any override provided later (for example, by the CommandLine 
+  #    class)
   class Settings
     include Singleton
 
@@ -9,6 +16,8 @@ module Madness
       reset
     end
 
+    # Force reload of the config file, set defaults, and then read from 
+    # file.
     def reset
       @config_file = nil
       set_defaults
@@ -51,5 +60,6 @@ module Madness
         {}
       end
     end
+
   end
 end

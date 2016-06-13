@@ -93,6 +93,15 @@ will be automatically added based on the file name.
 Directories that begin with an underscore will not be displayed in the
 navigation.
 
+**Images and Static Files**  
+Your markdown directory can have a `public` folder. Anything in it
+will be served as is. For example, if you have `public/images/ok.png` 
+you can access it from your markdown file by typing:
+
+```markdown
+![alt text](/images/ok.png)
+```
+
 
 ---
 
