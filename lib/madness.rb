@@ -10,6 +10,7 @@ require "sinatra/reloader"
 require 'sass/plugin/rack'
 require 'docopt'
 require 'colsole'
+require 'rack/contrib/try_static'
 
 require 'madness/version'
 require 'madness/settings'
@@ -20,3 +21,4 @@ require 'madness/document'
 require 'madness/navigation'
 require 'madness/breadcrumbs'
 require 'madness/command_line'
+

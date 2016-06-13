@@ -47,6 +47,11 @@ describe Navigation do
       result = nav.links.select { |f| f.label[0] == '_' }
       expect(result.count).to eq 0
     end
+
+    it "omits the public folder" do
+      result = nav.links.select { |f| f.label == 'public' }
+      expect(result.count).to eq 0
+    end
    
   end
 end

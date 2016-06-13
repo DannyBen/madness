@@ -1,11 +1,12 @@
 module Madness
+
+  # Handle command line execution. Used by bin/madness.
   class CommandLine
     include Singleton
     include Colsole
 
-    def initialize
-    end
-
+    # Without any argument, we run the server in the current directory.
+    # Otherwise, we will set some options before executing.
     def execute(argv=[])
       if argv.empty?
         launch_server
@@ -16,6 +17,8 @@ module Madness
 
     private
 
+    # Execute the docopt engine to parse the options and then launch the
+    # server.
     def launch_server_with_options(argv)
       doc = File.read File.expand_path('docopt.txt', __dir__)
       begin
@@ -27,16 +30,22 @@ module Madness
       end
     end
 
+    # Launch the server, but not before doing some checks and making sure
+    # we ask it to "prepare". This will set the server options such as port
+    # and static files folder.
     def launch_server
       unless File.directory? config.path
-        puts "Invalid path (#{config.path})" 
+        STDERR.puts "Invalid path (#{config.path})" 
         return
       end
       
       show_status
+      Server.prepare
       Server.run!
     end
 
+    # Get the arguments as provided by docopt, and set them to our own
+    # config object.
     def set_config(args)
       config.path = args['PATH']   if args['PATH']
       config.port = args['--port'] if args['--port']
@@ -46,6 +55,8 @@ module Madness
       config.line_numbers = false  if args['--no-line-numbers']
     end
 
+    # Say hello to everybody when the server starts, showing the known 
+    # config.
     def show_status
       say_status :start, 'the madness'
       say_status :listen, "#{config.bind}:#{config.port}", :txtblu

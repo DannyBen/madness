@@ -12,6 +12,13 @@ describe Server do
     expect(last_response.body).to have_tag 'h1', text: "This is a docroot fixture"
   end
 
+  it "serves static files" do
+    get '/ok.png'
+    expect(last_response).to be_ok
+    expect(last_response.content_type).to eq "image/png"
+    expect(last_response.content_length).to eq 1167
+  end
+
   context "in subfolders" do
     it "works" do
       get '/Folder'
