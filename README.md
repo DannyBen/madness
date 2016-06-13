@@ -89,7 +89,7 @@ Tips
 If your markdown document does not start with a level 1 heading, it
 will be automatically added based on the file name.
 
-**Hidden Directories**  
+**Hidden Directories**
 Directories that begin with an underscore will not be displayed in the
 navigation
 
