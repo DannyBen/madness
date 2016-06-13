@@ -91,7 +91,7 @@ will be automatically added based on the file name.
 
 **Hidden Directories**
 Directories that begin with an underscore will not be displayed in the
-navigation
+navigation.
 
 
 ---
