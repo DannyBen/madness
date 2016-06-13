@@ -13,7 +13,7 @@ module Madness
     private
 
     # Prepare a list of links from all the accepted items in the directory
-    def make_links
+    def make_links(dir)
       files = get_files dir
       dirs  = get_dirs dir
 
@@ -40,7 +40,7 @@ module Madness
       dirs  = Dir["#{dir}/*"].select { |f| File.directory? f }
       dirs.reject! do |f| 
         basename = File.basename(f)
-        basename[0] == '_' || basename == 'public'}
+        basename[0] == '_' || basename == 'public'
       end
       dirs
     end

@@ -40,7 +40,7 @@ describe CommandLine do
       it "shows an error message" do
         expect(Server).not_to receive :run!
         command = %w[no_such_folder]
-        expect {cli.execute command}.to output(/Invalid path/).to_stdout
+        expect {cli.execute command}.to output(/Invalid path/).to_stderr_from_any_process
       end
     end
 
