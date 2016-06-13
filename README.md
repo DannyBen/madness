@@ -82,6 +82,19 @@ line_numbers: true
 ```
 
 
+Tips
+--------------------------------------------------
+
+Automatic H1
+: If your markdown document does not start with a level 1 heading, it
+  will be automatically added based on the file name.
+
+Hidden Directories
+: Directories that begin with an underscore will not be displayed in the
+  navigation
+
+
 ---
 
 [Screenshot]: https://raw.githubusercontent.com/DannyBen/madness/master/screenshot.png
+
