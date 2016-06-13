@@ -39,7 +39,7 @@ module Madness
     # Return the HTML for that document, force re-read.
     def content!
       if File.exist?(file)
-        html = markdown_to_html html
+        markdown_to_html
       else
         @type = :empty
         ""
@@ -61,7 +61,7 @@ module Madness
     # Convert markdown to HTML, wit hsome additional processing:
     # 1. Syntax highilghting
     # 2. Prepend H1 if needed
-    def markdown_to_html(html)
+    def markdown_to_html
       html = RDiscount.new(File.read file).to_html
       html = syntax_highlight(html) if config.highlighter
       html = prepend_h1(html) if config.autoh1
