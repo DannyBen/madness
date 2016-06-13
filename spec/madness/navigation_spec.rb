@@ -42,6 +42,11 @@ describe Navigation do
       expect(subject.href).to eq '/XFile'
       expect(subject.type).to eq :file
     end
+
+    it "omits _folders" do
+      result = nav.links.select { |f| f.label[0] == '_' }
+      expect(result.count).to eq 0
+    end
    
   end
 end
