@@ -5,6 +5,10 @@ module Madness
     include Ferret
     include Ferret::Index
 
+    def initialize(path=nil)
+      @path = path || docroot
+    end
+
     def has_index?
       Dir.exist? index_dir
     end
@@ -14,7 +18,7 @@ module Madness
 
       index = Index.new path: index_dir, create: true
 
-      Dir["#{docroot}/**/*.md"].each do |file|
+      Dir["#{@path}/**/*.md"].each do |file|
         index << { file: file, content: File.read(file) }
       end
 
@@ -27,11 +31,16 @@ module Madness
 
       results = []
       total_hits = index.search_each(query, limit: 20) do |doc_id, score| 
-        filename = index[doc_id][:file].sub("#{docroot}/", '')[0...-3]
+        filename = index[doc_id][:file].sub("#{@path}/", '')[0...-3]
+        highlights = index.highlight "content:(#{query.tr(' ',' OR ')}) ", doc_id, field: :content,
+          pre_tag: "<strong class='highlight'>", post_tag: "</strong>",
+          excerpt_length: 100
+
         results << { 
           score: score, 
           file: filename,
-          label: filename.gsub("/", " / ")
+          label: filename.gsub("/", " / "),
+          highlights: highlights
         }
       end
 
@@ -39,10 +48,13 @@ module Madness
       results
     end
 
-    private
+    def remove_index_dir
+      return unless Dir.exist? index_dir
+      FileUtils.rm_r index_dir
+    end
 
     def index_dir
-      "#{docroot}/_index"
+      "#{@path}/_index"
     end  
 
   end

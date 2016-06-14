@@ -9,20 +9,6 @@ describe Navigation do
   describe '#initialize' do
     let(:nav) { Navigation.new docroot }
 
-    context "at docroot" do
-      it "does not set caption" do
-        expect(nav.caption).to be nil
-      end
-    end
-
-    context "at deeper folder" do
-      let(:nav) { Navigation.new "#{docroot}/Folder" }
-      
-      it "sets a caption" do
-        expect(nav.caption).to eq 'Folder'
-      end
-    end
-
     it "sets an array of links" do
       expect(nav.links).to be_an Array
     end
@@ -52,6 +38,20 @@ describe Navigation do
       result = nav.links.select { |f| f.label == 'public' }
       expect(result.count).to eq 0
     end
-   
+
+    context "at docroot" do
+      it "sets caption to 'Index'" do
+        expect(nav.caption).to eq "Index"
+      end
+    end
+
+    context "at deeper folder" do
+      let(:nav) { Navigation.new "#{docroot}/Folder" }
+      
+      it "sets a caption" do
+        expect(nav.caption).to eq 'Folder'
+      end
+    end
+
   end
 end

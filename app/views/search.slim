@@ -10,10 +10,14 @@ main
   hr
 
   - if results
-    ol
-      - results.each do |result|
-        li
-          a href="#{result[:file]}" 
-            = result[:label]
+    - results.each_with_index do |result, index|
+      h4
+        = index+1
+        = ". "
+        a href="#{result[:file]}" = result[:label]
+        
+      - if result[:highlights]
+        - result[:highlights].each do |highlight|
+          p == highlight
 
 

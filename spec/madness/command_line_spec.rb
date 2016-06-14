@@ -3,6 +3,11 @@ require 'spec_helper'
 describe CommandLine do
   let(:cli) { Madness::CommandLine.clone.instance }
 
+  before do
+    config.reset
+    config.path = 'spec/fixtures/docroot'
+  end
+
   describe '#execute' do
     context "without arguments" do
       it "runs with the current folder as docroot" do
@@ -41,6 +46,14 @@ describe CommandLine do
         expect(Server).not_to receive :run!
         command = %w[no_such_folder]
         expect {cli.execute command}.to output(/Invalid path/).to_stderr_from_any_process
+      end
+    end
+
+    context "with --index" do
+      it "calls the index builder" do
+        expect_any_instance_of(Search).to receive :build_index
+        command = %w[--index]
+        expect {cli.execute command}.to output(/done.*indexing/).to_stdout
       end
     end
 
