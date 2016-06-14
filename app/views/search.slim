@@ -1,0 +1,19 @@
+== slim :_nav, locals: { nav: nav }
+
+main
+  h1 Search
+
+  form.search-form action="/_search" method="get"
+    input.search-field type="text" name="q" value="#{params[:q]}" placeholder="Enter search query" autofocus=true
+    input type="submit" value="Search" style='display:none'
+
+  hr
+
+  - if results
+    ol
+      - results.each do |result|
+        li
+          a href="#{result[:file]}" 
+            = result[:label]
+
+

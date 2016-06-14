@@ -26,7 +26,11 @@ Options:
   --no-line-numbers
     Disable line numbering for syntax highlighter.
 
+  --index
+    Build or rebuild the index for the search page.
+
 Examples:
   madness
   madness docs
   madness docs --no-auto-h1 -p 4567
+
