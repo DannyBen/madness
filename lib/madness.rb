@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'singleton'
 require 'yaml'
 
@@ -11,6 +12,7 @@ require 'sass/plugin/rack'
 require 'docopt'
 require 'colsole'
 require 'rack/contrib/try_static'
+require 'ferret'
 
 require 'madness/version'
 require 'madness/settings'
@@ -21,4 +23,5 @@ require 'madness/document'
 require 'madness/navigation'
 require 'madness/breadcrumbs'
 require 'madness/command_line'
+require 'madness/search'
 

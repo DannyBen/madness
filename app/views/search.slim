@@ -1,0 +1,23 @@
+== slim :_nav, locals: { nav: nav }
+
+main
+  h1 Search
+
+  form.search-form action="/_search" method="get"
+    input.search-field type="text" name="q" value="#{params[:q]}" placeholder="Enter search query" autofocus=true
+    input type="submit" value="Search" style='display:none'
+
+  hr
+
+  - if results
+    - results.each_with_index do |result, index|
+      h4
+        = index+1
+        = ". "
+        a href="#{result[:file]}" = result[:label]
+        
+      - if result[:highlights]
+        - result[:highlights].each do |highlight|
+          p == highlight
+
+

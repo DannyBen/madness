@@ -20,6 +20,13 @@ Install
     $ bundle install madness
 
 
+Design Intentions
+--------------------------------------------------
+
+Madness was designed in order to provide easy browsing, viewing and 
+searching for local, markdown based documentation directories.
+
+
 Usage
 --------------------------------------------------
 
@@ -38,7 +45,7 @@ Directory Conventions
 Madness expects to be executed in a documentation directory.
 
 A documentation directory contains only markdown files (`*.md`) and 
-subfolders that contain more markdown files.
+sub directories that contain more markdown files.
 
 The server will consider the file `README.md` in any directory as the 
 main file describing this directory.
@@ -80,6 +87,20 @@ autoh1: true
 highlighter: true
 line_numbers: true
 ```
+
+
+Search
+--------------------------------------------------
+
+Madness comes with a full text search page. To activate it, you need to
+generate a search index by running `madness --index` or 
+`madness path/to/docs --index`.
+
+This will create an `_index` sub folder, and will add a new search page
+to your documentation server.
+
+You will need to run this command from time to time, as your 
+documents change or new documents are added.
 
 
 Tips

@@ -12,67 +12,99 @@ describe Server do
     expect(last_response.body).to have_tag 'h1', text: "This is a docroot fixture"
   end
 
-  it "serves static files" do
-    get '/ok.png'
-    expect(last_response).to be_ok
-    expect(last_response.content_type).to eq "image/png"
-    expect(last_response.content_length).to eq 1167
-  end
-
-  context "in subfolders" do
-    it "works" do
-      get '/Folder'
-      expect(last_response).to be_ok
-      expect(last_response.body).to have_tag 'h1', text: "Sub folder #1"
+  describe 'get /_search' do
+    before do 
+      config.reset
+      config.path = 'spec/fixtures/search'
     end
 
-    it "shows breadcrumbs" do
-      get '/Folder'
-      expect(last_response.body).to have_tag '.breadcrumbs' do
-        with_tag 'a', text: 'Home'
-        with_tag 'span', text: 'Folder'
+    context "without a query" do
+      it "has a search form" do
+        get '/_search'
+        expect(last_response).to be_ok
+        expect(last_response.body).to have_tag 'form.search-form'
+      end
+    end
+
+    context "with a query" do
+      it "has a search form" do
+        get '/_search?q=luke'
+        expect(last_response).to be_ok
+        expect(last_response.body).to have_tag 'form.search-form'
+      end
+
+      it "has results" do
+        get '/_search?q=luke'
+        expect(last_response).to be_ok
+        expect(last_response.body).to have_tag 'a', text: "7 The Force Awakens"
       end
     end
   end
 
-  context "with a nested file" do
-    it "works" do
-      get '/Folder/File'
+  describe 'get /*' do
+    it "serves static files" do
+      get '/ok.png'
       expect(last_response).to be_ok
-      expect(last_response.body).to have_tag 'h1', text: "Nested File #1"
+      expect(last_response.content_type).to eq "image/png"
+      expect(last_response.content_length).to eq 1167
     end
 
-    it "shows breadcrumbs" do
-      get '/Folder/File'
-      expect(last_response.body).to have_tag '.breadcrumbs' do
-        with_tag 'a', text: 'Home'
-        with_tag 'a', text: 'Folder'
-        with_tag 'span', text: 'File'
+    context "in subfolders" do
+      it "works" do
+        get '/Folder'
+        expect(last_response).to be_ok
+        expect(last_response.body).to have_tag 'h1', text: "Sub folder #1"
+      end
+
+      it "shows breadcrumbs" do
+        get '/Folder'
+        expect(last_response.body).to have_tag '.breadcrumbs' do
+          with_tag 'a', text: 'Home'
+          with_tag 'span', text: 'Folder'
+        end
       end
     end
-  end
 
-  context "in an empty folder" do
-    it "shows index" do
-      get '/Empty%20Folder'
-      expect(last_response).to be_ok
-      expect(last_response.body).to have_tag 'h1', text: /Empty Folder/
-    end
-  end
+    context "with a nested file" do
+      it "works" do
+        get '/Folder/File'
+        expect(last_response).to be_ok
+        expect(last_response.body).to have_tag 'h1', text: "Nested File #1"
+      end
 
-  context "in a folder with a single file" do
-    it "redirects to the file" do
-      get '/Redirect'
-      expect(last_response).to be_redirect
-      follow_redirect!
-      expect(last_request.url).to match /Redirect\/The%20only%20file%20here/
+      it "shows breadcrumbs" do
+        get '/Folder/File'
+        expect(last_response.body).to have_tag '.breadcrumbs' do
+          with_tag 'a', text: 'Home'
+          with_tag 'a', text: 'Folder'
+          with_tag 'span', text: 'File'
+        end
+      end
     end
 
-    it "does not redirect if the file is README" do
-      get '/No%20Redirect'
-      expect(last_response).to be_ok
-      expect(last_response.body).to have_tag 'p', text: "Was not redirected"
+    context "in an empty folder" do
+      it "shows index" do
+        get '/Empty%20Folder'
+        expect(last_response).to be_ok
+        expect(last_response.body).to have_tag 'h1', text: /Empty Folder/
+      end
     end
+
+    context "in a folder with a single file" do
+      it "redirects to the file" do
+        get '/Redirect'
+        expect(last_response).to be_redirect
+        follow_redirect!
+        expect(last_request.url).to match /Redirect\/The%20only%20file%20here/
+      end
+
+      it "does not redirect if the file is README" do
+        get '/No%20Redirect'
+        expect(last_response).to be_ok
+        expect(last_response.body).to have_tag 'p', text: "Was not redirected"
+      end
+    end
+
   end
 
 end

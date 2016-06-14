@@ -1,5 +1,7 @@
 nav
-  a.strong href="/" Home
+  a.strong href="/" accesskey='h' Home
+  - if nav.with_search?
+    a.strong href="/_search" accesskey='s' Search
   
   - if nav.caption
     span.strong = "#{nav.caption}:"

@@ -4,6 +4,16 @@ module Madness
 
   # The Sinatra server
   class Server < ServerBase
+    get '/_search' do
+      query = params[:q]
+      results = query ? Search.new.search(query) : false
+      nav = Navigation.new docroot
+      slim :search, locals: {
+        nav: nav,
+        results: results
+      }
+    end
+
     get '/*' do
       path = params[:splat].first
 

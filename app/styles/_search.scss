@@ -1,0 +1,22 @@
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-field {
+  outline: none;
+  padding: 8px 12px;
+  font-size: 1.5em;
+  width: 50%;
+  min-width: 200px;
+
+  border: #ccc 1px solid;
+  border-radius: 3px;
+
+  &:focus {
+    border-color: #4078c0;
+  }
+}
+
+.highlight {
+  // background: #fda;
+}

@@ -24,7 +24,11 @@ module Madness
       begin
         args = Docopt::docopt(doc, argv: argv, version: VERSION)
         set_config args
-        launch_server
+        if args['--index']
+          build_index
+        else
+          launch_server
+        end
       rescue Docopt::Exit => e
         puts e.message
       end
@@ -63,6 +67,12 @@ module Madness
       say_status :path, config.path, :txtblu
       say_status :use, config.filename if config.file_exist?
       say "-" * 40
+    end
+
+    def build_index
+      say_status :start, 'indexing'
+      Search.new.build_index
+      say_status :done, 'indexing'
     end
 
     def config

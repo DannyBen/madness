@@ -7,7 +7,12 @@ module Madness
 
     def initialize(dir)
       @links = make_links dir
-      @caption = File.basename(dir) unless dir == docroot
+      # @caption = File.basename(dir) unless dir == docroot
+      @caption = dir == docroot ? "Index" : File.basename(dir)
+    end
+
+    def with_search?
+      @with_search ||= Search.new.has_index?
     end
 
     private
