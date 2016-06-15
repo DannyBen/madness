@@ -17,7 +17,7 @@ Screenshot
 Install
 --------------------------------------------------
 
-    $ bundle install madness
+    $ gem install madness
 
 
 Design Intentions
