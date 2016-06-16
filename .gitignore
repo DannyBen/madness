@@ -10,5 +10,6 @@ Gemfile.lock
 .bundle
 .byebug_history
 madness.log
+nohup.out
 
 *.sublime-*
