@@ -1,0 +1,30 @@
+nav {
+  @media print {
+    display: none;
+  }
+  background: #eee;
+  height: 100vh;
+  width: 250px;
+  overflow-y: auto;
+  position: fixed;
+  padding: 10px 0 100px 0;
+  border-right: 1px solid #eee;
+  a, span {
+    &:hover {
+      background: #e4e4e4;
+    }
+    display: block;
+    padding: 3px 20px 3px 30px;
+    margin-bottom: 4px;
+  }
+}
+
+
+// Nicer sidebar scrollbars
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  -webkit-border-radius: 3px;
+}

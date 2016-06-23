@@ -30,11 +30,13 @@ module Madness
       index = Index.new path: index_dir
 
       results = []
-      total_hits = index.search_each(query, limit: 20) do |doc_id, score| 
+      index.search_each(query, limit: 20) do |doc_id, score| 
         filename = index[doc_id][:file].sub("#{@path}/", '')[0...-3]
         highlights = index.highlight "content:(#{query.tr(' ',' OR ')}) ", doc_id, field: :content,
-          pre_tag: "<strong class='highlight'>", post_tag: "</strong>",
+          pre_tag: "", post_tag: "",
           excerpt_length: 100
+        
+        highlights.map! { |excerpt| CGI.escapeHTML excerpt } if highlights
 
         results << { 
           score: score, 
