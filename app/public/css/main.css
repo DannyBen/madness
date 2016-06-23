@@ -227,7 +227,7 @@ nav {
   width: 250px;
   overflow-y: auto;
   position: fixed;
-  padding: 10px 0 100px 0;
+  padding: 10px 0;
   border-right: 1px solid #eee; }
   @media print {
     nav {
@@ -238,6 +238,10 @@ nav {
     margin-bottom: 4px; }
     nav a:hover, nav span:hover {
       background: #e4e4e4; }
+  nav:after {
+    content: "";
+    height: 90px;
+    display: block; }
 
 ::-webkit-scrollbar {
   width: 6px; }
@@ -274,17 +278,17 @@ body {
   max-width: 1300px;
   margin: 0 auto; }
 
-main {
+.main {
   padding: 0 20px 100px 20px;
   margin-left: 250px;
   border: 1px solid #ccc;
   border-width: 0 1px;
   min-height: 100vh; }
   @media print {
-    main {
+    .main {
       margin-left: 0;
       border-width: 0; } }
-  main:before, main:after {
+  .main:before, .main:after {
     display: table;
     content: ""; }
 
