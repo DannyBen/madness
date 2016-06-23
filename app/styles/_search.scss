@@ -17,6 +17,8 @@
   }
 }
 
-.highlight {
-  // background: #fda;
+.search-excerpt {
+  @extend blockquote;
+  white-space: pre-wrap;
 }
+

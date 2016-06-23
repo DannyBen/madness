@@ -9,6 +9,7 @@ Gemfile.lock
 .sass-cache
 .bundle
 .byebug_history
+.yardoc
 madness.log
 nohup.out
 
