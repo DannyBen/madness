@@ -86,6 +86,7 @@ bind: '0.0.0.0'
 autoh1: true
 highlighter: true
 line_numbers: true
+index: false
 ```
 
 

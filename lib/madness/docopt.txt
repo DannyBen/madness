@@ -29,8 +29,12 @@ Options:
   --index
     Build or rebuild the index for the search page.
 
+  --and-quit
+    Quit after building the index (applicable only with --index).
+
 Examples:
   madness
   madness docs
   madness docs --no-auto-h1 -p 4567
+  madness --index --and-quit
 
