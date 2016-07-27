@@ -5,14 +5,9 @@ module Madness
     include Singleton
     include Colsole
 
-    # Without any argument, we run the server in the current directory.
-    # Otherwise, we will set some options before executing.
+    # Launch the server
     def execute(argv=[])
-      if argv.empty?
-        launch_server
-      else
-        launch_server_with_options argv
-      end
+      launch_server_with_options argv
     end
 
     private
@@ -24,11 +19,10 @@ module Madness
       begin
         args = Docopt::docopt(doc, argv: argv, version: VERSION)
         set_config args
-        if args['--index']
-          build_index
-        else
-          launch_server
-        end
+
+        build_index if config.index
+        launch_server unless args['--and-quit']
+
       rescue Docopt::Exit => e
         puts e.message
       end
@@ -42,7 +36,7 @@ module Madness
         STDERR.puts "Invalid path (#{config.path})" 
         return
       end
-      
+
       show_status
       Server.prepare
       Server.run!
@@ -57,6 +51,7 @@ module Madness
       config.autoh1       = false  if args['--no-auto-h1']
       config.highlighter  = false  if args['--no-syntax']
       config.line_numbers = false  if args['--no-line-numbers']
+      config.index        = true   if args['--index']
     end
 
     # Say hello to everybody when the server starts, showing the known 
@@ -64,7 +59,7 @@ module Madness
     def show_status
       say_status :start, 'the madness'
       say_status :listen, "#{config.bind}:#{config.port}", :txtblu
-      say_status :path, config.path, :txtblu
+      say_status :path, File.realpath(config.path), :txtblu
       say_status :use, config.filename if config.file_exist?
       say "-" * 40
     end

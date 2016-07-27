@@ -24,6 +24,7 @@ describe Settings do
       expect(config.autoh1).to be false
       expect(config.highlighter).to be false
       expect(config.line_numbers).to be false
+      expect(config.index).to be true
     end
   end
 

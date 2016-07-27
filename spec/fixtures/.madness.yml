@@ -6,3 +6,4 @@ bind: '4.3.2.1'
 autoh1: false
 highlighter: false
 line_numbers: false
+index: true
