@@ -1,5 +1,5 @@
 module Madness
-  
+
   # Handle breadcumbs generation by converting a path to an array
   # of links
   class Breadcrumbs
@@ -24,8 +24,8 @@ module Madness
 
     def breadcrumbs_maker(partial_path)
       parent, basename = File.split partial_path
-      item = OpenStruct.new({ 
-        label: basename.tr('-', ' '), 
+      item = OpenStruct.new({
+        label: basename.tr('-', ' '),
         href: "/#{partial_path}" }
       )
       result = [item]

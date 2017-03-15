@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'colsole', '~> 0.4'
   s.add_runtime_dependency 'ferret', '~> 0.11'
 
-  s.add_development_dependency "runfile", "~> 0.8"
+  s.add_development_dependency 'runfile', '~> 0.8'
   s.add_development_dependency 'runfile-tasks', '~> 0.4'
   s.add_development_dependency 'byebug', '~> 9.0'
   s.add_development_dependency 'rspec', '~> 3.4'
