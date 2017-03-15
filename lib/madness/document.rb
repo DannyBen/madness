@@ -13,7 +13,7 @@ module Madness
     # :empty  - in any other case, we don't know.
     def initialize(path)
       @path = path
-      
+
       base = path.empty? ? docroot : "#{docroot}/#{path}"
 
       if File.directory? base
@@ -71,12 +71,12 @@ module Madness
     # If the document does not start with an H1 tag, add it.
     def prepend_h1(html)
       unless html[0..3] == "<h1>"
-        html = "<h1>#{title}</h1>\n#{html}" 
+        html = "<h1>#{title}</h1>\n#{html}"
       end
       html
     end
 
-    # Apply syntax highlighting with CodeRay. This will parse for any 
+    # Apply syntax highlighting with CodeRay. This will parse for any
     # <code class='LANG'> sections in the HTML, pass it to CodeRay for
     # highlighting.
     # Since CodeRay adds another HTML escaping, on top of what RDiscount

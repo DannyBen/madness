@@ -7,7 +7,7 @@ require 'rdiscount'
 require 'coderay'
 require 'sass'
 require 'sinatra/base'
-require "sinatra/reloader"
+require 'sinatra/reloader'
 require 'sass/plugin/rack'
 require 'docopt'
 require 'colsole'
