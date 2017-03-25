@@ -11,7 +11,7 @@ Madness - Instant Markdown Server
 Screenshot
 --------------------------------------------------
 
-![Screenshot]
+![screenshot]
 
 
 Install
@@ -125,7 +125,27 @@ you can access it from your markdown file by typing:
 ```
 
 
+Docker Image
+--------------------------------------------------
+
+This gem is also available as a docker image.
+
+This command will start the server on localhost:3000, with the current 
+directory as the markdown documentation folder
+
+```shell
+$ docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
+```
+
+For more information see:
+
+- [Madness image on Docker Hub][dockerhub]
+- [Madness Dockerfile][dockerfile]
+
+
+
 ---
 
-[Screenshot]: https://raw.githubusercontent.com/DannyBen/madness/master/screenshot.png
-
+[screenshot]: https://raw.githubusercontent.com/DannyBen/madness/master/screenshot.png
+[dockerhub]: https://hub.docker.com/r/dannyben/madness/
+[dockerfile]: https://github.com/DannyBen/docker-madness
