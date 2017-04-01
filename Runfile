@@ -1,6 +1,6 @@
 require "runfile-tasks"
 
-name    "Madness Runfile"
+title   "Madness Runfile"
 summary "Runfile tasks for building the Madness gem"
 version Madness::VERSION
 
