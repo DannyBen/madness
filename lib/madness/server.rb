@@ -14,6 +14,21 @@ module Madness
       }
     end
 
+    get '/*.dot' do
+      splat = params[:splat].first
+      dot = "_dot/#{splat}.dot"
+      png = "public/#{splat}.png"
+      out_dir = File.dirname png
+
+      if config.development and File.exist? dot
+        FileUtils.mkdir_p out_dir unless Dir.exist? out_dir
+        system %Q[dot "#{dot}" -Tpng -o "#{png}"]
+        redirect to "#{splat}.png"
+      else
+        redirect to "#{splat}.png"
+      end
+    end
+
     get '/*' do
       path = params[:splat].first
 
