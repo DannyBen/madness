@@ -41,6 +41,35 @@ describe Server do
     end
   end
 
+  describe 'get /*.dot' do
+    before do 
+      config.reset
+      config.path = 'spec/fixtures/dot'
+    end
+
+    context "in production mode", :focus do
+      before do 
+        config.development = true
+      end
+
+      it "redirects to the respective png image" do
+        get '/sample1.dot'
+        expect(last_response).to be_ok
+        byebug
+      end
+    end
+
+    context "in development mode" do
+      before do 
+        config.development = true
+      end
+
+      it "generates a png image and redirects to it" do
+        get ''
+      end
+    end
+  end
+
   describe 'get /*' do
     it "serves static files" do
       get '/ok.png'
