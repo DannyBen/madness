@@ -28,7 +28,7 @@ describe CommandLine do
       it "shows usage" do
         expect(Server).not_to receive :run!
         command = %w[--no-such-args]
-        expect {cli.execute command}.to output(/--no-such-args is not recognized\nUsage:/).to_stdout
+        expect {cli.execute command}.to output(/Usage:/).to_stdout
       end
     end
 

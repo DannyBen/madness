@@ -1,0 +1,5 @@
+// Sample Dot Siagram
+
+digraph {
+  Hello -> World
+} 

@@ -8,10 +8,12 @@ Madness - Instant Markdown Server
 
 ---
 
+
 Screenshot
 --------------------------------------------------
 
 ![screenshot]
+
 
 
 Install
@@ -20,11 +22,23 @@ Install
     $ gem install madness
 
 
+
 Design Intentions
 --------------------------------------------------
 
 Madness was designed in order to provide easy browsing, viewing and 
 searching for local, markdown based documentation directories.
+
+
+
+Feature Highlights
+--------------------------------------------------
+
+- Easy to use
+- Built in full text search
+- Built in GraphViz diagram generator
+- Configure with a configuration file or command arguments
+
 
 
 Usage
@@ -37,6 +51,7 @@ Go to any directory that contains markdown files and run:
 For more options, run:
 
     $ madness --help
+
 
 
 Directory Conventions
@@ -70,6 +85,8 @@ Example structure:
     └── Lists.md
 ```
 
+
+
 Configuration File
 --------------------------------------------------
 
@@ -87,7 +104,9 @@ autoh1: true
 highlighter: true
 line_numbers: true
 index: false
+development: false
 ```
+
 
 
 Search
@@ -104,18 +123,10 @@ You will need to run this command from time to time, as your
 documents change or new documents are added.
 
 
-Tips
+
+Images and Static Files
 --------------------------------------------------
 
-**Automatic H1**  
-If your markdown document does not start with a level 1 heading, it
-will be automatically added based on the file name.
-
-**Hidden Directories**  
-Directories that begin with an underscore will not be displayed in the
-navigation.
-
-**Images and Static Files**  
 Your markdown directory can have a `public` folder. Anything in it
 will be served as is. For example, if you have `public/images/ok.png` 
 you can access it from your markdown file by typing:
@@ -123,6 +134,59 @@ you can access it from your markdown file by typing:
 ```markdown
 ![alt text](/images/ok.png)
 ```
+
+
+Automatic H1
+--------------------------------------------------
+
+If your markdown document does not start with a level 1 heading, it
+will be automatically added based on the file name.
+
+
+Hidden Directories
+--------------------------------------------------
+
+Directories that begin with an underscore will not be displayed in the
+navigation.
+
+
+
+Automatic GraphViz Dot Diagram Generation
+--------------------------------------------------
+
+This feature requires that you have GraphViz installed 
+(`$ sudo apt install graphviz`).
+
+What you place `*.dot` files in the `_dot` folder (or subfolders), they
+can be accessed directly as an image in your Markdown files. 
+
+In development mode, when such files are accessed, Madness will run the
+graphviz `dot` command and generate a respective image in the `public` 
+folder.
+
+For example, if you have the following graphviz file:
+
+```
+# _dot/diagrams/my_diagram.dot
+digraph {
+  Hello -> World
+} 
+```
+
+You can access it from your markdown files like this:
+
+```markdown
+!['alt text'](/diagrams/my_diagram.dot)
+```
+
+This will work in one of two ways:
+
+1. If the server is in development mode (`--development`), then it will 
+   create a `png` image in the public folder, and redirect to it.
+2. If the server is in production mode, it will redirect to the 
+   (previously-generated-) `png` image in the public folder, meaning 
+   `public/diagrams/my_diagram.png`
+
 
 
 Docker Image

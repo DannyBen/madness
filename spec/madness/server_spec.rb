@@ -41,6 +41,79 @@ describe Server do
     end
   end
 
+  describe 'get /*.dot' do
+    context "in production mode" do
+      before do 
+        config.reset
+        config.path = 'spec/fixtures/dot'
+        config.development = false
+      end
+
+      it "redirects to the respective png image" do
+        get '/sample1.dot'
+        expect(last_response).to be_redirect
+        follow_redirect!
+        expect(last_request.path).to eq '/sample1.png'
+      end
+
+      it "does not create the png image" do
+        filename = 'spec/fixtures/dot/public/sample1.png' 
+        File.delete filename if File.exist? filename
+
+        get '/sample1.dot'
+        expect(last_response).to be_redirect
+        expect(File).not_to exist filename
+      end
+    end
+
+    context "in development mode" do
+      before do 
+        config.reset
+        config.path = 'spec/fixtures/dot'
+        config.development = true
+      end
+
+      it "redirects to the respective png image" do
+        get '/sample1.dot'
+        expect(last_response).to be_redirect
+        follow_redirect!
+        expect(last_request.path).to eq '/sample1.png'
+      end
+
+      it "creates a png image in the public folder" do
+        filename = 'spec/fixtures/dot/public/sample1.png'
+
+        File.delete filename if File.exist? filename
+        expect(File).not_to exist filename
+        get '/sample1.dot'
+
+        expect(File).to exist filename
+      end
+
+      context "with subfolders" do
+        it "redirects to the respective png image" do
+          get '/diagrams/sample1.dot'
+          expect(last_response).to be_redirect
+          follow_redirect!
+          expect(last_request.path).to eq '/diagrams/sample1.png'
+        end
+
+        it "creates a png image in a subfolder " do
+          dir = "spec/fixtures/dot/public/diagrams"
+          filename = "#{dir}/sample2.png"
+
+          FileUtils.rm_rf dir if Dir.exist? dir
+          expect(Dir).not_to exist dir
+
+          get '/diagrams/sample2.dot'
+
+          expect(File).to exist filename
+        end        
+      end
+
+    end
+  end
+
   describe 'get /*' do
     it "serves static files" do
       get '/ok.png'

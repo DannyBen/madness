@@ -6,5 +6,10 @@ rvm:
 
 script: bundle exec rspec
 
+addons:
+  apt:
+    packages:
+      - graphviz
+
 notifications:
   email: false
