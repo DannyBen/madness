@@ -20,12 +20,14 @@ module Madness
       png = "public/#{splat}.png"
       out_dir = File.dirname png
 
-      if config.development and File.exist? dot
-        FileUtils.mkdir_p out_dir unless Dir.exist? out_dir
-        system %Q[dot "#{dot}" -Tpng -o "#{png}"]
-        redirect to "#{splat}.png"
-      else
-        redirect to "#{splat}.png"
+      Dir.chdir docroot do
+        if config.development and File.exist? dot
+          FileUtils.mkdir_p out_dir unless Dir.exist? out_dir
+          system %Q[dot "#{dot}" -Tpng -o "#{png}"]
+          redirect to "#{splat}.png"
+        else
+          redirect to "#{splat}.png"
+        end
       end
     end
 
