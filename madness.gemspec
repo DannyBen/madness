@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'docopt', '~> 0.5'
   s.add_runtime_dependency 'colsole', '~> 0.4'
   s.add_runtime_dependency 'ferret', '~> 0.11'
+  s.add_runtime_dependency 'puma', '~> 3.8'
 
   s.add_development_dependency 'runfile', '~> 0.9'
   s.add_development_dependency 'runfile-tasks', '~> 0.4'
