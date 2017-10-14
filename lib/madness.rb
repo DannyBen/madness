@@ -14,6 +14,7 @@ require 'colsole'
 require 'ferret'
 
 require 'madness/version'
+require 'madness/try_static'
 require 'madness/settings'
 require 'madness/server_helper'
 require 'madness/server_base'

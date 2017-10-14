@@ -24,7 +24,7 @@ module Madness
     # The CommandLine class and the test suite should both call
     # `Server.prepare` before calling Server.run!
     def self.prepare
-      set :public_folder, "#{config.path}/public/"
+      use TryStatic, root: "#{config.path}/public/", :urls => %w[/]
       set :bind, config.bind
       set :port, config.port
     end
