@@ -11,7 +11,6 @@ require 'sinatra/reloader'
 require 'sass/plugin/rack'
 require 'docopt'
 require 'colsole'
-require 'rack/contrib/try_static'
 require 'ferret'
 
 require 'madness/version'
