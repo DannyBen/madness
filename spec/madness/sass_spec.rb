@@ -16,6 +16,12 @@ describe Server do
       get '/css/main.css'
       expect(File).to exist css      
     end
+
+    it "serves css" do
+      get '/css/main.css'
+      expect(last_response.content_type).to eq "text/css;charset=utf-8"
+      expect(last_response.body).to match /font-family/
+    end
   end
 
 end
