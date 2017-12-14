@@ -1,11 +1,13 @@
 Madness - Instant Markdown Server
 ==================================================
 
-[![Gem Version](https://img.shields.io/gem/v/madness.svg?style=flat-square)](https://rubygems.org/gems/madness)
-[![Travis](https://img.shields.io/travis/DannyBen/madness.svg?style=flat-square)](https://travis-ci.org/DannyBen/madness)
+[![Gem](https://img.shields.io/gem/v/madness.svg?style=flat-square)](https://rubygems.org/gems/madness)
+[![Downloads](https://img.shields.io/gem/dt/madness.svg?style=flat-square)](https://rubygems.org/gems/madness)
+[![Build](https://img.shields.io/travis/DannyBen/madness.svg?style=flat-square)](https://travis-ci.org/DannyBen/madness)
+[![Dependencies](https://img.shields.io/gemnasium/DannyBen/madness.svg?style=flat-square)](https://gemnasium.com/DannyBen/madness)
+[![Code Quality](https://img.shields.io/codacy/grade/794c32ee5f8743c3a835091efbc09068.svg?style=flat-square)](https://www.codacy.com/app/db/madness)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/DannyBen/madness.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/madness)
 [![Issues](https://img.shields.io/codeclimate/issues/github/DannyBen/madness.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/madness)
-[![Dependencies](https://img.shields.io/gemnasium/DannyBen/madness.svg?style=flat-square)](https://gemnasium.com/DannyBen/madness)
 
 ---
 
