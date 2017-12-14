@@ -17,7 +17,7 @@ module Madness
     def launch_server_with_options(argv)
       doc = File.read File.expand_path('docopt.txt', __dir__)
       begin
-        args = Docopt::docopt(doc, argv: argv, version: VERSION)
+        args = Docopt.docopt(doc, argv: argv, version: VERSION)
         set_config args
 
         build_index if config.index
