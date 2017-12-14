@@ -11,7 +11,7 @@ describe Document do
       let(:doc) { Document.new "" }
 
       it "sets docroot as base dir" do
-        expect(doc.dir).to match /#{config.path}$/
+        expect(doc.dir).to match(/#{config.path}$/)
       end
 
       it "uses the README" do
@@ -23,7 +23,7 @@ describe Document do
       let(:doc) { Document.new "Folder" }
 
       it "sets docroot as base dir" do
-        expect(doc.dir).to match /#{config.path}\/Folder$/
+        expect(doc.dir).to match(/#{config.path}\/Folder$/)
       end
 
       it "uses the README" do
@@ -35,7 +35,7 @@ describe Document do
       let(:doc) { Document.new "File" }
 
       it "adds md extension" do
-        expect(doc.file).to match /File.md$/
+        expect(doc.file).to match(/File.md$/)
       end
     end
 

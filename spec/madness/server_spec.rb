@@ -168,7 +168,7 @@ describe Server do
         get '/Redirect'
         expect(last_response).to be_redirect
         follow_redirect!
-        expect(last_request.url).to match /Redirect\/The%20only%20file%20here/
+        expect(last_request.url).to match(/Redirect\/The%20only%20file%20here/)
       end
 
       it "does not redirect if the file is README" do

@@ -20,7 +20,7 @@ describe Server do
     it "serves css" do
       get '/css/main.css'
       expect(last_response.content_type).to eq "text/css;charset=utf-8"
-      expect(last_response.body).to match /font-family/
+      expect(last_response.body).to match(/font-family/)
     end
   end
 
