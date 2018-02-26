@@ -41,6 +41,6 @@ Examples:
   madness
   madness docs
   madness docs --no-auto-h1 -p 4567
-  madness docs --production
+  madness docs --development
   madness --index --and-quit
 
