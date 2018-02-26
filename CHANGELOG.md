@@ -1,5 +1,33 @@
 # Change Log
 
+## [v0.4.2](https://github.com/DannyBen/madness/tree/v0.4.2) (2018-02-26)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.4.1...v0.4.2)
+
+**Merged pull requests:**
+
+- Fix invalid docopt example [\#34](https://github.com/DannyBen/madness/pull/34) ([DannyBen](https://github.com/DannyBen))
+- Upgrade byebug to version 10.0.0 [\#33](https://github.com/DannyBen/madness/pull/33) ([depfu[bot]](https://github.com/apps/depfu))
+- Test against ruby 2.5 [\#32](https://github.com/DannyBen/madness/pull/32) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.4.1](https://github.com/DannyBen/madness/tree/v0.4.1) (2017-12-14)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.4.0...v0.4.1)
+
+**Closed issues:**
+
+- madness behind a proxy [\#24](https://github.com/DannyBen/madness/issues/24)
+
+**Merged pull requests:**
+
+- Bundle update and include json gem [\#31](https://github.com/DannyBen/madness/pull/31) ([DannyBen](https://github.com/DannyBen))
+- Upgrade rdoc to version 6.0.0 [\#30](https://github.com/DannyBen/madness/pull/30) ([depfu[bot]](https://github.com/apps/depfu))
+
+## [v0.4.0](https://github.com/DannyBen/madness/tree/v0.4.0) (2017-10-14)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.3.1...v0.4.0)
+
+**Merged pull requests:**
+
+- Switch to Sinatra 2 and drop rack-contrib [\#29](https://github.com/DannyBen/madness/pull/29) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.3.1](https://github.com/DannyBen/madness/tree/v0.3.1) (2017-04-24)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.3.0...v0.3.1)
 
