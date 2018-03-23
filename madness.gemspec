@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.required_ruby_version = ">= 2.2.2"
 
-  s.add_runtime_dependency 'sass', '~> 3.4'
+  s.add_runtime_dependency 'sass', '3.5.6'
   s.add_runtime_dependency 'sinatra', '~> 2.0'
   s.add_runtime_dependency 'sinatra-contrib', '~> 2.0'
   s.add_runtime_dependency 'slim', '~> 3.0'
