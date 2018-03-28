@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'json', '~> 2.1'
 
   s.add_development_dependency 'runfile', '~> 0.9'
-  s.add_development_dependency 'rack-test', '~> 0.8'
+  s.add_development_dependency 'rack-test', '~> 1.0'
   s.add_development_dependency 'runfile-tasks', '~> 0.4'
   s.add_development_dependency 'byebug', '~> 10.0'
   s.add_development_dependency 'rspec', '~> 3.7'
