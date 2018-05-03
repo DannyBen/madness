@@ -2,7 +2,7 @@ Madness - Instant Markdown Server
 ==================================================
 
 [![Gem Version](https://badge.fury.io/rb/madness.svg)](https://badge.fury.io/rb/madness)
-[![Build Status](https://travis-ci.org/DannyBen/madness.svg?branch=master)](https://travis-ci.org/DannyBen/madness)
+[![Build Status](https://travis-ci.com/DannyBen/madness.svg?branch=master)](https://travis-ci.com/DannyBen/madness)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fa440dc4dbf895734d74/maintainability)](https://codeclimate.com/github/DannyBen/madness/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/fa440dc4dbf895734d74/test_coverage)](https://codeclimate.com/github/DannyBen/madness/test_coverage)
 
