@@ -157,7 +157,7 @@ Automatic GraphViz Dot Diagram Generation
 This feature requires that you have GraphViz installed 
 (`$ sudo apt install graphviz`).
 
-What you place `*.dot` files in the `_dot` folder (or subfolders), they
+When you place `*.dot` files in the `_dot` folder (or subfolders), they
 can be accessed directly as an image in your Markdown files. 
 
 In development mode, when such files are accessed, Madness will run the
