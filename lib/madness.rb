@@ -25,3 +25,4 @@ require 'madness/breadcrumbs'
 require 'madness/command_line'
 require 'madness/search'
 
+require'byebug' if ENV['BYEBUG']
