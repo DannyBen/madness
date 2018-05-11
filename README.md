@@ -73,16 +73,15 @@ Example structure:
 ```
 ./
 ├── README.md
-├── Code.md
-├── Double Escape.md
+├── File.md
+├── Another File.md
 ├── File-with-Dashes.md
 ├── Folder
-│   └── File.md
+│   ├── File.md
+│   └── image.png
 └── Another Folder
     ├── README.md
-    ├── Headings.md
-    ├── Images.md
-    └── Lists.md
+    └── File.md
 ```
 
 
@@ -104,7 +103,6 @@ autoh1: true
 highlighter: true
 line_numbers: true
 index: false
-development: false
 ```
 
 
@@ -127,13 +125,30 @@ documents change or new documents are added.
 Images and Static Files
 --------------------------------------------------
 
-Your markdown directory can have a `public` folder. Anything in it
-will be served as is. For example, if you have `public/images/ok.png` 
-you can access it from your markdown file by typing:
+You can put images and any other asset file anywhere in your documentation 
+folder.
+
+When linking to other pages or images in your documentation folder, simply
+use the URL relative to the markdown file. Madness will convert these to be
+relative to the docroot of the generated site.
+
+This behavior mimics how GitHub is rendering markdown files.
+
+For example, if you have a folder named `subfolder` that contains a 
+`README.md` and a `nice-picture.png`, showing it in your `README` is done by
+this markdown:
 
 ```markdown
-![alt text](/images/ok.png)
+![alt text](nice-picture.png)
 ```
+
+If you wish to link to images or pages in a different folder, simply specify
+the path relative to the homepage:
+
+```
+![alt text](/images/nice-picture.png)
+```
+
 
 
 Automatic H1
@@ -148,44 +163,6 @@ Hidden Directories
 
 Directories that begin with an underscore will not be displayed in the
 navigation.
-
-
-
-Automatic GraphViz Dot Diagram Generation
---------------------------------------------------
-
-This feature requires that you have GraphViz installed 
-(`$ sudo apt install graphviz`).
-
-When you place `*.dot` files in the `_dot` folder (or subfolders), they
-can be accessed directly as an image in your Markdown files. 
-
-In development mode, when such files are accessed, Madness will run the
-graphviz `dot` command and generate a respective image in the `public` 
-folder.
-
-For example, if you have the following graphviz file:
-
-```
-# _dot/diagrams/my_diagram.dot
-digraph {
-  Hello -> World
-} 
-```
-
-You can access it from your markdown files like this:
-
-```markdown
-!['alt text'](/diagrams/my_diagram.dot)
-```
-
-This will work in one of two ways:
-
-1. If the server is in development mode (`--development`), then it will 
-   create a `png` image in the public folder, and redirect to it.
-2. If the server is in production mode, it will redirect to the 
-   (previously-generated-) `png` image in the public folder, meaning 
-   `public/diagrams/my_diagram.png`
 
 
 

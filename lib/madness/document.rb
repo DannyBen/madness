@@ -56,13 +56,19 @@ module Madness
       result.tr '-', ' '
     end
 
+    def relative_dir
+      @relative_dir ||= dir[/#{docroot}\/(.*)/,1]
+    end
+
     private
 
     # Convert markdown to HTML, wit hsome additional processing:
     # 1. Syntax highilghting
     # 2. Prepend H1 if needed
     def markdown_to_html
-      html = RDiscount.new(File.read file).to_html
+      doc = CommonMarker.render_doc(File.read file)
+      fix_relative_links doc if relative_dir
+      html = doc.to_html
       html = syntax_highlight(html) if config.highlighter
       html = prepend_h1(html) if config.autoh1
       html
@@ -87,11 +93,23 @@ module Madness
     def syntax_highlight(html)
       line_numbers = config.line_numbers ? :table : nil
       opts = { css: :style, wrap: nil, line_numbers: line_numbers }
-      html.gsub(/\<code class="(.+?)"\>(.+?)\<\/code\>/m) do
+      html.gsub(/\<code class="language-(.+?)"\>(.+?)\<\/code\>/m) do
         lang, code = $1, $2
         code = CGI.unescapeHTML code
         CodeRay.scan(code, lang).html opts
       end
+    end
+
+    def fix_relative_links(doc)
+      doc.walk do |node|
+        if [:link, :image].include? node.type
+          node.url = "/#{relative_dir}/#{node.url}" if relative? node.url
+        end
+      end
+    end
+
+    def relative?(link)
+      !(link.include? ':' or link[0] == '/')
     end
   end
 end

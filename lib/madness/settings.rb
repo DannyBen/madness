@@ -10,7 +10,7 @@ module Madness
     include Singleton
 
     attr_accessor :port, :bind, :path, :autoh1, 
-      :highlighter, :line_numbers, :index, :development
+      :highlighter, :line_numbers, :index
 
     def initialize
       reset
@@ -42,7 +42,6 @@ module Madness
       self.highlighter = true
       self.line_numbers = true
       self.index = false
-      self.development = false
     end
 
     def load_from_file

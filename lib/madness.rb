@@ -3,7 +3,7 @@ require 'singleton'
 require 'yaml'
 
 require 'slim'
-require 'rdiscount'
+require 'commonmarker'
 require 'coderay'
 require 'sass'
 require 'sinatra/base'
@@ -12,6 +12,8 @@ require 'sass/plugin/rack'
 require 'docopt'
 require 'colsole'
 require 'ferret'
+
+require'byebug' if ENV['BYEBUG']
 
 require 'madness/version'
 require 'madness/try_static'

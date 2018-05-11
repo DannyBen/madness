@@ -70,6 +70,17 @@ describe Document do
       expect(doc.content).not_to include ' &amp; '
     end
 
+    it "does not alter URLs that begin with a slash" do
+      doc = Document.new "Links Folder/Page"
+      expect(doc.content).to have_tag 'a', with: { href: '/abso.loot' }
+    end
+
+    it "does not alter URLs that contain a colon" do
+      doc = Document.new "Links Folder/Page"
+      expect(doc.content).to have_tag 'a', with: { href: 'tel:55512345' }
+      expect(doc.content).to have_tag 'a', with: { href: 'http://example.com' }
+    end
+
     context "with auto h1 disabled" do
       it "does not add h1" do
         config.autoh1 = false
@@ -77,5 +88,30 @@ describe Document do
         expect(doc.content).not_to have_tag :h1
       end
     end
+
+    context "with a file in the root path" do
+      it "does not alter relative URLs" do
+        doc = Document.new "Links"
+        expect(doc.content).to have_tag 'a', with: { href: 'somewhere.html' }
+        expect(doc.content).to have_tag 'img', with: { src: 'ok.png' }
+      end
+    end
+
+    context "with a README file in a subfolder" do
+      it "modifies relative URLs to be relative to docroot" do
+        doc = Document.new "Links Folder"
+        expect(doc.content).to have_tag 'a', with: { href: '/Links%20Folder/somewhere.html' }
+        expect(doc.content).to have_tag 'img', with: { src: '/Links%20Folder/ok.png' }
+      end
+    end
+
+    context "with a regular file in a subfolder" do
+      it "modifies relative URLs to be relative to docroot" do
+        doc = Document.new "Links Folder/Page"
+        expect(doc.content).to have_tag 'a', with: { href: '/Links%20Folder/somewhere.html' }
+        expect(doc.content).to have_tag 'img', with: { src: '/Links%20Folder/ok.png' }
+      end
+    end
+
   end
 end
