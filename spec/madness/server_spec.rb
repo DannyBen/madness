@@ -115,7 +115,7 @@ describe Server do
   end
 
   describe 'get /*' do
-    it "serves static files", :focus do
+    it "serves static files" do
       get '/ok.png'
       expect(last_response).to be_ok
       expect(last_response.content_type).to eq "image/png"
@@ -135,6 +135,13 @@ describe Server do
           with_tag 'a', text: 'Home'
           with_tag 'span', text: 'Folder'
         end
+      end
+
+      it "serves static files" do
+        get '/Folder/bob.jpg'
+        expect(last_response).to be_ok
+        expect(last_response.content_type).to eq "image/jpeg"
+        expect(last_response.content_length).to eq 4369
       end
     end
 
