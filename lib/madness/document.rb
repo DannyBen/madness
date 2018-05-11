@@ -103,7 +103,7 @@ module Madness
     def fix_relative_links(doc)
       doc.walk do |node|
         if [:link, :image].include? node.type
-          node.url = "#{relative_dir}/#{node.url}" if relative? node.url
+          node.url = "/#{relative_dir}/#{node.url}" if relative? node.url
         end
       end
     end

@@ -100,16 +100,16 @@ describe Document do
     context "with a README file in a subfolder" do
       it "modifies relative URLs to be relative to docroot" do
         doc = Document.new "Links Folder"
-        expect(doc.content).to have_tag 'a', with: { href: 'Links%20Folder/somewhere.html' }
-        expect(doc.content).to have_tag 'img', with: { src: 'Links%20Folder/ok.png' }
+        expect(doc.content).to have_tag 'a', with: { href: '/Links%20Folder/somewhere.html' }
+        expect(doc.content).to have_tag 'img', with: { src: '/Links%20Folder/ok.png' }
       end
     end
 
     context "with a regular file in a subfolder" do
       it "modifies relative URLs to be relative to docroot" do
         doc = Document.new "Links Folder/Page"
-        expect(doc.content).to have_tag 'a', with: { href: 'Links%20Folder/somewhere.html' }
-        expect(doc.content).to have_tag 'img', with: { src: 'Links%20Folder/ok.png' }
+        expect(doc.content).to have_tag 'a', with: { href: '/Links%20Folder/somewhere.html' }
+        expect(doc.content).to have_tag 'img', with: { src: '/Links%20Folder/ok.png' }
       end
     end
 
