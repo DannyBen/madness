@@ -3,7 +3,7 @@ require 'singleton'
 require 'yaml'
 
 require 'slim'
-require 'rdiscount'
+require 'commonmarker'
 require 'coderay'
 require 'sass'
 require 'sinatra/base'

@@ -17,6 +17,8 @@ module Madness
     set :views, File.expand_path('../../app/views', __dir__)
     set :public_folder, File.expand_path('../../app/public', __dir__)
     set :server, :puma
+    
+    also_reload "#{__dir__}/*.rb" if development?
 
     # Since we cannot use any config values in the main body of the class,
     # since they will be updated later, we need to set anything that relys
