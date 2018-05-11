@@ -13,6 +13,8 @@ require 'docopt'
 require 'colsole'
 require 'ferret'
 
+require'byebug' if ENV['BYEBUG']
+
 require 'madness/version'
 require 'madness/try_static'
 require 'madness/settings'
@@ -25,4 +27,3 @@ require 'madness/breadcrumbs'
 require 'madness/command_line'
 require 'madness/search'
 
-require'byebug' if ENV['BYEBUG']

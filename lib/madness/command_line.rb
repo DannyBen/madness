@@ -58,6 +58,7 @@ module Madness
     # config.
     def show_status
       say_status :start, 'the madness'
+      say_status :env, Server.environment, :txtblu
       say_status :listen, "#{config.bind}:#{config.port}", :txtblu
       say_status :path, File.realpath(config.path), :txtblu
       say_status :use, config.filename if config.file_exist?
