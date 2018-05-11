@@ -115,7 +115,7 @@ describe Server do
   end
 
   describe 'get /*' do
-    it "serves static files" do
+    it "serves static files", :focus do
       get '/ok.png'
       expect(last_response).to be_ok
       expect(last_response.content_type).to eq "image/png"
