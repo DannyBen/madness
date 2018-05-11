@@ -1,5 +1,15 @@
 # Change Log
 
+## [v0.5.0](https://github.com/DannyBen/madness/tree/v0.5.0) (2018-05-11)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.4.2...v0.5.0)
+
+**Merged pull requests:**
+
+- Allow images everywhere instead of just in public [\#39](https://github.com/DannyBen/madness/pull/39) ([DannyBen](https://github.com/DannyBen))
+- Change to travis.com [\#38](https://github.com/DannyBen/madness/pull/38) ([DannyBen](https://github.com/DannyBen))
+- Remove shields.io and add CodeClimate coverage [\#37](https://github.com/DannyBen/madness/pull/37) ([DannyBen](https://github.com/DannyBen))
+- Update rack-test requirement to ~\> 1.0 [\#36](https://github.com/DannyBen/madness/pull/36) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.4.2](https://github.com/DannyBen/madness/tree/v0.4.2) (2018-02-26)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.4.1...v0.4.2)
 
