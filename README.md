@@ -103,7 +103,6 @@ autoh1: true
 highlighter: true
 line_numbers: true
 index: false
-development: false
 ```
 
 
@@ -164,44 +163,6 @@ Hidden Directories
 
 Directories that begin with an underscore will not be displayed in the
 navigation.
-
-
-
-Automatic GraphViz Dot Diagram Generation
---------------------------------------------------
-
-This feature requires that you have GraphViz installed 
-(`$ sudo apt install graphviz`).
-
-When you place `*.dot` files in the `_dot` folder (or subfolders), they
-can be accessed directly as an image in your Markdown files. 
-
-In development mode, when such files are accessed, Madness will run the
-graphviz `dot` command and generate a respective image in the `public` 
-folder.
-
-For example, if you have the following graphviz file:
-
-```
-# _dot/diagrams/my_diagram.dot
-digraph {
-  Hello -> World
-} 
-```
-
-You can access it from your markdown files like this:
-
-```markdown
-!['alt text'](/diagrams/my_diagram.dot)
-```
-
-This will work in one of two ways:
-
-1. If the server is in development mode (`--development`), then it will 
-   create a `png` image in the public folder, and redirect to it.
-2. If the server is in production mode, it will redirect to the 
-   (previously-generated-) `png` image in the public folder, meaning 
-   `public/diagrams/my_diagram.png`
 
 
 

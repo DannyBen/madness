@@ -15,11 +15,6 @@ Options:
   -b, --bind <address>
     Set server listen address.
 
-  --development
-    Start the server in development mode. In this mode, dot diagrams are 
-    regenerated on each request, whereas in production mode (default), the
-    diagrams are expected to already be generated in the public folder.
-
   --no-auto-h1
     By default, if a markdown document does not start with an H1 caption,
     it will be added automatically based on the file name. To disable this
@@ -41,6 +36,5 @@ Examples:
   madness
   madness docs
   madness docs --no-auto-h1 -p 4567
-  madness docs --development
   madness --index --and-quit
 

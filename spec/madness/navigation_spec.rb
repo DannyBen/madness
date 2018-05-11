@@ -34,11 +34,6 @@ describe Navigation do
       expect(result.count).to eq 0
     end
 
-    it "omits the public folder" do
-      result = nav.links.select { |f| f.label == 'public' }
-      expect(result.count).to eq 0
-    end
-
     context "at docroot" do
       it "sets caption to 'Index'" do
         expect(nav.caption).to eq "Index"

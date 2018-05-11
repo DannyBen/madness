@@ -52,14 +52,12 @@ module Madness
       config.highlighter  = false  if args['--no-syntax']
       config.line_numbers = false  if args['--no-line-numbers']
       config.index        = true   if args['--index']
-      config.development  = true   if args['--development']
     end
 
     # Say hello to everybody when the server starts, showing the known 
     # config.
     def show_status
       say_status :start, 'the madness'
-      say_status :env, config.development ? 'development' : 'production', :txtblu
       say_status :listen, "#{config.bind}:#{config.port}", :txtblu
       say_status :path, File.realpath(config.path), :txtblu
       say_status :use, config.filename if config.file_exist?
