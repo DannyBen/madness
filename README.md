@@ -73,16 +73,15 @@ Example structure:
 ```
 ./
 ├── README.md
-├── Code.md
-├── Double Escape.md
+├── File.md
+├── Another File.md
 ├── File-with-Dashes.md
 ├── Folder
-│   └── File.md
+│   ├── File.md
+│   └── image.png
 └── Another Folder
     ├── README.md
-    ├── Headings.md
-    ├── Images.md
-    └── Lists.md
+    └── File.md
 ```
 
 
@@ -127,13 +126,30 @@ documents change or new documents are added.
 Images and Static Files
 --------------------------------------------------
 
-Your markdown directory can have a `public` folder. Anything in it
-will be served as is. For example, if you have `public/images/ok.png` 
-you can access it from your markdown file by typing:
+You can put images and any other asset file anywhere in your documentation 
+folder.
+
+When linking to other pages or images in your documentation folder, simply
+use the URL relative to the markdown file. Madness will convert these to be
+relative to the docroot of the generated site.
+
+This behavior mimics how GitHub is rendering markdown files.
+
+For example, if you have a folder named `subfolder` that contains a 
+`README.md` and a `nice-picture.png`, showing it in your `README` is done by
+this markdown:
 
 ```markdown
-![alt text](/images/ok.png)
+![alt text](nice-picture.png)
 ```
+
+If you wish to link to images or pages in a different folder, simply specify
+the path relative to the homepage:
+
+```
+![alt text](/images/nice-picture.png)
+```
+
 
 
 Automatic H1
