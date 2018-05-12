@@ -1,0 +1,43 @@
+Madness
+
+Usage:
+  madness [PATH] [options]
+  madness (-h|--help|--version)
+
+Parameters:
+  PATH:
+    Optional path to the markdown directory.
+
+Options:
+  -p, --port NUMBER
+    Set server port number.
+
+  -b, --bind ADDRESS
+    Set server listen address.
+
+  --no-auto-h1
+    By default, if a markdown document does not start with an H1 caption,
+    it will be added automatically based on the file name. To disable this
+    behavior, use --no-auto-h1.
+
+  --no-syntax
+    Disable code syntax highlighting.
+
+  --no-line-numbers
+    Disable line numbering for syntax highlighter.
+
+  --index
+    Build or rebuild the index for the search page.
+
+  --toc FILE
+    Generate a table of contents file. 
+
+  --and-quit
+    Quit instead of running the server. Useful with --index or --toc.
+
+Examples:
+  madness
+  madness docs
+  madness docs --no-auto-h1 -p 4567
+  madness --index --and-quit
+  madness --toc "Table of Contents.md" --index --and-quit

@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'runfile', '~> 0.9'
   s.add_development_dependency 'rack-test', '~> 1.0'
   s.add_development_dependency 'runfile-tasks', '~> 0.4'
+  s.add_development_dependency 'rspec_fixtures', '~> 0.4'
   s.add_development_dependency 'byebug', '~> 10.0'
   s.add_development_dependency 'rspec', '~> 3.7'
   s.add_development_dependency 'rdoc', '~> 6.0'

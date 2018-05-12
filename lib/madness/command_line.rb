@@ -73,15 +73,13 @@ module Madness
 
     # Build the search index
     def build_index
-      say_status :start, :index
+      say_status :index, "generating"
       Search.new.build_index
-      say_status :done, :index
     end
 
     def build_toc
-      say_status :start, "toc: #{config.toc}"
+      say_status :toc, "generating #{config.toc}"
       TableOfContents.new.build(config.toc)
-      say_status :done, :toc
     end
 
     def config

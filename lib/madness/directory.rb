@@ -1,5 +1,5 @@
 module Madness
-  # Provides different representations of the entire markdown directory.
+  # Represents a directory with markdown file sand subflders.
   class Directory
     include ServerHelper
 
@@ -9,7 +9,6 @@ module Madness
       @dir = dir
     end
     
-    # Returns a list of all the accepted items in the directory
     def list
       @list ||= (dirs + files)
     end
@@ -19,7 +18,7 @@ module Madness
     def files
       result = Dir["#{dir}/*.md"]
       result.reject! { |f| File.basename(f) == 'README.md' }
-      result.sort.map { |path| item path, :file }
+      result.sort.map { |path| Item.new path, :file }
     end
 
     def dirs
@@ -28,18 +27,7 @@ module Madness
         basename = File.basename(f)
         basename =~ /^[a-z_\-0-9]+$/
       end
-      result.sort.map { |path| item path, :dir }
-    end
-
-    def item(path, type)
-      path_without_extension = path.sub(/\.md$/, '')
-
-      OpenStruct.new ({
-        path: path,
-        label: File.basename(path_without_extension),
-        href: URI.escape(path_without_extension.sub(/^#{docroot}/, '')),
-        type: type
-      })
+      result.sort.map { |path| Item.new path, :dir }
     end
   end
 end
