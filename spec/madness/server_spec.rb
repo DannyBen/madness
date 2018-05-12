@@ -51,13 +51,19 @@ describe Server do
 
     context "in subfolders" do
       it "works" do
-        get '/Folder'
+        get '/Folder/'
         expect(last_response).to be_ok
         expect(last_response.body).to have_tag 'h1', text: "Sub folder #1"
       end
 
-      it "shows breadcrumbs" do
+      it "redirects to have a trailing slash" do
         get '/Folder'
+        expect(last_response).to be_redirection
+        expect(last_response.location).to eq 'http://example.org/Folder/'
+      end
+
+      it "shows breadcrumbs" do
+        get '/Folder/'
         expect(last_response.body).to have_tag '.breadcrumbs' do
           with_tag 'a', text: 'Home'
           with_tag 'span', text: 'Folder'
@@ -106,7 +112,7 @@ describe Server do
       end
 
       it "does not redirect if the file is README" do
-        get '/No%20Redirect'
+        get '/No%20Redirect/'
         expect(last_response).to be_ok
         expect(last_response.body).to have_tag 'p', text: "Was not redirected"
       end

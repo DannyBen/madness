@@ -36,7 +36,7 @@ Feature Highlights
 
 - Easy to use
 - Built in full text search
-- Built in GraphViz diagram generator
+- Compatible with how markdown files are displayed on GitHub andGitHub pages.
 - Configure with a configuration file or command arguments
 
 
@@ -129,10 +129,7 @@ You can put images and any other asset file anywhere in your documentation
 folder.
 
 When linking to other pages or images in your documentation folder, simply
-use the URL relative to the markdown file. Madness will convert these to be
-relative to the docroot of the generated site.
-
-This behavior mimics how GitHub is rendering markdown files.
+use the URL relative to the markdown file. 
 
 For example, if you have a folder named `subfolder` that contains a 
 `README.md` and a `nice-picture.png`, showing it in your `README` is done by
@@ -161,15 +158,18 @@ will be automatically added based on the file name.
 Hidden Directories
 --------------------------------------------------
 
-Directories that begin with an underscore will not be displayed in the
-navigation.
+These directories will not be displayed in the navigation:
+
+- Directories that begin with an underscore.
+- Directories that are made only of lowercase letters, underscoew, dash and/or 
+  numbers (`/^[a-z_\-0-9]+$/`).
 
 
 
 Docker Image
 --------------------------------------------------
 
-This gem is also available as a docker image.
+Madness server is also available as a docker image.
 
 This command will start the server on localhost:3000, with the current 
 directory as the markdown documentation folder

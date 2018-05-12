@@ -17,9 +17,13 @@ module Madness
     get '/*' do
       path = params[:splat].first
 
-      doc = Document.new path
+      doc     = Document.new path
       dir     = doc.dir
       content = doc.content
+
+      if doc.type == :readme and !path.empty? and path[-1] != '/'
+        redirect "#{path}/"
+      end
 
       nav = Navigation.new(dir)
       breadcrumbs = Breadcrumbs.new(path).links
