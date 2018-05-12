@@ -45,7 +45,7 @@ module Madness
       dirs  = Dir["#{dir}/*"].select { |f| File.directory? f }
       dirs.reject! do |f| 
         basename = File.basename(f)
-        basename[0] == '_'
+        basename[0] == '_' or basename =~ /^[a-z_\-0-9]+$/
       end
       dirs
     end
