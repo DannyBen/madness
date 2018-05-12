@@ -155,6 +155,7 @@ If your markdown document does not start with a level 1 heading, it
 will be automatically added based on the file name.
 
 
+
 Hidden Directories
 --------------------------------------------------
 
@@ -163,6 +164,21 @@ These directories will not be displayed in the navigation:
 - Directories that begin with an underscore.
 - Directories that are made only of lowercase letters, underscoew, dash and/or 
   numbers (`/^[a-z_\-0-9]+$/`).
+
+
+
+Changing Theme
+--------------------------------------------------
+
+To change the CSS of your documentation server:
+
+- Create a directory named `css` in your root documentation directory.
+- Copy the [main.css][css] file to it.
+- Update it as you see fit.
+
+Note that this functionality is not guaranteed to stay as is in future 
+versions of madness, since support for themes is still not yet fully 
+implemented.
 
 
 
@@ -190,5 +206,5 @@ For more information see:
 [screenshot]: https://raw.githubusercontent.com/DannyBen/madness/master/screenshot.png
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
 [dockerfile]: https://github.com/DannyBen/docker-madness
-
+[css]: app/public/css/main.css
 
