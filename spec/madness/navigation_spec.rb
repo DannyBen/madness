@@ -6,9 +6,9 @@ describe Navigation do
     config.path ='spec/fixtures/nav'
   end  
 
-  describe '#initialize' do
-    let(:nav) { Navigation.new docroot }
+  let(:nav) { Navigation.new docroot }
 
+  describe '#links' do
     it "sets an array of links" do
       expect(nav.links).to be_an Array
     end
@@ -33,20 +33,25 @@ describe Navigation do
       result = nav.links.select { |f| f.label[0] == '_' }
       expect(result.count).to eq 0
     end
+  end
 
+  describe '#caption' do
     context "at docroot" do
       it "sets caption to 'Index'" do
         expect(nav.caption).to eq "Index"
       end
     end
 
-    context "at deeper folder" do
+    context "when docroot is provided" do
       let(:nav) { Navigation.new "#{docroot}/Folder" }
       
       it "sets a caption" do
         expect(nav.caption).to eq 'Folder'
       end
     end
+  end
 
+  describe '#with_search?' do
+    
   end
 end

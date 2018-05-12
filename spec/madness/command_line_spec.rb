@@ -54,7 +54,7 @@ describe CommandLine do
         expect(Server).to receive :run!
         expect_any_instance_of(Search).to receive :build_index
         command = %w[--index]
-        expect {cli.execute command}.to output(/done.*indexing.*start.*the madness/m).to_stdout
+        expect {cli.execute command}.to output(/done.*index.*start.*the madness/m).to_stdout
       end
     end
 
@@ -62,7 +62,7 @@ describe CommandLine do
       it "calls the index builder" do
         expect_any_instance_of(Search).to receive :build_index
         command = %w[--index --and-quit]
-        expect {cli.execute command}.to output(/done.*indexing/).to_stdout
+        expect {cli.execute command}.to output(/done.*index/).to_stdout
       end
     end
 

@@ -9,10 +9,10 @@ Parameters:
     Optional path to the markdown directory.
 
 Options:
-  -p, --port <number>
+  -p, --port NUMBER
     Set server port number.
 
-  -b, --bind <address>
+  -b, --bind ADDRESS
     Set server listen address.
 
   --no-auto-h1
@@ -29,12 +29,16 @@ Options:
   --index
     Build or rebuild the index for the search page.
 
+  --toc FILE
+    Generate a table of contents file. 
+
   --and-quit
-    Quit after building the index (applicable only with --index).
+    Quit instead of running the server. Useful with --index or --toc.
 
 Examples:
   madness
   madness docs
   madness docs --no-auto-h1 -p 4567
   madness --index --and-quit
+  madness --toc --index --and-quit
 

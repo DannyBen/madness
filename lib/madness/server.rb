@@ -25,7 +25,7 @@ module Madness
         redirect "#{path}/"
       end
 
-      nav = Navigation.new(dir)
+      nav = Navigation.new dir
       breadcrumbs = Breadcrumbs.new(path).links
 
       if nav.links.count == 1 and doc.type == :empty

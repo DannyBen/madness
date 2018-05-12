@@ -19,8 +19,7 @@ module Madness
       begin
         args = Docopt.docopt(doc, argv: argv, version: VERSION)
         set_config args
-
-        build_index if config.index
+        generate_stuff
         launch_server unless args['--and-quit']
 
       rescue Docopt::Exit => e
@@ -48,10 +47,17 @@ module Madness
       config.path = args['PATH']   if args['PATH']
       config.port = args['--port'] if args['--port']
       config.bind = args['--bind'] if args['--bind']
+      config.toc  = args['--toc']  if args['--toc']
       config.autoh1       = false  if args['--no-auto-h1']
       config.highlighter  = false  if args['--no-syntax']
       config.line_numbers = false  if args['--no-line-numbers']
       config.index        = true   if args['--index']
+    end
+
+    # Generate index and toc, if requested by the user.
+    def generate_stuff
+      build_index if config.index
+      build_toc   if config.toc
     end
 
     # Say hello to everybody when the server starts, showing the known 
@@ -65,11 +71,19 @@ module Madness
       say "-" * 40
     end
 
+    # Build the search index
     def build_index
-      say_status :start, 'indexing'
+      say_status :start, :index
       Search.new.build_index
-      say_status :done, 'indexing'
+      say_status :done, :index
     end
+
+    def build_toc
+      say_status :start, "toc: #{config.toc}"
+      # Search.new.build_index
+      say_status :done, :toc
+    end
+
 
     def config
       @config ||= Settings.instance

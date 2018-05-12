@@ -15,15 +15,17 @@ require 'ferret'
 
 require'byebug' if ENV['BYEBUG']
 
-require 'madness/version'
-require 'madness/try_static'
-require 'madness/settings'
 require 'madness/server_helper'
-require 'madness/server_base'
-require 'madness/server'
-require 'madness/document'
-require 'madness/navigation'
+
 require 'madness/breadcrumbs'
 require 'madness/command_line'
+require 'madness/directory'
+require 'madness/document'
+require 'madness/navigation'
 require 'madness/search'
+require 'madness/server'
+require 'madness/server_base'
+require 'madness/settings'
+require 'madness/try_static'
+require 'madness/version'
 
