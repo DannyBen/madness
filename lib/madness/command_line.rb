@@ -80,10 +80,9 @@ module Madness
 
     def build_toc
       say_status :start, "toc: #{config.toc}"
-      # Search.new.build_index
+      TableOfContents.new.build(config.toc)
       say_status :done, :toc
     end
-
 
     def config
       @config ||= Settings.instance

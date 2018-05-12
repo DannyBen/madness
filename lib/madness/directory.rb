@@ -17,8 +17,8 @@ module Madness
     private
 
     def files
-      result = Dir["#{dir}/*.md"].map { |f| f.sub(/\.md$/, '') }
-      result.reject! { |f| File.basename(f) == 'README' }
+      result = Dir["#{dir}/*.md"]
+      result.reject! { |f| File.basename(f) == 'README.md' }
       result.sort.map { |path| item path, :file }
     end
 
@@ -31,11 +31,14 @@ module Madness
       result.sort.map { |path| item path, :dir }
     end
 
-    def item(item, type)
-      OpenStruct.new({ 
-        label: File.basename(item), 
-        href: URI.escape(item.sub(/^#{docroot}/, '')), 
-        type: type 
+    def item(path, type)
+      path_without_extension = path.sub(/\.md$/, '')
+
+      OpenStruct.new ({
+        path: path,
+        label: File.basename(path_without_extension),
+        href: URI.escape(path_without_extension.sub(/^#{docroot}/, '')),
+        type: type
       })
     end
   end

@@ -50,8 +50,4 @@ describe Navigation do
       end
     end
   end
-
-  describe '#with_search?' do
-    
-  end
 end
