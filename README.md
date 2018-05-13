@@ -16,6 +16,25 @@ Screenshot
 
 
 
+Table of Contents
+--------------------------------------------------
+
+* [Install](#install)
+* [Design Intentions](#design-intentions)
+* [Feature Highlights](#feature-highlights)
+* [Usage](#usage)
+* [Directory Conventions](#directory-conventions)
+* [Configuration File](#configuration-file)
+* [Search](#search)
+* [Images and Static Files](#images-and-static-files)
+* [Automatic H1](#automatic-h1)
+* [Table of Contents Generation](#table-of-contents-generation)
+* [Hidden Directories](#hidden-directories)
+* [Changing Theme](#changing-theme)
+* [Docker Image](#docker-image)
+
+
+
 Install
 --------------------------------------------------
 
@@ -38,6 +57,7 @@ Feature Highlights
 - Built in full text search
 - Compatible with how markdown files are displayed on GitHub andGitHub pages.
 - Configure with a configuration file or command arguments
+- Automatic generation of Table of Contents
 
 
 
@@ -103,6 +123,7 @@ autoh1: true
 highlighter: true
 line_numbers: true
 index: false
+toc: Table of Contents
 ```
 
 
@@ -156,14 +177,19 @@ will be automatically added based on the file name.
 
 
 
+Table of Contents Generation
+--------------------------------------------------
+
+You can use the `madness --toc` command to generate a "Table of Contents" 
+markdown file.
+
+
+
 Hidden Directories
 --------------------------------------------------
 
-These directories will not be displayed in the navigation:
-
-- Directories that begin with an underscore.
-- Directories that are made only of lowercase letters, underscoew, dash and/or 
-  numbers (`/^[a-z_\-0-9]+$/`).
+Diretories that are made only of lowercase letters, underscoes, dash and/or 
+numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation.
 
 
 

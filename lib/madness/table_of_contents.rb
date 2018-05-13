@@ -10,7 +10,8 @@ module Madness
     end
 
     def build(file)
-      File.write "#{docroot}/#{file}", toc
+      file += ".md" unless file.end_with? '.md'
+      File.write "#{dir}/#{file}", toc
     end
 
     def toc
