@@ -13,5 +13,6 @@ Gemfile.lock
 .yardoc
 madness.log
 nohup.out
+toc.html
 
 *.sublime-*

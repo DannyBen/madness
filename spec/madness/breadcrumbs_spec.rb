@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe Breadcrumbs do
+  subject { described_class.new("one/two/three") }
+
   describe '#links' do
-    let(:links) { Breadcrumbs.new("one/two/three").links }
+    let(:links) { subject.links }
     
     it "adds returns an array of OpenStructs" do
       expect(links).to be_an Array

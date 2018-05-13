@@ -41,4 +41,3 @@ Examples:
   madness docs --no-auto-h1 -p 4567
   madness --index --and-quit
   madness --toc "Table of Contents.md" --index --and-quit
-

@@ -63,8 +63,7 @@ module Madness
     # 1. Syntax highilghting
     # 2. Prepend H1 if needed
     def markdown_to_html
-      doc = CommonMarker.render_doc(File.read file)
-      html = doc.to_html
+      html = CommonMarker.render_html File.read(file), :DEFAULT, [:table]
       html = syntax_highlight(html) if config.highlighter
       html = prepend_h1(html) if config.autoh1
       html

@@ -6,47 +6,48 @@ describe Navigation do
     config.path ='spec/fixtures/nav'
   end  
 
-  describe '#initialize' do
-    let(:nav) { Navigation.new docroot }
+  subject { described_class.new docroot }
 
+  describe '#links' do
     it "sets an array of links" do
-      expect(nav.links).to be_an Array
+      expect(subject.links).to be_an Array
     end
 
     it "sets proper link properties for folders" do
-      subject = nav.links.first
+      link = subject.links.first
       
-      expect(subject.label).to eq 'Folder'
-      expect(subject.href).to eq '/Folder'
-      expect(subject.type).to eq :dir
+      expect(link.label).to eq 'Folder'
+      expect(link.href).to eq '/Folder'
+      expect(link.type).to eq :dir
     end
 
     it "sets proper link properties for files" do
-      subject = nav.links.last
+      link = subject.links.last
       
-      expect(subject.label).to eq 'XFile'
-      expect(subject.href).to eq '/XFile'
-      expect(subject.type).to eq :file
+      expect(link.label).to eq 'XFile'
+      expect(link.href).to eq '/XFile'
+      expect(link.type).to eq :file
     end
 
     it "omits _folders" do
-      result = nav.links.select { |f| f.label[0] == '_' }
+      result = subject.links.select { |f| f.label[0] == '_' }
       expect(result.count).to eq 0
     end
+  end
 
+  describe '#caption' do
     context "at docroot" do
       it "sets caption to 'Index'" do
-        expect(nav.caption).to eq "Index"
+        expect(subject.caption).to eq "Index"
       end
     end
 
-    context "at deeper folder" do
-      let(:nav) { Navigation.new "#{docroot}/Folder" }
+    context "when docroot is provided" do
+      subject { described_class.new "#{docroot}/Folder" }
       
       it "sets a caption" do
-        expect(nav.caption).to eq 'Folder'
+        expect(subject.caption).to eq 'Folder'
       end
     end
-
   end
 end

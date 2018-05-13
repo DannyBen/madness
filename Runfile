@@ -1,3 +1,4 @@
+require_relative 'lib/madness'
 require "runfile-tasks"
 
 title   "Madness Runfile"
@@ -24,4 +25,20 @@ end
 help   "Run IRB console"
 action :console, :c do
   run "bundle exec bin/console"
+end
+
+help   "Generate TOC to toc.txt"
+action :toc do
+  run! 'gh-md-toc README.md > toc.txt'
+end
+
+help   "Generate changelog"
+action :changelog do
+  run 'github_changelog_generator'
+  run "git commit -am 'update changelog' && git push"
+end
+
+action :debug do
+  dir = Madness::Directory.new 'dev/Folder', 'dev'
+  pp dir.list
 end

@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'fileutils'
 
 describe Search do
-  let(:search) { Search.new 'spec/fixtures/search' }
+  let(:search) { described_class.new 'spec/fixtures/search' }
 
   describe '#has_index?' do
     it "returns false when there is no index" do

@@ -8,64 +8,64 @@ describe Document do
 
   describe '#initialize' do
     context "with empty path" do
-      let(:doc) { Document.new "" }
+      subject { described_class.new "" }
 
       it "sets docroot as base dir" do
-        expect(doc.dir).to match(/#{config.path}$/)
+        expect(subject.dir).to match(/#{config.path}$/)
       end
 
       it "uses the README" do
-        expect(doc.file).to include "README.md"
+        expect(subject.file).to include "README.md"
       end
     end
 
     context "with a directory" do
-      let(:doc) { Document.new "Folder" }
+      subject { described_class.new "Folder" }
 
       it "sets docroot as base dir" do
-        expect(doc.dir).to match(/#{config.path}\/Folder$/)
+        expect(subject.dir).to match(/#{config.path}\/Folder$/)
       end
 
       it "uses the README" do
-        expect(doc.file).to include "README.md"
+        expect(subject.file).to include "README.md"
       end
     end
 
     context "with a file" do
-      let(:doc) { Document.new "File" }
+      subject { described_class.new "File" }
 
       it "adds md extension" do
-        expect(doc.file).to match(/File.md$/)
+        expect(subject.file).to match(/File.md$/)
       end
     end
 
     context "with an invalid file" do
-      let(:doc) { Document.new "Y U NO FILE" }
+      subject { described_class.new "Y U NO FILE" }
 
       it "sets an empty content" do
-        expect(doc.content).to be_empty
+        expect(subject.content).to be_empty
       end
     end
   end
 
   describe '#content' do
     it "adds h1 automatically to files" do
-      doc = Document.new "File without H1"
+      doc = described_class.new "File without H1"
       expect(doc.content).to have_tag :h1, text: "File without H1"
     end
 
     it "adds h1 automatically to folders" do
-      doc = Document.new "Folder without H1"
+      doc = described_class.new "Folder without H1"
       expect(doc.content).to have_tag :h1, text: "Folder without H1"
     end
 
     it "syntax highlights code" do
-      doc = Document.new "Code"
+      doc = described_class.new "Code"
       expect(doc.content).to include 'class="CodeRay"'
     end
 
     it "does not double escape html" do
-      doc = Document.new "Double Escape"
+      doc = described_class.new "Double Escape"
       expect(doc.content).to include ' &gt; '
       expect(doc.content).not_to include ' &amp; '
     end
@@ -73,9 +73,10 @@ describe Document do
     context "with auto h1 disabled" do
       it "does not add h1" do
         config.autoh1 = false
-        doc = Document.new "File without H1"
+        doc = described_class.new "File without H1"
         expect(doc.content).not_to have_tag :h1
       end
     end
   end
+
 end
