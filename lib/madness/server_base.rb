@@ -1,4 +1,3 @@
-
 module Madness
 
   # The base class for the sinatra server.
@@ -29,7 +28,7 @@ module Madness
     # The CommandLine class and the test suite should both call
     # `Server.prepare` before calling Server.run!
     def self.prepare
-      use TryStatic, root: "#{config.path}/", :urls => %w[/]
+      use Rack::TryStatic, root: "#{config.path}/", :urls => %w[/]
       set :bind, config.bind
       set :port, config.port
     end
