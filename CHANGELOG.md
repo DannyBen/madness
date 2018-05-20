@@ -1,5 +1,24 @@
 # Change Log
 
+## [v0.5.3](https://github.com/DannyBen/madness/tree/v0.5.3) (2018-05-20)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.2...v0.5.3)
+
+**Merged pull requests:**
+
+- Bring back TryStatic from Rack::Contrib [\#46](https://github.com/DannyBen/madness/pull/46) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.5.2](https://github.com/DannyBen/madness/tree/v0.5.2) (2018-05-15)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.1...v0.5.2)
+
+**Implemented enhancements:**
+
+- Add TOC generator [\#44](https://github.com/DannyBen/madness/issues/44)
+- Consider ignoring all folders that are completely lowercase [\#42](https://github.com/DannyBen/madness/issues/42)
+
+**Merged pull requests:**
+
+- Add TOC Generator [\#45](https://github.com/DannyBen/madness/pull/45) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.5.1](https://github.com/DannyBen/madness/tree/v0.5.1) (2018-05-12)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.0...v0.5.1)
 
