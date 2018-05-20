@@ -233,9 +233,9 @@ nav {
     nav {
       display: none; } }
   nav a, nav span {
+    border-bottom: 1px dotted #ddd;
     display: block;
-    padding: 3px 20px 3px 30px;
-    margin-bottom: 4px; }
+    padding: 3px 20px 3px 30px; }
     nav a:hover, nav span:hover {
       background: #e4e4e4; }
   nav:after {

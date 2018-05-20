@@ -10,12 +10,12 @@ nav {
   padding: 10px 0;
   border-right: 1px solid #eee;
   a, span {
+    border-bottom: 1px dotted #ddd;
     &:hover {
       background: #e4e4e4;
     }
     display: block;
     padding: 3px 20px 3px 30px;
-    margin-bottom: 4px;
   }
   &:after {
     content: "";
