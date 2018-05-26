@@ -26,6 +26,9 @@ Options:
   --no-line-numbers
     Disable line numbering for syntax highlighter.
 
+  --no-sidebar
+    Disable sidebar navigation.
+
   --index
     Build or rebuild the index for the search page.
 
