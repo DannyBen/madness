@@ -1,5 +1,17 @@
 # Change Log
 
+## [v0.5.5](https://github.com/DannyBen/madness/tree/v0.5.5) (2018-05-26)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.4...v0.5.5)
+
+**Implemented enhancements:**
+
+- Add configuration to disable appending navigation to folders [\#51](https://github.com/DannyBen/madness/issues/51)
+- Add configuration to hide sidebar [\#50](https://github.com/DannyBen/madness/issues/50)
+
+**Merged pull requests:**
+
+- Add --no-sidebar and --no-auto-nav options [\#52](https://github.com/DannyBen/madness/pull/52) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.5.4](https://github.com/DannyBen/madness/tree/v0.5.4) (2018-05-26)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.3...v0.5.4)
 
