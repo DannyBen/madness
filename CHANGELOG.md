@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.5.4](https://github.com/DannyBen/madness/tree/v0.5.4) (2018-05-26)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.3...v0.5.4)
+
+**Implemented enhancements:**
+
+- Add anchors to captions [\#47](https://github.com/DannyBen/madness/issues/47)
+
+**Merged pull requests:**
+
+- Add anchors to headers [\#49](https://github.com/DannyBen/madness/pull/49) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.5.3](https://github.com/DannyBen/madness/tree/v0.5.3) (2018-05-20)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.2...v0.5.3)
 
