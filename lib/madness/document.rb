@@ -3,6 +3,7 @@ module Madness
   # Handle a single markdown document.
   class Document
     include ServerHelper
+    using StringRefinements
 
     attr_reader :file, :dir, :path, :type
 
@@ -59,11 +60,27 @@ module Madness
 
     private
 
-    # Convert markdown to HTML, wit hsome additional processing:
-    # 1. Syntax highilghting
-    # 2. Prepend H1 if needed
+    def markdown
+      @markdown ||= File.read file
+    end
+
+    # Convert markdown to HTML, with some additional processing:
+    # 1. Add anchors to headers
+    # 2. Syntax highilghting
+    # 3. Prepend H1 if needed
     def markdown_to_html
-      html = CommonMarker.render_html File.read(file), :DEFAULT, [:table]
+      doc = CommonMarker.render_doc markdown, :DEFAULT, [:table]
+
+      doc.walk do |node|
+        if node.type == :header
+          anchor = CommonMarker::Node.new(:inline_html)
+          anchor_id = node.first_child.string_content.to_slug
+          anchor.string_content = "<a id='#{anchor_id}'></a>"
+          node.prepend_child anchor
+        end
+      end
+
+      html = doc.to_html
       html = syntax_highlight(html) if config.highlighter
       html = prepend_h1(html) if config.autoh1
       html

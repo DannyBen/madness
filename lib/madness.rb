@@ -14,7 +14,9 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'slim'
 
-require'byebug' if ENV['BYEBUG']
+require 'byebug' if ENV['BYEBUG']
+
+require 'madness/refinements/string_refinements'
 
 require 'madness/server_helper'
 

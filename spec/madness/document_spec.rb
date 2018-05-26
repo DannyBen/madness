@@ -70,6 +70,11 @@ describe Document do
       expect(doc.content).not_to include ' &amp; '
     end
 
+    it "adds anchors to headers" do
+      doc = described_class.new "File"
+      expect(doc.content).to have_tag :a, id: 'just-a-file'
+    end
+
     context "with auto h1 disabled" do
       it "does not add h1" do
         config.autoh1 = false
