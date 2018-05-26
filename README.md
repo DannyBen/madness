@@ -115,11 +115,12 @@ documentation directory, and modify any of the settings below.
 
 ```yaml
 # .madness.yml
----
 path: '.'
 port: '3000'
 bind: '0.0.0.0'
+sidebar: true
 auto_h1: true
+auto_nav: true
 highlighter: true
 line_numbers: true
 index: false
