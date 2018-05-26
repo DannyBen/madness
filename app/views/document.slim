@@ -1,10 +1,10 @@
-== slim :_nav, locals: { nav: nav }
+== slim :_nav, locals: { nav: nav } if config.sidebar
 
-.main
+.main class=(config.sidebar ? 'with-sidebar' : 'without-sidebar')
   == slim :_breadcrumbs, locals: { breadcrumbs: breadcrumbs }
   == slim :_content, locals: { nav: nav, content: content}
 
-  - unless type == :file
+  - if type != :file and config.auto_nav
     - unless type == :empty
       hr 
     == slim :_index_nav, locals: { nav: nav }

@@ -4,13 +4,12 @@ module Madness
   # Each configuration option has three sources
   # 1. The default value
   # 2. The setting as provided in the ./.madness.yml
-  # 3. Any override provided later (for example, by the CommandLine 
-  #    class)
+  # 3. Any override provided later (for example, by the CommandLine class)
   class Settings
     include Singleton
 
-    attr_accessor :port, :bind, :path, :autoh1, 
-      :highlighter, :line_numbers, :index, :toc
+    attr_accessor :port, :bind, :path, :auto_h1, 
+      :highlighter, :line_numbers, :index, :toc, :sidebar, :auto_nav
 
     def initialize
       reset
@@ -35,13 +34,14 @@ module Madness
     private
 
     def set_defaults
-      self.port   = '3000'
-      self.bind   = '0.0.0.0'
-      self.path   = '.'
-      self.autoh1 = true
+      self.port = '3000'
+      self.bind = '0.0.0.0'
+      self.path = '.'
+      self.auto_h1 = true
+      self.auto_nav = true
+      self.sidebar = true
       self.highlighter = true
       self.line_numbers = true
-      self.index = false
       self.index = false
     end
 

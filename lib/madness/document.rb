@@ -82,7 +82,7 @@ module Madness
 
       html = doc.to_html
       html = syntax_highlight(html) if config.highlighter
-      html = prepend_h1(html) if config.autoh1
+      html = prepend_h1(html) if config.auto_h1
       html
     end
 

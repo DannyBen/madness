@@ -280,9 +280,6 @@ body {
 
 .main {
   padding: 0 20px 100px 20px;
-  margin-left: 250px;
-  border: 1px solid #ccc;
-  border-width: 0 1px;
   min-height: 100vh; }
   @media print {
     .main {
@@ -291,5 +288,12 @@ body {
   .main:before, .main:after {
     display: table;
     content: ""; }
+  .main.with-sidebar {
+    margin-left: 250px;
+    border: 1px solid #ccc;
+    border-width: 0 1px; }
+  .main.without-sidebar {
+    max-width: 980px;
+    margin: 0 auto; }
 
 /*# sourceMappingURL=main.css.map */
