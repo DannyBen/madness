@@ -3,7 +3,7 @@
 path: 'to/enlightenment'
 port: '1337'
 bind: '4.3.2.1'
-autoh1: false
+auto_h1: false
 highlighter: false
 line_numbers: false
 index: true

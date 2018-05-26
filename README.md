@@ -119,7 +119,7 @@ documentation directory, and modify any of the settings below.
 path: '.'
 port: '3000'
 bind: '0.0.0.0'
-autoh1: true
+auto_h1: true
 highlighter: true
 line_numbers: true
 index: false

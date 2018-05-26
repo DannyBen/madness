@@ -11,9 +11,6 @@ body {
     border-width: 0;
   }
   padding: 0 20px 100px 20px;
-  margin-left: 250px;
-  border:1px solid #ccc;
-  border-width: 0 1px;
   min-height: 100vh;
 
   &:before, &:after {
@@ -23,6 +20,17 @@ body {
 
   &:after {
     // clear: both;
+  }
+
+  &.with-sidebar {
+    margin-left: 250px;
+    border:1px solid #ccc;
+    border-width: 0 1px;
+  }
+
+  &.without-sidebar {
+    max-width: 980px;
+    margin: 0 auto;
   }
 }
 

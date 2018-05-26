@@ -77,7 +77,7 @@ describe Document do
 
     context "with auto h1 disabled" do
       it "does not add h1" do
-        config.autoh1 = false
+        config.auto_h1 = false
         doc = described_class.new "File without H1"
         expect(doc.content).not_to have_tag :h1
       end
