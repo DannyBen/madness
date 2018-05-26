@@ -4,7 +4,7 @@
   == slim :_breadcrumbs, locals: { breadcrumbs: breadcrumbs }
   == slim :_content, locals: { nav: nav, content: content}
 
-  - unless type == :file
+  - if type != :file and config.auto_nav
     - unless type == :empty
       hr 
     == slim :_index_nav, locals: { nav: nav }

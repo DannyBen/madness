@@ -49,6 +49,7 @@ module Madness
       config.bind = args['--bind'] if args['--bind']
       config.toc  = args['--toc']  if args['--toc']
       config.auto_h1      = false  if args['--no-auto-h1']
+      config.auto_nav     = false  if args['--no-auto-nav']
       config.sidebar      = false  if args['--no-sidebar']
       config.highlighter  = false  if args['--no-syntax']
       config.line_numbers = false  if args['--no-line-numbers']

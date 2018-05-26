@@ -9,7 +9,7 @@ module Madness
     include Singleton
 
     attr_accessor :port, :bind, :path, :auto_h1, 
-      :highlighter, :line_numbers, :index, :toc, :sidebar
+      :highlighter, :line_numbers, :index, :toc, :sidebar, :auto_nav
 
     def initialize
       reset
@@ -38,6 +38,7 @@ module Madness
       self.bind = '0.0.0.0'
       self.path = '.'
       self.auto_h1 = true
+      self.auto_nav = true
       self.sidebar = true
       self.highlighter = true
       self.line_numbers = true

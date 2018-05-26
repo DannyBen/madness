@@ -29,6 +29,10 @@ Options:
   --no-sidebar
     Disable sidebar navigation.
 
+  --no-auto-nav
+    Disable automatic generation of footer navigation for folder README 
+    files.
+
   --index
     Build or rebuild the index for the search page.
 
@@ -42,6 +46,7 @@ Examples:
   madness
   madness docs
   madness docs --no-auto-h1 -p 4567
+  madness --no-sidebar --no-auto-nav
   madness --index --and-quit
   madness --toc "Table of Contents.md" --index --and-quit
 
