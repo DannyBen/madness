@@ -30,7 +30,7 @@ Table of Contents
 * [Automatic H1](#automatic-h1)
 * [Table of Contents Generation](#table-of-contents-generation)
 * [Hidden Directories](#hidden-directories)
-* [Changing Theme](#changing-theme)
+* [Customizing Theme](#customizing-theme)
 * [Docker Image](#docker-image)
 
 
@@ -194,8 +194,23 @@ numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation.
 
 
 
-Changing Theme
+Customizing Theme
 --------------------------------------------------
+
+There are two ways to change how Madness looks. 
+
+### Option 1: Change CSS and HTML (Slim)
+
+In order to have complete control over the CSS and generated HTML, you
+can override the views and styles. Views are provided as Slim templates, 
+and CSS is provided as SCSS.
+
+- Create a directory names `_theme` in your root documentation directory.
+- Topy the contents of the [app][app] folder to it.
+- Update the views and styles as you see fit.
+
+
+### Option 2: Change CSS only
 
 To change the CSS of your documentation server:
 
@@ -204,8 +219,7 @@ To change the CSS of your documentation server:
 - Update it as you see fit.
 
 Note that this functionality is not guaranteed to stay as is in future 
-versions of madness, since support for themes is still not yet fully 
-implemented.
+versions of madness.
 
 
 
@@ -234,4 +248,5 @@ For more information see:
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
 [dockerfile]: https://github.com/DannyBen/docker-madness
 [css]: app/public/css/main.css
+[app]: app
 
