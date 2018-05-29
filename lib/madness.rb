@@ -31,5 +31,6 @@ require 'madness/server'
 require 'madness/server_base'
 require 'madness/settings'
 require 'madness/table_of_contents'
+require 'madness/theme'
 require 'madness/version'
 

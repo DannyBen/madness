@@ -53,11 +53,13 @@ searching for local, markdown based documentation directories.
 Feature Highlights
 --------------------------------------------------
 
-- Easy to use
-- Built in full text search
-- Compatible with how markdown files are displayed on GitHub andGitHub pages.
-- Configure with a configuration file or command arguments
-- Automatic generation of Table of Contents
+- Easy to use.
+- Built-in full text search.
+- Compatible with how markdown files are displayed on GitHub and GitHub pages.
+- Configure with a configuration file or command arguments.
+- Fully customizable theme.
+- Automatic generation of navigation sidebar.
+- Automatic generation of Table of Contents.
 
 
 
@@ -95,7 +97,6 @@ Example structure:
 ├── README.md
 ├── File.md
 ├── Another File.md
-├── File-with-Dashes.md
 ├── Folder
 │   ├── File.md
 │   └── image.png
@@ -125,6 +126,7 @@ highlighter: true
 line_numbers: true
 index: false
 toc: Table of Contents
+theme: _theme
 ```
 
 

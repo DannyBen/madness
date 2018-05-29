@@ -30,19 +30,13 @@ module Madness
     end
 
     def self.set_tempalate_locations
-      if File.directory? "#{config.path}/_theme"
-        set :views, "#{config.path}/_theme/views"
-        set :public_folder, "#{config.path}/_theme/public"
-        Sass::Plugin.options[:template_location] = "#{config.path}/_theme/styles"
-        Sass::Plugin.options[:css_location] = "#{config.path}/_theme/public/css"
-      else
-        set :views, File.expand_path('../../app/views', __dir__)
-        set :public_folder, File.expand_path('../../app/public', __dir__)
-        Sass::Plugin.options[:template_location] = 'app/styles'
-        Sass::Plugin.options[:css_location] = 'app/public/css'
-      end
+      theme = Theme.new config.theme
+      
+      set :views, theme.views_path
+      set :public_folder, theme.public_path
+      Sass::Plugin.options[:template_location] = theme.css_source_path
+      Sass::Plugin.options[:css_location] = theme.css_target_path
     end
-
 
     def self.config
       Settings.instance
