@@ -94,7 +94,6 @@ module Madness
       end
     end
 
-
     # Say hello to everybody when the server starts, showing the known 
     # config.
     def show_status
