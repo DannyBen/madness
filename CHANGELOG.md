@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.5.6](https://github.com/DannyBen/madness/tree/v0.5.6) (2018-05-30)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.5...v0.5.6)
+
+**Implemented enhancements:**
+
+- Add ability to customize theme [\#40](https://github.com/DannyBen/madness/issues/40)
+
+**Merged pull requests:**
+
+- Allow complete theme customization [\#53](https://github.com/DannyBen/madness/pull/53) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.5.5](https://github.com/DannyBen/madness/tree/v0.5.5) (2018-05-26)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.4...v0.5.5)
 
