@@ -84,8 +84,8 @@ Madness expects to be executed in a documentation directory.
 A documentation directory contains only markdown files (`*.md`) and 
 sub directories that contain more markdown files.
 
-The server will consider the file `README.md` in any directory as the 
-main file describing this directory.
+The server will consider the file `index.md` or `README.md` in any directory 
+as the main file describing this directory, where `index.md` has priority.
 
 The navigation sidebar will show all the sub directories and files in 
 the same directory as the viewed file.
