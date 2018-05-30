@@ -7,32 +7,37 @@ module Madness
     include Singleton
     include Colsole
 
-    # Launch the server
+    # Process ARGV by putting it through docopt
     def execute(argv=[])
-      launch_server_with_options argv
+      doc = File.read File.expand_path('docopt.txt', __dir__)
+      
+      begin
+        args = Docopt.docopt(doc, argv: argv, version: VERSION)
+        handle args
+      rescue Docopt::Exit => e
+        puts e.message
+      end
     end
 
     private
 
-    # Execute the docopt engine to parse the options and then launch the
-    # server.
-    def launch_server_with_options(argv)
-      doc = File.read File.expand_path('docopt.txt', __dir__)
-      begin
-        args = Docopt.docopt(doc, argv: argv, version: VERSION)
-
-        if args['create']
-          create_config if args['config']
-          create_theme(args['FOLDER']) if args['theme']
-        else
-          set_config args
-          generate_stuff
-          launch_server unless args['--and-quit']
-        end
-
-      rescue Docopt::Exit => e
-        puts e.message
+    # Separate between the two main modes: Create something, or launch
+    # the server.
+    def handle(args)
+      if args['create']
+        create_config if args['config']
+        create_theme(args['FOLDER']) if args['theme']
+      else
+        launch_server_with_options args
       end
+    end
+
+    # Execute some pre-server-launch operations if needed, and execute
+    # the server.
+    def launch_server_with_options(args)
+      set_config args
+      generate_stuff
+      launch_server unless args['--and-quit']
     end
 
     # Launch the server, but not before doing some checks and making sure
