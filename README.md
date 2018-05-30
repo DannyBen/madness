@@ -129,6 +129,12 @@ toc: Table of Contents
 theme: _theme
 ```
 
+For convenience, you can get a template config file by running:
+
+```shell
+$ madness create config
+```
+
 
 
 Search
