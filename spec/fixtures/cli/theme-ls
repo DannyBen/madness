@@ -1,32 +1,38 @@
-tmp/theme-test
-├── public
-│   ├── css
-│   │   ├── main.css
-│   │   └── main.css.map
-│   └── favicon.ico
-├── styles
-│   ├── _anchor.scss
-│   ├── _breadcrumbs.scss
-│   ├── _coderay.scss
-│   ├── _code.scss
-│   ├── _general.scss
-│   ├── _image.scss
-│   ├── _keyboard.scss
-│   ├── _line.scss
-│   ├── _list.scss
-│   ├── main.scss
-│   ├── _manifest.scss
-│   ├── _nav.scss
-│   ├── _search.scss
-│   ├── _table.scss
-│   └── _typography.scss
-└── views
-    ├── _breadcrumbs.slim
-    ├── _content.slim
-    ├── document.slim
-    ├── _index_nav.slim
-    ├── layout.slim
-    ├── _nav.slim
-    └── search.slim
+tmp/theme-test:
+public
+styles
+views
 
-4 directories, 25 files
+tmp/theme-test/public:
+css
+favicon.ico
+
+tmp/theme-test/public/css:
+main.css
+main.css.map
+
+tmp/theme-test/styles:
+_anchor.scss
+_breadcrumbs.scss
+_coderay.scss
+_code.scss
+_general.scss
+_image.scss
+_keyboard.scss
+_line.scss
+_list.scss
+main.scss
+_manifest.scss
+_nav.scss
+_search.scss
+_table.scss
+_typography.scss
+
+tmp/theme-test/views:
+_breadcrumbs.slim
+_content.slim
+document.slim
+_index_nav.slim
+layout.slim
+_nav.slim
+search.slim
