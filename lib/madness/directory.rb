@@ -17,7 +17,10 @@ module Madness
 
     def files
       result = Dir["#{dir}/*.md"]
-      result.reject! { |f| File.basename(f) == 'README.md' }
+      result.reject! do |f| 
+        basename = File.basename(f)
+        basename == 'README.md' or basename == 'index.md'
+      end
       result.sort.map { |path| Item.new path, :file }
     end
 

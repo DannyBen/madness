@@ -5,32 +5,30 @@ module Madness
     include ServerHelper
     using StringRefinements
 
-    attr_reader :file, :dir, :path, :type
+    attr_reader :base, :path
 
-    # At initialization, we handle three file "types":
-    # :readme - in case the path is a directory, then the only file we
-    #           MAY show, is the README.md in it
-    # :file   - in case the path is a *.md file
-    # :empty  - in any other case, we don't know.
     def initialize(path)
       @path = path
+      @base = path.empty? ? docroot : "#{docroot}/#{path}"
+      @base.chomp! '/'
+    end
 
-      base = path.empty? ? docroot : "#{docroot}/#{path}"
-      base.chomp! '/'
+    # Return :readme, :file or :empty
+    def type
+      set_base_attributes unless @type
+      @type
+    end
 
-      if File.directory? base
-        @file = "#{base}/README.md"
-        @dir  = base
-        @type = :readme
-      elsif File.exist? "#{base}.md"
-        @file = "#{base}.md"
-        @dir  = File.dirname file
-        @type = :file
-      else
-        @file = ''
-        @dir  = docroot
-        @type = :empty
-      end
+    # Return the path to the actual markdown file
+    def file
+      set_base_attributes unless @file
+      @file
+    end
+
+    # Return the path to the document directory
+    def dir
+      set_base_attributes unless @dir
+      @dir
     end
 
     # Return the HTML for that document
@@ -40,12 +38,7 @@ module Madness
 
     # Return the HTML for that document, force re-read.
     def content!
-      if File.exist?(file)
-        markdown_to_html
-      else
-        @type = :empty
-        ""
-      end
+      type == :empty ? '' : markdown_to_html
     end
 
     # Return a reasonable HTML title for the file or directory
@@ -59,6 +52,35 @@ module Madness
     end
 
     private
+
+    # Identify file, dir and type.
+    # :readme - in case the path is a directory, and it contains index.md
+    #           or README.md
+    # :file   - in case the path is a *.md file
+    # :empty  - in any other case, we don't know.
+    def set_base_attributes
+      @dir  = docroot
+      @type = :empty
+      @file = ''
+
+      if File.directory? base
+        @dir  = base
+        @type = :readme
+
+        if File.exist? "#{base}/index.md"
+          @file = "#{base}/index.md"
+        elsif File.exist? "#{base}/README.md"
+          @file = "#{base}/README.md"
+        else
+          @type = :empty
+        end
+      
+      elsif File.exist? "#{base}.md"
+        @file = "#{base}.md"
+        @dir  = File.dirname file
+        @type = :file
+      end
+    end
 
     def markdown
       @markdown ||= File.read file
