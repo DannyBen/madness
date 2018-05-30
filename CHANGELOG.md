@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.5.7](https://github.com/DannyBen/madness/tree/v0.5.7) (2018-05-30)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.6...v0.5.7)
+
+**Implemented enhancements:**
+
+- Look for "index.md" before we use "README.md" [\#54](https://github.com/DannyBen/madness/issues/54)
+
+**Merged pull requests:**
+
+- Add support for index.md instead of README.md [\#55](https://github.com/DannyBen/madness/pull/55) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.5.6](https://github.com/DannyBen/madness/tree/v0.5.6) (2018-05-30)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.5...v0.5.6)
 
