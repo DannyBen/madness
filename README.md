@@ -201,20 +201,33 @@ Customizing Theme
 
 There are two ways to change how Madness looks. 
 
+
 ### Option 1: Change CSS and HTML (Slim)
 
 In order to have complete control over the CSS and generated HTML, you
 can override the views and styles. Views are provided as Slim templates, 
 and CSS is provided as SCSS.
 
-- Create a directory names `_theme` in your root documentation directory.
-- Topy the contents of the [app][app] folder to it.
-- Update the views and styles as you see fit.
+Madness comes with a command that copies the default theme to a folder of
+your choice, where you can customize it to your taste. Run:
+
+```shell
+$ madness create config my_theme
+```
+
+Where `_theme` is the folder that will be created.
+
+To use the created theme, simply run Madness with the `--theme my_theme`
+option.
+
+```shell
+$ madness --theme my_theme
+```
 
 
 ### Option 2: Change CSS only
 
-To change the CSS of your documentation server:
+If you are looking to implement a more minor CSS change, follow these steps:
 
 - Create a directory named `css` in your root documentation directory.
 - Copy the [main.css][css] file to it.
