@@ -11,6 +11,9 @@ Bundler.require :default, :development
 require 'rack/test'
 ENV['RACK_ENV'] = 'test'
 
+# Create tmp folder for any spec that needs it
+Dir.mkdir 'tmp' unless Dir.exist? 'tmp'
+
 # Include us
 include Madness
 

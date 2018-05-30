@@ -62,10 +62,7 @@ module Madness
       config.highlighter  = false   if args['--no-syntax']
       config.line_numbers = false   if args['--no-line-numbers']
       config.index        = true    if args['--index']
-
-      if args['--theme']
-        config.theme = File.expand_path args['--theme'], config.path
-      end
+      config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
     end
 
     # Generate index and toc, if requested by the user.
