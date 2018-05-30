@@ -64,21 +64,24 @@ module Madness
       @file = ''
 
       if File.directory? base
-        @dir  = base
-        @type = :readme
-
-        if File.exist? "#{base}/index.md"
-          @file = "#{base}/index.md"
-        elsif File.exist? "#{base}/README.md"
-          @file = "#{base}/README.md"
-        else
-          @type = :empty
-        end
-      
+        set_base_attributes_for_directory
       elsif File.exist? "#{base}.md"
         @file = "#{base}.md"
         @dir  = File.dirname file
         @type = :file
+      end
+    end
+
+    def set_base_attributes_for_directory
+      @dir  = base
+      @type = :readme
+
+      if File.exist? "#{base}/index.md"
+        @file = "#{base}/index.md"
+      elsif File.exist? "#{base}/README.md"
+        @file = "#{base}/README.md"
+      else
+        @type = :empty
       end
     end
 
