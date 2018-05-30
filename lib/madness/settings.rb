@@ -8,8 +8,18 @@ module Madness
   class Settings
     include Singleton
 
-    attr_accessor :port, :bind, :path, :auto_h1, 
-      :highlighter, :line_numbers, :index, :toc, :sidebar, :auto_nav
+    attr_accessor \
+      :auto_h1, 
+      :auto_nav,
+      :bind, 
+      :highlighter, 
+      :index, 
+      :line_numbers, 
+      :path, 
+      :port, 
+      :sidebar, 
+      :theme,
+      :toc
 
     def initialize
       reset
@@ -43,6 +53,7 @@ module Madness
       self.highlighter = true
       self.line_numbers = true
       self.index = false
+      self.theme = nil
     end
 
     def load_from_file

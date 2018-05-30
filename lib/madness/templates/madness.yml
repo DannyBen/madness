@@ -1,0 +1,14 @@
+# Madness configuration file
+# Uncomment any of the options below
+
+# path: '.'
+# port: '3000'
+# bind: '0.0.0.0'
+# sidebar: true
+# auto_h1: true
+# auto_nav: true
+# highlighter: true
+# line_numbers: true
+# index: false
+# toc: Table of Contents
+# theme: _theme

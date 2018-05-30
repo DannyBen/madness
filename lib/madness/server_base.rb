@@ -6,15 +6,9 @@ module Madness
   class ServerBase < Sinatra::Application
     helpers ServerHelper
 
-    Sass::Plugin.options[:template_location] = 'app/styles'
-    Sass::Plugin.options[:css_location] = 'app/public/css'
     Slim::Engine.set_options pretty: true
-
     use Sass::Plugin::Rack
-
     set :root, File.expand_path('../../', __dir__)
-    set :views, File.expand_path('../../app/views', __dir__)
-    set :public_folder, File.expand_path('../../app/public', __dir__)
     set :server, :puma
 
     configure :development do
@@ -31,6 +25,17 @@ module Madness
       use Rack::TryStatic, root: "#{config.path}/", :urls => %w[/]
       set :bind, config.bind
       set :port, config.port
+
+      set_tempalate_locations
+    end
+
+    def self.set_tempalate_locations
+      theme = Theme.new config.theme
+      
+      set :views, theme.views_path
+      set :public_folder, theme.public_path
+      Sass::Plugin.options[:template_location] = theme.css_source_path
+      Sass::Plugin.options[:css_location] = theme.css_target_path
     end
 
     def self.config

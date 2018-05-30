@@ -30,7 +30,7 @@ Table of Contents
 * [Automatic H1](#automatic-h1)
 * [Table of Contents Generation](#table-of-contents-generation)
 * [Hidden Directories](#hidden-directories)
-* [Changing Theme](#changing-theme)
+* [Customizing Theme](#customizing-theme)
 * [Docker Image](#docker-image)
 
 
@@ -53,11 +53,13 @@ searching for local, markdown based documentation directories.
 Feature Highlights
 --------------------------------------------------
 
-- Easy to use
-- Built in full text search
-- Compatible with how markdown files are displayed on GitHub andGitHub pages.
-- Configure with a configuration file or command arguments
-- Automatic generation of Table of Contents
+- Easy to use.
+- Built-in full text search.
+- Compatible with how markdown files are displayed on GitHub and GitHub pages.
+- Configure with a configuration file or command arguments.
+- Fully customizable theme.
+- Automatic generation of navigation sidebar.
+- Automatic generation of Table of Contents.
 
 
 
@@ -95,7 +97,6 @@ Example structure:
 ├── README.md
 ├── File.md
 ├── Another File.md
-├── File-with-Dashes.md
 ├── Folder
 │   ├── File.md
 │   └── image.png
@@ -125,6 +126,7 @@ highlighter: true
 line_numbers: true
 index: false
 toc: Table of Contents
+theme: _theme
 ```
 
 
@@ -194,18 +196,45 @@ numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation.
 
 
 
-Changing Theme
+Customizing Theme
 --------------------------------------------------
 
-To change the CSS of your documentation server:
+There are two ways to change how Madness looks. 
+
+
+### Option 1: Change CSS and HTML (Slim)
+
+In order to have complete control over the CSS and generated HTML, you
+can override the views and styles. Views are provided as Slim templates, 
+and CSS is provided as SCSS.
+
+Madness comes with a command that copies the default theme to a folder of
+your choice, where you can customize it to your taste. Run:
+
+```shell
+$ madness create config my_theme
+```
+
+Where `_theme` is the folder that will be created.
+
+To use the created theme, simply run Madness with the `--theme my_theme`
+option.
+
+```shell
+$ madness --theme my_theme
+```
+
+
+### Option 2: Change CSS only
+
+If you are looking to implement a more minor CSS change, follow these steps:
 
 - Create a directory named `css` in your root documentation directory.
 - Copy the [main.css][css] file to it.
 - Update it as you see fit.
 
 Note that this functionality is not guaranteed to stay as is in future 
-versions of madness, since support for themes is still not yet fully 
-implemented.
+versions of madness.
 
 
 
@@ -234,4 +263,5 @@ For more information see:
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
 [dockerfile]: https://github.com/DannyBen/docker-madness
 [css]: app/public/css/main.css
+[app]: app
 

@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module Madness
 
   # Handle command line execution. Used by bin/madness.
@@ -5,26 +7,37 @@ module Madness
     include Singleton
     include Colsole
 
-    # Launch the server
+    # Process ARGV by putting it through docopt
     def execute(argv=[])
-      launch_server_with_options argv
+      doc = File.read File.expand_path('docopt.txt', __dir__)
+      
+      begin
+        args = Docopt.docopt(doc, argv: argv, version: VERSION)
+        handle args
+      rescue Docopt::Exit => e
+        puts e.message
+      end
     end
 
     private
 
-    # Execute the docopt engine to parse the options and then launch the
-    # server.
-    def launch_server_with_options(argv)
-      doc = File.read File.expand_path('docopt.txt', __dir__)
-      begin
-        args = Docopt.docopt(doc, argv: argv, version: VERSION)
-        set_config args
-        generate_stuff
-        launch_server unless args['--and-quit']
-
-      rescue Docopt::Exit => e
-        puts e.message
+    # Separate between the two main modes: Create something, or launch
+    # the server.
+    def handle(args)
+      if args['create']
+        create_config if args['config']
+        create_theme(args['FOLDER']) if args['theme']
+      else
+        launch_server_with_options args
       end
+    end
+
+    # Execute some pre-server-launch operations if needed, and execute
+    # the server.
+    def launch_server_with_options(args)
+      set_config args
+      generate_stuff
+      launch_server unless args['--and-quit']
     end
 
     # Launch the server, but not before doing some checks and making sure
@@ -44,22 +57,43 @@ module Madness
     # Get the arguments as provided by docopt, and set them to our own
     # config object.
     def set_config(args)
-      config.path = args['PATH']   if args['PATH']
-      config.port = args['--port'] if args['--port']
-      config.bind = args['--bind'] if args['--bind']
-      config.toc  = args['--toc']  if args['--toc']
-      config.auto_h1      = false  if args['--no-auto-h1']
-      config.auto_nav     = false  if args['--no-auto-nav']
-      config.sidebar      = false  if args['--no-sidebar']
-      config.highlighter  = false  if args['--no-syntax']
-      config.line_numbers = false  if args['--no-line-numbers']
-      config.index        = true   if args['--index']
+      config.path  = args['PATH']   if args['PATH']
+      config.port  = args['--port'] if args['--port']
+      config.bind  = args['--bind'] if args['--bind']
+      config.toc   = args['--toc']  if args['--toc']
+      config.auto_h1      = false   if args['--no-auto-h1']
+      config.auto_nav     = false   if args['--no-auto-nav']
+      config.sidebar      = false   if args['--no-sidebar']
+      config.highlighter  = false   if args['--no-syntax']
+      config.line_numbers = false   if args['--no-line-numbers']
+      config.index        = true    if args['--index']
+      config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
     end
 
     # Generate index and toc, if requested by the user.
     def generate_stuff
       build_index if config.index
       build_toc   if config.toc
+    end
+
+    # Create config
+    def create_config
+      if File.exist? config.filename
+        say "!txtred!Abort: config file #{config.filename} already exists"
+      else
+        FileUtils.cp File.expand_path('templates/madness.yml', __dir__), config.filename
+        say "!txtgrn!Created #{config.filename} config file"
+      end
+    end
+
+    # Create theme
+    def create_theme(path)
+      if Dir.exist? path
+        say "!txtred!Abort: folder #{path} already exists"
+      else
+        FileUtils.cp_r File.expand_path('../../app', __dir__), path
+        say "!txtgrn!Created #{path} theme folder"
+      end
     end
 
     # Say hello to everybody when the server starts, showing the known 
@@ -70,7 +104,9 @@ module Madness
       say_status :listen, "#{config.bind}:#{config.port}", :txtblu
       say_status :path, File.realpath(config.path), :txtblu
       say_status :use, config.filename if config.file_exist?
-      say "-" * 40
+      say_status :theme, config.theme, :txtblu if config.theme
+
+      say "-" * 60
     end
 
     # Build the search index
