@@ -42,11 +42,10 @@ describe Search do
       expect(result[:highlights]).to be_an Array
     end
 
-    it "escapes HTML" do
+    it "escapes HTML and highlights search term" do
       result = search.search('Turmoil Galactic Republic').first
       excerpt = result[:highlights][1]
-      expect(excerpt).not_to include ">"
-      expect(excerpt).to include "&gt;"
+      expect(excerpt).to eq "...planet of Naboo. While the Congress of the <strong>Republic</strong> endlessly debates this alarming chain of events..."
     end
   end
 

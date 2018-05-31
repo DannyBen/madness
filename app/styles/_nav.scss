@@ -2,14 +2,18 @@ nav {
   @media print {
     display: none;
   }
+
+  .icon-bar {
+    border-bottom: 1px dotted #ddd;
+  }
+
   background: #eee;
   height: 100vh;
   width: 250px;
   overflow-y: auto;
   position: fixed;
-  padding: 10px 0;
   border-right: 1px solid #eee;
-  a, span {
+  a.document, span.document, .caption {
     border-bottom: 1px dotted #ddd;
     &:hover {
       background: #e4e4e4;
@@ -17,6 +21,21 @@ nav {
     display: block;
     padding: 3px 20px 3px 30px;
   }
+
+  a.icon {
+    display: inline-block;
+    font-size: 1.5em;
+    width: 50%;
+    padding: 3px 20px 3px 30px;
+    &.wide {
+      width: 100%
+    }
+    &:hover {
+      background: #e4e4e4;
+    }
+  }
+
+
   &:after {
     content: "";
     height: 90px;
