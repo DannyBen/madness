@@ -1,10 +1,24 @@
-td.line-numbers {
-  background: #eee;
-}
-
 table.CodeRay {
   margin-bottom: 0;
+  
   pre {
     margin-bottom: 0;
   }
+  
+  tr, td {
+    border: 0;
+    pre {
+      margin-left: 0;
+    }
+  }
+
+  td.line-numbers {
+    background: #eee;
+    padding: 4px;
+    
+  }
+
+  td.code {
+  }
+
 }

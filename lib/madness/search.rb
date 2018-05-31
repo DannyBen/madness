@@ -19,7 +19,9 @@ module Madness
       index = Index.new path: index_dir, create: true
 
       Dir["#{@path}/**/*.md"].each do |file|
-        index << { file: file, content: File.read(file) }
+        doc = CommonMarker.render_html(File.read file).gsub(/<\/?[^>]*>/, "")
+        doc.gsub! "\n", " "
+        index << { file: file, content: doc }
       end
 
       index.optimize()                                
@@ -33,11 +35,9 @@ module Madness
       index.search_each(query, limit: 20) do |doc_id, score| 
         filename = index[doc_id][:file].sub("#{@path}/", '')[0...-3]
         highlights = index.highlight "content:(#{query.tr(' ',' OR ')}) ", doc_id, field: :content,
-          pre_tag: "", post_tag: "",
+          pre_tag: "<strong>", post_tag: "</strong>",
           excerpt_length: 100
         
-        highlights.map! { |excerpt| CGI.escapeHTML excerpt } if highlights
-
         results << { 
           score: score, 
           file: filename,

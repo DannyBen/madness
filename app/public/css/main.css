@@ -125,6 +125,7 @@ code {
     content: "\00a0"; }
 
 pre {
+  margin-left: 20px;
   overflow: auto;
   line-height: 1.45;
   word-wrap: normal; }
@@ -137,26 +138,27 @@ pre {
     background: transparent;
     border: 0; }
   pre code {
-    margin: 0;
-    display: inline;
+    display: inline-block;
     max-width: initial;
-    padding: 0;
     overflow: initial;
     line-height: inherit;
     word-wrap: normal;
-    background-color: transparent;
     border: 0; }
   pre code:before,
   pre code:after {
     content: normal; }
 
-td.line-numbers {
-  background: #eee; }
-
 table.CodeRay {
   margin-bottom: 0; }
   table.CodeRay pre {
     margin-bottom: 0; }
+  table.CodeRay tr, table.CodeRay td {
+    border: 0; }
+    table.CodeRay tr pre, table.CodeRay td pre {
+      margin-left: 0; }
+  table.CodeRay td.line-numbers {
+    background: #eee;
+    padding: 4px; }
 
 img {
   border-style: none;
@@ -211,9 +213,6 @@ kbd {
   .search-field:focus {
     border-color: #4078c0; }
 
-.search-excerpt {
-  white-space: pre-wrap; }
-
 .breadcrumbs {
   margin-top: 6px;
   border-bottom: 1px solid #ccc; }
@@ -257,17 +256,17 @@ p {
   margin-top: 0;
   margin-bottom: 10px; }
 
-blockquote, .search-excerpt {
+blockquote {
   margin: 0;
   padding: 0 15px;
   color: #777;
   border-left: 4px solid #ddd; }
-  blockquote > :first-child, .search-excerpt > :first-child {
+  blockquote > :first-child {
     margin-top: 0; }
-  blockquote > :last-child, .search-excerpt > :last-child {
+  blockquote > :last-child {
     margin-bottom: 0; }
 
-p, blockquote, .search-excerpt, ul, ol, dl, table, pre {
+p, blockquote, ul, ol, dl, table, pre {
   margin-top: 0;
   margin-bottom: 16px; }
 

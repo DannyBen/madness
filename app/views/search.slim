@@ -16,10 +16,11 @@
         = ". "
         a href="#{result[:file]}" = result[:label]
 
-      - if result[:highlights]
-        - result[:highlights].each do |highlight|
-          pre.search-excerpt == highlight
-      - else
-        p.quiet No excerpt
+      ul
+        - if result[:highlights]
+          - result[:highlights].each do |highlight|
+            li.search-excerpt == highlight
+        - else
+          li.search-excerpt.quiet No excerpt
 
 
