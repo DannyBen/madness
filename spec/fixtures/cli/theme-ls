@@ -6,10 +6,18 @@ views
 tmp/theme-test/public:
 css
 favicon.ico
+fonts
 
 tmp/theme-test/public/css:
 main.css
 main.css.map
+
+tmp/theme-test/public/fonts:
+fontello.eot
+fontello.svg
+fontello.ttf
+fontello.woff
+fontello.woff2
 
 tmp/theme-test/styles:
 _anchor.scss
