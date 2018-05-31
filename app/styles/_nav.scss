@@ -27,6 +27,9 @@ nav {
     font-size: 1.5em;
     width: 50%;
     padding: 3px 20px 3px 30px;
+    &.wide {
+      width: 100%
+    }
     &:hover {
       background: #e4e4e4;
     }

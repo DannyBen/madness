@@ -245,6 +245,8 @@ nav {
     font-size: 1.5em;
     width: 50%;
     padding: 3px 20px 3px 30px; }
+    nav a.icon.wide {
+      width: 100%; }
     nav a.icon:hover {
       background: #e4e4e4; }
   nav:after {
