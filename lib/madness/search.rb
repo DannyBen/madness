@@ -19,9 +19,7 @@ module Madness
       index = Index.new path: index_dir, create: true
 
       Dir["#{@path}/**/*.md"].each do |file|
-        doc = CommonMarker.render_html(File.read file).gsub(/<\/?[^>]*>/, "")
-        doc.gsub! "\n", " "
-        index << { file: file, content: doc }
+        index << { file: file, content: searchable_content(file) }
       end
 
       index.optimize()                                
@@ -57,7 +55,17 @@ module Madness
 
     def index_dir
       "#{@path}/_index"
-    end  
+    end
 
+    private
+
+    # This is poor-mans markdown strip.
+    # Convert to HTML, strip tags and return plain text suitable to act as
+    # the content for the search index.
+    def searchable_content(file)
+      content = File.read file
+      content = CommonMarker.render_html content
+      content.gsub!(/<\/?[^>]*>/, "").gsub!("\n", " ")
+    end
   end
 end
