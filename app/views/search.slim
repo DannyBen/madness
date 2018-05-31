@@ -1,10 +1,8 @@
 == slim :_nav, locals: { nav: nav } if config.sidebar
 
 .main class=(config.sidebar ? 'with-sidebar' : 'without-sidebar')
-  h1 Search
-
   form.search-form action="/_search" method="get"
-    input.search-field type="text" name="q" value="#{params[:q]}" placeholder="Enter search query" autofocus=true
+    input.search-field type="text" name="q" value="#{params[:q]}" placeholder="Search" autofocus=true
     input type="submit" value="Search" style='display:none'
 
   hr

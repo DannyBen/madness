@@ -1,11 +1,15 @@
 nav
-  a.strong href="/" accesskey='h' Home
-  - if nav.with_search?
-    a.strong href="/_search" accesskey='s' Search
+  .icon-bar
+    a.icon href="/" accesskey='h'
+      i.icon-home
+
+    - if nav.with_search?
+      a.icon href="/_search" accesskey='s' style='text-align:right'
+        i.icon-search 
 
   - if nav.caption
-    span.strong = "#{nav.caption}:"
+    .caption = "#{nav.caption}:"
 
   - nav.links.each do |item|
-    a href="#{item.href}" class=('strong' if item.type == :dir)
+    a.document href="#{item.href}" class=('strong' if item.type == :dir)
       = item.label
