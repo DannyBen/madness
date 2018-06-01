@@ -11,7 +11,7 @@ describe Directory do
   describe '#list' do
     it "returns an array of Items" do
       expect(subject.list).to be_an Array
-      expect(subject.list.count).to eq 13
+      expect(subject.list.count).to eq 14
       expect(subject.list.first).to be_an Item
     end
   end

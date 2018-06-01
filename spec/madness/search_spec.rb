@@ -47,6 +47,11 @@ describe Search do
       excerpt = result[:highlights][1]
       expect(excerpt).to eq "...planet of Naboo. While the Congress of the <strong>Republic</strong> endlessly debates this alarming chain of events..."
     end
+
+    it "removes sorting markers from file labels" do
+      result = search.search('x files').first
+      expect(result[:label]).to eq 'I Do Not Belong'
+    end
   end
 
 end

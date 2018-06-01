@@ -66,11 +66,10 @@ module Madness
     def searchable_content(file)
       content = File.read file
       content = CommonMarker.render_html content
-      content.gsub!(/<\/?[^>]*>/, "").gsub!("\n", " ")
+      content.gsub(/<\/?[^>]*>/, "").gsub("\n", " ")
     end
 
     def file_label(filename)
-      # filename.gsub("/", " / ")
       filename.split('/').map(&:to_label).join(' / ')
     end
   end

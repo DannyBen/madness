@@ -13,6 +13,14 @@ describe Item do
       it "returns the basename" do
         expect(subject.label).to eq "Subfolder"
       end
+
+      context "when the folder has a sorting marker" do
+        subject { described_class.new 'Sorting/1. Y U NO SORT', :dir }
+
+        it "removes the sorting marker" do
+          expect(subject.label).to eq "Y U NO SORT"
+        end
+      end
     end
 
     describe '#href' do
@@ -40,6 +48,14 @@ describe Item do
     describe '#label' do
       it "returns the basename" do
         expect(subject.label).to eq "File"
+      end
+
+      context "when the file has a sorting marker" do
+        subject { described_class.new 'Sorting/1. X File', :file }
+
+        it "removes the sorting marker" do
+          expect(subject.label).to eq "X File"
+        end
       end
     end
 
