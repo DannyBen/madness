@@ -40,7 +40,7 @@ module Madness
     # Return the HTML for that document
     def content
       @content ||= content!
-    end    
+    end
 
     # Return the HTML for that document, force re-read.
     def content!

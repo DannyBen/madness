@@ -13,10 +13,12 @@ require 'sass/plugin/rack'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'slim'
+require 'naturally'
 
 require 'byebug' if ENV['BYEBUG']
 
 require 'madness/refinements/string_refinements'
+require 'madness/refinements/array_refinements'
 
 require 'madness/server_helper'
 

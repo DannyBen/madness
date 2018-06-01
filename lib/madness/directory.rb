@@ -2,6 +2,7 @@ module Madness
   # Represents a directory with markdown file sand subflders.
   class Directory
     include ServerHelper
+    using ArrayRefinements
 
     attr_reader :dir
 
@@ -21,7 +22,7 @@ module Madness
         basename = File.basename(f)
         basename == 'README.md' or basename == 'index.md'
       end
-      result.sort.map { |path| Item.new path, :file }
+      result.nat_sort.map { |path| Item.new path, :file }
     end
 
     def dirs
@@ -30,7 +31,7 @@ module Madness
         basename = File.basename(f)
         basename =~ /^[a-z_\-0-9]+$/
       end
-      result.sort.map { |path| Item.new path, :dir }
+      result.nat_sort.map { |path| Item.new path, :dir }
     end
   end
 end
