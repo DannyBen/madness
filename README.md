@@ -13,10 +13,10 @@ Screenshots (click to enlarge)
 --------------------------------------------------
 
 <table><tr>
-  <td><img src='screenshots/main.png'/></td>
-  <td><img src='screenshots/nav.png'/></td>
-  <td><img src='screenshots/code.png'/></td>
-  <td><img src='screenshots/search.png'/></td>
+  <td><a href='screenshots/main.png'><img src='screenshots/main.png'/></a></td>
+  <td><a href='screenshots/nav.png'><img src='screenshots/nav.png'/></a></td>
+  <td><a href='screenshots/code.png'><img src='screenshots/code.png'/></a></td>
+  <td><a href='screenshots/search.png'><img src='screenshots/search.png'/></a></td>
 </tr></table>
 
 
