@@ -9,7 +9,7 @@ Madness - Instant Markdown Server
 ---
 
 
-Screenshots
+Screenshots (click to enlarge)
 --------------------------------------------------
 
 <table><tr>
@@ -270,7 +270,6 @@ For more information see:
 
 ---
 
-[screenshot]: https://raw.githubusercontent.com/DannyBen/madness/master/screenshot.png
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
 [dockerfile]: https://github.com/DannyBen/docker-madness
 [css]: app/public/css/main.css
