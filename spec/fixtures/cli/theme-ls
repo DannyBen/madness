@@ -39,7 +39,6 @@ _typography.scss
 
 tmp/theme-test/views:
 _breadcrumbs.slim
-_content.slim
 document.slim
 _index_nav.slim
 layout.slim

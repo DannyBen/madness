@@ -27,6 +27,12 @@ describe Document do
           expect(subject.dir).to end_with 'Folder with Index'
         end        
       end
+
+      describe '#title' do
+        it 'returns proper title' do
+          expect(subject.title).to eq 'Folder with Index'
+        end        
+      end
     end
 
     context 'with a directory that contains a README.md' do
@@ -53,6 +59,12 @@ describe Document do
           expect(subject.dir).to match(/#{config.path}\/Folder$/)
         end
       end
+
+      describe '#title' do
+        it 'returns proper title' do
+          expect(subject.title).to eq 'Folder'
+        end        
+      end
     end
 
     context 'with a directory that does not contain valid index file' do
@@ -74,6 +86,12 @@ describe Document do
         it 'returns full path to directory' do
           expect(subject.dir).to end_with "#{config.path}/Empty Folder"
         end
+      end
+
+      describe '#title' do
+        it 'returns proper title' do
+          expect(subject.title).to eq 'Empty Folder'
+        end        
       end
     end
 
@@ -97,6 +115,12 @@ describe Document do
           expect(subject.dir).to end_with "#{config.path}/Folder"
         end
       end
+
+      describe '#title' do
+        it 'returns proper title' do
+          expect(subject.title).to eq 'File'
+        end        
+      end
     end
 
     context "with an empty path when a README is present" do
@@ -118,6 +142,12 @@ describe Document do
         it 'returns full path to directory' do
           expect(subject.dir).to end_with config.path
         end
+      end
+
+      describe '#title' do
+        it 'returns proper title' do
+          expect(subject.title).to eq 'Index'
+        end        
       end
     end
 
@@ -146,8 +176,21 @@ describe Document do
           expect(subject.dir).to end_with config.path
         end
       end
+
+      describe '#title' do
+        it 'returns proper title' do
+          expect(subject.title).to eq 'Index'
+        end        
+      end
     end
 
+    context "with a document that has a sorting marker" do
+      subject { described_class.new "Sorting/1. Y U NO SORT" }
+
+      it "removes the markers" do
+        expect(subject.title).to eq 'Y U NO SORT'
+      end
+    end
   end
 
   describe '#content' do
@@ -180,8 +223,8 @@ describe Document do
     context "with an invalid file" do
       subject { described_class.new "Y U NO FILE" }
 
-      it "sets an empty content" do
-        expect(subject.content).to be_empty
+      it "sets H1" do
+        expect(subject.content).to eq '<h1>Index</h1>'
       end
     end
 
@@ -193,5 +236,4 @@ describe Document do
       end
     end
   end
-
 end

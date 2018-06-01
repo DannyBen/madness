@@ -30,5 +30,18 @@ describe Breadcrumbs do
       expect(links.last.last).to be true
     end
 
+    context "with sorted elements" do
+      subject { described_class.new("1. one/2. two/3. three") }   
+
+      it "removes sorting markers from labels" do
+        expect(links[1].label).to eq "one"
+        expect(links[1].href).to eq "/1. one"
+        expect(links[2].label).to eq "two"
+        expect(links[2].href).to eq "/1. one/2. two"
+        expect(links[3].label).to eq "three"
+        expect(links[3].href).to eq "/1. one/2. two/3. three"
+      end
+    end
+
   end
 end

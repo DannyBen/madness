@@ -4,6 +4,7 @@ module Madness
     include ServerHelper
     include Ferret
     include Ferret::Index
+    using StringRefinements
 
     def initialize(path=nil)
       @path = path || docroot
@@ -39,7 +40,7 @@ module Madness
         results << { 
           score: score, 
           file: filename,
-          label: filename.gsub("/", " / "),
+          label: file_label(filename),
           highlights: highlights
         }
       end
@@ -65,7 +66,11 @@ module Madness
     def searchable_content(file)
       content = File.read file
       content = CommonMarker.render_html content
-      content.gsub!(/<\/?[^>]*>/, "").gsub!("\n", " ")
+      content.gsub(/<\/?[^>]*>/, "").gsub("\n", " ")
+    end
+
+    def file_label(filename)
+      filename.split('/').map { |i| i.to_label }.join(' / ')
     end
   end
 end

@@ -35,6 +35,7 @@ Table of Contents
 * [Automatic H1](#automatic-h1)
 * [Table of Contents Generation](#table-of-contents-generation)
 * [Hidden Directories](#hidden-directories)
+* [Controlling Sort Order](#controlling-sort-order)
 * [Customizing Theme](#customizing-theme)
 * [Docker Image](#docker-image)
 
@@ -204,6 +205,21 @@ Hidden Directories
 
 Diretories that are made only of lowercase letters, underscoes, dash and/or 
 numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation.
+
+
+
+Controlling Sort Order
+--------------------------------------------------
+
+To control the sort order of the automatically generated navigation elements,
+simply perfix your files and directories with digits followed by a dot and a 
+space, just like you would create an ordered list in Markdown
+
+```
+./
+├── 1. Some file or folder
+└── 2. Another file or folder
+```
 
 
 

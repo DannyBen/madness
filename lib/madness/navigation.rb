@@ -2,6 +2,7 @@ module Madness
   # Handle the navigation links for a given directory
   class Navigation
     include ServerHelper
+    using StringRefinements
 
     attr_reader :dir
 
@@ -14,7 +15,7 @@ module Madness
     end
 
     def caption
-      @caption ||= (dir == docroot ? "Index" : File.basename(dir))
+      @caption ||= (dir == docroot ? "Index" : File.basename(dir).to_label)
     end
 
     def with_search?

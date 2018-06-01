@@ -3,12 +3,29 @@ require 'spec_helper'
 describe StringRefinements do
   using StringRefinements
 
-  subject { "String with !23@  " }
-
   describe '#to_slug' do
+    subject { "String with !23@  " }
+
     it "converts string to slug" do
       expect(subject.to_slug).to eq 'string-with-23'
     end
   end
 
+  describe '#label' do
+    context "when a string starts with numbers followed by a dot" do
+      subject { "99. Red Baloons" }
+
+      it "removes the digits" do
+        expect(subject.to_label).to eq 'Red Baloons'
+      end
+    end
+
+    context "when a string starts with numbers but no dot" do
+      subject { "99 Red Baloons" }
+
+      it "does not remove the digits" do
+        expect(subject.to_label).to eq '99 Red Baloons'
+      end
+    end
+  end
 end

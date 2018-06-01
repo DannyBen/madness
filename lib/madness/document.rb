@@ -31,6 +31,12 @@ module Madness
       @dir
     end
 
+    # Return the path to the document directory
+    def title
+      set_base_attributes unless @title
+      @title
+    end
+
     # Return the HTML for that document
     def content
       @content ||= content!
@@ -38,17 +44,7 @@ module Madness
 
     # Return the HTML for that document, force re-read.
     def content!
-      type == :empty ? '' : markdown_to_html
-    end
-
-    # Return a reasonable HTML title for the file or directory
-    def title
-      if type == :readme
-        result = File.basename File.dirname(file)
-      else
-        result = File.basename(file,'.md')
-      end
-      result.tr '-', ' '
+      type == :empty ? "<h1>#{title}</h1>" : markdown_to_html
     end
 
     private
@@ -62,10 +58,13 @@ module Madness
       @dir  = docroot
       @type = :empty
       @file = ''
+      @title = 'Index'
 
       if File.directory? base
+        @title = File.basename(path).to_label unless path.empty?
         set_base_attributes_for_directory
       elsif File.exist? "#{base}.md"
+        @title = File.basename(base).to_label
         @file = "#{base}.md"
         @dir  = File.dirname file
         @type = :file

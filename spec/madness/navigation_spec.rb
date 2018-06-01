@@ -42,11 +42,19 @@ describe Navigation do
       end
     end
 
-    context "when docroot is provided" do
+    context "at an inner folder" do
       subject { described_class.new "#{docroot}/Folder" }
       
       it "sets a caption" do
         expect(subject.caption).to eq 'Folder'
+      end
+    end
+
+    context "at an inner folder with a sorting marker" do
+      subject { described_class.new "#{docroot}/Sorting/2. A Folder" }
+      
+      it "sets a caption without the marker" do
+        expect(subject.caption).to eq 'A Folder'
       end
     end
   end
