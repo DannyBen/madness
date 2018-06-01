@@ -38,6 +38,12 @@ action :changelog do
   run "git commit -am 'update changelog' && git push"
 end
 
+help   "Count lines of code"
+action :cloc do
+  run "cloc . --exclude-dir coverage,spec,examples"
+end
+
+
 action :debug do
   dir = Madness::Directory.new 'dev/Folder', 'dev'
   pp dir.list
