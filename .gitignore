@@ -5,12 +5,12 @@ Gemfile.lock
 /gems
 /coverage
 /doc
-/sample
 
 .sass-cache
 .bundle
 .byebug_history
 .yardoc
+_index
 madness.log
 nohup.out
 toc.html

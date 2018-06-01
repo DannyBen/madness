@@ -1,6 +1,7 @@
 module Madness
   class Item
     include ServerHelper
+    using StringRefinements
 
     attr_reader :path, :type
 
@@ -9,7 +10,7 @@ module Madness
     end
 
     def label
-      @label ||= File.basename(path_without_extension)
+      @label ||= label!
     end
 
     def href
@@ -25,6 +26,10 @@ module Madness
     end
 
     private
+
+    def label!
+      File.basename(path_without_extension).to_label
+    end
 
     def path_without_extension
       @path_without_extension ||= path.sub(/\.md$/, '')

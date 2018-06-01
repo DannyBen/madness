@@ -48,7 +48,8 @@ module Madness
       else
         result = File.basename(file,'.md')
       end
-      result.tr '-', ' '
+
+      result.to_label
     end
 
     private

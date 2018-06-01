@@ -3,6 +3,8 @@ module Madness
   # Handle breadcumbs generation by converting a path to an array
   # of links
   class Breadcrumbs
+    using StringRefinements
+    
     attr_reader :path
 
     def initialize(path)
@@ -25,7 +27,7 @@ module Madness
     def breadcrumbs_maker(partial_path)
       parent, basename = File.split partial_path
       item = OpenStruct.new({
-        label: basename.tr('-', ' '),
+        label: basename.to_label,
         href: "/#{partial_path}" }
       )
       result = [item]

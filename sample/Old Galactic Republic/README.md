@@ -1,0 +1,3 @@
+The Old Republic was a galactic government that existed prior to the establishment of the Galactic Republic, thousands of years before the Clone Wars. With the support of the Jedi Order, the Republic engaged in multiple conflicts against various opponents, including the ancient Sith, the Mandalorians, and the Zygerrian Slave Empire.
+
+In the aftermath of the last conflict between the Jedi and Sith, the Old Republic was succeeded by the Galactic Republic approximately one thousand years before the Invasion of Naboo in 32 BBY. The new government united much of the galaxy under the rule of democracy until it was replaced by the Galactic Empire at the end of the Clone Wars in 19 BBY.
