@@ -13,10 +13,10 @@ Screenshots (click to zoom)
 --------------------------------------------------
 
 <table><tr>
-  <td><a target='_screenshot' href='screenshots/main.png'><img src='screenshots/main.png'/></a></td>
-  <td><a target='_screenshot' href='screenshots/nav.png'><img src='screenshots/nav.png'/></a></td>
-  <td><a target='_screenshot' href='screenshots/code.png'><img src='screenshots/code.png'/></a></td>
-  <td><a target='_screenshot' href='screenshots/search.png'><img src='screenshots/search.png'/></a></td>
+  <td><a target='_screenshot' href='assets/screen-main.png'><img src='assets/screen-main.png'/></a></td>
+  <td><a target='_screenshot' href='assets/screen-nav.png'><img src='assets/screen-nav.png'/></a></td>
+  <td><a target='_screenshot' href='assets/screen-code.png'><img src='assets/screen-code.png'/></a></td>
+  <td><a target='_screenshot' href='assets/screen-search.png'><img src='assets/screen-search.png'/></a></td>
 </tr></table>
 
 
