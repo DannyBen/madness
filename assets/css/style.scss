@@ -1,16 +1,13 @@
----
----
-
 @import "{{ site.theme }}";
 
 .page-header {
   color: #fff;
   text-align: center;
-  background-color: #312D5C;
-  background-size: cover;
-  background-position: center;
+  background: #3f3f4f;
+  padding: 1rem;
 
   h1 {
-    text-transform: uppercase;
+    text-transform: lowercase;
+    font-weight: normal;
   }
 }

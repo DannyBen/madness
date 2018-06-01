@@ -9,7 +9,7 @@ Madness - Instant Markdown Server
 ---
 
 
-Screenshots (click to enlarge)
+Screenshots (click to zoom)
 --------------------------------------------------
 
 <table><tr>
