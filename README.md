@@ -9,10 +9,15 @@ Madness - Instant Markdown Server
 ---
 
 
-Screenshot
+Screenshots
 --------------------------------------------------
 
-![screenshot]
+<table><tr>
+  <td><img src='screenshots/main.png'/></td>
+  <td><img src='screenshots/nav.png'/></td>
+  <td><img src='screenshots/code.png'/></td>
+  <td><img src='screenshots/search.png'/></td>
+</tr></table>
 
 
 

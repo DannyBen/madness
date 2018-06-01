@@ -317,10 +317,6 @@ body {
 .main {
   padding: 0 20px 100px 20px;
   min-height: 100vh; }
-  @media print {
-    .main {
-      margin-left: 0;
-      border-width: 0; } }
   .main:before, .main:after {
     display: table;
     content: ""; }
@@ -328,6 +324,10 @@ body {
     margin-left: 250px;
     border: 1px solid #ccc;
     border-width: 0 1px; }
+    @media print {
+      .main.with-sidebar {
+        margin-left: 0;
+        border-width: 0; } }
   .main.without-sidebar {
     max-width: 980px;
     margin: 0 auto; }
