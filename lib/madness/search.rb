@@ -70,7 +70,7 @@ module Madness
     end
 
     def file_label(filename)
-      filename.split('/').map(&:to_label).join(' / ')
+      filename.split('/').map { |i| i.to_label }.join(' / ')
     end
   end
 end
