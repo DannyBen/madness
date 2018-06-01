@@ -1,5 +1,24 @@
 # Change Log
 
+## [v0.6.0](https://github.com/DannyBen/madness/tree/v0.6.0) (2018-06-01)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.7...v0.6.0)
+
+**Implemented enhancements:**
+
+- Provide a way to define navigation order [\#59](https://github.com/DannyBen/madness/issues/59)
+- Improve search style [\#57](https://github.com/DannyBen/madness/issues/57)
+- Convert "Home" and "Search" links to icons [\#48](https://github.com/DannyBen/madness/issues/48)
+
+**Closed issues:**
+
+- Change homepage screenshot [\#56](https://github.com/DannyBen/madness/issues/56)
+
+**Merged pull requests:**
+
+- Add The Invisible Sorting Hand [\#61](https://github.com/DannyBen/madness/pull/61) ([DannyBen](https://github.com/DannyBen))
+- Update screenshots [\#60](https://github.com/DannyBen/madness/pull/60) ([DannyBen](https://github.com/DannyBen))
+- Improve search and code style [\#58](https://github.com/DannyBen/madness/pull/58) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.5.7](https://github.com/DannyBen/madness/tree/v0.5.7) (2018-05-30)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.6...v0.5.7)
 
