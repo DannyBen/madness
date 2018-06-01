@@ -6,10 +6,6 @@ body {
 }
 
 .main {
-  @media print {
-    margin-left: 0;
-    border-width: 0;
-  }
   padding: 0 20px 100px 20px;
   min-height: 100vh;
 
@@ -26,6 +22,11 @@ body {
     margin-left: 250px;
     border:1px solid #ccc;
     border-width: 0 1px;
+    @media print {
+      margin-left: 0;
+      border-width: 0;
+    }
+
   }
 
   &.without-sidebar {
