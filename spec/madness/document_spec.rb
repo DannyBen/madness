@@ -194,4 +194,21 @@ describe Document do
     end
   end
 
+  describe '#title' do
+    it "works" do
+      doc = described_class.new "Folder/Subfolder"
+      expect(doc.title).to eq 'Subfolder'
+    end
+
+    context "when the document has sorting makrers", :focus do
+
+      it "removes the markers" do
+        doc = described_class.new "Sorting/1. Y U NO SORT"
+        byebug
+        
+        expect(doc.title).to eq 'Y U NO SORT'
+      end
+    end
+  end
+
 end
