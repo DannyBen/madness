@@ -1,0 +1,16 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header {
+  color: #fff;
+  text-align: center;
+  background-color: #312D5C;
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    text-transform: uppercase;
+  }
+}
