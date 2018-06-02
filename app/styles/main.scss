@@ -21,8 +21,6 @@ body {
   @include desktop {
     &.with-sidebar {
       margin-left: 250px;
-      border:1px solid #ccc;
-      border-width: 0 1px;
     }
   }
   

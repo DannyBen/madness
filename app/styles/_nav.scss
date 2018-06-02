@@ -7,21 +7,24 @@ nav {
     display: none;
   }
 
-  .icon-bar {
-    border-bottom: 1px dotted #ddd;
-  }
+  // background: #eee;
+  // border-right: 1px solid #ccc;
 
-  background: #eee;
   height: 100vh;
   width: 250px;
   overflow-y: auto;
   position: fixed;
-  border-right: 1px solid #eee;
-  a.document, span.document, .caption {
+
+  .icon-bar {
     border-bottom: 1px dotted #ddd;
-    &:hover {
-      background: #e4e4e4;
-    }
+  }
+
+  a.document, span.document, .caption {
+    // border-bottom: 1px dotted #ddd;
+    // &:hover {
+    //   background: #e4e4e4;
+    // }
+
     display: block;
     padding: 3px 20px 3px 30px;
   }
@@ -34,9 +37,9 @@ nav {
     &.wide {
       width: 100%
     }
-    &:hover {
-      background: #e4e4e4;
-    }
+    // &:hover {
+    //   background: #e4e4e4;
+    // }
   }
 
 
