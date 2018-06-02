@@ -232,6 +232,9 @@ nav {
   @media print {
     nav {
       display: none; } }
+  @media only screen and (max-width: 767px) {
+    nav {
+      display: none; } }
   nav .icon-bar {
     border-bottom: 1px dotted #ddd; }
   nav a.document, nav span.document, nav .caption {
@@ -320,14 +323,11 @@ body {
   .main:before, .main:after {
     display: table;
     content: ""; }
-  .main.with-sidebar {
-    margin-left: 250px;
-    border: 1px solid #ccc;
-    border-width: 0 1px; }
-    @media print {
-      .main.with-sidebar {
-        margin-left: 0;
-        border-width: 0; } }
+  @media only screen and (min-width: 768px) {
+    .main.with-sidebar {
+      margin-left: 250px;
+      border: 1px solid #ccc;
+      border-width: 0 1px; } }
   .main.without-sidebar {
     max-width: 980px;
     margin: 0 auto; }

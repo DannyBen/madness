@@ -3,6 +3,10 @@ nav {
     display: none;
   }
 
+  @include mobile {
+    display: none;
+  }
+
   .icon-bar {
     border-bottom: 1px dotted #ddd;
   }
