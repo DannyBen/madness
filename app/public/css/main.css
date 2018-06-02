@@ -2,7 +2,7 @@ body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   color: #333;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica,Arial, freesans, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word; }
@@ -43,12 +43,9 @@ h6 {
   font-size: 1em;
   color: #777; }
 
-code, kbd, pre {
-  font-family: monospace, monospace;
-  font-size: 1em; }
-
 code, pre, kbd {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 1em; }
 
 table {
   border-spacing: 0;
@@ -223,23 +220,21 @@ kbd {
     padding: 7px 0; }
 
 nav {
-  background: #eee;
   height: 100vh;
   width: 250px;
   overflow-y: auto;
-  position: fixed;
-  border-right: 1px solid #eee; }
+  position: fixed; }
   @media print {
+    nav {
+      display: none; } }
+  @media only screen and (max-width: 767px) {
     nav {
       display: none; } }
   nav .icon-bar {
     border-bottom: 1px dotted #ddd; }
   nav a.document, nav span.document, nav .caption {
-    border-bottom: 1px dotted #ddd;
     display: block;
     padding: 3px 20px 3px 30px; }
-    nav a.document:hover, nav span.document:hover, nav .caption:hover {
-      background: #e4e4e4; }
   nav a.icon {
     display: inline-block;
     font-size: 1.5em;
@@ -247,8 +242,6 @@ nav {
     padding: 3px 20px 3px 30px; }
     nav a.icon.wide {
       width: 100%; }
-    nav a.icon:hover {
-      background: #e4e4e4; }
   nav:after {
     content: "";
     height: 90px;
@@ -320,14 +313,9 @@ body {
   .main:before, .main:after {
     display: table;
     content: ""; }
-  .main.with-sidebar {
-    margin-left: 250px;
-    border: 1px solid #ccc;
-    border-width: 0 1px; }
-    @media print {
-      .main.with-sidebar {
-        margin-left: 0;
-        border-width: 0; } }
+  @media only screen and (min-width: 768px) {
+    .main.with-sidebar {
+      margin-left: 250px; } }
   .main.without-sidebar {
     max-width: 980px;
     margin: 0 auto; }

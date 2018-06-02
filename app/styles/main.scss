@@ -18,17 +18,12 @@ body {
     // clear: both;
   }
 
-  &.with-sidebar {
-    margin-left: 250px;
-    border:1px solid #ccc;
-    border-width: 0 1px;
-    @media print {
-      margin-left: 0;
-      border-width: 0;
+  @include desktop {
+    &.with-sidebar {
+      margin-left: 250px;
     }
-
   }
-
+  
   &.without-sidebar {
     max-width: 980px;
     margin: 0 auto;

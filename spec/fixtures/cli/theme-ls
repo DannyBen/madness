@@ -32,6 +32,7 @@ _line.scss
 _list.scss
 main.scss
 _manifest.scss
+_mixins.scss
 _nav.scss
 _search.scss
 _table.scss
