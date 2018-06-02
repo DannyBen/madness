@@ -239,7 +239,7 @@ Madness comes with a command that copies the default theme to a folder of
 your choice, where you can customize it to your taste. Run:
 
 ```shell
-$ madness create config my_theme
+$ madness create theme my_theme
 ```
 
 Where `_theme` is the folder that will be created.
