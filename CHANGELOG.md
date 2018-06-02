@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.6.1](https://github.com/DannyBen/madness/tree/v0.6.1) (2018-06-02)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.0...v0.6.1)
+
+**Merged pull requests:**
+
+- Style improvements [\#62](https://github.com/DannyBen/madness/pull/62) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.6.0](https://github.com/DannyBen/madness/tree/v0.6.0) (2018-06-01)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.5.7...v0.6.0)
 
