@@ -111,8 +111,9 @@ module Madness
 
     # Build the search index
     def build_index
-      say_status :index, "generating"
-      Search.new.build_index
+      search = Search.new
+      say_status :index, "generating #{search.index_dir}"
+      search.build_index
     end
 
     def build_toc
