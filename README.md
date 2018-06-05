@@ -81,6 +81,11 @@ For more options, run:
     $ madness --help
 
 
+If you do not have Ruby installed, you can also 
+[run madness with docker](#docker-image).
+
+See [full usage pattern][usage]
+
 
 Directory Conventions
 --------------------------------------------------
@@ -277,10 +282,10 @@ directory as the markdown documentation folder
 $ docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
 ```
 
-For more information see:
+For more information about the docker image, see:
 
 - [Madness image on Docker Hub][dockerhub]
-- [Madness Dockerfile][dockerfile]
+- [Madness Dockerfile and Docker Compose][dockerfile]
 
 
 
@@ -290,4 +295,5 @@ For more information see:
 [dockerfile]: https://github.com/DannyBen/docker-madness
 [css]: app/public/css/main.css
 [app]: app
+[usage]: usage
 

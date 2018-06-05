@@ -32,6 +32,13 @@ action :toc do
   run! 'gh-md-toc README.md > toc.txt'
 end
 
+help   "Generate usage.md"
+action :usage do
+  content = "# Madness Usage\n\n```shell\n$ madness --help\n\n#{`bundle exec madness --help`}\n```\n"
+  File.write 'usage.md', content
+  say "Created usage.md"
+end
+
 help   "Generate changelog"
 action :changelog do
   run 'github_changelog_generator'
