@@ -84,8 +84,6 @@ For more options, run:
 If you do not have Ruby installed, you can also 
 [run madness with docker](#docker-image).
 
-See [full usage pattern][usage]
-
 
 Directory Conventions
 --------------------------------------------------
@@ -295,5 +293,4 @@ For more information about the docker image, see:
 [dockerfile]: https://github.com/DannyBen/docker-madness
 [css]: app/public/css/main.css
 [app]: app
-[usage]: usage
 
