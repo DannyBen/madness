@@ -5,7 +5,9 @@ Gemfile.lock
 /gems
 /coverage
 /doc
+
 /_local_jekyll
+/_site
 
 .sass-cache
 .bundle

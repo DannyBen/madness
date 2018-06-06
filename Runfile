@@ -50,30 +50,26 @@ action :cloc do
   run "cloc . --exclude-dir coverage,spec,examples"
 end
 
-help   "Create a local Jekyll deployment for GitHub Pages tests"
-action :jekyll do
+help   "Create and run a local Jekyll deployment for GitHub Pages tests"
+usage  "jekyll [--make]"
+option "--make", "Regenerate the jekyll site"
+action :jekyll do |args|
   base_dir = '_local_jekyll'
-
-  say "Resetting #{base_dir} directory"
-  system "rm -rf #{base_dir}" if Dir.exist? base_dir
-  Dir.mkdir base_dir
-  Dir.chdir base_dir do
-    say "Creating Gemfile"
-    File.write 'Gemfile', %Q[source "https://rubygems.org"\ngem 'jekyll'\ngem 'github-pages', group: :jekyll_plugins]
-
-    say "Copying files from main directory"
-    system "cp ../README.md ."
-    system "cp ../_config.yml ."
-    system "cp -R ../_layouts ."
-    system "cp -R ../assets ."
+  
+  if args['--make'] or !Dir.exist? base_dir
+    say "Resetting #{base_dir} directory"
+    system "rm -rf #{base_dir}" if Dir.exist? base_dir
+    Dir.mkdir base_dir
+    Dir.chdir base_dir do
+      say "Copying files from main directory"
+      system "cp ../README.md ."
+      system "cp ../_config.yml ."
+      system "cp -R ../_layouts ."
+      system "cp -R ../assets ."
+    end
   end
 
-  say "Done."
-  say ""
-  say "Usage:"
-  say "!txtgrn!cd #{base_dir}"
-  say "!txtgrn!bundle"
-  say "!txtgrn!jekyll serve -H 0.0.0.0 -P 3000"
+  run! "jekyll serve -H 0.0.0.0 -P 3000"
 end
 
 action :debug do
