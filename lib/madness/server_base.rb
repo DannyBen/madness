@@ -1,3 +1,10 @@
+require 'rack/contrib/try_static'
+require 'sass'
+require 'sass/plugin/rack'
+require 'sinatra/base'
+require 'sinatra/reloader'
+require 'slim'
+
 module Madness
 
   # The base class for the sinatra server.
