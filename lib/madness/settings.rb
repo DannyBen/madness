@@ -1,3 +1,5 @@
+require 'singleton'
+
 module Madness
   
   # Handle teh configuration options
