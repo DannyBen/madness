@@ -1,4 +1,7 @@
 require 'fileutils'
+require 'singleton'
+require 'colsole'
+require 'docopt'
 
 module Madness
 

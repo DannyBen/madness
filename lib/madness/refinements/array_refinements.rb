@@ -1,3 +1,5 @@
+require 'naturally'
+
 module Madness
   module ArrayRefinements
     refine Array do

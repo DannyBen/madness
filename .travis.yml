@@ -6,21 +6,13 @@ env:
 
 rvm:
   - "2.2.2"
-  # - "2.2.7"
-  # - "2.3.4"
   - "2.4.2"
   - "2.5.0"
 
 addons:
   apt:
     packages:
-      - graphviz
-
-branches:
-  only: [master]
-
-notifications:
-  email: false
+    - graphviz
 
 before_install:
 - gem install bundler

@@ -1,5 +1,6 @@
-module Madness
+require 'ferret'
 
+module Madness
   class Search
     include ServerHelper
     include Ferret
