@@ -2,7 +2,7 @@ require 'singleton'
 
 module Madness
   
-  # Handle teh configuration options
+  # Handle the configuration options
   # Each configuration option has three sources
   # 1. The default value
   # 2. The setting as provided in the ./.madness.yml
