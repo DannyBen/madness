@@ -245,7 +245,7 @@ your choice, where you can customize it to your taste. Run:
 $ madness create theme my_theme
 ```
 
-Where `_theme` is the folder that will be created.
+Where `my_theme` is the folder that will be created.
 
 To use the created theme, simply run Madness with the `--theme my_theme`
 option.
