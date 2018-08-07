@@ -66,9 +66,9 @@ module Madness
       if File.directory? base
         @title = File.basename(path).to_label unless path.empty?
         set_base_attributes_for_directory
-      elsif File.exist? "#{base}.md"
-        @title = File.basename(base).to_label
-        @file = "#{base}.md"
+      elsif File.exist?("#{base}.md") || (File.exist?(base) && File.extname(base) == '.md')
+        @file = File.extname(base) == '.md' ? base : "#{base}.md"
+        @title = File.basename(@file, '.md').to_label
         @dir  = File.dirname file
         @type = :file
       end

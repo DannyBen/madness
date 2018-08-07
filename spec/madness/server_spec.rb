@@ -95,6 +95,23 @@ describe Server do
       end
     end
 
+    context "with a nested file with .md extension" do
+      it "works" do
+        get '/Folder/File.md'
+        expect(last_response).to be_ok
+        expect(last_response.body).to have_tag 'h1', text: "Nested File #1"
+      end
+
+      it "shows breadcrumbs" do
+        get '/Folder/File.md'
+        expect(last_response.body).to have_tag '.breadcrumbs' do
+          with_tag 'a', text: 'Home'
+          with_tag 'a', text: 'Folder'
+          with_tag 'span', text: 'File'
+        end
+      end
+    end
+
     context "in an empty folder" do
       it "shows index" do
         get '/Empty%20Folder'

@@ -29,7 +29,7 @@ module Madness
     # The CommandLine class and the test suite should both call
     # `Server.prepare` before calling Server.run!
     def self.prepare
-      use Rack::TryStatic, root: "#{config.path}/", :urls => %w[/]
+      use Madness::Static, root: "#{config.path}/", :urls => %w[/]
       set :bind, config.bind
       set :port, config.port
 
