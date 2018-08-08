@@ -1,5 +1,18 @@
 # Change Log
 
+## [v0.6.2](https://github.com/DannyBen/madness/tree/v0.6.2) (2018-08-08)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.1...v0.6.2)
+
+**Closed issues:**
+
+- Allow accessing markdown files using .md extension in the URL [\#65](https://github.com/DannyBen/madness/issues/65)
+
+**Merged pull requests:**
+
+- Improve test stability for theme CLI command [\#67](https://github.com/DannyBen/madness/pull/67) ([DannyBen](https://github.com/DannyBen))
+- Allow request md files with or without the .md extension [\#66](https://github.com/DannyBen/madness/pull/66) ([fpenapita](https://github.com/fpenapita))
+- Switch from many requires to one 'requires' [\#63](https://github.com/DannyBen/madness/pull/63) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.6.1](https://github.com/DannyBen/madness/tree/v0.6.1) (2018-06-02)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.0...v0.6.1)
 
