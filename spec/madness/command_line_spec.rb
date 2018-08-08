@@ -116,7 +116,7 @@ describe CommandLine do
       expect(Dir).not_to exist theme_dir
     end
 
-    it "copies the default theme to a folder of our choice", :focus do
+    it "copies the default theme to a folder of our choice" do
       expect { subject.execute "create theme #{theme_dir}" }.to output(/Created #{theme_dir}/).to_stdout
       expect(Dir).to exist theme_dir
       expect(Dir["#{theme_dir}/**/*"].sort.to_yaml).to match_fixture('cli/theme-ls')
