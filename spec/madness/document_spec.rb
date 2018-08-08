@@ -119,7 +119,35 @@ describe Document do
       describe '#title' do
         it 'returns proper title' do
           expect(subject.title).to eq 'File'
-        end        
+        end
+      end
+    end
+
+    context "with a file.md" do
+      subject { described_class.new "Folder/File.md" }
+
+      describe '#type' do
+        it 'returns :file' do
+          expect(subject.type).to eq :file
+        end
+      end
+
+      describe '#file' do
+        it 'returns full path to file' do
+          expect(subject.file).to end_with 'Folder/File.md'
+        end
+      end
+
+      describe '#dir' do
+        it 'returns full path to directory' do
+          expect(subject.dir).to end_with "#{config.path}/Folder"
+        end
+      end
+
+      describe '#title' do
+        it 'returns proper title' do
+          expect(subject.title).to eq 'File'
+        end
       end
     end
 

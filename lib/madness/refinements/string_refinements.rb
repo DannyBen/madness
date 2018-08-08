@@ -12,7 +12,7 @@ module Madness
       # just removes any numbers followed by a dot at the beginning of the 
       # string, in order to allow "The Invisible Sorting Hand".
       def to_label
-        gsub(/^\d+\.\s+/, '')
+        gsub(/^\d+\.\s+/, '').gsub(/\.md$/, '')
       end
     end
   end
