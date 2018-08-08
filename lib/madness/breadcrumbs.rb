@@ -27,7 +27,7 @@ module Madness
     def breadcrumbs_maker(partial_path)
       parent, basename = File.split partial_path
       item = OpenStruct.new({
-        label: File.basename(basename, '.md').to_label,
+        label: basename.to_label,
         href: "/#{partial_path}" }
       )
       result = [item]
