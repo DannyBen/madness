@@ -1,3 +1,4 @@
+tmp/theme-test:
 public
 styles
 views
@@ -21,26 +22,26 @@ fontello.woff2
 tmp/theme-test/styles:
 _anchor.scss
 _breadcrumbs.scss
-_code.scss
 _coderay.scss
+_code.scss
 _general.scss
 _icons.scss
 _image.scss
 _keyboard.scss
 _line.scss
 _list.scss
+main.scss
 _manifest.scss
 _mixins.scss
 _nav.scss
 _search.scss
 _table.scss
 _typography.scss
-main.scss
 
 tmp/theme-test/views:
 _breadcrumbs.slim
-_index_nav.slim
-_nav.slim
 document.slim
+_index_nav.slim
 layout.slim
+_nav.slim
 search.slim
