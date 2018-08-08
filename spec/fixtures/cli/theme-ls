@@ -1,47 +1,37 @@
-tmp/theme-test:
-public
-styles
-views
-
-tmp/theme-test/public:
-css
-favicon.ico
-fonts
-
-tmp/theme-test/public/css:
-main.css
-main.css.map
-
-tmp/theme-test/public/fonts:
-fontello.eot
-fontello.svg
-fontello.ttf
-fontello.woff
-fontello.woff2
-
-tmp/theme-test/styles:
-_anchor.scss
-_breadcrumbs.scss
-_coderay.scss
-_code.scss
-_general.scss
-_icons.scss
-_image.scss
-_keyboard.scss
-_line.scss
-_list.scss
-main.scss
-_manifest.scss
-_mixins.scss
-_nav.scss
-_search.scss
-_table.scss
-_typography.scss
-
-tmp/theme-test/views:
-_breadcrumbs.slim
-document.slim
-_index_nav.slim
-layout.slim
-_nav.slim
-search.slim
+---
+- tmp/theme-test/public
+- tmp/theme-test/public/css
+- tmp/theme-test/public/css/main.css
+- tmp/theme-test/public/css/main.css.map
+- tmp/theme-test/public/favicon.ico
+- tmp/theme-test/public/fonts
+- tmp/theme-test/public/fonts/fontello.eot
+- tmp/theme-test/public/fonts/fontello.svg
+- tmp/theme-test/public/fonts/fontello.ttf
+- tmp/theme-test/public/fonts/fontello.woff
+- tmp/theme-test/public/fonts/fontello.woff2
+- tmp/theme-test/styles
+- tmp/theme-test/styles/_anchor.scss
+- tmp/theme-test/styles/_breadcrumbs.scss
+- tmp/theme-test/styles/_code.scss
+- tmp/theme-test/styles/_coderay.scss
+- tmp/theme-test/styles/_general.scss
+- tmp/theme-test/styles/_icons.scss
+- tmp/theme-test/styles/_image.scss
+- tmp/theme-test/styles/_keyboard.scss
+- tmp/theme-test/styles/_line.scss
+- tmp/theme-test/styles/_list.scss
+- tmp/theme-test/styles/_manifest.scss
+- tmp/theme-test/styles/_mixins.scss
+- tmp/theme-test/styles/_nav.scss
+- tmp/theme-test/styles/_search.scss
+- tmp/theme-test/styles/_table.scss
+- tmp/theme-test/styles/_typography.scss
+- tmp/theme-test/styles/main.scss
+- tmp/theme-test/views
+- tmp/theme-test/views/_breadcrumbs.slim
+- tmp/theme-test/views/_index_nav.slim
+- tmp/theme-test/views/_nav.slim
+- tmp/theme-test/views/document.slim
+- tmp/theme-test/views/layout.slim
+- tmp/theme-test/views/search.slim
