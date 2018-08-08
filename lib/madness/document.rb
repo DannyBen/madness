@@ -66,9 +66,9 @@ module Madness
       if File.directory? base
         @title = File.basename(path).to_label unless path.empty?
         set_base_attributes_for_directory
-      elsif File.exist?("#{base}.md") || (File.exist?(base) && File.extname(base) == '.md')
-        @file = File.extname(base) == '.md' ? base : "#{base}.md"
-        @title = File.basename(@file, '.md').to_label
+      elsif md_file?
+        @file = md_filename
+        @title = File.basename(base).to_label
         @dir  = File.dirname file
         @type = :file
       end
@@ -137,6 +137,14 @@ module Madness
         code = CGI.unescapeHTML code
         CodeRay.scan(code, lang).html opts
       end
+    end
+
+    def md_file?
+      File.exist?("#{base}.md") || (File.exist?(base) && File.extname(base) == '.md')
+    end
+
+    def md_filename
+      File.extname(base) == '.md' ? base : "#{base}.md"
     end
   end
 end
