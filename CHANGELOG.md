@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.6.4](https://github.com/DannyBen/madness/tree/v0.6.4) (2018-08-10)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.3...v0.6.4)
+
+**Merged pull requests:**
+
+- Fix autocomplete [\#69](https://github.com/DannyBen/madness/pull/69) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.6.3](https://github.com/DannyBen/madness/tree/v0.6.3) (2018-08-10)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.2...v0.6.3)
 
