@@ -52,7 +52,7 @@ describe Server do
       expect(last_response).to be_ok
       actual = JSON.parse(last_response.body)['suggestions']
       expect(actual.count).to eq 3
-      expect(actual[2]).to include "The Empire Strikes Back"
+      expect(actual[2]["data"]).to match /The Empire Strikes Back/
     end
 
   end

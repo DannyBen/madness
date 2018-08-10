@@ -19,7 +19,7 @@ module Madness
       return { suggestions: [] } if query.empty?
 
       results = Search.new.search query
-      suggestions = results.map { |r| r[:label] } # or r[:file]
+      suggestions = results.map { |r| { value: r[:label], data: r[:file] } }
       
       response = { suggestions: suggestions }
       response.to_json
