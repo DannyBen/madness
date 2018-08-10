@@ -14,6 +14,17 @@ module Madness
       }
     end
 
+    get '/_search/autocomplete' do
+      query = params[:query]
+      return { suggestions: [] } if query.empty?
+
+      results = Search.new.search query
+      suggestions = results.map { |r| r[:label] } # or r[:file]
+      
+      response = { suggestions: suggestions }
+      response.to_json
+    end
+
     get '/*' do
       path = params[:splat].first
 
