@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.6.3](https://github.com/DannyBen/madness/tree/v0.6.3) (2018-08-10)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.2...v0.6.3)
+
+**Implemented enhancements:**
+
+- Add search autocomplete [\#64](https://github.com/DannyBen/madness/issues/64)
+
+**Merged pull requests:**
+
+- Add autocomplete [\#68](https://github.com/DannyBen/madness/pull/68) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.6.2](https://github.com/DannyBen/madness/tree/v0.6.2) (2018-08-08)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.1...v0.6.2)
 
