@@ -9,7 +9,7 @@ $(function() {
     preserveInput: false,
     showNoSuggestionNotice: true,
     onSelect: function(suggestion) {
-      window.location = "/" + suggestion.value;
+      window.location = "/" + suggestion.data;
     }
   });
 })
