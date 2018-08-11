@@ -3,6 +3,14 @@ require 'spec_helper'
 describe StringRefinements do
   using StringRefinements
 
+  describe '#remove' do
+    subject { "not an excellent example" }
+
+    it "removes the matching pattern" do
+      expect(subject.remove(/^not | excellent/)).to eq 'an example'
+    end    
+  end
+
   describe '#to_slug' do
     subject { "String with !23@  " }
 

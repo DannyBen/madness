@@ -21,7 +21,8 @@ module Madness
       index = Index.new path: index_dir, create: true
 
       Dir["#{@path}/**/*.md"].each do |file|
-        index << { file: file, content: searchable_content(file) }
+        record = { file: file, content: searchable_content(file) }
+        index << record unless skip_index? file
       end
 
       index.optimize()                                
@@ -40,7 +41,7 @@ module Madness
         
         results << { 
           score: score, 
-          file: filename,
+          file: file_url(filename),
           label: file_label(filename),
           highlights: highlights
         }
@@ -61,17 +62,37 @@ module Madness
 
     private
 
+    # We are going to avoid indexing of README.md when there is also an
+    # index.md in the same directory, to keep behavior consistent with the 
+    # display logic
+    def skip_index?(file)
+      if file.end_with? 'README.md'
+        dir = File.dirname file
+        File.exist? "#{dir}/index.md"
+      else
+        false
+      end
+    end
+
     # This is poor-mans markdown strip.
     # Convert to HTML, strip tags and return plain text suitable to act as
     # the content for the search index.
     def searchable_content(file)
       content = File.read file
       content = CommonMarker.render_html content
-      content.gsub(/<\/?[^>]*>/, "").gsub("\n", " ")
+      content.remove(/<\/?[^>]*>/).gsub("\n", " ")
     end
 
     def file_label(filename)
-      filename.split('/').map { |i| i.to_label }.join(' / ')
+      filename
+        .remove(/\/(index|README)$/)
+        .split('/')
+        .map { |i| i.to_label }
+        .join(' / ')
+    end
+
+    def file_url(filename)
+      filename.remove(/\/(index|README)$/)
     end
   end
 end

@@ -4,26 +4,41 @@ require 'fileutils'
 describe Search do
   let(:search) { described_class.new 'spec/fixtures/search' }
 
+  before do 
+    search.build_index unless search.has_index?
+  end
+
   describe '#has_index?' do
     it "returns false when there is no index" do
       search.remove_index_dir
-      expect(search.has_index?).to be false
+      expect(search).not_to have_index
     end
 
     it "returns true when there is an index" do
       search.build_index
-      expect(search.has_index?).to be true
+      expect(search).to have_index
     end
   end
 
   describe '#build_index' do
-    before do
-      search.remove_index_dir
+    context "where both README.md and index.md are present" do
+      it "does not index README.md" do
+        results = search.search 'benedict'
+        expect(results.count).to eq 1
+        expect(results.first[:file]).to eq "Twins"
+      end
     end
 
-    it "builds" do
-      search.build_index
-      expect(search.has_index?).to be true      
+    context "when index does not exist" do
+      before do
+        search.remove_index_dir
+        expect(search).not_to have_index
+      end
+
+      it "builds" do
+        search.build_index
+        expect(search).to have_index
+      end
     end
   end
 
@@ -51,6 +66,16 @@ describe Search do
     it "removes sorting markers from file labels" do
       result = search.search('x files').first
       expect(result[:label]).to eq 'I Do Not Belong'
+    end
+
+    it "removes trailing /README and /index from files" do
+      results = search.search('ruby').map { |r| r[:file] }
+      expect(results).to eq ["With index", "With README"]
+    end
+
+    it "removes trailing /README and /index from labels" do
+      results = search.search('ruby').map { |r| r[:label] }
+      expect(results).to eq ["With index", "With README"]
     end
   end
 
