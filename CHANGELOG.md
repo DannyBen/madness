@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/DannyBen/madness/tree/HEAD)
-
-[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.4...HEAD)
+## [v0.6.5](https://github.com/DannyBen/madness/tree/v0.6.5) (2018-08-11)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.4...v0.6.5)
 
 **Closed issues:**
 
