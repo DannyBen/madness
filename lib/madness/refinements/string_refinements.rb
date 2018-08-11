@@ -1,8 +1,12 @@
 module Madness
   module StringRefinements
     refine String do
+      def remove(regex)
+        gsub regex, ''
+      end
+
       def to_slug
-        downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+        downcase.strip.gsub(' ', '-').remove(/[^\w-]/)
       end
 
       # This is here so we can have one place that defines how to convert
@@ -12,7 +16,7 @@ module Madness
       # just removes any numbers followed by a dot at the beginning of the 
       # string, in order to allow "The Invisible Sorting Hand".
       def to_label
-        gsub(/^\d+\.\s+/, '').gsub(/\.md$/, '')
+        remove(/^\d+\.\s+/).remove(/\.md$/)
       end
     end
   end

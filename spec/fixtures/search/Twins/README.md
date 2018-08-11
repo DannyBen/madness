@@ -1,0 +1,1 @@
+Julius Benedict and Vincent Benedict are twins, the result of a secret experiment carried out at a genetics laboratory to combine the DNA of six fathers to produce the perfect child.
