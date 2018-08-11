@@ -70,12 +70,12 @@ describe Search do
 
     it "removes trailing /README and /index from files" do
       results = search.search('ruby').map { |r| r[:file] }
-      expect(results).to eq ["With index", "With README"]
+      expect(results.sort).to eq ["With README", "With index"]
     end
 
     it "removes trailing /README and /index from labels" do
       results = search.search('ruby').map { |r| r[:label] }
-      expect(results).to eq ["With index", "With README"]
+      expect(results.sort).to eq ["With README", "With index"]
     end
   end
 
