@@ -1,5 +1,17 @@
 # Change Log
 
+## [Unreleased](https://github.com/DannyBen/madness/tree/HEAD)
+
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.4...HEAD)
+
+**Closed issues:**
+
+- Search result file labels should omit README [\#70](https://github.com/DannyBen/madness/issues/70)
+
+**Merged pull requests:**
+
+- Search improvements [\#71](https://github.com/DannyBen/madness/pull/71) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.6.4](https://github.com/DannyBen/madness/tree/v0.6.4) (2018-08-10)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.3...v0.6.4)
 
