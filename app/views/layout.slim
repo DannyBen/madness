@@ -1,14 +1,15 @@
 doctype html
 
-head
-  title = locals[:title]
-  meta name="HandheldFriendly" content="true"
-  meta name="viewport" content="width=device-width, initial-scale=1"
-  link href='/css/main.css' rel='stylesheet' type='text/css'
-  - if nav.with_search?
-    script src="/js/vendor/jquery.min.js"
-    script src="/js/vendor/jquery.autocomplete-min.js"
-    script src="/js/autocomplete.js"
+html
+  head
+    title = locals[:title]
+    meta name="HandheldFriendly" content="true"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    link href='/css/main.css' rel='stylesheet' type='text/css'
+    - if nav.with_search?
+      script src="/js/vendor/jquery.min.js"
+      script src="/js/vendor/jquery.autocomplete-min.js"
+      script src="/js/autocomplete.js"
 
-body
-  == yield
+  body
+    == yield
