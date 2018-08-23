@@ -337,13 +337,13 @@ body {
   margin: 0 auto; }
 
 .main {
-  padding: 0 20px 100px 20px;
-  min-height: 100vh; }
+  padding: 0 20px 100px 20px; }
   .main:before, .main:after {
     display: table;
     content: ""; }
   @media only screen and (min-width: 768px) {
     .main.with-sidebar {
+      min-height: 100vh;
       margin-left: 250px; } }
   .main.without-sidebar {
     max-width: 980px;
