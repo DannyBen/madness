@@ -1,8 +1,5 @@
 ---
 - tmp/theme-test/public
-- tmp/theme-test/public/css
-- tmp/theme-test/public/css/main.css
-- tmp/theme-test/public/css/main.css.map
 - tmp/theme-test/public/favicon.ico
 - tmp/theme-test/public/fonts
 - tmp/theme-test/public/fonts/fontello.eot
