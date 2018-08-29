@@ -248,6 +248,14 @@ describe Document do
       expect(doc.content).to have_tag :a, id: 'just-a-file'
     end
 
+    context "when headers contain links" do
+      subject { described_class.new "CHANGELOG" }
+
+      it "does not does not break" do
+        expect{ subject.content }.not_to raise_error
+      end
+    end
+
     context "with an invalid file" do
       subject { described_class.new "Y U NO FILE" }
 

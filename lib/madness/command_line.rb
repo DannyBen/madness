@@ -61,7 +61,7 @@ module Madness
     # config object.
     def set_config(args)
       config.path  = args['PATH']   if args['PATH']
-      config.port  = args['--port'] if args['--port']
+      config.port  = args['--port'].to_i if args['--port']
       config.bind  = args['--bind'] if args['--bind']
       config.toc   = args['--toc']  if args['--toc']
       config.auto_h1      = false   if args['--no-auto-h1']

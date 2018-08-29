@@ -98,19 +98,26 @@ module Madness
     def markdown_to_html
       doc = CommonMarker.render_doc markdown, :DEFAULT, [:table]
 
+      add_anchor_ids doc
+      html = doc.to_html
+      html = syntax_highlight(html) if config.highlighter
+      html = prepend_h1(html) if config.auto_h1
+      html
+    end
+
+    # Add anchors with IDs before all headers
+    def add_anchor_ids(doc)
       doc.walk do |node|
         if node.type == :header
           anchor = CommonMarker::Node.new(:inline_html)
+
+          next unless node.first_child.type == :text
+          
           anchor_id = node.first_child.string_content.to_slug
           anchor.string_content = "<a id='#{anchor_id}'></a>"
           node.prepend_child anchor
         end
       end
-
-      html = doc.to_html
-      html = syntax_highlight(html) if config.highlighter
-      html = prepend_h1(html) if config.auto_h1
-      html
     end
 
     # If the document does not start with an H1 tag, add it.

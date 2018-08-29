@@ -9,30 +9,26 @@ module Madness
   # 3. Any override provided later (for example, by the CommandLine class)
   class Settings
     include Singleton
-
-    attr_accessor \
-      :auto_h1, 
-      :auto_nav,
-      :bind, 
-      :highlighter, 
-      :index, 
-      :line_numbers, 
-      :path, 
-      :port, 
-      :sidebar, 
-      :theme,
-      :toc
+    using HashRefinements
 
     def initialize
       reset
     end
 
+    def method_missing(name, *args, &_blk)
+      name_string = name.to_s
+      
+      if name_string.end_with? '='
+        data[name_string.chop.to_sym] = args.first
+      else
+        data[name]
+      end
+    end
+
     # Force reload of the config file, set defaults, and then read from 
     # file.
     def reset
-      @config_file = nil
-      set_defaults
-      load_from_file if config_file
+      @data = nil
     end
 
     def file_exist?
@@ -45,35 +41,28 @@ module Madness
 
     private
 
-    def set_defaults
-      self.port = '3000'
-      self.bind = '0.0.0.0'
-      self.path = '.'
-      self.auto_h1 = true
-      self.auto_nav = true
-      self.sidebar = true
-      self.highlighter = true
-      self.line_numbers = true
-      self.index = false
-      self.theme = nil
+    def defaults
+      {
+        port: 3000,
+        bind: '0.0.0.0',
+        path: '.',
+        auto_h1: true,
+        highlighter: true,
+        line_numbers: true,
+        index: false,
+        theme: nil,
+
+        auto_nav: true,
+        sidebar: true
+      }
     end
 
-    def load_from_file
-      config_file.each do |key, value|
-        instance_variable_set("@#{key}", value)
-      end
+    def data
+      @data ||= defaults.merge(file_data)
     end
 
-    def config_file
-      @config_file ||= config_file!
-    end
-
-    def config_file!
-      if file_exist?
-        YAML.load_file filename 
-      else
-        {}
-      end
+    def file_data
+      file_exist? ? YAML.load_file(filename).symbolize_keys : {}
     end
 
   end
