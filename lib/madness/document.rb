@@ -99,7 +99,7 @@ module Madness
       doc = CommonMarker.render_doc markdown, :DEFAULT, [:table]
 
       add_anchor_ids doc
-      html = doc.to_html
+      html = doc.to_html :UNSAFE
       html = syntax_highlight(html) if config.highlighter
       html = prepend_h1(html) if config.auto_h1
       html
