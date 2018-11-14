@@ -16,6 +16,7 @@ Gemfile.lock
 _index
 madness.log
 nohup.out
+toc.txt
 toc.html
 
 *.sublime-*
