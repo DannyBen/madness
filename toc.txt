@@ -3,7 +3,8 @@ Table of Contents
 =================
 
    * [Madness - Instant Markdown Server](#madness---instant-markdown-server)
-      * [Screenshot](#screenshot)
+      * [Screenshots (click to zoom)](#screenshots-click-to-zoom)
+      * [Table of Contents](#table-of-contents)
       * [Install](#install)
       * [Design Intentions](#design-intentions)
       * [Feature Highlights](#feature-highlights)
@@ -15,7 +16,11 @@ Table of Contents
       * [Automatic H1](#automatic-h1)
       * [Table of Contents Generation](#table-of-contents-generation)
       * [Hidden Directories](#hidden-directories)
-      * [Changing Theme](#changing-theme)
+      * [Controlling Sort Order](#controlling-sort-order)
+      * [Customizing Theme](#customizing-theme)
+         * [Option 1: Change CSS and HTML (Slim)](#option-1-change-css-and-html-slim)
+         * [Option 2: Change CSS only](#option-2-change-css-only)
+      * [Forcing HTTPS Connection](#forcing-https-connection)
       * [Docker Image](#docker-image)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)

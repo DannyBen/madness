@@ -37,6 +37,7 @@ Table of Contents
 * [Hidden Directories](#hidden-directories)
 * [Controlling Sort Order](#controlling-sort-order)
 * [Customizing Theme](#customizing-theme)
+* [Forcing HTTPS Connection](#forcing-https-connection)
 * [Docker Image](#docker-image)
 
 
@@ -83,6 +84,7 @@ For more options, run:
 
 If you do not have Ruby installed, you can also 
 [run madness with docker](#docker-image).
+
 
 
 Directory Conventions
@@ -265,6 +267,16 @@ If you are looking to implement a more minor CSS change, follow these steps:
 
 Note that this functionality is not guaranteed to stay as is in future 
 versions of madness.
+
+
+
+Forcing HTTPS Connection
+--------------------------------------------------
+
+To have Madness redirect HTTP traffic to HTTPS, set this environment 
+variable:
+
+    $ export MADNESS_FORCE_SSL=1
 
 
 

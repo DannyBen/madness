@@ -1,4 +1,5 @@
 require 'rack/contrib/try_static'
+require 'rack/ssl'
 require 'sass'
 require 'sass/plugin/rack'
 require 'sinatra/base'
@@ -15,6 +16,7 @@ module Madness
 
     Slim::Engine.set_options pretty: true
     use Sass::Plugin::Rack
+    use Rack::SSL if ENV['MADNESS_FORCE_SSL']
     set :root, File.expand_path('../../', __dir__)
     set :server, :puma
 
