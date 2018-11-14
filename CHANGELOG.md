@@ -1,5 +1,38 @@
 # Change Log
 
+## [v0.7.0](https://github.com/DannyBen/madness/tree/v0.7.0) (2018-11-14)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.9...v0.7.0)
+
+**Merged pull requests:**
+
+- Add option to force HTTPS [\#79](https://github.com/DannyBen/madness/pull/79) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.6.9](https://github.com/DannyBen/madness/tree/v0.6.9) (2018-10-20)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.8...v0.6.9)
+
+**Merged pull requests:**
+
+- Allow embedding HTML [\#78](https://github.com/DannyBen/madness/pull/78) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.6.8](https://github.com/DannyBen/madness/tree/v0.6.8) (2018-10-18)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.7...v0.6.8)
+
+**Fixed bugs:**
+
+- Fix CSS issues [\#77](https://github.com/DannyBen/madness/pull/77) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.6.7](https://github.com/DannyBen/madness/tree/v0.6.7) (2018-09-20)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.6...v0.6.7)
+
+**Closed issues:**
+
+- Body min-height belongs under .with-sidebar [\#73](https://github.com/DannyBen/madness/issues/73)
+
+**Merged pull requests:**
+
+- Downgrade Sinatra [\#76](https://github.com/DannyBen/madness/pull/76) ([DannyBen](https://github.com/DannyBen))
+- Refactor settings to allow arbitrary user input [\#75](https://github.com/DannyBen/madness/pull/75) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.6.6](https://github.com/DannyBen/madness/tree/v0.6.6) (2018-08-21)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.5...v0.6.6)
 
