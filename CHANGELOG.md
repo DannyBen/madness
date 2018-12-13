@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.7.1](https://github.com/DannyBen/madness/tree/v0.7.1) (2018-12-13)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.7.0...v0.7.1)
+
+**Merged pull requests:**
+
+- Bundle update [\#80](https://github.com/DannyBen/madness/pull/80) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.7.0](https://github.com/DannyBen/madness/tree/v0.7.0) (2018-11-14)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.6.9...v0.7.0)
 
