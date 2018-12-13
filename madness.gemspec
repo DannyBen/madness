@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   # https://github.com/sinatra/sinatra/issues/1476
   s.add_runtime_dependency 'sinatra', '2.0.3'
   s.add_runtime_dependency 'coderay', '~> 1.1'
-  s.add_runtime_dependency 'colsole', '~> 0.4'
+  s.add_runtime_dependency 'colsole', '~> 0.5'
   s.add_runtime_dependency 'commonmarker', '~> 0.18'
   s.add_runtime_dependency 'docopt', '~> 0.5'
   s.add_runtime_dependency 'ferret', '~> 0.11'
@@ -32,6 +32,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'requires', '~> 0.1'
   s.add_runtime_dependency 'sass', '~> 3.4'
   s.add_runtime_dependency 'sinatra-contrib', '~> 2.0'
-  s.add_runtime_dependency 'slim', '~> 3.0'
+  s.add_runtime_dependency 'slim', '~> 4.0'
   s.add_runtime_dependency 'rack-ssl', '~> 1.4'
 end
