@@ -8,9 +8,7 @@ group :development do
   # CmomonMarker (it requires a lower version than we need)
   # gem 'github-pages', group: :jekyll_plugins
 
-
   gem 'byebug'
-  gem 'github_changelog_generator'
   gem 'rack-test'
   gem 'rdoc'
   gem 'rspec'
