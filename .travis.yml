@@ -5,8 +5,7 @@ env:
   - CC_TEST_REPORTER_ID=22697375d978d2b0cea8ef21c3102d24df2d12ed3ce495fd9aa26bfd9be80241
 
 rvm:
-  - "2.2.2"
-  - "2.4.2"
+  - "2.3.0"
   - "2.5.0"
 
 addons:

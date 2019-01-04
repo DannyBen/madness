@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.executables = ["madness"]
   s.homepage    = 'https://github.com/DannyBen/madness'
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.2.2"
+  s.required_ruby_version = ">= 2.3.0"
 
   s.add_runtime_dependency 'coderay', '~> 1.1'
   s.add_runtime_dependency 'colsole', '~> 0.5'
