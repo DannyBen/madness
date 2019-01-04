@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.7.2](https://github.com/DannyBen/madness/tree/v0.7.2) (2019-01-04)
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.7.1...v0.7.2)
+
+**Merged pull requests:**
+
+- Update sinatra to 2.0.5 [\#81](https://github.com/DannyBen/madness/pull/81) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.7.1](https://github.com/DannyBen/madness/tree/v0.7.1) (2018-12-13)
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.7.0...v0.7.1)
 
