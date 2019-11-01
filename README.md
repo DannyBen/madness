@@ -164,7 +164,7 @@ documents change or new documents are added.
 Images and Static Files
 --------------------------------------------------
 
-You can put images and any other asset file anywhere in your documentation 
+You can put images and other asset files anywhere in your documentation
 folder.
 
 When linking to other pages or images in your documentation folder, simply
@@ -206,8 +206,10 @@ markdown file.
 Hidden Directories
 --------------------------------------------------
 
-Diretories that are made only of lowercase letters, underscoes, dash and/or 
-numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation.
+Directories that are made only of lowercase letters, underscoes, dash and/or
+numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation. In
+other words, directories must have at least one uppercase letter or a space
+to be recognized as a documentation directory.
 
 
 
@@ -216,7 +218,8 @@ Controlling Sort Order
 
 To control the sort order of the automatically generated navigation elements,
 simply perfix your files and directories with digits followed by a dot and a 
-space, just like you would create an ordered list in Markdown
+space, just like you would create an ordered list in Markdown. The numbers
+will be omitted when they are displayed.
 
 ```
 ./
@@ -257,7 +260,7 @@ $ madness --theme my_theme
 
 ### Option 2: Change CSS only
 
-If you are looking to implement a more minor CSS change, follow these steps:
+If you are looking to implement a smaller CSS change, follow these steps:
 
 - Create a directory named `css` in your root documentation directory.
 - Copy the [main.css][css] file to it.
