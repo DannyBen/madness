@@ -75,10 +75,11 @@ Go to any directory that contains markdown files and run:
 
     $ madness
 
+And open <http://localhost:3000> in your browser.
+
 For more options, run:
 
     $ madness --help
-
 
 If you do not have Ruby installed, you can also 
 [run madness with docker](#docker-image).
