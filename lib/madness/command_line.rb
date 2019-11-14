@@ -2,6 +2,7 @@ require 'fileutils'
 require 'singleton'
 require 'colsole'
 require 'docopt'
+require 'os'
 
 module Madness
 
@@ -126,6 +127,18 @@ module Madness
 
     def config
       @config ||= Settings.instance
+    end
+
+    def open_url args
+      url = ENV['MADNESS_FORCE_SSL'] ? 'https://%s:%s' : 'http://%s:%s'
+      url = url % [config.bind, config.port]
+
+      begin
+        system(OS.open_file_command, url)
+      rescue Exception => e
+        say "!txtred!Error: Could not open a URL:"
+        say "!txtred!  #{e.to_s}"
+      end
     end
   end
 end
