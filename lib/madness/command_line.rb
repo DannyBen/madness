@@ -51,21 +51,24 @@ module Madness
     def launch_server_with_options(args)
       set_config args
       generate_stuff
-      launch_server unless args['--and-quit']
+      launch_server(args) unless args['--and-quit']
     end
 
     # Launch the server, but not before doing some checks and making sure
     # we ask it to "prepare". This will set the server options such as port
     # and static files folder.
-    def launch_server
+    def launch_server args
       unless File.directory? config.path
         STDERR.puts "Invalid path (#{config.path})" 
         return
       end
 
       show_status
-      Server.prepare
-      Server.run!
+
+      maybe_fork(args) do
+        Server.prepare
+        Server.run!
+      end
     end
 
     # Get the arguments as provided by docopt, and set them to our own
@@ -148,6 +151,19 @@ module Madness
       rescue Exception => e
         say "!txtred!Error: Could not open a URL:"
         say "!txtred!  #{e.to_s}"
+      end
+    end
+
+    def maybe_fork args
+      say "!txtred!Warning, this process already forked!" if !@server_pid.nil?
+      @server_pid = nil
+
+      if !args['--open']
+        yield
+      else
+        @server_pid = fork do
+          yield
+        end
       end
     end
   end
