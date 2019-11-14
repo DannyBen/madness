@@ -29,10 +29,20 @@ module Madness
     # the server.
     def handle(args)
       if args['create']
+        say "Ignoring `--open` when `create` is called." if args['--open']
         create_config if args['config']
         create_theme(args['FOLDER']) if args['theme']
       else
         launch_server_with_options args
+      end
+
+      if args['--open'] && !args['create']
+        begin
+          open_url(args)
+          Process.wait 
+        rescue Interrupt => e
+          # We want to be able SIG*-terminate without big fuzz.
+        end
       end
     end
 
