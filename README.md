@@ -79,6 +79,10 @@ For more options, run:
 
     $ madness --help
 
+Executing `madness` will start a webserver and allow you to browse your
+rendered markdown files using a webbrowser.  By
+[default](#configuration-file), the URL you have to visit is
+`http://0.0.0.0:3000` (thus also available in your network).
 
 If you do not have Ruby installed, you can also 
 [run madness with docker](#docker-image).
