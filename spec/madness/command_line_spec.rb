@@ -82,12 +82,21 @@ describe CommandLine do
     end
   end
 
-  context "with --open", :focus do
-    it "starts the server and executes a command to launch the browser" do
+  context "with --open" do
+    it "calls Browser#open" do
       expect(Server).to receive :run!
-      expect(subject).to receive(:server_running?).and_return true
+      expect_any_instance_of(Browser).to receive(:open).and_yield false
       command = %w[--open]
       expect { subject.execute command }.to output(/start.*the madnes/m).to_stdout
+    end
+
+    context "when browser launching fails" do
+      it "shows a friendly message" do
+        expect(Server).to receive :run!
+        expect_any_instance_of(Browser).to receive(:open).and_yield "this is a friendly message"
+        command = %w[--open]
+        expect { subject.execute command }.to output(/friendly message/m).to_stdout
+      end
     end
   end
 

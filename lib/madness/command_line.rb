@@ -1,9 +1,7 @@
-require 'socket'
 require 'fileutils'
 require 'singleton'
 require 'colsole'
 require 'docopt'
-require 'os'
 
 module Madness
 
@@ -133,55 +131,12 @@ module Madness
       @config ||= Settings.instance
     end
 
-    # Returns the URL where madness is running, suitable for opening in the
-    # browser
-    def server_url
-      scheme = ENV['MADNESS_FORCE_SSL'] ? 'https' : 'http'
-      host = config.bind == '0.0.0.0' ? 'localhost' : config.bind
-      port = config.port
-      
-      "#{scheme}://#{host}:#{port}"
-    end
-
-    # Returns true if the server is running. Will attempt to connect
-    # multiple times. This is designed to assisn in running some code after
-    # the server has launched.
-    def server_running?(retries: 5, delay: 1)
-      connected = false
-      attempts = 0
-
-      begin
-        connected = Socket.tcp(config.bind, config.port)
-      rescue
-        sleep delay
-        retry if (attempts += 1) < retries
-      ensure
-        connected.close if connected
-      end
-
-      !!connected
-    end
-
     # Open a web browser if the server is running. This is done in a
     # non-blocking manner, so it can be executed before starting the server.
     def open_browser
-      fork do
-        if server_running?
-          open_browser!
-        else
-          say "!txtylw!Failed launching browser. Is the server running?"
-        end
-      end
-    end
-
-    # Run the appropriate command (based on OS) to open a browser.
-    # Will display a helpful message on failure.
-    def open_browser!
-      command = [OS.open_file_command, server_url]
-      success = system *command, out: File::NULL, err: File::NULL
-
-      if !success
-        say "!txtylw!Failed launching browser (#{command.join ' '})" 
+      browser = Browser.new config.bind, config.port
+      browser.open do |error|
+        say "!txtred!#{error}" if error
       end
     end
   end
