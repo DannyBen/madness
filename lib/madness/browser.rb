@@ -18,7 +18,7 @@ module Madness
     end
 
     # Returns true if the server is running. Will attempt to connect
-    # multiple times. This is designed to assisn in running some code after
+    # multiple times. This is designed to assist in running some code after
     # the server has launched.
     def server_running?(retries: 5, delay: 1)
       connected = false
@@ -38,6 +38,7 @@ module Madness
 
     # Open a web browser if the server is running. This is done in a
     # non-blocking manner, so it can be executed before starting the server.
+    # It will yield an error message if it fails, or nil on success.
     def open
       fork do
         if server_running?
@@ -49,12 +50,12 @@ module Madness
       end
     end
 
-    # Run the appropriate command (based on OS) to open a browser.
-    # Will display a helpful message on failure.
+    # Runs the appropriate command (based on OS) to open a browser.
     def open!
       system *open_command, out: File::NULL, err: File::NULL
     end
 
+    # Returns the appropriate command (based on OS) to open a browser.
     def open_command
       @open_command ||= [OS.open_file_command, server_url]
     end
