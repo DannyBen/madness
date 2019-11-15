@@ -1,3 +1,4 @@
+require 'socket'
 require 'fileutils'
 require 'singleton'
 require 'colsole'
@@ -55,14 +56,8 @@ module Madness
       end
 
       show_status
-
       Server.prepare
       Server.run!
-
-      # maybe_fork(args) do
-      #   Server.prepare
-      #   Server.run!
-      # end
     end
 
     # Get the arguments as provided by docopt, and set them to our own
@@ -137,12 +132,39 @@ module Madness
       @config ||= Settings.instance
     end
 
-    def open_browser
-      url = ENV['MADNESS_FORCE_SSL'] ? 'https://%s:%s' : 'http://%s:%s'
-      url = url % [config.bind, config.port]
+    def server_url
+      scheme = ENV['MADNESS_FORCE_SSL'] ? 'https' : 'http'
+      host = config.bind == '0.0.0.0' ? 'localhost' : config.bind
+      port = config.port
+      
+      "#{scheme}://#{host}:#{port}"
+    end
 
-      success = system OS.open_file_command, url
-      say "!txtred!Warning: Could not open browser" unless success
+    def server_running?(retries: 5, delay: 1)
+      connected = false
+      attempts = 0
+
+      begin
+        connected = Socket.tcp(config.bind, config.port)
+      rescue
+        sleep delay
+        retry if (attempts += 1) < retries
+      end
+
+      connected
+    end
+
+    def open_browser
+      fork { open_browser! if server_running? }
+    end
+
+    def open_browser!
+      command = [OS.open_file_command, server_url]
+      success = system *command, out: File::NULL, err: File::NULL
+
+      if !success
+        say "!txtylw!Failed launching browser (#{command.join ' '})" 
+      end
     end
   end
 end
