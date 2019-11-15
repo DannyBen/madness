@@ -37,8 +37,8 @@ module Madness
       end
     end
 
-    # Execute some pre-server-launch operations if needed, and execute
-    # the server.
+    # Execute some pre-server-launch operations if needed, execute the
+    # server, and launch the browser if requested.
     def launch_server_with_options(args)
       set_config args
       generate_stuff
@@ -123,6 +123,7 @@ module Madness
       search.build_index
     end
 
+    # Generate the table of contents file
     def build_toc
       say_status :toc, "generating #{config.toc}"
       TableOfContents.new.build(config.toc)
@@ -132,6 +133,8 @@ module Madness
       @config ||= Settings.instance
     end
 
+    # Returns the URL where madness is running, suitable for opening in the
+    # browser
     def server_url
       scheme = ENV['MADNESS_FORCE_SSL'] ? 'https' : 'http'
       host = config.bind == '0.0.0.0' ? 'localhost' : config.bind
@@ -140,6 +143,9 @@ module Madness
       "#{scheme}://#{host}:#{port}"
     end
 
+    # Returns truthy if the server is running. Will attempt to connect 
+    # multiple times. This is designed to assisn in running some code after
+    # the server has launched.
     def server_running?(retries: 5, delay: 1)
       connected = false
       attempts = 0
@@ -154,10 +160,14 @@ module Madness
       connected
     end
 
+    # Open a web browser if the server is running. This is done in a
+    # non-blocking manner, so it can be executed before starting the server.
     def open_browser
       fork { open_browser! if server_running? }
     end
 
+    # Run the appropriate command (based on OS) to open a browser.
+    # Will display a helpful message on failure.
     def open_browser!
       command = [OS.open_file_command, server_url]
       success = system *command, out: File::NULL, err: File::NULL
