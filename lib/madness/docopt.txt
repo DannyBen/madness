@@ -65,9 +65,8 @@ Options:
     (Config option: toc)
 
   --open
-    Try to open a browser session pointing at the madness webserver. Ignored
-    if a `create` subcommand is given.
-    (Config option: open_browser_at_start)
+    Open the browser pointing at the madness webserver.
+    (Config option: open)
 
   --and-quit
     Quit instead of running the server. Useful with --index or --toc.

@@ -29,20 +29,10 @@ module Madness
     # the server.
     def handle(args)
       if args['create']
-        say "Ignoring `--open` when `create` is called." if args['--open']
         create_config if args['config']
         create_theme(args['FOLDER']) if args['theme']
       else
         launch_server_with_options args
-      end
-
-      if args['--open'] && !args['create']
-        begin
-          open_url(args)
-          Process.wait 
-        rescue Interrupt => e
-          # We want to be able SIG*-terminate without big fuzz.
-        end
       end
     end
 
@@ -51,13 +41,14 @@ module Madness
     def launch_server_with_options(args)
       set_config args
       generate_stuff
-      launch_server(args) unless args['--and-quit']
+      open_browser if config.open
+      launch_server unless args['--and-quit']
     end
 
     # Launch the server, but not before doing some checks and making sure
     # we ask it to "prepare". This will set the server options such as port
     # and static files folder.
-    def launch_server args
+    def launch_server
       unless File.directory? config.path
         STDERR.puts "Invalid path (#{config.path})" 
         return
@@ -65,10 +56,13 @@ module Madness
 
       show_status
 
-      maybe_fork(args) do
-        Server.prepare
-        Server.run!
-      end
+      Server.prepare
+      Server.run!
+
+      # maybe_fork(args) do
+      #   Server.prepare
+      #   Server.run!
+      # end
     end
 
     # Get the arguments as provided by docopt, and set them to our own
@@ -84,6 +78,7 @@ module Madness
       config.highlighter  = false   if args['--no-syntax']
       config.line_numbers = false   if args['--no-line-numbers']
       config.index        = true    if args['--index']
+      config.open         = true    if args['--open']
       config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
     end
 
@@ -142,29 +137,12 @@ module Madness
       @config ||= Settings.instance
     end
 
-    def open_url args
+    def open_browser
       url = ENV['MADNESS_FORCE_SSL'] ? 'https://%s:%s' : 'http://%s:%s'
       url = url % [config.bind, config.port]
 
-      begin
-        system(OS.open_file_command, url)
-      rescue Exception => e
-        say "!txtred!Error: Could not open a URL:"
-        say "!txtred!  #{e.to_s}"
-      end
-    end
-
-    def maybe_fork args
-      say "!txtred!Warning, this process already forked!" if !@server_pid.nil?
-      @server_pid = nil
-
-      if !args['--open']
-        yield
-      else
-        @server_pid = fork do
-          yield
-        end
-      end
+      success = system OS.open_file_command, url
+      say "!txtred!Warning: Could not open browser" unless success
     end
   end
 end

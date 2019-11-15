@@ -52,7 +52,6 @@ module Madness
         index: false,
         theme: nil,
         open: false,
-
         auto_nav: true,
         sidebar: true
       }
