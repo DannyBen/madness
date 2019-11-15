@@ -82,6 +82,15 @@ describe CommandLine do
     end
   end
 
+  context "with --open", :focus do
+    it "starts the server and executes a command to launch the browser" do
+      expect(Server).to receive :run!
+      expect(subject).to receive(:server_running?).and_return true
+      command = %w[--open]
+      expect { subject.execute command }.to output(/start.*the madnes/m).to_stdout
+    end
+  end
+
   context "with create config" do
     let(:filename) { '.madness.yml' }
 

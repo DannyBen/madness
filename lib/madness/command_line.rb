@@ -143,7 +143,7 @@ module Madness
       "#{scheme}://#{host}:#{port}"
     end
 
-    # Returns truthy if the server is running. Will attempt to connect 
+    # Returns true if the server is running. Will attempt to connect
     # multiple times. This is designed to assisn in running some code after
     # the server has launched.
     def server_running?(retries: 5, delay: 1)
@@ -155,15 +155,23 @@ module Madness
       rescue
         sleep delay
         retry if (attempts += 1) < retries
+      ensure
+        connected.close if connected
       end
 
-      connected
+      !!connected
     end
 
     # Open a web browser if the server is running. This is done in a
     # non-blocking manner, so it can be executed before starting the server.
     def open_browser
-      fork { open_browser! if server_running? }
+      fork do
+        if server_running?
+          open_browser!
+        else
+          say "!txtylw!Failed launching browser. Is the server running?"
+        end
+      end
     end
 
     # Run the appropriate command (based on OS) to open a browser.
