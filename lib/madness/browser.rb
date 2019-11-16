@@ -52,7 +52,7 @@ module Madness
 
     # Runs the appropriate command (based on OS) to open a browser.
     def open!
-      system *open_command, out: File::NULL, err: File::NULL, in: File::NULL
+      system *open_command, err: File::NULL, in: File::NULL, out: File::NULL
     end
 
     # Returns the appropriate command (based on OS) to open a browser.
