@@ -41,7 +41,7 @@ describe Browser do
     end
   end
 
-  describe '#open', :focus do
+  describe '#open' do
     context "when the server is not running" do
       it "yields an error message" do
         expect(subject).to receive(:fork) do |&block|

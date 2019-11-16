@@ -10,7 +10,7 @@ module Madness
       @host, @port = host, port
     end
 
-    # Returns a URL based on host, port nad MADNESS_FORCE_SSL.
+    # Returns a URL based on host, port and MADNESS_FORCE_SSL.
     def server_url
       scheme = ENV['MADNESS_FORCE_SSL'] ? 'https' : 'http'
       url_host = ['0.0.0.0', '127.0.0.1'].include?(host) ? 'localhost' : host
@@ -52,7 +52,7 @@ module Madness
 
     # Runs the appropriate command (based on OS) to open a browser.
     def open!
-      system *open_command, out: File::NULL, err: File::NULL
+      system *open_command, out: File::NULL, err: File::NULL, in: File::NULL
     end
 
     # Returns the appropriate command (based on OS) to open a browser.
