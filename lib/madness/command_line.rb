@@ -35,11 +35,12 @@ module Madness
       end
     end
 
-    # Execute some pre-server-launch operations if needed, and execute
-    # the server.
+    # Execute some pre-server-launch operations if needed, execute the
+    # server, and launch the browser if requested.
     def launch_server_with_options(args)
       set_config args
       generate_stuff
+      open_browser if config.open
       launch_server unless args['--and-quit']
     end
 
@@ -70,6 +71,7 @@ module Madness
       config.highlighter  = false   if args['--no-syntax']
       config.line_numbers = false   if args['--no-line-numbers']
       config.index        = true    if args['--index']
+      config.open         = true    if args['--open']
       config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
     end
 
@@ -119,6 +121,7 @@ module Madness
       search.build_index
     end
 
+    # Generate the table of contents file
     def build_toc
       say_status :toc, "generating #{config.toc}"
       TableOfContents.new.build(config.toc)
@@ -126,6 +129,15 @@ module Madness
 
     def config
       @config ||= Settings.instance
+    end
+
+    # Open a web browser if the server is running. This is done in a
+    # non-blocking manner, so it can be executed before starting the server.
+    def open_browser
+      browser = Browser.new config.bind, config.port
+      browser.open do |error|
+        say "!txtred!#{error}" if error
+      end
     end
   end
 end

@@ -51,7 +51,7 @@ module Madness
         line_numbers: true,
         index: false,
         theme: nil,
-
+        open: false,
         auto_nav: true,
         sidebar: true
       }

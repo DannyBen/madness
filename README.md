@@ -137,6 +137,7 @@ line_numbers: true
 index: false
 toc: Table of Contents
 theme: _theme
+open: false
 ```
 
 For convenience, you can get a template config file by running:
