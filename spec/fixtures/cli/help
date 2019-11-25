@@ -42,6 +42,10 @@ Options:
     Disable line numbering for syntax highlighter.
     (Config option: line_numbers)
 
+  --no-copy-code
+    Disable copy to cliboard icon for code snippets.
+    (Config option: copy_code)
+
   --no-sidebar
     Disable sidebar navigation.
     (Config option: sidebar)

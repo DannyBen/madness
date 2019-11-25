@@ -18,7 +18,6 @@
 - tmp/theme-test/styles/_anchor.scss
 - tmp/theme-test/styles/_autocomplete.scss
 - tmp/theme-test/styles/_breadcrumbs.scss
-- tmp/theme-test/styles/_clipboard.scss
 - tmp/theme-test/styles/_code.scss
 - tmp/theme-test/styles/_coderay.scss
 - tmp/theme-test/styles/_general.scss
