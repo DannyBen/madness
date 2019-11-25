@@ -7,11 +7,14 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1"
     link href='/css/main.css' rel='stylesheet' type='text/css'
 
-    script src="/js/vendor/jquery.min.js"
-    script src="/js/vendor/clipboard.min.js"
-    script src="/js/clipboard.js"
+    - if nav.with_search? or config.copy_code
+      script src="/js/vendor/jquery.min.js"
 
-    - if nav.with_search?      
+    - if config.copy_code
+      script src="/js/vendor/clipboard.min.js"
+      script src="/js/clipboard.js"
+
+    - if nav.with_search?
       script src="/js/vendor/jquery.autocomplete-min.js"
       script src="/js/autocomplete.js"
 

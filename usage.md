@@ -47,6 +47,10 @@ Options:
     Disable line numbering for syntax highlighter.
     (Config option: line_numbers)
 
+  --no-copy-code
+    Disable copy to cliboard icon for code snippets.
+    (Config option: copy_code)
+
   --no-sidebar
     Disable sidebar navigation.
     (Config option: sidebar)
@@ -69,6 +73,10 @@ Options:
     Generate a table of contents file. 
     (Config option: toc)
 
+  --open
+    Open the browser pointing at the madness webserver.
+    (Config option: open)
+
   --and-quit
     Quit instead of running the server. Useful with --index or --toc.
 
@@ -76,6 +84,7 @@ Examples:
   madness
   madness docs
   madness docs --no-auto-h1 -p 4567
+  madness docs --open
   madness --no-sidebar --no-auto-nav
   madness --index --and-quit
   madness --toc "Table of Contents.md" --index --and-quit
