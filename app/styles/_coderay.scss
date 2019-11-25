@@ -1,4 +1,18 @@
+.clipboard-button {
+  position: absolute;
+  right: 0;
+  font-size: 1.25em;
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+table.CodeRay:hover .clipboard-button {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
 table.CodeRay {
+  position: relative;
   margin-bottom: 0;
   
   pre {
