@@ -9,7 +9,9 @@
 - tmp/theme-test/public/fonts/fontello.woff2
 - tmp/theme-test/public/js
 - tmp/theme-test/public/js/autocomplete.js
+- tmp/theme-test/public/js/clipboard.js
 - tmp/theme-test/public/js/vendor
+- tmp/theme-test/public/js/vendor/clipboard.min.js
 - tmp/theme-test/public/js/vendor/jquery.autocomplete-min.js
 - tmp/theme-test/public/js/vendor/jquery.min.js
 - tmp/theme-test/styles

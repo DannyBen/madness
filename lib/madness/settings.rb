@@ -49,6 +49,7 @@ module Madness
         auto_h1: true,
         highlighter: true,
         line_numbers: true,
+        copy_code: true,
         index: false,
         theme: nil,
         open: false,

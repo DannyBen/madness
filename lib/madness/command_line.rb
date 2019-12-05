@@ -70,6 +70,7 @@ module Madness
       config.sidebar      = false   if args['--no-sidebar']
       config.highlighter  = false   if args['--no-syntax']
       config.line_numbers = false   if args['--no-line-numbers']
+      config.copy_code    = false   if args['--no-copy-code']
       config.index        = true    if args['--index']
       config.open         = true    if args['--open']
       config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']

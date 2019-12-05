@@ -134,6 +134,7 @@ auto_h1: true
 auto_nav: true
 highlighter: true
 line_numbers: true
+copy_code: true
 index: false
 toc: Table of Contents
 theme: _theme
