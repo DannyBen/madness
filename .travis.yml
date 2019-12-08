@@ -17,9 +17,5 @@ addons:
 before_install:
 - gem install bundler
 
-before_script:
-- gem uninstall sassc
-- gem install sassc -- --disable-march-tune-native
-
 script:
 - bundle exec rspec

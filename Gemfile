@@ -18,6 +18,7 @@ group :development do
   gem 'runfile-tasks'
   gem 'simplecov'
   gem 'yard'
+  gem 'ffi' <= 1.11.2
   
 end
 
