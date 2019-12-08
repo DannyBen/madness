@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 group :development do
 
-  gem 'jekyll'
+  # gem 'jekyll'
 
   # This gem is for local GitHub pages development, but it conflicts with
   # CmomonMarker (it requires a lower version than we need)
