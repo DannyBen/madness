@@ -36,4 +36,12 @@ describe StringRefinements do
       end
     end
   end
+
+  describe '#to_href' do
+    subject { "Disney Land/Space Mountain" }
+
+    it "converts the string to a valid URI" do
+      expect(subject.to_href).to eq "Disney%20Land/Space%20Mountain"
+    end
+  end
 end

@@ -60,7 +60,7 @@ module Madness
       "#{@path}/_index"
     end
 
-    private
+  private
 
     # We are going to avoid indexing of README.md when there is also an
     # index.md in the same directory, to keep behavior consistent with the 

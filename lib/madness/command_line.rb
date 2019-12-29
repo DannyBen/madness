@@ -22,7 +22,7 @@ module Madness
       end
     end
 
-    private
+  private
 
     # Separate between the two main modes: Create something, or launch
     # the server.

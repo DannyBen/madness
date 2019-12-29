@@ -14,7 +14,7 @@ module Madness
     end
 
     def href
-      URI.escape(path_without_extension.sub(/^#{docroot}/, ''))
+      path_without_extension.sub(/^#{docroot}/, '').to_href
     end
 
     def dir?
@@ -25,7 +25,7 @@ module Madness
       type == :file
     end
 
-    private
+  private
 
     def label!
       File.basename(path_without_extension).to_label

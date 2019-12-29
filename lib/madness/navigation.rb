@@ -22,7 +22,7 @@ module Madness
       @with_search ||= Search.new.has_index?
     end
 
-    private
+  private
 
     def directory
       @directory ||= Directory.new(dir)

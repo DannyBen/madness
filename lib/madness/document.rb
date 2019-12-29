@@ -47,16 +47,17 @@ module Madness
 
     # Return the HTML for that document, force re-read.
     def content!
-      type == :empty ? "<h1>#{title}</h1>" : markdown_to_html
+      [:empty, :missing].include?(type) ? "<h1>#{title}</h1>" : markdown_to_html
     end
 
-    private
+  private
 
     # Identify file, dir and type.
-    # :readme - in case the path is a directory, and it contains index.md
-    #           or README.md
-    # :file   - in case the path is a *.md file
-    # :empty  - in any other case, we don't know.
+    # :readme  - in case the path is a directory, and it contains index.md
+    #            or README.md
+    # :file    - in case the path is a *.md file
+    # :empty   - in case it is a folder without README.md or index.md
+    # :missing - in any other case, we don't know (will trigger 404)
     def set_base_attributes
       @dir  = docroot
       @type = :empty
@@ -71,6 +72,8 @@ module Madness
         @title = File.basename(base).to_label
         @dir  = File.dirname file
         @type = :file
+      else
+        @type = :missing
       end
     end
 
