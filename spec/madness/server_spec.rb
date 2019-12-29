@@ -87,9 +87,9 @@ describe Server do
       end
 
       it "redirects to a properly encoded path" do
-        get '/Folder%20With%20Index'
+        get '/Folder%20with%20Index'
         expect(last_response).to be_redirection
-        expect(last_response.location).to eq 'http://example.org/Folder%20With%20Index/'
+        expect(last_response.location).to eq 'http://example.org/Folder%20with%20Index/'
       end
 
       it "shows breadcrumbs" do
