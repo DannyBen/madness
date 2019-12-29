@@ -60,7 +60,7 @@ module Madness
     # :missing - in any other case, we don't know (will trigger 404)
     def set_base_attributes
       @dir  = docroot
-      @type = :empty
+      @type = :missing
       @file = ''
       @title = 'Index'
 
@@ -72,8 +72,6 @@ module Madness
         @title = File.basename(base).to_label
         @dir  = File.dirname file
         @type = :file
-      else
-        @type = :missing
       end
     end
 
