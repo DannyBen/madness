@@ -65,6 +65,14 @@ describe Server do
       expect(last_response.content_length).to eq 1167
     end
 
+    context "when requesting an invalid page" do
+      it "shows index" do
+        get '/no-such-page'
+        expect(last_response).to be_not_found
+        expect(last_response.body).to have_tag 'h1', text: "Index"
+      end
+    end
+
     context "in subfolders" do
       it "works" do
         get '/Folder/'
@@ -76,6 +84,12 @@ describe Server do
         get '/Folder'
         expect(last_response).to be_redirection
         expect(last_response.location).to eq 'http://example.org/Folder/'
+      end
+
+      it "redirects to a properly encoded path" do
+        get '/Folder%20with%20Index'
+        expect(last_response).to be_redirection
+        expect(last_response.location).to eq 'http://example.org/Folder%20with%20Index/'
       end
 
       it "shows breadcrumbs" do

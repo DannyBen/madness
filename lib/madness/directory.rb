@@ -14,7 +14,7 @@ module Madness
       @list ||= (dirs + files)
     end
 
-    private
+  private
 
     def files
       result = Dir["#{dir}/*.md"]

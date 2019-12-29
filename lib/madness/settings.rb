@@ -39,7 +39,7 @@ module Madness
       '.madness.yml'
     end
 
-    private
+  private
 
     def defaults
       {

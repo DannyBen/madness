@@ -5,6 +5,10 @@ module Madness
         gsub regex, ''
       end
 
+      def to_href
+        URI.escape self
+      end
+
       def to_slug
         downcase.strip.gsub(' ', '-').remove(/[^\w-]/)
       end

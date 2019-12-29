@@ -15,7 +15,7 @@ module Madness
       path == "" ? [] : get_breadcrumbs
     end
 
-    private
+  private
 
     def get_breadcrumbs
       home = OpenStruct.new({ label: "Home", href: '/' })
