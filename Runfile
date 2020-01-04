@@ -41,8 +41,8 @@ end
 
 help   "Generate changelog"
 action :changelog do
-  run 'github_changelog_generator -u DannyBen -p madness'
-  run "git commit -am 'update changelog' && git push"
+  run 'github_changelog_generator -u DannyBen -p madness --no-http-cache'
+  # run "git commit -am 'update changelog' && git push"
 end
 
 help   "Count lines of code"

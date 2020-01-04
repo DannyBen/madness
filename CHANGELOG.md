@@ -1,5 +1,35 @@
 # Changelog
 
+## [v0.8.0](https://github.com/DannyBen/madness/tree/v0.8.0) (2019-12-29)
+
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.7.6...v0.8.0)
+
+**Merged pull requests:**
+
+- Fix redirect in paths with spaces and add 404 [\#93](https://github.com/DannyBen/madness/pull/93) ([DannyBen](https://github.com/DannyBen))
+- Fix ffi-related failing tests [\#92](https://github.com/DannyBen/madness/pull/92) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.7.6](https://github.com/DannyBen/madness/tree/v0.7.6) (2019-12-08)
+
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.7.5...v0.7.6)
+
+**Implemented enhancements:**
+
+- Add ability to "Copy" code [\#89](https://github.com/DannyBen/madness/issues/89)
+- Add flag to start/stop in the background [\#5](https://github.com/DannyBen/madness/issues/5)
+
+**Merged pull requests:**
+
+- Test with Ruby 2.7 [\#91](https://github.com/DannyBen/madness/pull/91) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.7.5](https://github.com/DannyBen/madness/tree/v0.7.5) (2019-12-05)
+
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.7.4...v0.7.5)
+
+**Merged pull requests:**
+
+- Copy to clipboard [\#90](https://github.com/DannyBen/madness/pull/90) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.7.4](https://github.com/DannyBen/madness/tree/v0.7.4) (2019-11-16)
 
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.7.3...v0.7.4)
@@ -73,6 +103,7 @@
 **Merged pull requests:**
 
 - Downgrade Sinatra [\#76](https://github.com/DannyBen/madness/pull/76) ([DannyBen](https://github.com/DannyBen))
+- Refactor settings to allow arbitrary user input [\#75](https://github.com/DannyBen/madness/pull/75) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.6.6](https://github.com/DannyBen/madness/tree/v0.6.6) (2018-08-21)
 
@@ -92,7 +123,6 @@
 
 **Merged pull requests:**
 
-- Refactor settings to allow arbitrary user input [\#75](https://github.com/DannyBen/madness/pull/75) ([DannyBen](https://github.com/DannyBen))
 - Search improvements [\#71](https://github.com/DannyBen/madness/pull/71) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.6.4](https://github.com/DannyBen/madness/tree/v0.6.4) (2018-08-10)
@@ -341,7 +371,6 @@
 **Merged pull requests:**
 
 - Add search [\#13](https://github.com/DannyBen/madness/pull/13) ([DannyBen](https://github.com/DannyBen))
-- Improve styling and SCSS [\#2](https://github.com/DannyBen/madness/pull/2) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.0.7](https://github.com/DannyBen/madness/tree/v0.0.7) (2016-06-13)
 
@@ -374,6 +403,10 @@
 ## [v0.0.5](https://github.com/DannyBen/madness/tree/v0.0.5) (2016-06-12)
 
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.0.4...v0.0.5)
+
+**Merged pull requests:**
+
+- Improve styling and SCSS [\#2](https://github.com/DannyBen/madness/pull/2) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.0.4](https://github.com/DannyBen/madness/tree/v0.0.4) (2016-06-11)
 
