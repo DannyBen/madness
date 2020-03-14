@@ -43,9 +43,15 @@ Table of Contents
 Install
 --------------------------------------------------
 
+**Using Ruby:**
+
     $ gem install madness
 
+**Using Docker:**
 
+```shell
+$ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'
+```
 
 Design Intentions
 --------------------------------------------------
