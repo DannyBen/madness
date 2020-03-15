@@ -1,5 +1,4 @@
-Madness - Instant Markdown Server
-==================================================
+# Madness - Instant Markdown Server
 
 [![Gem Version](https://badge.fury.io/rb/madness.svg)](https://badge.fury.io/rb/madness)
 [![Build Status](https://github.com/DannyBen/madness/workflows/Test/badge.svg)](https://github.com/DannyBen/madness/actions?query=workflow%3ATest)
@@ -7,8 +6,7 @@ Madness - Instant Markdown Server
 
 ---
 
-Screenshots (click to zoom)
---------------------------------------------------
+## Screenshots (click to zoom)
 
 <table><tr>
   <td><a target='_screenshot' href='assets/screen-main.png'><img src='assets/screen-main.png'/></a></td>
@@ -17,10 +15,7 @@ Screenshots (click to zoom)
   <td><a target='_screenshot' href='assets/screen-search.png'><img src='assets/screen-search.png'/></a></td>
 </tr></table>
 
-
-
-Table of Contents
---------------------------------------------------
+## Table of Contents
 
 * [Install](#install)
 * [Design Intentions](#design-intentions)
@@ -38,14 +33,13 @@ Table of Contents
 * [Forcing HTTPS Connection](#forcing-https-connection)
 * [Docker Image](#docker-image)
 
-
-
-Install
---------------------------------------------------
+## Install
 
 **Using Ruby:**
 
-    $ gem install madness
+```shell
+$ gem install madness
+```
 
 **Using Docker:**
 
@@ -53,16 +47,12 @@ Install
 $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'
 ```
 
-Design Intentions
---------------------------------------------------
+## Design Intentions
 
 Madness was designed in order to provide easy browsing, viewing and 
 searching for local, markdown based documentation directories.
 
-
-
-Feature Highlights
---------------------------------------------------
+## Feature Highlights
 
 - Easy to use.
 - Built-in full text search.
@@ -72,28 +62,23 @@ Feature Highlights
 - Automatic generation of navigation sidebar.
 - Automatic generation of Table of Contents.
 
-
-
-Usage
---------------------------------------------------
+## Usage
 
 Go to any directory that contains markdown files and run:
 
-    $ madness
+```shell
+$ madness
+```
 
 And open <http://localhost:3000> in your browser.
 
 For more options, run:
 
-    $ madness --help
+```shell
+$ madness --help
+```
 
-If you do not have Ruby installed, you can also 
-[run madness with docker](#docker-image).
-
-
-
-Directory Conventions
---------------------------------------------------
+## Directory Conventions
 
 Madness expects to be executed in a documentation directory.
 
@@ -121,10 +106,7 @@ Example structure:
     └── File.md
 ```
 
-
-
-Configuration File
---------------------------------------------------
+## Configuration File
 
 All the command line arguments can also be configured through a 
 configuration file. Create a file named `.madness.yml` in your 
@@ -153,10 +135,7 @@ For convenience, you can get a template config file by running:
 $ madness create config
 ```
 
-
-
-Search
---------------------------------------------------
+## Search
 
 Madness comes with a full text search page. To activate it, you need to
 generate a search index by running `madness --index` or 
@@ -168,10 +147,7 @@ to your documentation server.
 You will need to run this command from time to time, as your 
 documents change or new documents are added.
 
-
-
-Images and Static Files
---------------------------------------------------
+## Images and Static Files
 
 You can put images and other asset files anywhere in your documentation
 folder.
@@ -190,40 +166,28 @@ this markdown:
 If you wish to link to images or pages in a different folder, simply specify
 the path relative to the homepage:
 
-```
+```markdown
 ![alt text](/images/nice-picture.png)
 ```
 
-
-
-Automatic H1
---------------------------------------------------
+## Automatic H1
 
 If your markdown document does not start with a level 1 heading, it
 will be automatically added based on the file name.
 
+## Table of Contents Generation
 
+You can use the `madness --toc FILENAME` command to generate a
+"Table of Contents" markdown file.
 
-Table of Contents Generation
---------------------------------------------------
-
-You can use the `madness --toc` command to generate a "Table of Contents" 
-markdown file.
-
-
-
-Hidden Directories
---------------------------------------------------
+## Hidden Directories
 
 Directories that are made only of lowercase letters, underscoes, dash and/or
 numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation. In
 other words, directories must have at least one uppercase letter or a space
 to be recognized as a documentation directory.
 
-
-
-Controlling Sort Order
---------------------------------------------------
+## Controlling Sort Order
 
 To control the sort order of the automatically generated navigation elements,
 simply perfix your files and directories with digits followed by a dot and a 
@@ -236,10 +200,7 @@ will be omitted when they are displayed.
 └── 2. Another file or folder
 ```
 
-
-
-Customizing Theme
---------------------------------------------------
+## Customizing Theme
 
 There are two ways to change how Madness looks. 
 
@@ -278,20 +239,16 @@ If you are looking to implement a smaller CSS change, follow these steps:
 Note that this functionality is not guaranteed to stay as is in future 
 versions of madness.
 
-
-
-Forcing HTTPS Connection
---------------------------------------------------
+## Forcing HTTPS Connection
 
 To have Madness redirect HTTP traffic to HTTPS, set this environment 
 variable:
 
-    $ export MADNESS_FORCE_SSL=1
+```shell
+$ export MADNESS_FORCE_SSL=1
+```
 
-
-
-Docker Image
---------------------------------------------------
+## Docker Image
 
 Madness server is also available as a docker image.
 
@@ -300,6 +257,13 @@ directory as the markdown documentation folder
 
 ```shell
 $ docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
+```
+
+You may create an alias for convenience:
+
+```shell
+$ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'
+$ medness --help
 ```
 
 For more information about the docker image, see:
