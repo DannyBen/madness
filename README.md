@@ -124,7 +124,8 @@ highlighter: true
 line_numbers: true
 copy_code: true
 index: false
-toc: Table of Contents
+search_limit: 100
+dtoc: Table of Contents
 theme: _theme
 open: false
 ```
