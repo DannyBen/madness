@@ -33,7 +33,7 @@ module Madness
       index = Index.new path: index_dir
 
       results = []
-      index.search_each(query, limit: 20) do |doc_id, score| 
+      index.search_each(query, limit: config.search_limit) do |doc_id, score| 
         filename = index[doc_id][:file].sub("#{@path}/", '')[0...-3]
         highlights = index.highlight "content:(#{query.tr(' ',' OR ')}) ", doc_id, field: :content,
           pre_tag: "<strong>", post_tag: "</strong>",
@@ -89,6 +89,10 @@ module Madness
         .split('/')
         .map { |i| i.to_label }
         .join(' / ')
+    end
+
+    def config
+      @config ||= Settings.instance
     end
 
     def file_url(filename)

@@ -16,16 +16,16 @@ Subcommands:
 
 Parameters:
   PATH:
-    Optional path to the markdown directory.
+    Path to the markdown directory [default: .].
     (Config option: path)
 
 Options:
   -p, --port NUMBER
-    Set server port number.
+    Set server port number [default: 3000].
     (Config option: port)
 
   -b, --bind ADDRESS
-    Set server listen address.
+    Set server listen address [default: 0.0.0.0].
     (Config option: bind)
 
   --no-auto-h1
@@ -67,6 +67,10 @@ Options:
   --toc FILE
     Generate a table of contents file. 
     (Config option: toc)
+
+  --search-limit LIMIT
+    Maximum number of results to show on the search page [default: 100].
+    (Config option: search_limit)
 
   --open
     Open the browser pointing at the madness webserver.

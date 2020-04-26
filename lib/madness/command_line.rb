@@ -61,10 +61,12 @@ module Madness
     # Get the arguments as provided by docopt, and set them to our own
     # config object.
     def set_config(args)
-      config.path  = args['PATH']   if args['PATH']
-      config.port  = args['--port'].to_i if args['--port']
-      config.bind  = args['--bind'] if args['--bind']
-      config.toc   = args['--toc']  if args['--toc']
+      config.path         = args['PATH']   if args['PATH']
+      config.port         = args['--port'].to_i if args['--port']
+      config.bind         = args['--bind'] if args['--bind']
+      config.toc          = args['--toc']  if args['--toc']
+      config.search_limit = args['--search-limit'].to_i  if args['--search-limit']
+
       config.auto_h1      = false   if args['--no-auto-h1']
       config.auto_nav     = false   if args['--no-auto-nav']
       config.sidebar      = false   if args['--no-sidebar']
@@ -73,6 +75,7 @@ module Madness
       config.copy_code    = false   if args['--no-copy-code']
       config.index        = true    if args['--index']
       config.open         = true    if args['--open']
+      
       config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
     end
 
