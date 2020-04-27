@@ -165,6 +165,23 @@ describe Server do
       end
     end
 
+    context "when basic authentication is enabled" do
+      before { config.auth = "user:s3cr3t" }
+   
+      it "denies access" do
+        get '/'
+        expect(last_response).to be_unauthorized
+      end
+
+      context "with proper credentials" do
+        it "allows access" do
+          authorize "user", 's3cr3t'
+          get '/'
+          expect(last_response).to be_ok
+        end
+      end
+    end
+
   end
 
 end

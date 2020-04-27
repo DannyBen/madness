@@ -72,6 +72,14 @@ Options:
     Maximum number of results to show on the search page [default: 100].
     (Config option: search_limit)
 
+  --auth USER:PASS
+    Enable basic authentication.
+    (Config option: auth)
+
+  --auth-realm REALM
+    The basic authentication realm [default: Madness].
+    (Config option: auth_realm)
+
   --open
     Open the browser pointing at the madness webserver.
     (Config option: open)
@@ -87,6 +95,7 @@ Examples:
   madness --no-sidebar --no-auto-nav
   madness --index --and-quit
   madness --toc "Table of Contents.md" --index --and-quit
+  madness --auth user:secret --port 4000
   madness --theme _mytheme
   madness create config
   madness create theme

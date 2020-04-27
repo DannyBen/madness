@@ -35,6 +35,7 @@ module Madness
       set :bind, config.bind
       set :port, config.port
 
+      set_basic_auth if config.auth
       set_tempalate_locations
     end
 
@@ -45,6 +46,12 @@ module Madness
       set :public_folder, theme.public_path
       Sass::Plugin.options[:template_location] = theme.css_source_path
       Sass::Plugin.options[:css_location] = theme.css_target_path
+    end
+
+    def self.set_basic_auth
+      use Rack::Auth::Basic, config.auth_realm do |username, password|
+        config.auth.split(':') == [username, password]
+      end
     end
 
     def self.config

@@ -7,3 +7,4 @@ auto_h1: false
 highlighter: false
 line_numbers: false
 index: true
+auth: user:s3cr3t

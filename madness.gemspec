@@ -33,4 +33,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sinatra', '~> 2.0', '>= 2.0.5'
   s.add_runtime_dependency 'sinatra-contrib', '~> 2.0', '>= 2.0.5'
   s.add_runtime_dependency 'slim', '~> 4.0'
+  s.add_runtime_dependency 'extended_yaml', '~> 0.2'
 end

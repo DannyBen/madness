@@ -245,8 +245,9 @@ nav {
   nav .icon-bar {
     border-bottom: 1px dotted #ddd; }
   nav a.document, nav span.document, nav .caption {
+    border-bottom: 1px dotted #ddd;
     display: block;
-    padding: 3px 20px 3px 30px; }
+    padding: 5px 20px 5px 30px; }
   nav a.icon {
     display: inline-block;
     font-size: 1.5em;
