@@ -66,6 +66,8 @@ module Madness
       config.bind         = args['--bind'] if args['--bind']
       config.toc          = args['--toc']  if args['--toc']
       config.search_limit = args['--search-limit'].to_i  if args['--search-limit']
+      config.auth         = args['--auth'] if args['--auth']
+      config.auth_realm   = args['--auth-realm'] if args['--auth-realm']
 
       config.auto_h1      = false   if args['--no-auto-h1']
       config.auto_nav     = false   if args['--no-auto-nav']

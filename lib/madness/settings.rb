@@ -55,7 +55,9 @@ module Madness
         theme: nil,
         open: false,
         auto_nav: true,
-        sidebar: true
+        sidebar: true,
+        auth: false,
+        auth_realm: 'Madness'
       }
     end
 
@@ -64,7 +66,7 @@ module Madness
     end
 
     def file_data
-      file_exist? ? YAML.load_file(filename).symbolize_keys : {}
+      file_exist? ? ExtendedYAML.load_file(filename).symbolize_keys : {}
     end
 
   end

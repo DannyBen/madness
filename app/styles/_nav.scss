@@ -20,13 +20,13 @@ nav {
   }
 
   a.document, span.document, .caption {
-    // border-bottom: 1px dotted #ddd;
+    border-bottom: 1px dotted #ddd;
     // &:hover {
     //   background: #e4e4e4;
     // }
 
     display: block;
-    padding: 3px 20px 3px 30px;
+    padding: 5px 20px 5px 30px;
   }
 
   a.icon {

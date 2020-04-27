@@ -1,9 +1,9 @@
 # Madness configuration file
 # Uncomment any of the options below
 
-# path: '.'
-# port: '3000'
-# bind: '0.0.0.0'
+# path: .
+# port: 3000
+# bind: 0.0.0.0
 # sidebar: true
 # auto_h1: true
 # auto_nav: true
@@ -15,3 +15,5 @@
 # search_limit: 100
 # theme: _theme
 # open: false
+# auth: false
+# auth_zone: 'Madness'
