@@ -1,4 +1,5 @@
 require 'singleton'
+require 'extended_yaml'
 
 module Madness
   
@@ -66,7 +67,7 @@ module Madness
     end
 
     def file_data
-      file_exist? ? ExtendedYAML.load_file(filename).symbolize_keys : {}
+      file_exist? ? ExtendedYAML.load(filename).symbolize_keys : {}
     end
 
   end
