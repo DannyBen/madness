@@ -29,6 +29,7 @@
 * [Table of Contents Generation](#table-of-contents-generation)
 * [Hidden Directories](#hidden-directories)
 * [Controlling Sort Order](#controlling-sort-order)
+* [Basic Authntication](#basic-authentication)
 * [Customizing Theme](#customizing-theme)
 * [Forcing HTTPS Connection](#forcing-https-connection)
 * [Docker Image](#docker-image)
@@ -199,6 +200,16 @@ will be omitted when they are displayed.
 ./
 ├── 1. Some file or folder
 └── 2. Another file or folder
+```
+
+## Basic Authentication
+
+To add basic authentication, use the `--auth user:password` command line argument or the equivalent `auth` configuration option.
+
+If you wish to avoid storing the basic authentication credentials in the configuration file, you may use ERB tags to load the credentials from environment variables:
+
+```yaml
+auth: <%= ENV['BASIC_AUTH'] %>
 ```
 
 ## Customizing Theme
