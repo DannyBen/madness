@@ -1,5 +1,34 @@
 # Changelog
 
+## [v0.8.3](https://github.com/DannyBen/madness/tree/v0.8.3) (2020-05-06)
+
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.8.2...v0.8.3)
+
+**Merged pull requests:**
+
+- Fixes for Ruby 2.7 [\#97](https://github.com/DannyBen/madness/pull/97) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.8.2](https://github.com/DannyBen/madness/tree/v0.8.2) (2020-04-27)
+
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.8.1...v0.8.2)
+
+**Merged pull requests:**
+
+- Updates [\#96](https://github.com/DannyBen/madness/pull/96) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.8.1](https://github.com/DannyBen/madness/tree/v0.8.1) (2020-04-26)
+
+[Full Changelog](https://github.com/DannyBen/madness/compare/v0.8.0...v0.8.1)
+
+**Implemented enhancements:**
+
+- Consider re-adding GraphViz / UML support [\#41](https://github.com/DannyBen/madness/issues/41)
+
+**Merged pull requests:**
+
+- Add configurable search limit [\#95](https://github.com/DannyBen/madness/pull/95) ([DannyBen](https://github.com/DannyBen))
+- Switch to github actions [\#94](https://github.com/DannyBen/madness/pull/94) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.8.0](https://github.com/DannyBen/madness/tree/v0.8.0) (2019-12-29)
 
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.7.6...v0.8.0)
