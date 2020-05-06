@@ -1,9 +1,8 @@
-require 'rack/contrib/try_static'
+# require 'sinatra/reloader'
 require 'rack/ssl'
 require 'sass'
 require 'sass/plugin/rack'
 require 'sinatra/base'
-require 'sinatra/reloader'
 require 'slim'
 
 module Madness
@@ -19,11 +18,16 @@ module Madness
     use Rack::SSL if ENV['MADNESS_FORCE_SSL']
     set :root, File.expand_path('../../', __dir__)
     set :server, :puma
+    set :environment, ENV['MADNESS_ENV'] || :production
 
-    configure :development do
-      register Sinatra::Reloader
-      also_reload "#{__dir__}/*.rb"
-    end    
+    # TODO: Uncomment when the upstream issue is resolved
+    # At this time, we cannot use reloader, since it prints deprecation
+    # warnings in Ruby 2.7
+    # ref: https://github.com/sinatra/sinatra/issues/1590
+    # configure :development do
+    #   register Sinatra::Reloader
+    #   also_reload "#{__dir__}/*.rb"
+    # end
 
     # Since we cannot use any config values in the main body of the class,
     # since they will be updated later, we need to set anything that relys
@@ -31,7 +35,7 @@ module Madness
     # The CommandLine class and the test suite should both call
     # `Server.prepare` before calling Server.run!
     def self.prepare
-      use Madness::Static, root: "#{config.path}/", :urls => %w[/]
+      use Madness::Static, root: "#{config.path}/", urls: %w[/], cascade: true
       set :bind, config.bind
       set :port, config.port
 

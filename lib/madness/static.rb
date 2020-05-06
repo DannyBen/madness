@@ -1,11 +1,11 @@
 module Madness
 
   # The Madness::Static middleware delegates requests to 
-  # Rack::TryStatic middleware unless the request URI ends with .md
+  # Rack::Static middleware unless the request URI ends with .md
   class Static
     def initialize(app, options)
       @app = app
-      @static = ::Rack::TryStatic.new(app, options)
+      @static = Rack::Static.new app, options
     end
 
     def call(env)

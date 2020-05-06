@@ -150,4 +150,19 @@ describe CommandLine do
       end
     end
   end
+
+  context "when executed in a folder with .madness.yml" do
+    before { config.reset }
+
+    it "does considers the config values" do
+      expect(Server).to receive :run!
+
+      Dir.chdir 'spec/fixtures/docroot-with-config' do
+        expect { subject.execute }
+          .to output_fixture('cli/run-with-config')
+          .except(/\/.*\//)
+      end
+    end
+  end
+
 end
