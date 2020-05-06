@@ -16,17 +16,17 @@ Subcommands:
 
 Parameters:
   PATH:
-    Path to the markdown directory [default: .].
-    (Config option: path)
+    Path to the markdown directory.
+    (Config option: path, default: .)
 
 Options:
   -p, --port NUMBER
-    Set server port number [default: 3000].
-    (Config option: port)
+    Set server port number.
+    (Config option: port, default: 3000)
 
   -b, --bind ADDRESS
-    Set server listen address [default: 0.0.0.0].
-    (Config option: bind)
+    Set server listen address.
+    (Config option: bind, default: 0.0.0.0)
 
   --no-auto-h1
     By default, if a markdown document does not start with an H1 caption,
@@ -77,8 +77,8 @@ Options:
     (Config option: auth)
 
   --auth-realm REALM
-    The basic authentication realm [default: Madness].
-    (Config option: auth_realm)
+    The basic authentication realm.
+    (Config option: auth_realm, default: Madness)
 
   --open
     Open the browser pointing at the madness webserver.

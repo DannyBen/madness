@@ -1,0 +1,7 @@
+       index  generating ..._index
+       start  the madness
+         env  production
+      listen  4.3.2.1:1337
+        path  ...docs
+         use  .madness.yml
+------------------------------------------------------------

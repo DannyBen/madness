@@ -1,3 +1,5 @@
+require 'addressable'
+
 module Madness
   module StringRefinements
     refine String do
@@ -6,7 +8,7 @@ module Madness
       end
 
       def to_href
-        URI.escape self
+        Addressable::URI.escape self
       end
 
       def to_slug
