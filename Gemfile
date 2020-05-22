@@ -13,7 +13,7 @@ group :development do
   gem 'rdoc'
   gem 'rspec'
   gem 'rspec-html-matchers'
-  gem 'rspec_fixtures'
+  gem 'rspec_approvals'
   gem 'runfile'
   gem 'runfile-tasks'
   gem 'simplecov'

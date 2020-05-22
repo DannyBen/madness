@@ -19,7 +19,7 @@ describe CommandLine do
     it "shows help" do
       expect(Server).not_to receive :run!
       command = %w[--help]
-      expect { subject.execute command }.to output_fixture('cli/help')
+      expect { subject.execute command }.to output_approval('cli/help')
     end
   end
 
@@ -35,7 +35,7 @@ describe CommandLine do
     it "shows usage" do
       expect(Server).not_to receive :run!
       command = %w[--no-such-args]
-      expect { subject.execute command }.to output_fixture('cli/usage')
+      expect { subject.execute command }.to output_approval('cli/usage')
     end
   end
 
@@ -137,7 +137,7 @@ describe CommandLine do
     it "copies the default theme to a folder of our choice" do
       expect { subject.execute "create theme #{theme_dir}" }.to output(/Created #{theme_dir}/).to_stdout
       expect(Dir).to exist theme_dir
-      expect(Dir["#{theme_dir}/**/*"].sort.to_yaml).to match_fixture('cli/theme-ls')
+      expect(Dir["#{theme_dir}/**/*"].sort.to_yaml).to match_approval('cli/theme-ls')
     end
 
     context "when dir already exists" do
@@ -159,7 +159,7 @@ describe CommandLine do
 
       Dir.chdir 'spec/fixtures/docroot-with-config' do
         expect { subject.execute }
-          .to output_fixture('cli/run-with-config')
+          .to output_approval('cli/run-with-config')
           .except(/\/.*\//)
       end
     end

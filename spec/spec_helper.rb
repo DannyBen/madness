@@ -40,5 +40,6 @@ RSpec.configure do |config|
   config.include RSpecMixin
   config.include RSpecHtmlMatchers
   config.include ServerHelper
+  config.approvals_path = File.expand_path 'fixtures', __dir__
 end
 

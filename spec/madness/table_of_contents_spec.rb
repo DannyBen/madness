@@ -8,7 +8,7 @@ describe TableOfContents do
 
   describe '#toc' do
     it "returns a markdown table of contents" do
-      expect(subject.toc).to match_fixture('toc')
+      expect(subject.toc).to match_approval('toc')
     end
   end
 
