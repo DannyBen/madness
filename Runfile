@@ -56,8 +56,4 @@ action :jekyll do |args|
   run! "jekyll serve -H 0.0.0.0 -P 3000"
 end
 
-action :debug do
-  dir = Madness::Directory.new 'dev/Folder', 'dev'
-  pp dir.list
-end
-
+require_relative 'debug.rb' if File.exist? 'debug.rb'
