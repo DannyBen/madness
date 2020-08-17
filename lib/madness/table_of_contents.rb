@@ -5,7 +5,7 @@ module Madness
 
     attr_reader :dir
 
-    def initialize(dir=nil)
+    def initialize(dir = nil)
       @dir = dir || docroot
     end
 
@@ -20,7 +20,7 @@ module Madness
 
   private
 
-    def toc!(path=dir, indent=0)
+    def toc!(path = dir, indent = 0)
       list = Directory.new(path).list
 
       result = []

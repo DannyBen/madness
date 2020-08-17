@@ -5,6 +5,7 @@ Gemfile.lock
 /gems
 /coverage
 /doc
+/debug.rb
 
 /_local_jekyll
 /_site
