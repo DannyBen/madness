@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'json', '~> 2.1'
   s.add_runtime_dependency 'naturally', '~> 2.2'
   s.add_runtime_dependency 'os', '~> 1.0'
-  s.add_runtime_dependency 'puma', '~> 4.0'
+  s.add_runtime_dependency 'puma', '~> 5.0'
   # s.add_runtime_dependency 'rack-contrib', '~> 2.1'
   s.add_runtime_dependency 'rack-ssl', '~> 1.4'
   s.add_runtime_dependency 'requires', '~> 0.1'
