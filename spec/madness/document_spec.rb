@@ -248,6 +248,11 @@ describe Document do
       expect(doc.content).to have_tag :a, id: 'just-a-file'
     end
 
+    it "replaces <!-- TOC --> markers with table of contents" do
+      doc = described_class.new "File with TOC"
+      expect(doc.content).to match_approval 'document-toc'
+    end
+
     context "when headers contain links" do
       subject { described_class.new "CHANGELOG" }
 

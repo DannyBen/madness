@@ -99,6 +99,7 @@ module Madness
     def markdown_to_html
       doc = CommonMarker.render_doc markdown, :DEFAULT, [:table]
 
+      replace_toc_marker doc
       add_anchor_ids doc
       html = doc.to_html :UNSAFE
       html = syntax_highlight(html) if config.highlighter
@@ -119,6 +120,34 @@ module Madness
           node.prepend_child anchor
         end
       end
+    end
+
+    # Replace <!-- TOC --> with a Table of Contents for the page
+    def replace_toc_marker(doc)
+      toc_marker = doc.find do |node|
+        node.type == :html and node.string_content.include? "<!-- TOC -->"
+      end
+
+      return unless toc_marker
+
+      toc = []
+      doc.walk do |node|
+        next unless node.type == :header
+        level = node.header_level
+        next unless level.between? 2, 3
+        text = node.first_child.string_content
+
+        if level == 2
+          toc << "- [#{text}](##{text.to_slug})"
+        else
+          toc << "  - [#{text}](##{text.to_slug})"
+        end    
+      end
+
+      toc = toc.join "\n"
+      toc = CommonMarker.render_doc toc
+      toc_marker.insert_after toc.first_child
+      toc_marker.insert_after CommonMarker.render_doc("## Table of Contents").first_child
     end
 
     # If the document does not start with an H1 tag, add it.
