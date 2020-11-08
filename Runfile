@@ -39,10 +39,11 @@ action :usage do
   say "Created usage.md"
 end
 
-help   "Generate changelog"
+help   "Generate changelog and append old changelog"
 action :changelog do
-  run 'github_changelog_generator -u DannyBen -p madness --no-http-cache'
-  # run "git commit -am 'update changelog' && git push"
+  run "git changelog --save"
+  # append older changelog (prior to switching to git-changelog)
+  run "cat .changelog.old.md >> CHANGELOG.md"
 end
 
 help   "Count lines of code"
