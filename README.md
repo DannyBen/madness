@@ -61,7 +61,7 @@ searching for local, markdown based documentation directories.
 - Configure with a configuration file or command arguments.
 - Fully customizable theme.
 - Automatic generation of navigation sidebar.
-- Automatic generation of Table of Contents.
+- Automatic generation of Table of Contents (site-wide and inline).
 
 ## Usage
 
@@ -179,8 +179,17 @@ will be automatically added based on the file name.
 
 ## Table of Contents Generation
 
-You can use the `madness --toc FILENAME` command to generate a
-"Table of Contents" markdown file.
+### Site-wide
+
+To generate a Table of Contents file for the entire site (for the directories
+and files), run `madness --toc FILENAME`
+
+### Inline
+
+If you have long markdown documents, and you wish to add an inline Table of
+Contents for them, simply add an HTML comment `<!-- TOC -->` where you want
+the Table of Contents to be generated. The inserted list will only consider
+H2 and H3 headings.
 
 ## Hidden Directories
 
