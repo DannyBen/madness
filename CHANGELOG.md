@@ -6,6 +6,7 @@ Untagged - Latest
 
 - Update to puma 5.x
 - Add optional in-document Table of Contents
+- Revert puma upgrade back to < 5.0 due to puma bugs
 
 
 ## [v0.8.3](https://github.com/DannyBen/madness/tree/v0.8.3) (2020-05-06)
