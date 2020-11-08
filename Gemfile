@@ -9,6 +9,7 @@ group :development do
   # gem 'github-pages', group: :jekyll_plugins
 
   gem 'byebug'
+  gem 'lp'
   gem 'rack-test'
   gem 'rdoc'
   gem 'rspec'
