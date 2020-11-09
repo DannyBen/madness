@@ -79,10 +79,10 @@ module Madness
     # 3. Prepend H1 if needed
     def markdown_to_html
       replace_toc_marker
+      prepend_h1 if config.auto_h1
       add_anchor_ids
       html = doc.to_html :UNSAFE
       html = syntax_highlight(html) if config.highlighter
-      html = prepend_h1(html) if config.auto_h1
       html
     end
 
@@ -109,6 +109,12 @@ module Madness
 
       return unless toc_marker
 
+      toc_marker.insert_after document_toc
+      toc_marker.insert_after CommonMarker.render_doc("## Table of Contents").first_child
+    end
+
+    # Returns a UL object containing the document table of contents
+    def document_toc
       toc = []
       doc.walk do |node|
         next unless node.type == :header
@@ -120,17 +126,14 @@ module Madness
       end
 
       toc = toc.join "\n"
-      toc = CommonMarker.render_doc(toc).first_child
-      toc_marker.insert_after toc
-      toc_marker.insert_after CommonMarker.render_doc("## Table of Contents").first_child
+      CommonMarker.render_doc(toc).first_child
     end
 
     # If the document does not start with an H1 tag, add it.
-    def prepend_h1(html)
-      unless html[0..3] == "<h1>"
-        html = "<h1>#{title}</h1>\n#{html}"
-      end
-      html
+    def prepend_h1
+      return if doc.first_child.type == :header and doc.first_child.header_level == 1
+      h1 = CommonMarker.render_doc("# #{title}").first_child
+      doc.first_child.insert_before h1
     end
 
     # Apply syntax highlighting with CodeRay. This will parse for any
