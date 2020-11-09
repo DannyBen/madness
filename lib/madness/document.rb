@@ -8,36 +8,13 @@ module Madness
     include ServerHelper
     using StringRefinements
 
-    attr_reader :base, :path
+    attr_reader :base, :path, :type, :file, :dir, :title
 
     def initialize(path)
       @path = path
       @base = path.empty? ? docroot : "#{docroot}/#{path}"
       @base.chomp! '/'
-    end
-
-    # Return :readme, :file or :empty
-    def type
-      set_base_attributes unless @type
-      @type
-    end
-
-    # Return the path to the actual markdown file
-    def file
-      set_base_attributes unless @file
-      @file
-    end
-
-    # Return the path to the document directory
-    def dir
-      set_base_attributes unless @dir
-      @dir
-    end
-
-    # Return the path to the document directory
-    def title
-      set_base_attributes unless @title
-      @title
+      set_base_attributes
     end
 
     # Return the HTML for that document
@@ -92,15 +69,17 @@ module Madness
       @markdown ||= File.read file
     end
 
+    def doc
+      @doc ||= CommonMarker.render_doc markdown, :DEFAULT, [:table]
+    end
+
     # Convert markdown to HTML, with some additional processing:
     # 1. Add anchors to headers
     # 2. Syntax highilghting
     # 3. Prepend H1 if needed
     def markdown_to_html
-      doc = CommonMarker.render_doc markdown, :DEFAULT, [:table]
-
-      replace_toc_marker doc
-      add_anchor_ids doc
+      replace_toc_marker
+      add_anchor_ids
       html = doc.to_html :UNSAFE
       html = syntax_highlight(html) if config.highlighter
       html = prepend_h1(html) if config.auto_h1
@@ -108,7 +87,7 @@ module Madness
     end
 
     # Add anchors with IDs before all headers
-    def add_anchor_ids(doc)
+    def add_anchor_ids
       doc.walk do |node|
         if node.type == :header
           anchor = CommonMarker::Node.new(:inline_html)
@@ -123,7 +102,7 @@ module Madness
     end
 
     # Replace <!-- TOC --> with a Table of Contents for the page
-    def replace_toc_marker(doc)
+    def replace_toc_marker
       toc_marker = doc.find do |node|
         node.type == :html and node.string_content.include? "<!-- TOC -->"
       end
@@ -136,17 +115,13 @@ module Madness
         level = node.header_level
         next unless level.between? 2, 3
         text = node.first_child.string_content
-
-        if level == 2
-          toc << "- [#{text}](##{text.to_slug})"
-        else
-          toc << "  - [#{text}](##{text.to_slug})"
-        end    
+        spacer = "  " * (level - 1)
+        toc << "#{spacer}- [#{text}](##{text.to_slug})"
       end
 
       toc = toc.join "\n"
-      toc = CommonMarker.render_doc toc
-      toc_marker.insert_after toc.first_child
+      toc = CommonMarker.render_doc(toc).first_child
+      toc_marker.insert_after toc
       toc_marker.insert_after CommonMarker.render_doc("## Table of Contents").first_child
     end
 
