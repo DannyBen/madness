@@ -8,36 +8,13 @@ module Madness
     include ServerHelper
     using StringRefinements
 
-    attr_reader :base, :path
+    attr_reader :base, :path, :type, :file, :dir, :title
 
     def initialize(path)
       @path = path
       @base = path.empty? ? docroot : "#{docroot}/#{path}"
       @base.chomp! '/'
-    end
-
-    # Return :readme, :file or :empty
-    def type
-      set_base_attributes unless @type
-      @type
-    end
-
-    # Return the path to the actual markdown file
-    def file
-      set_base_attributes unless @file
-      @file
-    end
-
-    # Return the path to the document directory
-    def dir
-      set_base_attributes unless @dir
-      @dir
-    end
-
-    # Return the path to the document directory
-    def title
-      set_base_attributes unless @title
-      @title
+      set_base_attributes
     end
 
     # Return the HTML for that document
@@ -92,23 +69,25 @@ module Madness
       @markdown ||= File.read file
     end
 
+    def doc
+      @doc ||= CommonMarker.render_doc markdown, :DEFAULT, [:table]
+    end
+
     # Convert markdown to HTML, with some additional processing:
     # 1. Add anchors to headers
     # 2. Syntax highilghting
     # 3. Prepend H1 if needed
     def markdown_to_html
-      doc = CommonMarker.render_doc markdown, :DEFAULT, [:table]
-
-      replace_toc_marker doc
-      add_anchor_ids doc
+      replace_toc_marker
+      prepend_h1 if config.auto_h1
+      add_anchor_ids
       html = doc.to_html :UNSAFE
       html = syntax_highlight(html) if config.highlighter
-      html = prepend_h1(html) if config.auto_h1
       html
     end
 
     # Add anchors with IDs before all headers
-    def add_anchor_ids(doc)
+    def add_anchor_ids
       doc.walk do |node|
         if node.type == :header
           anchor = CommonMarker::Node.new(:inline_html)
@@ -123,39 +102,38 @@ module Madness
     end
 
     # Replace <!-- TOC --> with a Table of Contents for the page
-    def replace_toc_marker(doc)
+    def replace_toc_marker
       toc_marker = doc.find do |node|
         node.type == :html and node.string_content.include? "<!-- TOC -->"
       end
 
       return unless toc_marker
 
+      toc_marker.insert_after document_toc
+      toc_marker.insert_after CommonMarker.render_doc("## Table of Contents").first_child
+    end
+
+    # Returns a UL object containing the document table of contents
+    def document_toc
       toc = []
       doc.walk do |node|
         next unless node.type == :header
         level = node.header_level
         next unless level.between? 2, 3
         text = node.first_child.string_content
-
-        if level == 2
-          toc << "- [#{text}](##{text.to_slug})"
-        else
-          toc << "  - [#{text}](##{text.to_slug})"
-        end    
+        spacer = "  " * (level - 1)
+        toc << "#{spacer}- [#{text}](##{text.to_slug})"
       end
 
       toc = toc.join "\n"
-      toc = CommonMarker.render_doc toc
-      toc_marker.insert_after toc.first_child
-      toc_marker.insert_after CommonMarker.render_doc("## Table of Contents").first_child
+      CommonMarker.render_doc(toc).first_child
     end
 
     # If the document does not start with an H1 tag, add it.
-    def prepend_h1(html)
-      unless html[0..3] == "<h1>"
-        html = "<h1>#{title}</h1>\n#{html}"
-      end
-      html
+    def prepend_h1
+      return if doc.first_child.type == :header and doc.first_child.header_level == 1
+      h1 = CommonMarker.render_doc("# #{title}").first_child
+      doc.first_child.insert_before h1
     end
 
     # Apply syntax highlighting with CodeRay. This will parse for any
