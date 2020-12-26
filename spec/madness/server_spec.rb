@@ -12,6 +12,12 @@ describe Server do
     expect(last_response.body).to have_tag 'h1', text: "This is a docroot fixture"
   end
 
+  it "serves css" do
+    get '/css/main.css'
+    expect(last_response.content_type).to eq "text/css;charset=utf-8"
+    expect(last_response.body).to match(/font-family/)
+  end
+
   describe 'get /_search' do
     before do 
       config.reset

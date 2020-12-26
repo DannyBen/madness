@@ -17,9 +17,10 @@ group :development do
   gem 'rspec_approvals'
   gem 'runfile'
   gem 'runfile-tasks'
+  gem 'sasstool'
   gem 'simplecov'
   gem 'yard'
-  
+
 end
 
 gemspec

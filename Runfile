@@ -1,4 +1,5 @@
 require_relative 'lib/madness'
+require "sasstool"
 require "runfile-tasks"
 
 title   "Madness Runfile"
@@ -8,6 +9,13 @@ version Madness::VERSION
 RunfileTasks::RubyGems.all 'madness'
 RunfileTasks::Testing.rspec
 RunfileTasks::Docs.rdoc
+
+help   "Generate public CSS"
+action :css do
+  target = "app/public/css"
+  Sasstool::Renderer.new("app/styles/main.scss").save target
+  say "Saved #{target}"
+end
 
 help   "Run YARD server"
 action :yard do
