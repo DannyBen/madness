@@ -273,6 +273,7 @@ nav {
   src: url("../fonts/fontello.eot?68354463#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2?68354463") format("woff2"), url("../fonts/fontello.woff?68354463") format("woff"), url("../fonts/fontello.ttf?68354463") format("truetype"), url("../fonts/fontello.svg?68354463#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;

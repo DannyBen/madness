@@ -1,7 +1,5 @@
 # require 'sinatra/reloader'
 require 'rack/ssl'
-require 'sass'
-require 'sass/plugin/rack'
 require 'sinatra/base'
 require 'slim'
 
@@ -14,20 +12,10 @@ module Madness
     helpers ServerHelper
 
     Slim::Engine.set_options pretty: true
-    use Sass::Plugin::Rack
     use Rack::SSL if ENV['MADNESS_FORCE_SSL']
     set :root, File.expand_path('../../', __dir__)
-    set :server, :puma
     set :environment, ENV['MADNESS_ENV'] || :production
-
-    # TODO: Uncomment when the upstream issue is resolved
-    # At this time, we cannot use reloader, since it prints deprecation
-    # warnings in Ruby 2.7
-    # ref: https://github.com/sinatra/sinatra/issues/1590
-    # configure :development do
-    #   register Sinatra::Reloader
-    #   also_reload "#{__dir__}/*.rb"
-    # end
+    set :server, :puma
 
     # Since we cannot use any config values in the main body of the class,
     # since they will be updated later, we need to set anything that relys
@@ -48,8 +36,6 @@ module Madness
       
       set :views, theme.views_path
       set :public_folder, theme.public_path
-      Sass::Plugin.options[:template_location] = theme.css_source_path
-      Sass::Plugin.options[:css_location] = theme.css_target_path
     end
 
     def self.set_basic_auth

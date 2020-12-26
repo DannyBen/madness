@@ -248,6 +248,14 @@ option.
 $ madness --theme my_theme
 ```
 
+Note that the generated theme contains the SCSS files in the `styles`
+subfolder, and the rendered CSS files in the `public/css` subfolder.
+
+If you wish to use the SCSS files, you will need to render them yourself
+to the location of your theme styles (e.g. `public/css`) - you can use
+any tool to do so, or if you do not have a preference, use
+[SassTool][sasstool].
+
 
 ### Option 2: Change CSS only
 
@@ -300,4 +308,5 @@ For more information about the docker image, see:
 [dockerfile]: https://github.com/DannyBen/docker-madness
 [css]: app/public/css/main.css
 [app]: app
+[sasstool]: https://github.com/DannyBen/sasstool
 

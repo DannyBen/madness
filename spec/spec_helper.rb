@@ -17,12 +17,6 @@ unless Dir.exist? 'tmp'
   puts "[spec_helper] creating tmp dir"
 end
 
-# Create tmp folder for any spec that needs it
-if Dir.exist? 'app/public/css'
-  system "rm -rf app/public/css 1> /dev/null 2>&1"
-  puts "[spec_helper] removing app/public/css"
-end
-
 # Include us
 include Madness
 
