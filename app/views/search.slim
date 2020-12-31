@@ -2,22 +2,13 @@
 
 .main class=(config.sidebar ? 'with-sidebar' : 'without-sidebar')
   form.search-form action="/_search" method="get"
-    input.search-field.autocomplete type="text" name="q" value="#{params[:q]}" placeholder="Search" autofocus=true
+    input.search-field type="text" name="q" value="#{params[:q]}" placeholder="Search" autofocus=true
     input type="submit" value="Search" style='display:none'
 
   hr
 
   - if results
-    - results.each_with_index do |result, index|
+    - results.each do |label, file|
       h4
-        = index+1
-        = ". "
-        a href="#{result[:file]}" = result[:label]
-
-      ul
-        - if result[:highlights]
-          - result[:highlights].each do |highlight|
-            li.search-excerpt == highlight
-        - else
-          li.search-excerpt.quiet No excerpt
+        a href="#{label}" = label
 

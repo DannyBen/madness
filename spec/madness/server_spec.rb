@@ -47,22 +47,6 @@ describe Server do
     end
   end
 
-  describe 'get /_search/autocomplete' do
-    before do 
-      config.reset
-      config.path = 'spec/fixtures/search'
-    end
-
-    it "returns json formatted suggestions" do
-      get '/_search/autocomplete?query=luke'
-      expect(last_response).to be_ok
-      actual = JSON.parse(last_response.body)['suggestions']
-      expect(actual.count).to eq 3
-      expect(actual[2]["data"]).to match /The Empire Strikes Back/
-    end
-
-  end
-
   describe 'get /*' do
     it "serves static files" do
       get '/ok.png'
