@@ -19,7 +19,7 @@ module Madness
     end
 
     def with_search?
-      @with_search ||= Search.new.has_index?
+      true
     end
 
   private

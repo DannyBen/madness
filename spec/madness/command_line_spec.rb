@@ -56,23 +56,6 @@ describe CommandLine do
     end
   end
 
-  context "with --index" do
-    it "calls the index builder and starts the server" do
-      expect(Server).to receive :run!
-      expect_any_instance_of(Search).to receive :build_index
-      command = %w[--index]
-      expect { subject.execute command }.to output(/index.*generating.*start.*the madness/m).to_stdout
-    end
-  end
-
-  context "with --index --and-quit" do
-    it "calls the index builder" do
-      expect_any_instance_of(Search).to receive :build_index
-      command = %w[--index --and-quit]
-      expect { subject.execute command }.to output(/index.*generating/).to_stdout
-    end
-  end
-
   context "with --toc" do
     it "calls the TOC builder" do
       expect(Server).to receive :run!

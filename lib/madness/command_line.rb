@@ -65,7 +65,6 @@ module Madness
       config.port         = args['--port'].to_i if args['--port']
       config.bind         = args['--bind'] if args['--bind']
       config.toc          = args['--toc']  if args['--toc']
-      config.search_limit = args['--search-limit'].to_i  if args['--search-limit']
       config.auth         = args['--auth'] if args['--auth']
       config.auth_realm   = args['--auth-realm'] if args['--auth-realm']
 
@@ -75,7 +74,6 @@ module Madness
       config.highlighter  = false   if args['--no-syntax']
       config.line_numbers = false   if args['--no-line-numbers']
       config.copy_code    = false   if args['--no-copy-code']
-      config.index        = true    if args['--index']
       config.open         = true    if args['--open']
       
       config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
@@ -83,7 +81,6 @@ module Madness
 
     # Generate index and toc, if requested by the user.
     def generate_stuff
-      build_index if config.index
       build_toc   if config.toc
     end
 
@@ -118,13 +115,6 @@ module Madness
       say_status :theme, config.theme, :txtblu if config.theme
 
       say "-" * 60
-    end
-
-    # Build the search index
-    def build_index
-      search = Search.new
-      say_status :index, "generating #{search.index_dir}"
-      search.build_index
     end
 
     # Generate the table of contents file

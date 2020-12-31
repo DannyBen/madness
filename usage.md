@@ -65,10 +65,6 @@ Options:
     documentation path.
     (Config option: theme)
 
-  --index
-    Build or rebuild the index for the search page.
-    (Config option: index)
-
   --toc FILE
     Generate a table of contents file. 
     (Config option: toc)
@@ -78,7 +74,7 @@ Options:
     (Config option: open)
 
   --and-quit
-    Quit instead of running the server. Useful with --index or --toc.
+    Quit instead of running the server. Useful with --toc.
 
 Examples:
   madness
@@ -86,8 +82,7 @@ Examples:
   madness docs --no-auto-h1 -p 4567
   madness docs --open
   madness --no-sidebar --no-auto-nav
-  madness --index --and-quit
-  madness --toc "Table of Contents.md" --index --and-quit
+  madness --toc "Table of Contents.md" --and-quit
   madness --theme _mytheme
   madness create config
   madness create theme

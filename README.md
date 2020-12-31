@@ -124,8 +124,6 @@ auto_nav: true
 highlighter: true
 line_numbers: true
 copy_code: true
-index: false
-search_limit: 100
 dtoc: Table of Contents
 theme: _theme
 open: false
@@ -139,15 +137,7 @@ $ madness create config
 
 ## Search
 
-Madness comes with a full text search page. To activate it, you need to
-generate a search index by running `madness --index` or 
-`madness path/to/docs --index`.
-
-This will create an `_index` sub folder, and will add a new search page
-to your documentation server.
-
-You will need to run this command from time to time, as your 
-documents change or new documents are added.
+Madness comes with a full text search page.
 
 ## Images and Static Files
 
