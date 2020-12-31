@@ -131,7 +131,7 @@ module Madness
 
     # If the document does not start with an H1 tag, add it.
     def prepend_h1
-      byebug
+      return unless doc.first_child
       return if doc.first_child.type == :header and doc.first_child.header_level == 1
       h1 = CommonMarker.render_doc("# #{title}").first_child
       doc.first_child.insert_before h1

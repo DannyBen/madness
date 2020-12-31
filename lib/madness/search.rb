@@ -16,10 +16,11 @@ module Madness
       result = {}
 
       index.each do |file, content|
-        filename = file_url(file.sub("#{@path}/", '')[0...-3])
+        file = file.remove("#{@path}/")[0...-3]
+        url = file_url file
         label = file_label file
         next unless content.include? query
-        result[filename] = label
+        result[label] = url
       end
 
       result
