@@ -4,7 +4,7 @@ a {
   color: #4078c0;
   text-decoration: none;
 
-  &:active, &:hover {
+  &:active, &:hover, &:focus {
     outline-width: 0;
     text-decoration: underline;
   }
