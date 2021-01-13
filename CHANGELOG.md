@@ -1,6 +1,24 @@
 Change Log
 ========================================
 
+v0.9.2 - 2021-01-13
+----------------------------------------
+
+- Improve search so that it is an OR search by default, and allows quoted phrases for exact match
+
+
+v0.9.1 - 2021-01-04
+----------------------------------------
+
+- CSS: Remove outline on focused links
+
+
+v0.9.0 - 2020-12-31
+----------------------------------------
+
+- Remove ferret and implement simpler search
+
+
 v0.8.6 - 2020-12-26
 ----------------------------------------
 
