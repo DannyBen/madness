@@ -1,3 +1,5 @@
+require 'shellwords'
+
 module Madness
   class Search
     include ServerHelper
@@ -13,14 +15,19 @@ module Madness
 
     def search(query)
       query = query.downcase
+      words = Shellwords.split query
+      word_count = words.count
       result = {}
+      return result if words.empty?
 
       index.each do |file, content|
         file = file.remove("#{@path}/")[0...-3]
         url = file_url file
         label = file_label file
-        next unless content.include? query
-        result[label] = url
+        found = 0
+        words.each { |word| found += 1 if content.include? word }
+        next unless found == word_count
+        result[label] = url 
       end
 
       result

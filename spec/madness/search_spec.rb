@@ -37,6 +37,13 @@ describe Search do
       results = subject.search('file').keys
       expect(results).to eq ["With Sorting / File 1", "With Sorting / File 2", "I Do Not Belong"]
     end
+
+    context "with a quoted query" do
+      it "returns only pages that include the exact phrase" do
+        expect(subject.search('the jedi').count).to be > 1
+        expect(subject.search('"the jedi"').count).to eq 1
+      end
+    end
   end
 
 end
