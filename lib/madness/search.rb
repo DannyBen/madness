@@ -21,8 +21,7 @@ module Madness
       return result if words.empty?
 
       index.each do |file, content|
-        content = "#{file}\n#{content}"
-        file = file.remove("#{@path}/")
+        file = file.remove("#{@path}/").sub(/.md$/, '')
         url = file_url file
         label = file_label file
         found = 0
