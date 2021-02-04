@@ -11,22 +11,14 @@ module Madness
     end
     
     def list
-      @list ||= (dirs + files + extra_files)
+      @list ||= (dirs + files)
     end
 
   private
 
-    def extra_files
-      return [] unless config.expose_extensions
-      result = []
-      config.expose_extensions.split(' ').each do |ext|
-        result += Dir["#{dir}/*.#{ext}"]
-      end
-      result.nat_sort.map { |path| Item.new path, :file }
-    end
-
     def files
-      result = Dir["#{dir}/*.md"]
+      glob = config.expose_extensions ? "{md,#{config.expose_extensions}}" : "md"
+      result = Dir["#{dir}/*.#{glob}"]
       result.reject! do |f| 
         basename = File.basename(f)
         basename == 'README.md' or basename == 'index.md'
