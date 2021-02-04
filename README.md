@@ -126,7 +126,7 @@ auto_nav: true
 highlighter: true
 line_numbers: true
 copy_code: true
-dtoc: Table of Contents
+toc: Table of Contents
 theme: _theme
 open: false
 expose_extensions: ~
