@@ -11,10 +11,19 @@ module Madness
     end
     
     def list
-      @list ||= (dirs + files)
+      @list ||= (dirs + files + extra_files)
     end
 
   private
+
+    def extra_files
+      return [] unless config.expose_extensions
+      result = []
+      config.expose_extensions.split(' ').each do |ext|
+        result += Dir["#{dir}/*.#{ext}"]
+      end
+      result.nat_sort.map { |path| Item.new path, :file }
+    end
 
     def files
       result = Dir["#{dir}/*.md"]
@@ -33,5 +42,10 @@ module Madness
       end
       result.nat_sort.map { |path| Item.new path, :dir }
     end
+
+    def config
+      @config ||= Settings.instance
+    end
+
   end
 end

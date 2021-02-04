@@ -56,7 +56,8 @@ module Madness
         auto_nav: true,
         sidebar: true,
         auth: false,
-        auth_realm: 'Madness'
+        auth_realm: 'Madness',
+        expose_extensions: nil
       }
     end
 
