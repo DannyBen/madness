@@ -29,6 +29,7 @@
 * [Table of Contents Generation](#table-of-contents-generation)
 * [Hidden Directories](#hidden-directories)
 * [Controlling Sort Order](#controlling-sort-order)
+* [Displaying Additional File Types](#displaying-additional-file-types)
 * [Basic Authntication](#basic-authentication)
 * [Customizing Theme](#customizing-theme)
 * [Forcing HTTPS Connection](#forcing-https-connection)
@@ -62,6 +63,7 @@ searching for local, markdown based documentation directories.
 - Fully customizable theme.
 - Automatic generation of navigation sidebar.
 - Automatic generation of Table of Contents (site-wide and inline).
+- Can optionally show additional file types in the navigation menu (e.g. PDF files).
 
 ## Usage
 
@@ -127,6 +129,7 @@ copy_code: true
 dtoc: Table of Contents
 theme: _theme
 open: false
+expose_extensions: ~
 ```
 
 For convenience, you can get a template config file by running:
@@ -200,6 +203,19 @@ will be omitted when they are displayed.
 ├── 1. Some file or folder
 └── 2. Another file or folder
 ```
+
+## Displaying Additional File Types
+
+If you wish the navigation and search features to also show other documents
+and files (for example, PDF files), you may configure the `expose_extensions`
+option in the configuration file to contain a comma delimited list of
+extensions:
+
+```yaml
+expose_extensions: pdf,docx,xlsx,txt
+```
+
+The default value of this option is `null` (or `~`, which is `null` in YAML).
 
 ## Basic Authentication
 
