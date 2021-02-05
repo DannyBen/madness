@@ -17,8 +17,7 @@ module Madness
   private
 
     def files
-      glob = config.expose_extensions ? "{md,#{config.expose_extensions}}" : "md"
-      result = Dir["#{dir}/*.#{glob}"]
+      result = Dir["#{dir}/#{config.dir_glob}"]
       result.reject! do |f| 
         basename = File.basename(f)
         basename == 'README.md' or basename == 'index.md'

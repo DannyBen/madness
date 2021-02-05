@@ -40,6 +40,10 @@ module Madness
       '.madness.yml'
     end
 
+    def dir_glob
+      data[:expose_extensions] ? "*.{md,#{data[:expose_extensions].delete(' ')}}" : "*.md"
+    end
+
   private
 
     def defaults
