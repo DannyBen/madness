@@ -17,7 +17,7 @@ module Madness
   private
 
     def files
-      result = Dir["#{dir}/*.md"]
+      result = Dir["#{dir}/#{config.dir_glob}"]
       result.reject! do |f| 
         basename = File.basename(f)
         basename == 'README.md' or basename == 'index.md'
@@ -33,5 +33,10 @@ module Madness
       end
       result.nat_sort.map { |path| Item.new path, :dir }
     end
+
+    def config
+      @config ||= Settings.instance
+    end
+
   end
 end

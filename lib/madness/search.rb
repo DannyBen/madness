@@ -21,7 +21,7 @@ module Madness
       return result if words.empty?
 
       index.each do |file, content|
-        file = file.remove("#{@path}/")[0...-3]
+        file = file.remove("#{@path}/").sub(/.md$/, '')
         url = file_url file
         label = file_label file
         found = 0
@@ -37,10 +37,12 @@ module Madness
 
     def index!
       results = {}
-      Dir["#{@path}/**/*.md"].sort.each do |file|
+
+      Dir["#{@path}/**/#{config.dir_glob}"].sort.each do |file|
         next if skip_index? file
-        filename = file_url(file.sub("#{@path}/", '')[0...-3]).downcase
-        content = File.read(file).downcase
+        filename = file_url(file.sub("#{@path}/", '')).downcase
+        index_content = File.extname(file) == '.md'
+        content = index_content ? File.read(file).downcase : ''
         results[file] = "#{filename} #{content}"
       end
       results
