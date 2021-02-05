@@ -1,0 +1,3 @@
+# .madness.yml
+---
+expose_extensions: pdf,txt

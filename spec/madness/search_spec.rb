@@ -44,6 +44,20 @@ describe Search do
         expect(subject.search('"the jedi"').count).to eq 1
       end
     end
+
+    context "when expose_extensions is set" do
+      before do
+        config.reset
+        config.expose_extensions = "pdf,txt"
+      end
+
+      let(:path) { 'spec/fixtures/expose-extensions' }
+
+      it "also lists non-md files" do
+        results = subject.search 'jedi'
+        expect(results).to eq({ "Return of the Jedi.pdf" => "Return of the Jedi.pdf" })
+      end
+    end
   end
 
 end
