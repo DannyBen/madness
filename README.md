@@ -30,7 +30,7 @@
 * [Hidden Directories](#hidden-directories)
 * [Controlling Sort Order](#controlling-sort-order)
 * [Displaying Additional File Types](#displaying-additional-file-types)
-* [Basic Authntication](#basic-authentication)
+* [Basic Authentication](#basic-authentication)
 * [Customizing Theme](#customizing-theme)
 * [Forcing HTTPS Connection](#forcing-https-connection)
 * [Docker Image](#docker-image)
@@ -117,22 +117,62 @@ documentation directory, and modify any of the settings below.
 
 ```yaml
 # .madness.yml
-path: '.'
-port: '3000'
-bind: '0.0.0.0'
+
+# path to the documentation root
+path: .
+
+# server port
+port: 3000
+
+# server listen address
+bind: 0.0.0.0
+
+# enable sidebar
 sidebar: true
+
+# add H1 title to files that do not have one
 auto_h1: true
+
+# append navigation to directory READMEs
 auto_nav: true
+
+# enable syntax highlighter for code snippets
 highlighter: true
+
+# enable line numbers for code snippets
 line_numbers: true
+
+# enable the copy to clipboard icon for code snippets
 copy_code: true
-toc: Table of Contents
-theme: _theme
+
+# generate a table of contents file with this name, for example:
+# toc: Table of Contents
+toc: ~
+
+# path to theme folder, for example:
+# theme: _theme
+theme: ~
+
+# open the server URL in the browser
 open: false
+
+# provide user:password for basic authentication, for example:
+# auth: admin:s3cr3t
+auth: false
+
+# if auth is enabled, specify auth realm name
+auth_zone: Madness
+
+# show files with these extensions in the navigation and search, for example:
+# expose_extensions: pdf,docx,xlsx,txt
 expose_extensions: ~
+
+# exclude directories that match these regular expressions
+# note that this is an array
+exclude: ['^[a-z_\-0-9]+$']
 ```
 
-For convenience, you can get a template config file by running:
+For convenience, you can generate a template config file by running:
 
 ```shell
 $ madness create config
@@ -191,10 +231,23 @@ numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation. In
 other words, directories must have at least one uppercase letter or a space
 to be recognized as a documentation directory.
 
+This can be configured by using the `exclude` configuration option:
+
+```yaml
+# do not ignore any directory
+exclude: ~
+
+# ignore only specific directories
+exclude: [assets, public]
+
+# ignore using regular expressions
+exclude: ['^_', 's.cr.t']
+```
+
 ## Controlling Sort Order
 
 To control the sort order of the automatically generated navigation elements,
-simply perfix your files and directories with digits followed by a dot and a 
+simply prefix your files and directories with digits followed by a dot and a 
 space, just like you would create an ordered list in Markdown. The numbers
 will be omitted when they are displayed.
 

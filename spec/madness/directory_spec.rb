@@ -36,7 +36,23 @@ describe Directory do
         expect(list.last.label).to eq "Some dummy TXT file.txt"
       end
     end
-  end
 
+    context "when exclude is set" do
+      before do
+        config.reset
+        config.path = 'spec/fixtures/exclude'
+        config.exclude = %w[Ignore pub.ic]
+      end
+
+      it "excludes directories based on the exclusion array" do
+        list = subject.list
+
+        expect(list).to be_an Array
+        expect(list.count).to eq 2
+        expect(list.first.label).to eq "Folder"
+        expect(list.last.label).to eq "lowercase"
+      end
+    end
+  end
 
 end

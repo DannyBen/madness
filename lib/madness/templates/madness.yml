@@ -1,18 +1,56 @@
 # Madness configuration file
-# Uncomment any of the options below
+# These are the default configuration values
+# You can delete any option you do not need
 
-# path: .
-# port: 3000
-# bind: 0.0.0.0
-# sidebar: true
-# auto_h1: true
-# auto_nav: true
-# highlighter: true
-# line_numbers: true
-# copy_code: true
+# path to the documentation root
+path: .
+
+# server port
+port: 3000
+
+# server listen address
+bind: 0.0.0.0
+
+# enable sidebar
+sidebar: true
+
+# add H1 title to files that do not have one
+auto_h1: true
+
+# append navigation to directory READMEs
+auto_nav: true
+
+# enable syntax highlighter for code snippets
+highlighter: true
+
+# enable line numbers for code snippets
+line_numbers: true
+
+# enable the copy to clipboard icon for code snippets
+copy_code: true
+
+# generate a table of contents file with this name, for example:
 # toc: Table of Contents
+toc: ~
+
+# path to theme folder, for example:
 # theme: _theme
-# open: false
-# auth: false
-# auth_zone: 'Madness'
-# expose_extensions: ~
+theme: ~
+
+# open the server URL in the browser
+open: false
+
+# provide user:password for basic authentication, for example:
+# auth: admin:s3cr3t
+auth: false
+
+# if auth is enabled, specify auth realm name
+auth_zone: Madness
+
+# show files with these extensions in the navigation and search, for example:
+# expose_extensions: pdf,docx,xlsx,txt
+expose_extensions: ~
+
+# exclude directories that match these regular expressions
+# note that this is an array
+exclude: ['^[a-z_\-0-9]+$']
