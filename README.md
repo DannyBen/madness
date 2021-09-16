@@ -241,7 +241,7 @@ exclude: ~
 exclude: [assets, public]
 
 # ignore using regular expressions
-exclude: ['^_', 's.cr.t']
+exclude: ['^public$', 'assets']
 ```
 
 ## Controlling Sort Order
