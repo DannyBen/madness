@@ -27,11 +27,17 @@ module Madness
 
     def dirs
       result = Dir["#{dir}/*"].select { |f| File.directory? f }
-      result.reject! do |f| 
-        basename = File.basename(f)
-        basename =~ /^[a-z_\-0-9]+$/
-      end
+      result.reject! { |f| exclude? f }
       result.nat_sort.map { |path| Item.new path, :dir }
+    end
+
+    def exclude?(path)
+      return false unless config.exclude.is_a? Array
+      basename = File.basename path
+      config.exclude.each do |pattern|
+        return true if basename =~ Regexp.new(pattern)
+      end
+      false
     end
 
     def config

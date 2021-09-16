@@ -48,20 +48,22 @@ module Madness
 
     def defaults
       {
+        path: '.',
         port: 3000,
         bind: '0.0.0.0',
-        path: '.',
+        sidebar: true,
         auto_h1: true,
+        auto_nav: true,
         highlighter: true,
         line_numbers: true,
         copy_code: true,
+        toc: nil,
         theme: nil,
         open: false,
-        auto_nav: true,
-        sidebar: true,
         auth: false,
         auth_realm: 'Madness',
-        expose_extensions: nil
+        expose_extensions: nil,
+        exclude: [/^[a-z_\-0-9]+$/]
       }
     end
 
@@ -70,7 +72,13 @@ module Madness
     end
 
     def file_data
-      file_exist? ? ExtendedYAML.load(filename).symbolize_keys : {}
+      result = if file_exist?
+        ExtendedYAML.load(filename)&.symbolize_keys
+      else
+        {}
+      end
+      
+      result || {}
     end
 
   end

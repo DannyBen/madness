@@ -30,4 +30,15 @@ describe Settings do
     end
   end
 
+  context "with an empty (fully commented out) config file" do
+    before do
+      allow(config).to receive(:filename).and_return('spec/fixtures/.empty-madness.yml')
+      config.reset
+    end
+
+    it "sets the default values" do
+      expect(config.port).to eq 3000
+    end
+  end
+
 end
