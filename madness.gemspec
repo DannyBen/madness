@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'coderay', '~> 1.1'
   s.add_runtime_dependency 'colsole', '~> 0.5'
-  s.add_runtime_dependency 'commonmarker', '~> 0.22'
+  s.add_runtime_dependency 'commonmarker', '~> 0.20'
   s.add_runtime_dependency 'docopt', '~> 0.6'
   s.add_runtime_dependency 'naturally', '~> 2.2'
   s.add_runtime_dependency 'os', '~> 1.0'
