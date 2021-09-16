@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'coderay', '~> 1.1'
   s.add_runtime_dependency 'colsole', '~> 0.5'
-  s.add_runtime_dependency 'commonmarker', '~> 0.20'
+  s.add_runtime_dependency 'commonmarker', '~> 0.23'
   s.add_runtime_dependency 'docopt', '~> 0.6'
   s.add_runtime_dependency 'naturally', '~> 2.2'
   s.add_runtime_dependency 'os', '~> 1.0'
@@ -30,4 +30,11 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'slim', '~> 4.0'
   s.add_runtime_dependency 'extended_yaml', '~> 0.2'
   s.add_runtime_dependency 'addressable', '~> 2.7'
+
+  s.metadata = {
+    "bug_tracker_uri"   => "https://github.com/DannyBen/madness/issues",
+    "changelog_uri"     => "https://github.com/DannyBen/madness/blob/master/CHANGELOG.md",
+    "homepage_uri"      => "https://madness.dannyb.co/",
+    "source_code_uri"   => "https://github.com/DannyBen/madness",
+  }
 end
