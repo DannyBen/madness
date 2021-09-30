@@ -14,12 +14,12 @@ help   "Generate public CSS"
 action :css do
   target = "app/public/css"
   Sasstool::Renderer.new("app/styles/main.scss").save target
-  say "Saved #{target}"
+  puts "Saved #{target}"
 end
 
 help   "Run YARD server"
 action :yard do
-  run "yard server -p3000 -B0.0.0.0 -r"
+  system "yard server -p3000 -B0.0.0.0 -r"
 end
 
 usage  "(server|s) [--sample]"
@@ -27,42 +27,42 @@ help   "Run server with spec docroot or the sample docroot"
 option "-s, --sample", "Use the 'sample' folder instead of the fixture"
 action :server, :s do |args|
   folder = args['--sample'] ? 'sample' : 'spec/fixtures/docroot'
-  run "bundle exec bin/madness #{folder}"
+  system "bundle exec bin/madness #{folder}"
 end
 
 help   "Run IRB console"
 action :console, :c do
-  run "bundle exec bin/console"
+  system "bundle exec bin/console"
 end
 
 help   "Generate TOC to toc.txt"
 action :toc do
-  run! 'gh-md-toc README.md > toc.txt'
+  exec 'gh-md-toc README.md > toc.txt'
 end
 
 help   "Generate usage.md"
 action :usage do
   content = "# Madness Usage\n\n```shell\n$ madness --help\n\n#{`bundle exec madness --help`}\n```\n"
   File.write 'usage.md', content
-  say "Created usage.md"
+  puts "Created usage.md"
 end
 
 help   "Generate changelog and append old changelog"
 action :changelog do
-  run "git changelog --save"
+  system "git changelog --save"
   # append older changelog (prior to switching to git-changelog)
-  run "cat .changelog.old.md >> CHANGELOG.md"
+  system "cat .changelog.old.md >> CHANGELOG.md"
 end
 
 help   "Count lines of code"
 action :cloc do
-  run "cloc . --exclude-dir coverage,spec,examples"
+  system "cloc . --exclude-dir coverage,spec,examples"
 end
 
 help   "Run a local Jekyll deployment for GitHub Pages tests"
 usage  "jekyll"
 action :jekyll do |args|
-  run! "jekyll serve -H 0.0.0.0 -P 3000"
+  exec "jekyll serve -H 0.0.0.0 -P 3000"
 end
 
 require_relative 'debug.rb' if File.exist? 'debug.rb'
