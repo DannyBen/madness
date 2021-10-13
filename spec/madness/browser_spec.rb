@@ -61,7 +61,8 @@ describe Browser do
           block.call
         end
 
-        expect{ |b| subject.open &b }.to yield_with_args("Failed opening browser (xdg-open http://localhost:3456)")
+        regexp = Regexp.new "Failed opening browser (.*open http://localhost:3456)"
+        expect{ |b| subject.open &b }.to yield_with_args(regexp)
       end
     end
 
@@ -79,15 +80,17 @@ describe Browser do
   end
 
   describe '#open!' do
-    it "runs the system command that opens the browser" do
-      expect(subject).to receive(:system).with("xdg-open", subject.server_url, anything)
+    it "runs the system command that opens the browser ('xdg-open' on linux, 'open' on OSX)" do
+      expect(subject).to receive(:system).with(/(xdg-)?open/, subject.server_url, anything)
       subject.open!
     end
   end
 
   describe '#open_command' do
     it "returns a command in array form" do
-      expect(subject.open_command).to eq ["xdg-open", subject.server_url]
+      open_cmd, server_url = subject.open_command
+      expect(open_cmd).to match(/(xdg-)?open/)
+      expect(server_url).to eq subject.server_url
     end
   end
 end
