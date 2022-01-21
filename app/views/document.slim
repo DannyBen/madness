@@ -1,3 +1,4 @@
+== slim :_mobile_search if nav.with_search?
 == slim :_nav, locals: { nav: nav } if config.sidebar
 
 .main class=(config.sidebar ? 'with-sidebar' : 'without-sidebar')
@@ -8,4 +9,6 @@
     - unless type == :empty
       hr 
     == slim :_index_nav, locals: { nav: nav }
+
+
 
