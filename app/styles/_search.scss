@@ -1,3 +1,17 @@
+#mobile-search {
+  @include desktop {
+    display: none;
+  }
+
+  @include mobile {
+    position: fixed;
+    font-size: 30px;
+    top: 0px;
+    right: 10px;
+    opacity: 0.5;
+  }
+}
+
 .search-form {
   margin-bottom: 20px;
   margin-top: 20px;

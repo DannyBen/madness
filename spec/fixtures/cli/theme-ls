@@ -36,6 +36,7 @@
 - tmp/theme-test/views
 - tmp/theme-test/views/_breadcrumbs.slim
 - tmp/theme-test/views/_index_nav.slim
+- tmp/theme-test/views/_mobile_search.slim
 - tmp/theme-test/views/_nav.slim
 - tmp/theme-test/views/document.slim
 - tmp/theme-test/views/layout.slim
