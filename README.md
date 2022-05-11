@@ -43,6 +43,13 @@
 $ gem install madness
 ```
 
+**Using Homebrew:**
+
+```shell
+$ brew install brew-gem
+$ brew gem install madness
+```
+
 **Using Docker:**
 
 ```shell
