@@ -40,6 +40,7 @@ module Madness
         content: content, 
         type: doc.type,
         title: doc.title,
+        file: doc.file,
         nav: nav, 
         breadcrumbs: breadcrumbs
       }
