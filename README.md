@@ -358,7 +358,7 @@ You may create an alias for convenience:
 
 ```shell
 $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'
-$ medness --help
+$ madness --help
 ```
 
 For more information about the docker image, see:
