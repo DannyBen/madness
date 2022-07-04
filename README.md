@@ -32,7 +32,6 @@
 * [Displaying Additional File Types](#displaying-additional-file-types)
 * [Basic Authentication](#basic-authentication)
 * [Customizing Theme](#customizing-theme)
-* [Forcing HTTPS Connection](#forcing-https-connection)
 * [Docker Image](#docker-image)
 
 ## Install
@@ -333,15 +332,6 @@ If you are looking to implement a smaller CSS change, follow these steps:
 
 Note that this functionality is not guaranteed to stay as is in future 
 versions of madness.
-
-## Forcing HTTPS Connection
-
-To have Madness redirect HTTP traffic to HTTPS, set this environment 
-variable:
-
-```shell
-$ export MADNESS_FORCE_SSL=1
-```
 
 ## Docker Image
 

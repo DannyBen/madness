@@ -1,5 +1,4 @@
 # require 'sinatra/reloader'
-require 'rack/ssl'
 require 'sinatra/base'
 require 'slim'
 
@@ -12,7 +11,6 @@ module Madness
     helpers ServerHelper
 
     Slim::Engine.set_options pretty: true
-    use Rack::SSL if ENV['MADNESS_FORCE_SSL']
     set :root, File.expand_path('../../', __dir__)
     set :environment, ENV['MADNESS_ENV'] || :production
     set :server, :puma

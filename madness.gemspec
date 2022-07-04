@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'naturally', '~> 2.2'
   s.add_runtime_dependency 'os', '~> 1.0'
   s.add_runtime_dependency 'puma', '~> 5.1'
-  s.add_runtime_dependency 'rack-ssl', '~> 1.4'
   s.add_runtime_dependency 'requires', '~> 0.1'
   s.add_runtime_dependency 'sinatra', '~> 2.0', '>= 2.0.5'
   s.add_runtime_dependency 'slim', '~> 4.0'
