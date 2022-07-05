@@ -12,9 +12,8 @@ module Madness
 
     # Returns a URL based on host, port and MADNESS_FORCE_SSL.
     def server_url
-      scheme = ENV['MADNESS_FORCE_SSL'] ? 'https' : 'http'
       url_host = ['0.0.0.0', '127.0.0.1'].include?(host) ? 'localhost' : host
-      "#{scheme}://#{url_host}:#{port}"
+      "http://#{url_host}:#{port}"
     end
 
     # Returns true if the server is running. Will attempt to connect
