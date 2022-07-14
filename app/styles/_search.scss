@@ -1,4 +1,8 @@
 #mobile-search {
+  @media print {
+    display: none;
+  }
+
   @include desktop {
     display: none;
   }

@@ -208,6 +208,10 @@ kbd {
   border-radius: 3px;
   box-shadow: inset 0 -1px 0 #bbb; }
 
+@media print {
+  #mobile-search {
+    display: none; } }
+
 @media only screen and (min-width: 768px) {
   #mobile-search {
     display: none; } }
