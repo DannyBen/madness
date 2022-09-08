@@ -121,7 +121,7 @@ module Madness
 
     # Replace [[link]] with [link](link)
     def evaluate_shortlinks(raw)
-      raw.gsub(/\[\[([^\]]+)\]\]/) { |match| "[#{$1}](#{$1.to_href})" }
+      raw.gsub(/\[\[([^\]]+)\]\]/) { "[#{$1}](#{$1.to_href})" }
     end
 
     # Returns a UL object containing the document table of contents

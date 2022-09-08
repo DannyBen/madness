@@ -57,6 +57,7 @@ module Madness
         highlighter: true,
         line_numbers: true,
         copy_code: true,
+        shortlinks: false,
         toc: nil,
         theme: nil,
         open: false,
@@ -64,7 +65,6 @@ module Madness
         auth_realm: 'Madness',
         expose_extensions: nil,
         exclude: [/^[a-z_\-0-9]+$/],
-        shortlinks: false
       }
     end
 
