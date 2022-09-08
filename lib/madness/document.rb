@@ -67,6 +67,12 @@ module Madness
 
     def markdown
       @markdown ||= File.read file
+      @markdown = shortlinks(@markdown) if config.shortlinks
+      @markdown
+    end
+
+    def shortlinks(raw)
+      raw.gsub(/\[\[([^\]]+)\]\]/) { "[#{Regexp.last_match(1)}](./#{Regexp.last_match(1).to_href}.md)" }
     end
 
     def doc

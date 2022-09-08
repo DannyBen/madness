@@ -4,6 +4,13 @@
 [![Build Status](https://github.com/DannyBen/madness/workflows/Test/badge.svg)](https://github.com/DannyBen/madness/actions?query=workflow%3ATest)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fa440dc4dbf895734d74/maintainability)](https://codeclimate.com/github/DannyBen/madness/maintainability)
 
+--- 
+## Differences from [original](https://github.com/DannyBen/madness)
+
+### support for link format used by smart-notes apps like Obsidian. 
+
+Markdown based smart-notes apps frequently use a non-standard link format in the form of `[[Link]]` where Link is equally the link text and the name of the local markdown file to link to. `[[Link]]` would therefore translate to `[Link](./Link.md)`
+
 ---
 
 ## Screenshots (click to zoom)
@@ -176,6 +183,9 @@ expose_extensions: ~
 # exclude directories that match these regular expressions
 # note that this is an array
 exclude: ['^[a-z_\-0-9]+$']
+
+# support for internal links in the form [[Link Title and Filename]]
+shortlinks: true
 ```
 
 For convenience, you can generate a template config file by running:

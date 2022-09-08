@@ -54,3 +54,7 @@ expose_extensions: ~
 # exclude directories that match these regular expressions
 # note that this is an array
 exclude: ['^[a-z_\-0-9]+$']
+
+# support for internal links in the form [[Link Title and Filename]]
+shortlinks: false
+

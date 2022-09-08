@@ -63,7 +63,8 @@ module Madness
         auth: false,
         auth_realm: 'Madness',
         expose_extensions: nil,
-        exclude: [/^[a-z_\-0-9]+$/]
+        exclude: [/^[a-z_\-0-9]+$/],
+        shortlinks: false
       }
     end
 
@@ -77,7 +78,7 @@ module Madness
       else
         {}
       end
-      
+
       result || {}
     end
 
