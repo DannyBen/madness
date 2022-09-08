@@ -4,13 +4,6 @@
 [![Build Status](https://github.com/DannyBen/madness/workflows/Test/badge.svg)](https://github.com/DannyBen/madness/actions?query=workflow%3ATest)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fa440dc4dbf895734d74/maintainability)](https://codeclimate.com/github/DannyBen/madness/maintainability)
 
---- 
-## Differences from [original](https://github.com/DannyBen/madness)
-
-### support for link format used by smart-notes apps like Obsidian. 
-
-Markdown based smart-notes apps frequently use a non-standard link format in the form of `[[Link]]` where Link is equally the link text and the name of the local markdown file to link to. `[[Link]]` would therefore translate to `[Link](./Link.md)`
-
 ---
 
 ## Screenshots (click to zoom)
@@ -33,6 +26,7 @@ Markdown based smart-notes apps frequently use a non-standard link format in the
 * [Search](#search)
 * [Images and Static Files](#images-and-static-files)
 * [Automatic H1](#automatic-h1)
+* [Shortlinks](#shortlinks)
 * [Table of Contents Generation](#table-of-contents-generation)
 * [Hidden Directories](#hidden-directories)
 * [Controlling Sort Order](#controlling-sort-order)
@@ -77,6 +71,7 @@ searching for local, markdown based documentation directories.
 - Automatic generation of navigation sidebar.
 - Automatic generation of Table of Contents (site-wide and inline).
 - Can optionally show additional file types in the navigation menu (e.g. PDF files).
+- Optional support for `[[Short Link]]` syntax.
 
 ## Usage
 
@@ -158,6 +153,9 @@ line_numbers: true
 # enable the copy to clipboard icon for code snippets
 copy_code: true
 
+# convert [[Links]] to [Links](Links)
+shortlinks: false
+
 # generate a table of contents file with this name, for example:
 # toc: Table of Contents
 toc: ~
@@ -183,9 +181,6 @@ expose_extensions: ~
 # exclude directories that match these regular expressions
 # note that this is an array
 exclude: ['^[a-z_\-0-9]+$']
-
-# support for internal links in the form [[Link Title and Filename]]
-shortlinks: true
 ```
 
 For convenience, you can generate a template config file by running:
@@ -225,6 +220,13 @@ the path relative to the homepage:
 
 If your markdown document does not start with a level 1 heading, it
 will be automatically added based on the file name.
+
+## Shortlinks
+
+When the `shortlinks` option is enabled, you may use a shorthand syntax for 
+specifying internal links, where `[[Anything]]` will be converted to
+`[Anything](Anything)`, which will then be rendered as an internal link to a
+file or a directory in the same directory as the file itself.
 
 ## Table of Contents Generation
 

@@ -74,6 +74,7 @@ module Madness
       config.highlighter  = false   if args['--no-syntax']
       config.line_numbers = false   if args['--no-line-numbers']
       config.copy_code    = false   if args['--no-copy-code']
+      config.shortlinks   = true    if args['--shortlinks']
       config.open         = true    if args['--open']
       
       config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
@@ -81,7 +82,7 @@ module Madness
 
     # Generate index and toc, if requested by the user.
     def generate_stuff
-      build_toc   if config.toc
+      build_toc if config.toc
     end
 
     # Create config

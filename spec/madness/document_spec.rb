@@ -276,5 +276,13 @@ describe Document do
         expect(doc.content).not_to have_tag :h1
       end
     end
+
+    context "with shortlinks enabled" do
+      it "evaluates shortlinks" do
+        config.shortlinks = true
+        doc = described_class.new "File with Shortlink"
+        expect(doc.content).to have_tag(:a, with: { href: "Shortlink" }, text: "Shortlink")
+      end
+    end
   end
 end

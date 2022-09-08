@@ -66,13 +66,13 @@ module Madness
     end
 
     def markdown
-      @markdown ||= File.read file
-      @markdown = shortlinks(@markdown) if config.shortlinks
-      @markdown
+      @markdown ||= pre_process_markdown
     end
 
-    def shortlinks(raw)
-      raw.gsub(/\[\[([^\]]+)\]\]/) { "[#{Regexp.last_match(1)}](./#{Regexp.last_match(1).to_href}.md)" }
+    def pre_process_markdown
+      result = File.read file
+      result = evaluate_shortlinks result if config.shortlinks
+      result
     end
 
     def doc
@@ -117,6 +117,11 @@ module Madness
 
       toc_marker.insert_after document_toc
       toc_marker.insert_after CommonMarker.render_doc("## Table of Contents").first_child
+    end
+
+    # Replace [[link]] with [link](link)
+    def evaluate_shortlinks(raw)
+      raw.gsub(/\[\[([^\]]+)\]\]/) { |match| "[#{$1}](#{$1.to_href})" }
     end
 
     # Returns a UL object containing the document table of contents
