@@ -29,6 +29,9 @@ line_numbers: true
 # enable the copy to clipboard icon for code snippets
 copy_code: true
 
+# convert [[Links]] to [Links](Links)
+shortlinks: false
+
 # generate a table of contents file with this name, for example:
 # toc: Table of Contents
 toc: ~

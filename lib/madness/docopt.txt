@@ -55,6 +55,10 @@ Options:
     files.
     (Config option: auto_nav)
 
+  --shortlinks
+    Enable support for [[Short Links]].
+    (Config option: shortlinks)
+
   --theme FOLDER
     Use a custom theme. FOLDER is either absolute or relative to the main
     documentation path.

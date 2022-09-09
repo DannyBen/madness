@@ -26,6 +26,7 @@
 * [Search](#search)
 * [Images and Static Files](#images-and-static-files)
 * [Automatic H1](#automatic-h1)
+* [Shortlinks](#shortlinks)
 * [Table of Contents Generation](#table-of-contents-generation)
 * [Hidden Directories](#hidden-directories)
 * [Controlling Sort Order](#controlling-sort-order)
@@ -70,6 +71,7 @@ searching for local, markdown based documentation directories.
 - Automatic generation of navigation sidebar.
 - Automatic generation of Table of Contents (site-wide and inline).
 - Can optionally show additional file types in the navigation menu (e.g. PDF files).
+- Optional support for `[[Short Link]]` syntax.
 
 ## Usage
 
@@ -151,6 +153,9 @@ line_numbers: true
 # enable the copy to clipboard icon for code snippets
 copy_code: true
 
+# convert [[Links]] to [Links](Links)
+shortlinks: false
+
 # generate a table of contents file with this name, for example:
 # toc: Table of Contents
 toc: ~
@@ -215,6 +220,13 @@ the path relative to the homepage:
 
 If your markdown document does not start with a level 1 heading, it
 will be automatically added based on the file name.
+
+## Shortlinks
+
+When the `shortlinks` option is enabled, you may use a shorthand syntax for 
+specifying internal links, where `[[Anything]]` will be converted to
+`[Anything](Anything)`, which will then be rendered as an internal link to a
+file or a directory in the same directory as the file itself.
 
 ## Table of Contents Generation
 
