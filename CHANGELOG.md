@@ -1,6 +1,15 @@
 Change Log
 ========================================
 
+v0.9.7 - 2022-09-09
+----------------------------------------
+
+- Remove Rack:SSL
+- Exit gracefully from exceptions
+- Remove search icon from print view
+- Add support for [[Short Links]]
+
+
 v0.9.6 - 2022-07-01
 ----------------------------------------
 
