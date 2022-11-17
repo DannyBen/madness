@@ -10,7 +10,7 @@ module Madness
     end
 
     def build(file)
-      file += ".md" unless file.end_with? '.md'
+      file += '.md' unless file.end_with? '.md'
       File.write "#{dir}/#{file}", toc
     end
 
@@ -25,10 +25,11 @@ module Madness
 
       result = []
       list.each do |item|
-        if item.type == :dir
+        case item.type
+        when :dir
           result.push "#{' ' * indent}1. #{make_link item}"
-          result += toc! item.path, indent+4
-        elsif item.type == :file
+          result += toc! item.path, indent + 4
+        when :file
           result.push "#{' ' * indent}1. #{make_link item}"
         end
       end

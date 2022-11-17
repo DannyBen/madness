@@ -1,9 +1,8 @@
 module Madness
-
   # All the methods that we may need inside of any server route.
   # The module can also be included manually anywhere else.
   module ServerHelper
-    def config 
+    def config
       @config ||= Settings.instance
     end
 
@@ -12,11 +11,11 @@ module Madness
     end
 
     def log(obj)
-      #:nocov:
-      open('madness.log', 'a') { |f|
+      # :nocov:
+      open('madness.log', 'a') do |f|
         f.puts obj.inspect
-      }
-      #:nocov:
+      end
+      # :nocov:
     end
   end
 end

@@ -2,7 +2,6 @@ require 'singleton'
 require 'extended_yaml'
 
 module Madness
-  
   # Handle the configuration options
   # Each configuration option has three sources
   # 1. The default value
@@ -18,7 +17,7 @@ module Madness
 
     def method_missing(name, *args, &_blk)
       name_string = name.to_s
-      
+
       if name_string.end_with? '='
         data[name_string.chop.to_sym] = args.first
       else
@@ -26,7 +25,11 @@ module Madness
       end
     end
 
-    # Force reload of the config file, set defaults, and then read from 
+    def respond_to_missing?(*_args)
+      true
+    end
+
+    # Force reload of the config file, set defaults, and then read from
     # file.
     def reset
       @data = nil
@@ -41,30 +44,30 @@ module Madness
     end
 
     def dir_glob
-      data[:expose_extensions] ? "*.{md,#{data[:expose_extensions].delete(' ')}}" : "*.md"
+      data[:expose_extensions] ? "*.{md,#{data[:expose_extensions].delete(' ')}}" : '*.md'
     end
 
   private
 
     def defaults
       {
-        path: '.',
-        port: 3000,
-        bind: '0.0.0.0',
-        sidebar: true,
-        auto_h1: true,
-        auto_nav: true,
-        highlighter: true,
-        line_numbers: true,
-        copy_code: true,
-        shortlinks: false,
-        toc: nil,
-        theme: nil,
-        open: false,
-        auth: false,
-        auth_realm: 'Madness',
+        path:              '.',
+        port:              3000,
+        bind:              '0.0.0.0',
+        sidebar:           true,
+        auto_h1:           true,
+        auto_nav:          true,
+        highlighter:       true,
+        line_numbers:      true,
+        copy_code:         true,
+        shortlinks:        false,
+        toc:               nil,
+        theme:             nil,
+        open:              false,
+        auth:              false,
+        auth_realm:        'Madness',
         expose_extensions: nil,
-        exclude: [/^[a-z_\-0-9]+$/],
+        exclude:           [/^[a-z_\-0-9]+$/],
       }
     end
 
@@ -81,6 +84,5 @@ module Madness
 
       result || {}
     end
-
   end
 end

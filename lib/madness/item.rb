@@ -6,7 +6,8 @@ module Madness
     attr_reader :path, :type
 
     def initialize(path, type)
-      @path, @type = path, type
+      @path = path
+      @type = type
     end
 
     def label
@@ -36,4 +37,3 @@ module Madness
     end
   end
 end
-

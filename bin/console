@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require "irb"
-require "irb/completion" # easy tab completion
-require "madness"
+require 'irb'
+require 'irb/completion' # easy tab completion
+require 'madness'
 
 include Madness
 

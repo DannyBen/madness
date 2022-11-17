@@ -1,0 +1,32 @@
+inherit_gem:
+  rentacop: rentacop.yml
+
+AllCops:
+  TargetRubyVersion: 2.6
+  SuggestExtensions: false
+
+# We allow `$stderr.puts` in a command line
+Style/StderrPuts:
+  Exclude:
+    - 'lib/madness/command_line.rb'
+
+# FIXME: These files have some complexities
+Metrics/PerceivedComplexity:
+  Exclude:
+    - lib/madness/command_line.rb
+
+# FIXME: These files have some complexities
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - lib/madness/command_line.rb
+
+# FIXME: These files have some complexities
+Metrics/AbcSize:
+  Exclude:
+    - lib/madness/command_line.rb
+
+# FIXME: The `set_config` method needs to be renamed without conflicting
+#        with `config`
+Naming/AccessorMethodName:
+  Exclude:
+    - lib/madness/command_line.rb

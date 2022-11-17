@@ -14,7 +14,7 @@ ENV['RACK_ENV'] = 'test'
 # Create tmp folder for any spec that needs it
 unless Dir.exist? 'tmp'
   Dir.mkdir 'tmp'
-  puts "[spec_helper] creating tmp dir"
+  puts '[spec_helper] creating tmp dir'
 end
 
 # Include us
@@ -23,9 +23,9 @@ include Madness
 # Bootstrap Sinatra testing with rspec
 module RSpecMixin
   include Rack::Test::Methods
-  def app() 
+  def app
     described_class.prepare
-    described_class 
+    described_class
   end
 end
 
@@ -36,4 +36,3 @@ RSpec.configure do |config|
   config.include ServerHelper
   config.approvals_path = File.expand_path 'fixtures', __dir__
 end
-

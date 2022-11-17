@@ -4,16 +4,15 @@ require 'colsole'
 require 'docopt'
 
 module Madness
-
   # Handle command line execution. Used by bin/madness.
   class CommandLine
     include Singleton
     include Colsole
 
     # Process ARGV by putting it through docopt
-    def execute(argv=[])
+    def execute(argv = [])
       doc = File.read File.expand_path('docopt.txt', __dir__)
-      
+
       begin
         args = Docopt.docopt(doc, argv: argv, version: VERSION)
         handle args
@@ -49,7 +48,7 @@ module Madness
     # and static files folder.
     def launch_server
       unless File.directory? config.path
-        STDERR.puts "Invalid path (#{config.path})" 
+        $stderr.puts "Invalid path (#{config.path})"
         return
       end
 
@@ -61,7 +60,7 @@ module Madness
     # Get the arguments as provided by docopt, and set them to our own
     # config object.
     def set_config(args)
-      config.path         = args['PATH']   if args['PATH']
+      config.path         = args['PATH'] if args['PATH']
       config.port         = args['--port'].to_i if args['--port']
       config.bind         = args['--bind'] if args['--bind']
       config.toc          = args['--toc']  if args['--toc']
@@ -76,7 +75,7 @@ module Madness
       config.copy_code    = false   if args['--no-copy-code']
       config.shortlinks   = true    if args['--shortlinks']
       config.open         = true    if args['--open']
-      
+
       config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
     end
 
@@ -105,7 +104,7 @@ module Madness
       end
     end
 
-    # Say hello to everybody when the server starts, showing the known 
+    # Say hello to everybody when the server starts, showing the known
     # config.
     def show_status
       say_status :start, 'the madness'
@@ -115,7 +114,7 @@ module Madness
       say_status :use, config.filename if config.file_exist?
       say_status :theme, config.theme, :txtblu if config.theme
 
-      say "-" * 60
+      say '-' * 60
     end
 
     # Generate the table of contents file

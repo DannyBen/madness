@@ -1,6 +1,5 @@
 module Madness
-
-  # The Madness::Static middleware delegates requests to 
+  # The Madness::Static middleware delegates requests to
   # Rack::Static middleware unless the request URI ends with .md
   class Static
     def initialize(app, options)
@@ -9,7 +8,7 @@ module Madness
     end
 
     def call(env)
-      if env['PATH_INFO'].end_with? ".md"
+      if env['PATH_INFO'].end_with? '.md'
         @app.call env
       else
         @static.call env
