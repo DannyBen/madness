@@ -19,7 +19,7 @@ module Madness
       # a string (usually a filename without .md extension, or a folder name)
       # to a label.
       # It is used by different navigation elements in madness, and ucrrently
-      # just removes any numbers followed by a dot at the beginning of the 
+      # just removes any numbers followed by a dot at the beginning of the
       # string, in order to allow "The Invisible Sorting Hand".
       def to_label
         remove(/^\d+\.\s+/).remove(/\.md$/)

@@ -5,7 +5,7 @@ module Madness
     include ServerHelper
     using StringRefinements
 
-    def initialize(path=nil)
+    def initialize(path = nil)
       @path = path || docroot
     end
 
@@ -27,7 +27,8 @@ module Madness
         found = 0
         words.each { |word| found += 1 if content.include? word }
         next unless found == word_count
-        result[label] = url 
+
+        result[label] = url
       end
 
       result
@@ -40,6 +41,7 @@ module Madness
 
       Dir["#{@path}/**/#{config.dir_glob}"].sort.each do |file|
         next if skip_index? file
+
         filename = file_url(file.sub("#{@path}/", '')).downcase
         index_content = File.extname(file) == '.md'
         content = index_content ? File.read(file).downcase : ''
@@ -49,7 +51,7 @@ module Madness
     end
 
     # We are going to avoid indexing of README.md when there is also an
-    # index.md in the same directory, to keep behavior consistent with the 
+    # index.md in the same directory, to keep behavior consistent with the
     # display logic
     def skip_index?(file)
       if file.end_with? 'README.md'
@@ -62,9 +64,9 @@ module Madness
 
     def file_label(filename)
       filename
-        .remove(/\/(index|README)$/)
+        .remove(%r{/(index|README)$})
         .split('/')
-        .map { |i| i.to_label }
+        .map(&:to_label)
         .join(' / ')
     end
 
@@ -73,7 +75,7 @@ module Madness
     end
 
     def file_url(filename)
-      filename.remove(/\/(index|README)$/)
+      filename.remove(%r{/(index|README)$})
     end
   end
 end

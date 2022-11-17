@@ -9,7 +9,7 @@ module Madness
     def initialize(dir)
       @dir = dir
     end
-    
+
     def list
       @list ||= (dirs + files)
     end
@@ -18,9 +18,8 @@ module Madness
 
     def files
       result = Dir["#{dir}/#{config.dir_glob}"]
-      result.reject! do |f| 
-        basename = File.basename(f)
-        basename == 'README.md' or basename == 'index.md'
+      result.reject! do |f|
+        ['README.md', 'index.md'].include? File.basename(f)
       end
       result.nat_sort.map { |path| Item.new path, :file }
     end
@@ -33,6 +32,7 @@ module Madness
 
     def exclude?(path)
       return false unless config.exclude.is_a? Array
+
       basename = File.basename path
       config.exclude.each do |pattern|
         return true if basename =~ Regexp.new(pattern)
@@ -43,6 +43,5 @@ module Madness
     def config
       @config ||= Settings.instance
     end
-
   end
 end

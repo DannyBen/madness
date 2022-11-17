@@ -2,7 +2,6 @@ require 'commonmarker'
 require 'coderay'
 
 module Madness
-
   # Handle a single markdown document.
   class Document
     include ServerHelper
@@ -24,7 +23,7 @@ module Madness
 
     # Return the HTML for that document, force re-read.
     def content!
-      [:empty, :missing].include?(type) ? "<h1>#{title}</h1>" : markdown_to_html
+      %i[empty missing].include?(type) ? "<h1>#{title}</h1>" : markdown_to_html
     end
 
   private
@@ -99,7 +98,7 @@ module Madness
           anchor = CommonMarker::Node.new(:inline_html)
 
           next unless node.first_child.type == :text
-          
+
           anchor_id = node.first_child.string_content.to_slug
           anchor.string_content = "<a id='#{anchor_id}'></a>"
           node.prepend_child anchor
@@ -110,13 +109,13 @@ module Madness
     # Replace <!-- TOC --> with a Table of Contents for the page
     def replace_toc_marker
       toc_marker = doc.find do |node|
-        node.type == :html and node.string_content.include? "<!-- TOC -->"
+        node.type == :html and node.string_content.include? '<!-- TOC -->'
       end
 
       return unless toc_marker
 
       toc_marker.insert_after document_toc
-      toc_marker.insert_after CommonMarker.render_doc("## Table of Contents").first_child
+      toc_marker.insert_after CommonMarker.render_doc('## Table of Contents').first_child
     end
 
     # Replace [[link]] with [link](link)
@@ -129,10 +128,12 @@ module Madness
       toc = []
       doc.walk do |node|
         next unless node.type == :header
+
         level = node.header_level
         next unless level.between? 2, 3
+
         text = node.first_child.string_content
-        spacer = "  " * (level - 1)
+        spacer = '  ' * (level - 1)
         toc << "#{spacer}- [#{text}](##{text.to_slug})"
       end
 
@@ -143,7 +144,8 @@ module Madness
     # If the document does not start with an H1 tag, add it.
     def prepend_h1
       return unless doc.first_child
-      return if doc.first_child.type == :header and doc.first_child.header_level == 1
+      return if (doc.first_child.type == :header) && (doc.first_child.header_level == 1)
+
       h1 = CommonMarker.render_doc("# #{title}").first_child
       doc.first_child.insert_before h1
     end
@@ -159,8 +161,9 @@ module Madness
     def syntax_highlight(html)
       line_numbers = config.line_numbers ? :table : nil
       opts = { css: :style, wrap: nil, line_numbers: line_numbers }
-      html.gsub(/\<code class="language-(.+?)"\>(.+?)\<\/code\>/m) do
-        lang, code = $1, $2
+      html.gsub(%r{<code class="language-(.+?)">(.+?)</code>}m) do
+        lang = $1
+        code = $2
         code = CGI.unescapeHTML code
         CodeRay.scan(code, lang).html opts
       end
@@ -175,4 +178,3 @@ module Madness
     end
   end
 end
-

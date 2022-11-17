@@ -3,7 +3,6 @@ require 'sinatra/base'
 require 'slim'
 
 module Madness
-
   # The base class for the sinatra server.
   # Initialize what we can here, but since there are values that will
   # become known only later, the #prepare method is provided.
@@ -31,7 +30,7 @@ module Madness
 
     def self.set_tempalate_locations
       theme = Theme.new config.theme
-      
+
       set :views, theme.views_path
       set :public_folder, theme.public_path
     end
@@ -46,5 +45,4 @@ module Madness
       Settings.instance
     end
   end
-
 end

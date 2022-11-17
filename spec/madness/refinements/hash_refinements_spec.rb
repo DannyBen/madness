@@ -2,23 +2,23 @@ require 'spec_helper'
 
 describe HashRefinements do
   using HashRefinements
-  subject { { 'key' => 'value' , 'another' => 'pair' } }
+  subject { { 'key' => 'value', 'another' => 'pair' } }
 
   describe '#symbolize_keys' do
-    it "converts keys to symbols" do
-      expect(subject.symbolize_keys).to eq({key: 'value', another: 'pair'})
+    it 'converts keys to symbols' do
+      expect(subject.symbolize_keys).to eq({ key: 'value', another: 'pair' })
     end
 
-    it "does not alter the original hash" do
+    it 'does not alter the original hash' do
       subject.symbolize_keys
-      expect(subject).to eq({'key' => 'value', 'another' => 'pair'})
+      expect(subject).to eq({ 'key' => 'value', 'another' => 'pair' })
     end
   end
 
   describe '#symbolize_keys!' do
-    it "alters the original hash" do
+    it 'alters the original hash' do
       subject.symbolize_keys!
-      expect(subject).to eq({key: 'value', another: 'pair'})
+      expect(subject).to eq({ key: 'value', another: 'pair' })
     end
   end
 end

@@ -15,7 +15,7 @@ module Madness
     end
 
     def caption
-      @caption ||= (dir == docroot ? "Index" : File.basename(dir).to_label)
+      @caption ||= (dir == docroot ? 'Index' : File.basename(dir).to_label)
     end
 
     def with_search?

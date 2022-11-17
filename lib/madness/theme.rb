@@ -2,7 +2,7 @@ module Madness
   class Theme
     attr_reader :path
 
-    def initialize(path=nil)
+    def initialize(path = nil)
       @path = path
     end
 
@@ -19,4 +19,3 @@ module Madness
     end
   end
 end
-

@@ -7,7 +7,8 @@ module Madness
     attr_reader :host, :port
 
     def initialize(host, port)
-      @host, @port = host, port
+      @host = host
+      @port = port
     end
 
     # Returns a URL based on host, port and MADNESS_FORCE_SSL.
@@ -51,7 +52,7 @@ module Madness
 
     # Runs the appropriate command (based on OS) to open a browser.
     def open!
-      system *open_command, err: File::NULL, in: File::NULL, out: File::NULL
+      system(*open_command, err: File::NULL, in: File::NULL, out: File::NULL)
     end
 
     # Returns the appropriate command (based on OS) to open a browser.
