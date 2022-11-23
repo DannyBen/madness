@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe StringRefinements do
-  using StringRefinements
+  using described_class
 
   describe '#remove' do
     subject { 'not an excellent example' }

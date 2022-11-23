@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ArrayRefinements do
-  using ArrayRefinements
+  using described_class
 
   describe '#nat_sort' do
     subject { %w[10 1 2 3] }

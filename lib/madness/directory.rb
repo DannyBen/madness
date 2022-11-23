@@ -35,7 +35,7 @@ module Madness
 
       basename = File.basename path
       config.exclude.each do |pattern|
-        return true if basename =~ Regexp.new(pattern)
+        return true if basename&.match?(Regexp.new(pattern))
       end
       false
     end

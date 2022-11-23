@@ -3,10 +3,11 @@ require 'fileutils'
 
 describe Search do
   subject { described_class.new path }
+
   let(:path) { 'spec/fixtures/search' }
 
   describe '#index' do
-    context 'where both README.md and index.md are present' do
+    context 'when both README.md and index.md are present' do
       it 'does not index README.md' do
         results = subject.search 'benedict'
         expect(results.count).to eq 1

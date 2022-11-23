@@ -57,18 +57,23 @@ describe CommandLine do
   end
 
   context 'with --toc' do
+    let(:toc_double) { instance_double TableOfContents, build: nil }
+
     it 'calls the TOC builder' do
       expect(Server).to receive :run!
-      expect_any_instance_of(TableOfContents).to receive :build
+      expect(TableOfContents).to receive(:new).and_return(toc_double)
       command = %w[--toc Contents.md]
       expect { subject.execute command }.to output(/toc.*generating Contents.md.*start.*the madness/m).to_stdout
     end
   end
 
   context 'with --open' do
+    let(:browser_double) { instance_double Browser, open: false }
+
     it 'calls Browser#open' do
       expect(Server).to receive :run!
-      expect_any_instance_of(Browser).to receive(:open).and_yield false
+      allow(Browser).to receive(:new).and_return(browser_double)
+      expect(browser_double).to receive(:open).and_return false
       command = %w[--open]
       expect { subject.execute command }.to output(/start.*the madnes/m).to_stdout
     end
@@ -76,7 +81,7 @@ describe CommandLine do
     context 'when browser launching fails' do
       it 'shows a friendly message' do
         expect(Server).to receive :run!
-        expect_any_instance_of(Browser).to receive(:open).and_yield 'this is a friendly message'
+        expect(Browser).to receive(:new).and_return(browser_double)
         command = %w[--open]
         expect { subject.execute command }.to output(/friendly message/m).to_stdout
       end

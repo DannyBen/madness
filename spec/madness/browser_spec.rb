@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Browser do
-  let(:host) { '127.0.0.1' }
   subject { described_class.new host, 3456 }
+
+  let(:host) { '127.0.0.1' }
 
   describe '#server_url' do
     it 'returns a url string' do

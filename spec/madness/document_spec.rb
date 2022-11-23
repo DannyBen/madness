@@ -180,12 +180,12 @@ describe Document do
     end
 
     context 'with an empty path when a README is not present' do
+      subject { described_class.new '' }
+
       before do
         config.reset
         config.path = 'spec/fixtures/docroot/Empty Folder'
       end
-
-      subject { described_class.new '' }
 
       describe '#type' do
         it 'returns :empty' do

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Directory do
+  subject { described_class.new docroot }
+
   before do
     config.reset
     config.path = 'spec/fixtures/docroot/Sorting'
   end
-
-  subject { described_class.new docroot }
 
   describe '#list' do
     it 'returns a naturally sorted array of Items' do

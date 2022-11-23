@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HashRefinements do
-  using HashRefinements
+  using described_class
   subject { { 'key' => 'value', 'another' => 'pair' } }
 
   describe '#symbolize_keys' do

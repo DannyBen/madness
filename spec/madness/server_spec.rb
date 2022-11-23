@@ -6,7 +6,7 @@ describe Server do
     config.path = 'spec/fixtures/docroot'
   end
 
-  it 'works' do
+  it 'serves properly' do
     get '/'
     expect(last_response).to be_ok
     expect(last_response.body).to have_tag 'h1', text: 'This is a docroot fixture'
@@ -63,8 +63,8 @@ describe Server do
       end
     end
 
-    context 'in subfolders' do
-      it 'works' do
+    context 'when requesting a subfolder' do
+      it 'shows its index' do
         get '/Folder/'
         expect(last_response).to be_ok
         expect(last_response.body).to have_tag 'h1', text: 'Sub folder #1'
@@ -99,7 +99,7 @@ describe Server do
     end
 
     context 'with a nested file' do
-      it 'works' do
+      it 'serves the file' do
         get '/Folder/File'
         expect(last_response).to be_ok
         expect(last_response.body).to have_tag 'h1', text: 'Nested File #1'
@@ -116,7 +116,7 @@ describe Server do
     end
 
     context 'with a nested file with .md extension' do
-      it 'works' do
+      it 'serves the file' do
         get '/Folder/File.md'
         expect(last_response).to be_ok
         expect(last_response.body).to have_tag 'h1', text: 'Nested File #1'
@@ -132,7 +132,7 @@ describe Server do
       end
     end
 
-    context 'in an empty folder' do
+    context 'when the folder is empty' do
       it 'shows index' do
         get '/Empty%20Folder'
         expect(last_response).to be_ok
@@ -140,7 +140,7 @@ describe Server do
       end
     end
 
-    context 'in a folder with a single file' do
+    context 'when the folder contains a single file' do
       it 'redirects to the file' do
         get '/Redirect'
         expect(last_response).to be_redirect

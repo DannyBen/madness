@@ -1,14 +1,34 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
 inherit_gem:
-  rentacop: rentacop.yml
+  rentacop:
+    - rentacop.yml
+    - rspec.yml
 
 AllCops:
   TargetRubyVersion: 2.6
   SuggestExtensions: false
 
-# We allow `$stderr.puts` in a command line
+# Allow `$stderr.puts` in a command line
 Style/StderrPuts:
   Exclude:
     - 'lib/madness/command_line.rb'
+
+# Allow longer examples
+RSpec/ExampleLength:
+  Max: 9
+
+# Allow more expectations
+RSpec/MultipleExpectations:
+  Max: 9
+
+# Allow `expect` instead of `allow`
+RSpec/StubbedMock:
+  Enabled: false
+
+# === TODO ===
 
 # FIXME: These files have some complexities
 Metrics/PerceivedComplexity:
