@@ -82,6 +82,7 @@ describe CommandLine do
       it 'shows a friendly message' do
         expect(Server).to receive :run!
         expect(Browser).to receive(:new).and_return(browser_double)
+        expect(browser_double).to receive(:open).and_yield 'this is a friendly message'
         command = %w[--open]
         expect { subject.execute command }.to output(/friendly message/m).to_stdout
       end

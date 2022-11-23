@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Settings do
-  before do
-    config.reset
-  end
+  before { config.reset }
 
   it 'sets default values' do
     expect(config.port).to eq 3000
@@ -38,6 +36,12 @@ describe Settings do
 
     it 'sets the default values' do
       expect(config.port).to eq 3000
+    end
+  end
+
+  describe '#respond_to?' do
+    it 'returns true always' do
+      expect(config.respond_to? :anything).to be true
     end
   end
 end
