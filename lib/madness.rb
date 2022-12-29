@@ -5,4 +5,6 @@ end
 
 require 'requires'
 
-requires 'madness/refinements', 'madness/server_helper', 'madness'
+requires 'madness/refinements'
+requires 'madness/server_helper'
+requires 'madness'
