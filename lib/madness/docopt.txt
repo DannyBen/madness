@@ -38,10 +38,6 @@ Options:
     Disable code syntax highlighting.
     (Config option: highlighter)
 
-  --no-line-numbers
-    Disable line numbering for syntax highlighter.
-    (Config option: line_numbers)
-
   --no-copy-code
     Disable copy to cliboard icon for code snippets.
     (Config option: copy_code)
@@ -94,5 +90,3 @@ Examples:
   madness --theme _mytheme
   madness create config
   madness create theme
-
-

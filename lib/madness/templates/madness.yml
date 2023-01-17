@@ -23,9 +23,6 @@ auto_nav: true
 # enable syntax highlighter for code snippets
 highlighter: true
 
-# enable line numbers for code snippets
-line_numbers: true
-
 # enable the copy to clipboard icon for code snippets
 copy_code: true
 
