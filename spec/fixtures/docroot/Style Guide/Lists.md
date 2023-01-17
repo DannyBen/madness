@@ -20,6 +20,12 @@
     3. SimpleCov
 4. Byebug
 
+## Todo
+
+- [x] Fix table of contents generator
+- [ ] Fix automatic H1 insertion
+- [ ] Fix definition lists
+
 ## Definitions
 
 Apple
@@ -38,6 +44,5 @@ Before
 - Items
 
 After
-
 
 

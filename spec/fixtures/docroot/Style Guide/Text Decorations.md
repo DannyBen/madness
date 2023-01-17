@@ -1,0 +1,5 @@
+- This is a **Bold Text**
+- This is an *Italic Text*
+- This is a ~Strikethrough Text~
+- This is a ***Bold Italic Text***
+- This is ^superscript^

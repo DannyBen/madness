@@ -19,7 +19,7 @@
 - tmp/theme-test/styles/_anchor.scss
 - tmp/theme-test/styles/_breadcrumbs.scss
 - tmp/theme-test/styles/_code.scss
-- tmp/theme-test/styles/_coderay.scss
+- tmp/theme-test/styles/_footnotes.scss
 - tmp/theme-test/styles/_general.scss
 - tmp/theme-test/styles/_icons.scss
 - tmp/theme-test/styles/_image.scss
@@ -29,6 +29,7 @@
 - tmp/theme-test/styles/_manifest.scss
 - tmp/theme-test/styles/_mixins.scss
 - tmp/theme-test/styles/_nav.scss
+- tmp/theme-test/styles/_scrollbar.scss
 - tmp/theme-test/styles/_search.scss
 - tmp/theme-test/styles/_table.scss
 - tmp/theme-test/styles/_typography.scss

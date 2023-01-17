@@ -1,6 +1,6 @@
-![icon]
-![cat]
+![small]
+![large]
 
 
-[cat]: http://science-all.com/images/wallpapers/funny-cat-picture/funny-cat-picture-11.jpg
-[icon]: http://people.csail.mit.edu/spillai/icons/github.png
+[small]: https://picsum.photos/200/200
+[large]: https://picsum.photos/1200/400
