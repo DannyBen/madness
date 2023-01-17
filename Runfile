@@ -23,11 +23,6 @@ action :css do |args|
   end
 end
 
-help   "Run YARD server"
-action :yard do
-  system "yard server -p3000 -B0.0.0.0 -r"
-end
-
 usage  "(server|s) [--sample]"
 help   "Run server with spec docroot or the sample docroot"
 option "-s, --sample", "Use the 'sample' folder instead of the fixture"
@@ -39,18 +34,6 @@ end
 help   "Run IRB console"
 action :console, :c do
   system "bundle exec bin/console"
-end
-
-help   "Generate TOC to toc.txt"
-action :toc do
-  exec 'gh-md-toc README.md > toc.txt'
-end
-
-help   "Generate usage.md"
-action :usage do
-  content = "# Madness Usage\n\n```shell\n$ madness --help\n\n#{`bundle exec madness --help`}\n```\n"
-  File.write 'usage.md', content
-  puts "Created usage.md"
 end
 
 help   "Generate changelog and append old changelog"
@@ -65,10 +48,16 @@ action :cloc do
   system "cloc . --exclude-dir coverage,spec,examples"
 end
 
-help   "Run a local Jekyll deployment for GitHub Pages tests"
-usage  "jekyll"
-action :jekyll do |args|
-  exec "jekyll serve -H 0.0.0.0 -P 3000"
+help   "Generate the screenshots animated gif"
+action :screenshots do
+  puts "Saving assets/screenshots.gif"
+  exec "convert -delay 300 -loop 0 assets/screenshots/*.png assets/screenshots.gif"
 end
+
+# help   "Run a local Jekyll deployment for GitHub Pages tests"
+# usage  "jekyll"
+# action :jekyll do |args|
+#   exec "jekyll serve -H 0.0.0.0 -P 3000"
+# end
 
 require_relative 'debug.rb' if File.exist? 'debug.rb'

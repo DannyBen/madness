@@ -6,34 +6,9 @@
 
 ---
 
-## Screenshots (click to zoom)
+## Screenshots
 
-<table><tr>
-  <td><a target='_screenshot' href='assets/screen-main.png'><img src='assets/screen-main.png'/></a></td>
-  <td><a target='_screenshot' href='assets/screen-nav.png'><img src='assets/screen-nav.png'/></a></td>
-  <td><a target='_screenshot' href='assets/screen-code.png'><img src='assets/screen-code.png'/></a></td>
-  <td><a target='_screenshot' href='assets/screen-search.png'><img src='assets/screen-search.png'/></a></td>
-</tr></table>
-
-## Table of Contents
-
-* [Install](#install)
-* [Design Intentions](#design-intentions)
-* [Feature Highlights](#feature-highlights)
-* [Usage](#usage)
-* [Directory Conventions](#directory-conventions)
-* [Configuration File](#configuration-file)
-* [Search](#search)
-* [Images and Static Files](#images-and-static-files)
-* [Automatic H1](#automatic-h1)
-* [Shortlinks](#shortlinks)
-* [Table of Contents Generation](#table-of-contents-generation)
-* [Hidden Directories](#hidden-directories)
-* [Controlling Sort Order](#controlling-sort-order)
-* [Displaying Additional File Types](#displaying-additional-file-types)
-* [Basic Authentication](#basic-authentication)
-* [Customizing Theme](#customizing-theme)
-* [Docker Image](#docker-image)
+[![Screenshots](assets/screenshots.gif)](assets/screenshots.gif)
 
 ## Install
 
