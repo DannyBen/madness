@@ -234,13 +234,13 @@ describe Document do
 
     it 'syntax highlights code' do
       doc = described_class.new 'Code'
-      expect(doc.content).to include 'class="CodeRay"'
+      expect(doc.content).to include '<code class="language-go">'
     end
 
     it 'does not double escape html' do
       doc = described_class.new 'Double Escape'
-      expect(doc.content).to include ' &gt; '
-      expect(doc.content).not_to include ' &amp; '
+      expect(doc.content).to include '&gt;'
+      expect(doc.content).not_to include '&amp;'
     end
 
     it 'adds anchors to headers' do
