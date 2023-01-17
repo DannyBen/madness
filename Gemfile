@@ -7,6 +7,7 @@ source 'https://rubygems.org'
 # gem 'github-pages', group: :jekyll_plugins
 
 gem 'byebug'
+gem 'filewatcher-cli'
 gem 'lp'
 gem 'rack-test'
 gem 'rdoc'

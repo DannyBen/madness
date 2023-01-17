@@ -11,10 +11,16 @@ RunfileTasks::Testing.rspec
 RunfileTasks::Docs.rdoc
 
 help   "Generate public CSS"
-action :css do
-  target = "app/public/css"
-  Sasstool::Renderer.new("app/styles/main.scss").save target
-  puts "Saved #{target}"
+usage  'css [--watch]'
+option '-w, --watch', 'Watch for changes and regenerate'
+action :css do |args|
+  if args['--watch']
+    exec "filewatcher --immediate 'app/styles/*.scss' 'bundle exec run css'"
+  else
+    target = "app/public/css"
+    Sasstool::Renderer.new("app/styles/main.scss").save target
+    puts "Saved #{target}"
+  end
 end
 
 help   "Run YARD server"
