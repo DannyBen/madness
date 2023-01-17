@@ -1,7 +1,5 @@
-require 'commonmarker'
-
 module Madness
-  # Handle a single markdown document.
+  # Handle a single document path.
   class Document
     include ServerHelper
     using StringRefinements
@@ -17,12 +15,7 @@ module Madness
 
     # Return the HTML for that document
     def content
-      @content ||= content!
-    end
-
-    # Return the HTML for that document, force re-read.
-    def content!
-      %i[empty missing].include?(type) ? "<h1>#{title}</h1>" : markdown_to_html
+      @content ||= %i[empty missing].include?(type) ? "<h1>#{title}</h1>" : markdown.to_html
     end
 
   private
@@ -64,108 +57,11 @@ module Madness
     end
 
     def markdown
-      @markdown ||= pre_process_markdown
+      @markdown ||= Markdown.new(markdown_text, title: title)
     end
 
-    def pre_process_markdown
-      result = File.read file
-      result = evaluate_shortlinks result if config.shortlinks
-      result
-    end
-
-    def doc
-      @doc ||= CommonMarker.render_doc markdown, :DEFAULT, [:table]
-    end
-
-    # Convert markdown to HTML, with some additional processing:
-    # 1. Add anchors to headers
-    # 2. Syntax highilghting
-    # 3. Prepend H1 if needed
-    def markdown_to_html
-      replace_toc_marker
-      prepend_h1 if config.auto_h1
-      add_anchor_ids
-      html = doc.to_html :UNSAFE
-      html = syntax_highlight(html) if config.highlighter
-      html
-    end
-
-    # Add anchors with IDs before all headers
-    def add_anchor_ids
-      doc.walk do |node|
-        if node.type == :header
-          anchor = CommonMarker::Node.new(:inline_html)
-
-          next unless node.first_child.type == :text
-
-          anchor_id = node.first_child.string_content.to_slug
-          anchor.string_content = "<a id='#{anchor_id}'></a>"
-          node.prepend_child anchor
-        end
-      end
-    end
-
-    # Replace <!-- TOC --> with a Table of Contents for the page
-    def replace_toc_marker
-      toc_marker = doc.find do |node|
-        node.type == :html and node.string_content.include? '<!-- TOC -->'
-      end
-
-      return unless toc_marker
-
-      toc_marker.insert_after document_toc
-      toc_marker.insert_after CommonMarker.render_doc('## Table of Contents').first_child
-    end
-
-    # Replace [[link]] with [link](link)
-    def evaluate_shortlinks(raw)
-      raw.gsub(/\[\[([^\]]+)\]\]/) { "[#{$1}](#{$1.to_href})" }
-    end
-
-    # Returns a UL object containing the document table of contents
-    def document_toc
-      toc = []
-      doc.walk do |node|
-        next unless node.type == :header
-
-        level = node.header_level
-        next unless level.between? 2, 3
-
-        text = node.first_child.string_content
-        spacer = '  ' * (level - 1)
-        toc << "#{spacer}- [#{text}](##{text.to_slug})"
-      end
-
-      toc = toc.join "\n"
-      CommonMarker.render_doc(toc).first_child
-    end
-
-    # If the document does not start with an H1 tag, add it.
-    def prepend_h1
-      return unless doc.first_child
-      return if (doc.first_child.type == :header) && (doc.first_child.header_level == 1)
-
-      h1 = CommonMarker.render_doc("# #{title}").first_child
-      doc.first_child.insert_before h1
-    end
-
-    # Apply syntax highlighting with CodeRay. This will parse for any
-    # <code class='LANG'> sections in the HTML, pass it to CodeRay for
-    # highlighting.
-    # Since CodeRay adds another HTML escaping, on top of what RDiscount
-    # does, we unescape it before passing it to CodeRay.
-    #
-    # Open StackOverflow question:
-    # http://stackoverflow.com/questions/37771279/prevent-double-escaping-with-coderay-and-rdiscount
-    def syntax_highlight(html)
-      line_numbers = config.line_numbers ? :table : nil
-      opts = { css: :style, wrap: nil, line_numbers: line_numbers }
-      html.gsub(%r{<code class="language-(.+?)">(.+?)</code>}m) do
-        lang = $1
-        code = $2
-        code = CGI.unescapeHTML code
-        CodeRay.scan(code, lang).html opts
-      end
+    def markdown_text
+      @markdown_text ||= File.read file
     end
 
     def md_file?
