@@ -1,5 +1,4 @@
 require 'commonmarker'
-require 'coderay'
 
 module Madness
   # Handle a single markdown document.
