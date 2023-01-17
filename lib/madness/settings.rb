@@ -15,7 +15,7 @@ module Madness
       reset
     end
 
-    def method_missing(name, *args, &_blk)
+    def method_missing(name, *args, &)
       name_string = name.to_s
 
       if name_string.end_with? '='
