@@ -111,63 +111,37 @@ li > p {
   margin-top: 16px; }
 
 code {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  padding: 0px 8px;
   margin: 0;
+  font-size: 90%;
   background-color: #eee;
-  border-radius: 3px; }
-  code:before, code:after {
-    letter-spacing: -0.2em;
-    content: "\00a0"; }
+  border-radius: 3px;
+  display: inline-block; }
 
 pre {
-  margin-left: 20px;
-  overflow: auto;
-  line-height: 1.45;
-  word-wrap: normal; }
-  pre > code {
-    padding: 0;
-    margin: 0;
-    font-size: 100%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0; }
-  pre code {
-    display: inline-block;
-    max-width: initial;
-    overflow: initial;
-    line-height: inherit;
-    word-wrap: normal;
-    border: 0; }
-  pre code:before,
-  pre code:after {
-    content: normal; }
-
-.clipboard-button {
-  position: absolute;
-  right: 0;
-  font-size: 1.25em;
-  opacity: 0.2;
-  transition: opacity 0.3s; }
-
-table.CodeRay:hover .clipboard-button {
-  opacity: 1;
-  transition: opacity 0.3s; }
-
-table.CodeRay {
+  overflow-x: auto;
   position: relative;
-  margin-bottom: 0; }
-  table.CodeRay pre {
-    margin-bottom: 0; }
-  table.CodeRay tr, table.CodeRay td {
-    border: 0; }
-    table.CodeRay tr pre, table.CodeRay td pre {
-      margin-left: 0; }
-  table.CodeRay td.line-numbers {
-    background: #eee;
-    padding: 4px; }
+  border-radius: 3px; }
+  pre code {
+    background-color: transparent;
+    display: block;
+    font-size: inherit;
+    line-height: 1.2; }
+    pre code .clipboard-button {
+      position: absolute;
+      right: 10px;
+      top: 2px;
+      font-size: 1.25em;
+      opacity: 0.2;
+      transition: opacity 0.3s;
+      display: inline-block;
+      padding: 5px; }
+    pre code:hover .clipboard-button {
+      opacity: 0.8;
+      transition: opacity 0.3s; }
+      pre code:hover .clipboard-button:hover {
+        opacity: 1.0;
+        transition: opacity 0.3s; }
 
 img {
   border-style: none;
@@ -249,7 +223,7 @@ kbd {
 
 nav {
   height: 100vh;
-  width: 250px;
+  width: 300px;
   overflow-y: auto;
   position: fixed; }
   @media print {
@@ -277,11 +251,17 @@ nav {
     display: block; }
 
 ::-webkit-scrollbar {
-  width: 6px; }
+  width: 6px;
+  height: 6px; }
 
 ::-webkit-scrollbar-thumb {
-  background: #ddd;
+  background: #ccc;
   -webkit-border-radius: 3px; }
+
+.footnotes {
+  border-top: 1px solid #ccc;
+  color: #666;
+  font-size: 85%; }
 
 @font-face {
   font-family: 'fontello';
@@ -351,7 +331,7 @@ p, blockquote, ul, ol, dl, table, pre {
   color: #777; }
 
 body {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto; }
 
 .main {
@@ -362,7 +342,7 @@ body {
   @media only screen and (min-width: 768px) {
     .main.with-sidebar {
       min-height: 100vh;
-      margin-left: 250px; } }
+      margin-left: 300px; } }
   .main.without-sidebar {
     max-width: 980px;
     margin: 0 auto; }
