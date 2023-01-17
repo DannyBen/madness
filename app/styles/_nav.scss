@@ -11,7 +11,7 @@ nav {
   // border-right: 1px solid #ccc;
 
   height: 100vh;
-  width: 250px;
+  width: 300px;
   overflow-y: auto;
   position: fixed;
 
@@ -48,14 +48,4 @@ nav {
     height: 90px;
     display: block;
   }
-}
-
-
-// Nicer sidebar scrollbars
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-thumb {
-  background: #ddd;
-  -webkit-border-radius: 3px;
 }
