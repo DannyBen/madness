@@ -6,6 +6,10 @@
 
 ---
 
+Madness is a command line server for rendering markdown documents in your
+browser. It is designed to facilitate easy development of internal
+markdown-based documentation site.
+
 ## Screenshots
 
 [![Screenshots](assets/screenshots.gif)](assets/screenshots.gif)
@@ -31,11 +35,6 @@ $ brew gem install madness
 $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'
 ```
 
-## Design Intentions
-
-Madness was designed in order to provide easy browsing, viewing and 
-searching for local, markdown based documentation directories.
-
 ## Feature Highlights
 
 - Easy to use.
@@ -44,9 +43,12 @@ searching for local, markdown based documentation directories.
 - Configure with a configuration file or command arguments.
 - Fully customizable theme.
 - Automatic generation of navigation sidebar.
-- Automatic generation of Table of Contents (site-wide and inline).
-- Can optionally show additional file types in the navigation menu (e.g. PDF files).
+- Automatic generation of Table of Contents (site-wide and per page).
+- Can optionally show additional file types in the navigation menu (e.g. PDF
+  files).
 - Optional support for `[[Short Link]]` syntax.
+- Support for extended markdown syntax, such as footnotes and syntax
+  highlighting.
 
 ## Usage
 
@@ -68,14 +70,14 @@ $ madness --help
 
 Madness expects to be executed in a documentation directory.
 
-A documentation directory contains only markdown files (`*.md`) and 
-sub directories that contain more markdown files.
+A documentation directory contains only markdown files (`*.md`) and sub
+directories that contain more markdown files.
 
-The server will consider the file `index.md` or `README.md` in any directory 
-as the main file describing this directory, where `index.md` has priority.
+The server will consider the file `index.md` or `README.md` in any directory as
+the main file describing this directory, where `index.md` has priority.
 
-The navigation sidebar will show all the sub directories and files in 
-the same directory as the viewed file.
+The navigation sidebar will show all the sub directories and files in the same
+directory as the viewed file.
 
 Example structure:
 
@@ -94,13 +96,20 @@ Example structure:
 
 ## Configuration File
 
-All the command line arguments can also be configured through a 
-configuration file. Create a file named `.madness.yml` in your 
-documentation directory, and modify any of the settings below.
+Madness uses sensible defaults, so therefore can be executed without configuring
+anything. Configuration is mostly done by having a file named `.madness.yml` in
+your documentation directory.
+
+For convenience, you can generate a template config file by running:
+
+```shell
+$ madness create config
+```
+
+which will generate this file, with all the default options:
 
 ```yaml
 # .madness.yml
-
 # path to the documentation root
 path: .
 
@@ -119,11 +128,13 @@ auto_h1: true
 # append navigation to directory READMEs
 auto_nav: true
 
+# replace <!-- TOC --> in any file with its internal table of contents
+# set to true to enable it with the default '## Table of Contents' caption,
+# or set to any string that will be inserted before it as a caption.
+auto_toc: true
+
 # enable syntax highlighter for code snippets
 highlighter: true
-
-# enable line numbers for code snippets
-line_numbers: true
 
 # enable the copy to clipboard icon for code snippets
 copy_code: true
@@ -156,12 +167,6 @@ expose_extensions: ~
 # exclude directories that match these regular expressions
 # note that this is an array
 exclude: ['^[a-z_\-0-9]+$']
-```
-
-For convenience, you can generate a template config file by running:
-
-```shell
-$ madness create config
 ```
 
 ## Search
@@ -216,6 +221,11 @@ If you have long markdown documents, and you wish to add an inline Table of
 Contents for them, simply add an HTML comment `<!-- TOC -->` where you want
 the Table of Contents to be generated. The inserted list will only consider
 H2 and H3 headings.
+
+Note that for this feature to work, your markdown document must use the #-based
+heading syntax.
+
+The 'Table of Contents' heading can be customized in the configuration file.
 
 ## Hidden Directories
 
