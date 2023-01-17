@@ -1,6 +1,19 @@
 Change Log
 ========================================
 
+Untagged - Latest
+----------------------------------------
+
+- Upgrade to commonmarker 1.0.0.pre6
+- Remove configuration for line numbers in syntax highlighting
+- Update TOC marker: It now requires #-style headers to function
+- Update syntax highlighting format to use commonmarker's internal highlighter
+- Add support for footnotes
+- Increase sidebar width by 50px
+- Remove syntax related options from the CLI
+- Allow choosing a custom caption for the automatic internal TOC
+
+
 v0.9.9 - 2023-01-16
 ----------------------------------------
 

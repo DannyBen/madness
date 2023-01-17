@@ -47,6 +47,7 @@ $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
 - Can optionally show additional file types in the navigation menu (e.g. PDF
   files).
 - Optional support for `[[Short Link]]` syntax.
+- Optional basic authentication.
 - Support for extended markdown syntax, such as footnotes and syntax
   highlighting.
 
