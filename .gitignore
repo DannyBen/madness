@@ -1,24 +1,18 @@
 Gemfile.lock
 
-/tmp
-/dev
-/gems
 /coverage
-/doc
 /debug.rb
-
-/_local_jekyll
-/_site
+/dev
+/doc
+/gems
 /spec/status.txt
+/tmp
 
 .sass-cache
 .bundle
 .byebug_history
 .yardoc
-_index
 madness.log
 nohup.out
 toc.txt
 toc.html
-
-*.sublime-*

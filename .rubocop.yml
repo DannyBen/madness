@@ -9,12 +9,14 @@ inherit_gem:
 
 AllCops:
   TargetRubyVersion: 2.7
-  SuggestExtensions: false
+  Exclude:
+    - dev/**/*
+    - debug.rb
 
 # Allow `$stderr.puts` in a command line
 Style/StderrPuts:
   Exclude:
-    - 'lib/madness/command_line.rb'
+    - lib/madness/command_line.rb
 
 # Allow longer examples
 RSpec/ExampleLength:
