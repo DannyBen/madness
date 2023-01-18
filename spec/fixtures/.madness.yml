@@ -5,5 +5,4 @@ port: '1337'
 bind: '4.3.2.1'
 auto_h1: false
 highlighter: false
-line_numbers: false
 auth: user:s3cr3t

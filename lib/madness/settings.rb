@@ -58,7 +58,6 @@ module Madness
         auto_h1:           true,
         auto_nav:          true,
         highlighter:       true,
-        line_numbers:      true,
         copy_code:         true,
         shortlinks:        false,
         toc:               nil,
