@@ -1,5 +1,7 @@
 require_relative 'lib/madness'
 require "sasstool"
+require "slim"
+require "pretty_trace/enable-trim"
 require "runfile-tasks"
 
 title   "Madness Runfile"
@@ -8,18 +10,18 @@ version Madness::VERSION
 
 RunfileTasks::RubyGems.all 'madness'
 RunfileTasks::Testing.rspec
-RunfileTasks::Docs.rdoc
 
 help   "Generate public CSS"
-action :css do
-  target = "app/public/css"
-  Sasstool::Renderer.new("app/styles/main.scss").save target
-  puts "Saved #{target}"
-end
-
-help   "Run YARD server"
-action :yard do
-  system "yard server -p3000 -B0.0.0.0 -r"
+usage  'css [--watch]'
+option '-w, --watch', 'Watch for changes and regenerate'
+action :css do |args|
+  if args['--watch']
+    exec "filewatcher --immediate 'app/styles/*.scss' 'bundle exec run css'"
+  else
+    target = "app/public/css"
+    Sasstool::Renderer.new("app/styles/main.scss").save target
+    puts "Saved #{target}"
+  end
 end
 
 usage  "(server|s) [--sample]"
@@ -30,21 +32,16 @@ action :server, :s do |args|
   system "bundle exec bin/madness #{folder}"
 end
 
-help   "Run IRB console"
-action :console, :c do
-  system "bundle exec bin/console"
-end
+help   'Extract fontello zip'
+action :fontello do
+  system 'mkdir -p tmp/fontello'
+  zip = 'assets/fontello.zip'
+  system "unzip -j -o  #{zip} -d tmp/fontello"
+  %w[eot svg ttf woff woff2].each do |ext|
+    system "cp tmp/fontello/fontello.#{ext} app/public/font/"
+  end
 
-help   "Generate TOC to toc.txt"
-action :toc do
-  exec 'gh-md-toc README.md > toc.txt'
-end
-
-help   "Generate usage.md"
-action :usage do
-  content = "# Madness Usage\n\n```shell\n$ madness --help\n\n#{`bundle exec madness --help`}\n```\n"
-  File.write 'usage.md', content
-  puts "Created usage.md"
+  system 'cp tmp/fontello/fontello.css app/styles/_fontello.scss'
 end
 
 help   "Generate changelog and append old changelog"
@@ -59,10 +56,35 @@ action :cloc do
   system "cloc . --exclude-dir coverage,spec,examples"
 end
 
-help   "Run a local Jekyll deployment for GitHub Pages tests"
-usage  "jekyll"
-action :jekyll do |args|
-  exec "jekyll serve -H 0.0.0.0 -P 3000"
+help   "Generate the screenshots animated gif"
+action :screenshots do
+  puts "Saving assets/screenshots.gif"
+  exec "convert -delay 300 -loop 0 assets/screenshots/*.png assets/screenshots.gif"
+end
+
+help   "Generate the site to /docs"
+action :site do
+  # Use the README as a base, and do some TOC acrobatics to prevent the HTML
+  # generator from converting some TOC comments.
+  readme = File.read('README.md')
+    .gsub('<!-- TOC -->', '{{TOC_COMMENT}}')
+    .gsub('<!-- MADNESS_TOC -->', '<!-- TOC -->')
+    .sub(/\[!\[Gem Version\].*/, '')
+    .sub(/\[!\[Build Status\].*/, '')
+    .sub(/\[!\[Maintainability\].*/, '')
+
+  # Create the Madness page using Madness
+  content = Madness::MarkdownDocument.new(readme)
+    .to_html
+    .gsub '{{TOC_COMMENT}}', '&lt;!-- TOC --&gt;'
+
+  # Place the rendered HTML inside a slim template
+  Slim::Engine.set_options pretty: true    
+  html = Slim::Template.new("assets/site/index.slim").render(nil, content: content)
+  
+  # Export for GitHub pages
+  File.write 'docs/index.html', html
+  puts 'Saved docs/index.html'
 end
 
 require_relative 'debug.rb' if File.exist? 'debug.rb'

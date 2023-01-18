@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Markdown Madness - Instance Markdown Server</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://unpkg.com/bonsai.css@latest/dist/bonsai.min.css" rel="stylesheet" />
+    <link href="assets/main.css" rel="stylesheet" />
+  </head>
+  <body><p><img src="assets/header.png" alt="Madness Logo"></p>
+
+<h1 id="madness-instant-markdown-server">Madness - Instant Markdown Server</h1>
+
+<hr>
+
+<p>Madness is a command line server for rendering markdown documents in your
+browser. It is designed to facilitate easy development of internal
+markdown-based documentation site.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#feature-highlights">Feature Highlights</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#directory-conventions">Directory Conventions</a></li>
+<li><a href="#configuration-file">Configuration File</a></li>
+<li><a href="#search">Search</a></li>
+<li><a href="#images-and-static-files">Images and Static Files</a></li>
+<li><a href="#automatic-h1">Automatic H1</a></li>
+<li><a href="#shortlinks">Shortlinks</a></li>
+<li><a href="#table-of-contents-generation">Table of Contents Generation</a>
+
+<ul>
+<li><a href="#site-wide">Site-wide</a></li>
+<li><a href="#in-page">In-page</a></li>
+</ul></li>
+<li><a href="#hidden-directories">Hidden Directories</a></li>
+<li><a href="#controlling-sort-order">Controlling Sort Order</a></li>
+<li><a href="#displaying-additional-file-types">Displaying Additional File Types</a></li>
+<li><a href="#basic-authentication">Basic Authentication</a></li>
+<li><a href="#customizing-theme">Customizing Theme</a>
+
+<ul>
+<li><a href="#option-1-change-css-and-html-slim">Option 1: Change CSS and HTML (Slim)</a></li>
+<li><a href="#option-2-change-css-only">Option 2: Change CSS only</a></li>
+</ul></li>
+<li><a href="#docker-image">Docker Image</a></li>
+</ul>
+
+<h2 id="screenshots">Screenshots</h2>
+
+<p><a href="assets/screenshots.gif"><img src="assets/screenshots.gif" alt="Screenshots"></a></p>
+
+<h2 id="install">Install</h2>
+
+<p><strong>Using Ruby:</strong></p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>gem <span class="nb">install </span>madness
+</code></pre></div>
+<p><strong>Using Homebrew:</strong></p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>brew <span class="nb">install </span>brew-gem
+<span class="nv">$ </span>brew gem <span class="nb">install </span>madness
+</code></pre></div>
+<p><strong>Using Docker:</strong></p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">alias </span><span class="nv">madness</span><span class="o">=</span><span class="s1">'docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'</span>
+</code></pre></div>
+<h2 id="feature-highlights">Feature Highlights</h2>
+
+<ul>
+<li>Easy to use.</li>
+<li>Built-in full text search.</li>
+<li>Compatible with how markdown files are displayed on GitHub and GitHub pages.</li>
+<li>Configure with a configuration file or command arguments.</li>
+<li>Fully customizable theme.</li>
+<li>Automatic generation of navigation sidebar.</li>
+<li>Automatic generation of Table of Contents (site-wide and per page).</li>
+<li>Can optionally show additional file types in the navigation menu (e.g. PDF
+files).</li>
+<li>Optional support for <code>[[Short Link]]</code> syntax.</li>
+<li>Optional basic authentication.</li>
+<li>Support for extended markdown syntax, such as footnotes and syntax
+highlighting.</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<p>Go to any directory that contains markdown files and run:</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness
+</code></pre></div>
+<p>And open <a href="http://localhost:3000">http://localhost:3000</a> in your browser.</p>
+
+<p>For more options, run:</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness <span class="nt">--help</span>
+</code></pre></div>
+<h2 id="directory-conventions">Directory Conventions</h2>
+
+<p>Madness expects to be executed in a documentation directory.</p>
+
+<p>A documentation directory contains only markdown files (<code>*.md</code>) and sub
+directories that contain more markdown files.</p>
+
+<p>The server will consider the file <code>index.md</code> or <code>README.md</code> in any directory as
+the main file describing this directory, where <code>index.md</code> has priority.</p>
+
+<p>The navigation sidebar will show all the sub directories and files in the same
+directory as the viewed file.</p>
+
+<p>Example structure:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>./
+├── README.md
+├── File.md
+├── Another File.md
+├── Folder
+│   ├── File.md
+│   └── image.png
+└── Another Folder
+    ├── README.md
+    └── File.md
+</code></pre></div>
+<h2 id="configuration-file">Configuration File</h2>
+
+<p>Madness uses sensible defaults, so therefore can be executed without configuring
+anything. Configuration is mostly done by having a file named <code>.madness.yml</code> in
+your documentation directory.</p>
+
+<p>For convenience, you can generate a template config file by running:</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness create config
+</code></pre></div>
+<p>which will generate this file, with all the default options:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="c1"># .madness.yml</span>
+<span class="c1"># path to the documentation root</span>
+<span class="na">path</span><span class="pi">:</span> <span class="s">.</span>
+
+<span class="c1"># server port</span>
+<span class="na">port</span><span class="pi">:</span> <span class="m">3000</span>
+
+<span class="c1"># server listen address</span>
+<span class="na">bind</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
+
+<span class="c1"># enable sidebar</span>
+<span class="na">sidebar</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="c1"># add H1 title to files that do not have one</span>
+<span class="na">auto_h1</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="c1"># append navigation to directory READMEs</span>
+<span class="na">auto_nav</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="c1"># replace &lt;!-- TOC --&gt; in any file with its internal table of contents</span>
+<span class="c1"># set to true to enable it with the default '## Table of Contents' caption,</span>
+<span class="c1"># or set to any string that will be inserted before it as a caption.</span>
+<span class="na">auto_toc</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="c1"># enable syntax highlighter for code snippets</span>
+<span class="na">highlighter</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="c1"># enable the copy to clipboard icon for code snippets</span>
+<span class="na">copy_code</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="c1"># convert [[Links]] to [Links](Links)</span>
+<span class="na">shortlinks</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="c1"># generate a table of contents file with this name, for example:</span>
+<span class="c1"># toc: Table of Contents</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="s">~</span>
+
+<span class="c1"># path to theme folder, for example:</span>
+<span class="c1"># theme: _theme</span>
+<span class="na">theme</span><span class="pi">:</span> <span class="s">~</span>
+
+<span class="c1"># open the server URL in the browser</span>
+<span class="na">open</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="c1"># provide user:password for basic authentication, for example:</span>
+<span class="c1"># auth: admin:s3cr3t</span>
+<span class="na">auth</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="c1"># if auth is enabled, specify auth realm name</span>
+<span class="na">auth_zone</span><span class="pi">:</span> <span class="s">Madness</span>
+
+<span class="c1"># show files with these extensions in the navigation and search, for example:</span>
+<span class="c1"># expose_extensions: pdf,docx,xlsx,txt</span>
+<span class="na">expose_extensions</span><span class="pi">:</span> <span class="s">~</span>
+
+<span class="c1"># exclude directories that match these regular expressions</span>
+<span class="c1"># note that this is an array</span>
+<span class="na">exclude</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">^[a-z_\-0-9]+$'</span><span class="pi">]</span>
+</code></pre></div>
+<h2 id="search">Search</h2>
+
+<p>Madness comes with a full text search page.</p>
+
+<h2 id="images-and-static-files">Images and Static Files</h2>
+
+<p>You can put images and other asset files anywhere in your documentation
+folder.</p>
+
+<p>When linking to other pages or images in your documentation folder, simply
+use the URL relative to the markdown file. </p>
+
+<p>For example, if you have a folder named <code>subfolder</code> that contains a 
+<code>README.md</code> and a <code>nice-picture.png</code>, showing it in your <code>README</code> is done by
+this markdown:</p>
+<div class="highlight"><pre class="highlight markdown"><code><span class="p">![</span><span class="nv">alt text</span><span class="p">](</span><span class="sx">nice-picture.png</span><span class="p">)</span>
+</code></pre></div>
+<p>If you wish to link to images or pages in a different folder, simply specify
+the path relative to the homepage:</p>
+<div class="highlight"><pre class="highlight markdown"><code><span class="p">![</span><span class="nv">alt text</span><span class="p">](</span><span class="sx">/images/nice-picture.png</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="automatic-h1">Automatic H1</h2>
+
+<p>If your markdown document does not start with a level 1 heading, it
+will be automatically added based on the file name.</p>
+
+<h2 id="shortlinks">Shortlinks</h2>
+
+<p>When the <code>shortlinks</code> option is enabled, you may use a shorthand syntax for 
+specifying internal links, where <code>[[Anything]]</code> will be converted to
+<code>[Anything](Anything)</code>, which will then be rendered as an internal link to a
+file or a directory in the same directory as the file itself.</p>
+
+<h2 id="table-of-contents-generation">Table of Contents Generation</h2>
+
+<h3 id="site-wide">Site-wide</h3>
+
+<p>To generate a Table of Contents file for the entire site (for the directories
+and files), run <code>madness --toc FILENAME</code></p>
+
+<h3 id="in-page">In-page</h3>
+
+<p>If you have long markdown documents, and you wish to add an inline Table of
+Contents for them, simply add an HTML comment <code>&lt;!-- TOC --&gt;</code> where you want
+the Table of Contents to be generated. The inserted list will only consider
+H2 and H3 headings.</p>
+
+<p>Note that for this feature to work, your markdown document must use the #-based
+heading syntax.</p>
+
+<p>The &#39;Table of Contents&#39; heading can be customized in the configuration file.</p>
+
+<h2 id="hidden-directories">Hidden Directories</h2>
+
+<p>Directories that are made only of lowercase letters, underscoes, dash and/or
+numbers (<code>/^[a-z_\-0-9]+$/</code>) will not be displayed in the navigation. In
+other words, directories must have at least one uppercase letter or a space
+to be recognized as a documentation directory.</p>
+
+<p>This can be configured by using the <code>exclude</code> configuration option:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="c1"># do not ignore any directory</span>
+<span class="na">exclude</span><span class="pi">:</span> <span class="s">~</span>
+
+<span class="c1"># ignore only specific directories</span>
+<span class="na">exclude</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">assets</span><span class="pi">,</span> <span class="nv">public</span><span class="pi">]</span>
+
+<span class="c1"># ignore using regular expressions</span>
+<span class="na">exclude</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">^public$'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">assets'</span><span class="pi">]</span>
+</code></pre></div>
+<h2 id="controlling-sort-order">Controlling Sort Order</h2>
+
+<p>To control the sort order of the automatically generated navigation elements,
+simply prefix your files and directories with digits followed by a dot and a 
+space, just like you would create an ordered list in Markdown. The numbers
+will be omitted when they are displayed.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>./
+├── 1. Some file or folder
+└── 2. Another file or folder
+</code></pre></div>
+<h2 id="displaying-additional-file-types">Displaying Additional File Types</h2>
+
+<p>If you wish the navigation and search features to also show other documents
+and files (for example, PDF files), you may configure the <code>expose_extensions</code>
+option in the configuration file to contain a comma delimited list of
+extensions:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">expose_extensions</span><span class="pi">:</span> <span class="s">pdf,docx,xlsx,txt</span>
+</code></pre></div>
+<p>The default value of this option is <code>null</code> (or <code>~</code>, which is <code>null</code> in YAML).</p>
+
+<h2 id="basic-authentication">Basic Authentication</h2>
+
+<p>To add basic authentication, use the <code>--auth user:password</code> command line argument or the equivalent <code>auth</code> configuration option.</p>
+
+<p>If you wish to avoid storing the basic authentication credentials in the configuration file, you may use ERB tags to load the credentials from environment variables:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">auth</span><span class="pi">:</span> <span class="s">&lt;%= ENV['BASIC_AUTH'] %&gt;</span>
+</code></pre></div>
+<h2 id="customizing-theme">Customizing Theme</h2>
+
+<p>There are two ways to change how Madness looks. </p>
+
+<h3 id="option-1-change-css-and-html-slim">Option 1: Change CSS and HTML (Slim)</h3>
+
+<p>In order to have complete control over the CSS and generated HTML, you
+can override the views and styles. Views are provided as Slim templates, 
+and CSS is provided as SCSS.</p>
+
+<p>Madness comes with a command that copies the default theme to a folder of
+your choice, where you can customize it to your taste. Run:</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness create theme my_theme
+</code></pre></div>
+<p>Where <code>my_theme</code> is the folder that will be created.</p>
+
+<p>To use the created theme, simply run Madness with the <code>--theme my_theme</code>
+option.</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness <span class="nt">--theme</span> my_theme
+</code></pre></div>
+<p>Note that the generated theme contains the SCSS files in the <code>styles</code>
+subfolder, and the rendered CSS files in the <code>public/css</code> subfolder.</p>
+
+<p>If you wish to use the SCSS files, you will need to render them yourself
+to the location of your theme styles (e.g. <code>public/css</code>) - you can use
+any tool to do so, or if you do not have a preference, use
+<a href="https://github.com/DannyBen/sasstool">SassTool</a>.</p>
+
+<h3 id="option-2-change-css-only">Option 2: Change CSS only</h3>
+
+<p>If you are looking to implement a smaller CSS change, follow these steps:</p>
+
+<ul>
+<li>Create a directory named <code>css</code> in your root documentation directory.</li>
+<li>Copy the <a href="app/public/css/main.css">main.css</a> file to it.</li>
+<li>Update it as you see fit.</li>
+</ul>
+
+<p>Note that this functionality is not guaranteed to stay as is in future 
+versions of madness.</p>
+
+<h2 id="docker-image">Docker Image</h2>
+
+<p>Madness server is also available as a docker image.</p>
+
+<p>This command will start the server on localhost:3000, with the current 
+directory as the markdown documentation folder</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="nv">$PWD</span>:/docs <span class="nt">-p</span> 3000:3000 dannyben/madness
+</code></pre></div>
+<p>You may create an alias for convenience:</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">alias </span><span class="nv">madness</span><span class="o">=</span><span class="s1">'docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'</span>
+<span class="nv">$ </span>madness <span class="nt">--help</span>
+</code></pre></div>
+<p>For more information about the docker image, see:</p>
+
+<ul>
+<li><a href="https://hub.docker.com/r/dannyben/madness/">Madness image on Docker Hub</a></li>
+<li><a href="https://github.com/DannyBen/docker-madness">Madness Dockerfile and Docker Compose</a></li>
+</ul>
+
+<hr>
+
+  </body>
+</html>
