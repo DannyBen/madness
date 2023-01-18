@@ -92,10 +92,10 @@ end
 <li>This is an <em>Italic Text</em></li>
 <li>This is a <del>Strikethrough Text</del></li>
 <li>This is a <strong><em>Bold Italic Text</em></strong></li>
-<li>This is a <u>Underlined Text</u></li>
+<li>This is an <u>Underlined Text</u></li>
 <li>This is a <u><strong>Bold Underlined Text</strong></u></li>
 <li>This is a <mark>Highlighted Text</mark></li>
-<li>This is <sup>superscript</sup></li>
+<li>This is a <sup>superscript</sup></li>
 </ul>
 
 <h2 id="unsafe-html">Unsafe HTML</h2>

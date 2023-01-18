@@ -35,7 +35,7 @@ help   "Run server with spec docroot or the sample docroot"
 option "-s, --sample", "Use the 'sample' folder instead of the fixture"
 action :server, :s do |args|
   folder = args['--sample'] ? 'sample' : 'spec/fixtures/docroot'
-  system "bundle exec bin/madness #{folder}"
+  exec "bundle exec bin/madness #{folder}"
 end
 
 help   'Extract fontello zip'

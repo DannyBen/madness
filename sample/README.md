@@ -11,6 +11,6 @@ To view it, simply run
 in this folder.
 
 
-THis README file itself will not be shown by Madness, since there is also an
+This README file itself will not be shown by Madness, since there is also an
 `index.md` in the same folder, which takes precedence.
 

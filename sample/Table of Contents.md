@@ -17,3 +17,5 @@
 1. [Stormtroopers](/Stormtroopers)
 1. [The First Order](/The%20First%20Order)
 1. [The Resistance](/The%20Resistance)
+1. [Markdown Sample](/Markdown%20Sample)
+1. [Table of Contents](/Table%20of%20Contents)
