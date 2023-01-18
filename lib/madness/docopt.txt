@@ -28,37 +28,6 @@ Options:
     Set server listen address.
     (Config option: bind, default: 0.0.0.0)
 
-  --no-auto-h1
-    By default, if a markdown document does not start with an H1 caption,
-    it will be added automatically based on the file name. To disable this
-    behavior, use --no-auto-h1.
-    (Config option: auto_h1)
-
-  --no-syntax
-    Disable code syntax highlighting.
-    (Config option: highlighter)
-
-  --no-line-numbers
-    Disable line numbering for syntax highlighter.
-    (Config option: line_numbers)
-
-  --no-copy-code
-    Disable copy to cliboard icon for code snippets.
-    (Config option: copy_code)
-
-  --no-sidebar
-    Disable sidebar navigation.
-    (Config option: sidebar)
-
-  --no-auto-nav
-    Disable automatic generation of footer navigation for folder README 
-    files.
-    (Config option: auto_nav)
-
-  --shortlinks
-    Enable support for [[Short Links]].
-    (Config option: shortlinks)
-
   --theme FOLDER
     Use a custom theme. FOLDER is either absolute or relative to the main
     documentation path.
@@ -86,13 +55,10 @@ Options:
 Examples:
   madness
   madness docs
-  madness docs --no-auto-h1 -p 4567
+  madness docs -p 4567
   madness docs --open
-  madness --no-sidebar --no-auto-nav
   madness --toc "Table of Contents.md" --and-quit
   madness --auth user:secret --port 4000
   madness --theme _mytheme
   madness create config
   madness create theme
-
-
