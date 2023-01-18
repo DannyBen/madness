@@ -20,11 +20,13 @@ auto_h1: true
 # append navigation to directory READMEs
 auto_nav: true
 
+# replace <!-- TOC --> in any file with its internal table of contents
+# set to true to enable it with the default '## Table of Contents' caption,
+# or set to any string that will be inserted before it as a caption.
+auto_toc: true
+
 # enable syntax highlighter for code snippets
 highlighter: true
-
-# enable line numbers for code snippets
-line_numbers: true
 
 # enable the copy to clipboard icon for code snippets
 copy_code: true

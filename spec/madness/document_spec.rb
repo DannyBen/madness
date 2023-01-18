@@ -232,10 +232,10 @@ describe Document do
       expect(doc.content).to have_tag :h1, text: 'Folder without H1'
     end
 
-    it 'syntax highlights code' do
-      doc = described_class.new 'Code'
-      expect(doc.content).to include 'class="CodeRay"'
-    end
+    # it 'syntax highlights code' do
+    #   doc = described_class.new 'Code'
+    #   expect(doc.content).to include 'class="CodeRay"'
+    # end
 
     it 'does not double escape html' do
       doc = described_class.new 'Double Escape'

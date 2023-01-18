@@ -21,7 +21,6 @@ describe Settings do
       expect(config.bind).to eq '4.3.2.1'
       expect(config.auto_h1).to be false
       expect(config.highlighter).to be false
-      expect(config.line_numbers).to be false
       expect(config.open).to be false
       expect(config.auth).to eq 'user:s3cr3t'
       expect(config.auth_realm).to eq 'Madness'
