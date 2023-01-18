@@ -175,11 +175,13 @@ expose_extensions: ~
 exclude: ['^[a-z_\-0-9]+$']
 ```
 
-## Search
+## Features
+
+### Search
 
 Madness comes with a full text search page.
 
-## Images and Static Files
+### Images and Static Files
 
 You can put images and other asset files anywhere in your documentation
 folder.
@@ -202,26 +204,26 @@ the path relative to the homepage:
 ![alt text](/images/nice-picture.png)
 ```
 
-## Automatic H1
+### Automatic H1
 
 If your markdown document does not start with a level 1 heading, it
 will be automatically added based on the file name.
 
-## Shortlinks
+### Shortlinks
 
 When the `shortlinks` option is enabled, you may use a shorthand syntax for 
 specifying internal links, where `[[Anything]]` will be converted to
 `[Anything](Anything)`, which will then be rendered as an internal link to a
 file or a directory in the same directory as the file itself.
 
-## Table of Contents Generation
+### Table of Contents Generation
 
-### Site-wide
+#### Site-wide
 
 To generate a Table of Contents file for the entire site (for the directories
 and files), run `madness --toc FILENAME`
 
-### In-page
+#### In-page
 
 If you have long markdown documents, and you wish to add an inline Table of
 Contents for them, simply add an HTML comment `<!-- TOC -->` where you want
@@ -233,7 +235,7 @@ heading syntax.
 
 The 'Table of Contents' heading can be customized in the configuration file.
 
-## Hidden Directories
+### Hidden Directories
 
 Directories that are made only of lowercase letters, underscoes, dash and/or
 numbers (`/^[a-z_\-0-9]+$/`) will not be displayed in the navigation. In
@@ -253,7 +255,7 @@ exclude: [assets, public]
 exclude: ['^public$', 'assets']
 ```
 
-## Controlling Sort Order
+### Controlling Sort Order
 
 To control the sort order of the automatically generated navigation elements,
 simply prefix your files and directories with digits followed by a dot and a 
@@ -266,7 +268,7 @@ will be omitted when they are displayed.
 └── 2. Another file or folder
 ```
 
-## Displaying Additional File Types
+### Displaying Additional File Types
 
 If you wish the navigation and search features to also show other documents
 and files (for example, PDF files), you may configure the `expose_extensions`
@@ -279,7 +281,7 @@ expose_extensions: pdf,docx,xlsx,txt
 
 The default value of this option is `null` (or `~`, which is `null` in YAML).
 
-## Basic Authentication
+### Basic Authentication
 
 To add basic authentication, use the `--auth user:password` command line argument or the equivalent `auth` configuration option.
 

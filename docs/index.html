@@ -26,20 +26,19 @@ markdown-based documentation site.</p>
 <li><a href="#usage">Usage</a></li>
 <li><a href="#directory-conventions">Directory Conventions</a></li>
 <li><a href="#configuration-file">Configuration File</a></li>
+<li><a href="#features">Features</a>
+
+<ul>
 <li><a href="#search">Search</a></li>
 <li><a href="#images-and-static-files">Images and Static Files</a></li>
 <li><a href="#automatic-h1">Automatic H1</a></li>
 <li><a href="#shortlinks">Shortlinks</a></li>
-<li><a href="#table-of-contents-generation">Table of Contents Generation</a>
-
-<ul>
-<li><a href="#site-wide">Site-wide</a></li>
-<li><a href="#in-page">In-page</a></li>
-</ul></li>
+<li><a href="#table-of-contents-generation">Table of Contents Generation</a></li>
 <li><a href="#hidden-directories">Hidden Directories</a></li>
 <li><a href="#controlling-sort-order">Controlling Sort Order</a></li>
 <li><a href="#displaying-additional-file-types">Displaying Additional File Types</a></li>
 <li><a href="#basic-authentication">Basic Authentication</a></li>
+</ul></li>
 <li><a href="#customizing-theme">Customizing Theme</a>
 
 <ul>
@@ -188,11 +187,13 @@ your documentation directory.</p>
 <span class="c1"># note that this is an array</span>
 <span class="na">exclude</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">^[a-z_\-0-9]+$'</span><span class="pi">]</span>
 </code></pre></div>
-<h2 id="search">Search</h2>
+<h2 id="features">Features</h2>
+
+<h3 id="search">Search</h3>
 
 <p>Madness comes with a full text search page.</p>
 
-<h2 id="images-and-static-files">Images and Static Files</h2>
+<h3 id="images-and-static-files">Images and Static Files</h3>
 
 <p>You can put images and other asset files anywhere in your documentation
 folder.</p>
@@ -209,26 +210,26 @@ this markdown:</p>
 the path relative to the homepage:</p>
 <div class="highlight"><pre class="highlight markdown"><code><span class="p">![</span><span class="nv">alt text</span><span class="p">](</span><span class="sx">/images/nice-picture.png</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="automatic-h1">Automatic H1</h2>
+<h3 id="automatic-h1">Automatic H1</h3>
 
 <p>If your markdown document does not start with a level 1 heading, it
 will be automatically added based on the file name.</p>
 
-<h2 id="shortlinks">Shortlinks</h2>
+<h3 id="shortlinks">Shortlinks</h3>
 
 <p>When the <code>shortlinks</code> option is enabled, you may use a shorthand syntax for 
 specifying internal links, where <code>[[Anything]]</code> will be converted to
 <code>[Anything](Anything)</code>, which will then be rendered as an internal link to a
 file or a directory in the same directory as the file itself.</p>
 
-<h2 id="table-of-contents-generation">Table of Contents Generation</h2>
+<h3 id="table-of-contents-generation">Table of Contents Generation</h3>
 
-<h3 id="site-wide">Site-wide</h3>
+<h4 id="site-wide">Site-wide</h4>
 
 <p>To generate a Table of Contents file for the entire site (for the directories
 and files), run <code>madness --toc FILENAME</code></p>
 
-<h3 id="in-page">In-page</h3>
+<h4 id="in-page">In-page</h4>
 
 <p>If you have long markdown documents, and you wish to add an inline Table of
 Contents for them, simply add an HTML comment <code>&lt;!-- TOC --&gt;</code> where you want
@@ -240,7 +241,7 @@ heading syntax.</p>
 
 <p>The &#39;Table of Contents&#39; heading can be customized in the configuration file.</p>
 
-<h2 id="hidden-directories">Hidden Directories</h2>
+<h3 id="hidden-directories">Hidden Directories</h3>
 
 <p>Directories that are made only of lowercase letters, underscoes, dash and/or
 numbers (<code>/^[a-z_\-0-9]+$/</code>) will not be displayed in the navigation. In
@@ -257,7 +258,7 @@ to be recognized as a documentation directory.</p>
 <span class="c1"># ignore using regular expressions</span>
 <span class="na">exclude</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">^public$'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">assets'</span><span class="pi">]</span>
 </code></pre></div>
-<h2 id="controlling-sort-order">Controlling Sort Order</h2>
+<h3 id="controlling-sort-order">Controlling Sort Order</h3>
 
 <p>To control the sort order of the automatically generated navigation elements,
 simply prefix your files and directories with digits followed by a dot and a 
@@ -267,7 +268,7 @@ will be omitted when they are displayed.</p>
 ├── 1. Some file or folder
 └── 2. Another file or folder
 </code></pre></div>
-<h2 id="displaying-additional-file-types">Displaying Additional File Types</h2>
+<h3 id="displaying-additional-file-types">Displaying Additional File Types</h3>
 
 <p>If you wish the navigation and search features to also show other documents
 and files (for example, PDF files), you may configure the <code>expose_extensions</code>
@@ -277,7 +278,7 @@ extensions:</p>
 </code></pre></div>
 <p>The default value of this option is <code>null</code> (or <code>~</code>, which is <code>null</code> in YAML).</p>
 
-<h2 id="basic-authentication">Basic Authentication</h2>
+<h3 id="basic-authentication">Basic Authentication</h3>
 
 <p>To add basic authentication, use the <code>--auth user:password</code> command line argument or the equivalent <code>auth</code> configuration option.</p>
 

@@ -127,7 +127,7 @@ describe CommandLine do
     it 'copies the default theme to a folder of our choice' do
       expect { subject.execute "create theme #{theme_dir}" }.to output(/Created #{theme_dir}/).to_stdout
       expect(Dir).to exist theme_dir
-      expect(Dir["#{theme_dir}/**/*"].to_yaml).to match_approval('cli/theme-ls')
+      expect(Dir["#{theme_dir}/**/*"].sort.to_yaml).to match_approval('cli/theme-ls')
     end
 
     context 'when dir already exists' do
