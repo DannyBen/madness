@@ -35,4 +35,5 @@ RSpec.configure do |config|
   config.include RSpecHtmlMatchers
   config.include ServerHelper
   config.approvals_path = File.expand_path 'fixtures', __dir__
+  config.example_status_persistence_file_path = 'spec/status.txt'
 end

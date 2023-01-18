@@ -57,6 +57,7 @@ module Madness
         sidebar:           true,
         auto_h1:           true,
         auto_nav:          true,
+        auto_toc:          true,
         highlighter:       true,
         copy_code:         true,
         shortlinks:        false,

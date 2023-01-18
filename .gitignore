@@ -9,6 +9,7 @@ Gemfile.lock
 
 /_local_jekyll
 /_site
+/spec/status.txt
 
 .sass-cache
 .bundle

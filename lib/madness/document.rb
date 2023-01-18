@@ -71,6 +71,7 @@ module Madness
     def pre_process_markdown
       result = File.read file
       result = evaluate_shortlinks result if config.shortlinks
+      result.gsub! '<!-- TOC -->', toc(result) if config.auto_toc
       result
     end
 
@@ -83,7 +84,6 @@ module Madness
     # 2. Syntax highilghting
     # 3. Prepend H1 if needed
     def markdown_to_html
-      replace_toc_marker
       prepend_h1 if config.auto_h1
       add_anchor_ids
       html = doc.to_html :UNSAFE
@@ -106,39 +106,35 @@ module Madness
       end
     end
 
-    # Replace <!-- TOC --> with a Table of Contents for the page
-    def replace_toc_marker
-      toc_marker = doc.find do |node|
-        node.type == :html and node.string_content.include? '<!-- TOC -->'
-      end
-
-      return unless toc_marker
-
-      toc_marker.insert_after document_toc
-      toc_marker.insert_after CommonMarker.render_doc('## Table of Contents').first_child
-    end
-
     # Replace [[link]] with [link](link)
     def evaluate_shortlinks(raw)
       raw.gsub(/\[\[([^\]]+)\]\]/) { "[#{$1}](#{$1.to_href})" }
     end
 
-    # Returns a UL object containing the document table of contents
-    def document_toc
-      toc = []
-      doc.walk do |node|
-        next unless node.type == :header
+    def toc_caption
+      @toc_caption ||= if config.auto_toc.is_a?(String)
+        config.auto_toc
+      else
+        '## Table of Contents'
+      end
+    end
 
-        level = node.header_level
-        next unless level.between? 2, 3
+    def toc(input)
+      result = ["#{toc_caption}\n"]
+      input.lines(chomp: true).each do |line|
+        next unless line.start_with? '#'
 
-        text = node.first_child.string_content
-        spacer = '  ' * (level - 1)
-        toc << "#{spacer}- [#{text}](##{text.to_slug})"
+        matches = line.match(/^(?<level>\#{2,3})\s+(?<text>.+)/)
+        next unless matches
+
+        level = matches[:level].size - 1
+        text = matches[:text]
+
+        spacer = '  ' * level
+        result.push "#{spacer}- [#{text}](##{text.to_slug})"
       end
 
-      toc = toc.join "\n"
-      CommonMarker.render_doc(toc).first_child
+      result.join "\n"
     end
 
     # If the document does not start with an H1 tag, add it.
