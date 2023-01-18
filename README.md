@@ -1,4 +1,4 @@
-![Madness Logo](assets/header.png)
+[![Madness Logo](assets/header.png)](https://github.com/dannyben/madness)
 
 # Madness - Instant Markdown Server
 
