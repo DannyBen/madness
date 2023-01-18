@@ -6,7 +6,6 @@
 @import "list";
 @import "code";
 @import "coderay";
-@import "fontello";
 @import "image";
 @import "line";
 @import "keyboard";

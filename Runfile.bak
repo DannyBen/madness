@@ -24,12 +24,6 @@ action :css do |args|
   end
 end
 
-help   "Generate rouge CSS"
-action :rouge do
-  puts 'Saving app/styles/_rouge.scss'
-  exec 'bundle exec rougify style github > app/styles/_rouge.scss'
-end
-
 usage  "(server|s) [--sample]"
 help   "Run server with spec docroot or the sample docroot"
 option "-s, --sample", "Use the 'sample' folder instead of the fixture"
