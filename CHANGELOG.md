@@ -1,6 +1,18 @@
 Change Log
 ========================================
 
+v1.0.0.rc1 - 2023-01-18
+----------------------------------------
+
+- Change landing page
+- Remove some styling related command line flags
+- Remove support for line numbers in syntax highlighting
+- Update in-page TOC: It now requires #-style headers to function, and allows setting a custom header
+- Increase sidebar width by 50px
+- Change icons
+- Switch from Commonmarker to RedCarpet renderer
+
+
 v0.9.9 - 2023-01-16
 ----------------------------------------
 
