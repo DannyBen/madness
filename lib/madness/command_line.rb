@@ -66,17 +66,8 @@ module Madness
       config.toc          = args['--toc']  if args['--toc']
       config.auth         = args['--auth'] if args['--auth']
       config.auth_realm   = args['--auth-realm'] if args['--auth-realm']
-
-      config.auto_h1      = false   if args['--no-auto-h1']
-      config.auto_nav     = false   if args['--no-auto-nav']
-      config.sidebar      = false   if args['--no-sidebar']
-      config.highlighter  = false   if args['--no-syntax']
-      config.line_numbers = false   if args['--no-line-numbers']
-      config.copy_code    = false   if args['--no-copy-code']
-      config.shortlinks   = true    if args['--shortlinks']
-      config.open         = true    if args['--open']
-
-      config.theme = File.expand_path(args['--theme'], config.path) if args['--theme']
+      config.open         = true if args['--open']
+      config.theme        = File.expand_path(args['--theme'], config.path) if args['--theme']
     end
 
     # Generate index and toc, if requested by the user.
