@@ -232,20 +232,20 @@ describe Document do
       expect(doc.content).to have_tag :h1, text: 'Folder without H1'
     end
 
-    # it 'syntax highlights code' do
-    #   doc = described_class.new 'Code'
-    #   expect(doc.content).to include 'class="CodeRay"'
-    # end
+    it 'syntax highlights code' do
+      doc = described_class.new 'Code'
+      expect(doc.content).to include '<pre class="highlight go">'
+    end
 
     it 'does not double escape html' do
       doc = described_class.new 'Double Escape'
-      expect(doc.content).to include ' &gt; '
-      expect(doc.content).not_to include ' &amp; '
+      expect(doc.content).to include '&gt;'
+      expect(doc.content).not_to include '&amp;'
     end
 
     it 'adds anchors to headers' do
       doc = described_class.new 'File'
-      expect(doc.content).to have_tag :a, id: 'just-a-file'
+      expect(doc.content).to have_tag :h1, id: 'just-a-file'
     end
 
     it 'replaces <!-- TOC --> markers with table of contents' do

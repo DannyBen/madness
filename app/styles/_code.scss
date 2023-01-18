@@ -1,54 +1,47 @@
 code {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  padding: 0px 8px;
   margin: 0;
-  // font-size: 85%;
+  font-size: 90%;
   background-color: #eee;
   border-radius: 3px;
-  
-  &:before, &:after {
-    letter-spacing: -0.2em;
-    content: "\00a0";
-  }
+  display: inline-block;
 }
 
 pre {
-  margin-left: 20px;
-  // margin-top: 0;
-  // margin-bottom: 0;
-
-  // padding: 16px;
-  overflow: auto;
-  // font-size: 85%;
-  line-height: 1.45;
-  // background-color: #f7f7f7;
-  // border-radius: 3px;
-  word-wrap: normal;
-
-  &>code {
-    padding: 0;
-    margin: 0;
-    font-size: 100%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0;
-  }
+  overflow-x: auto;
+  position: relative;
+  border-radius: 3px;
 
   code {
-    display: inline-block;
-    max-width: initial;
-    // padding: 10px;
-    overflow: initial;
-    line-height: inherit;
-    word-wrap: normal;
-    border: 0;
-    // background: #eee;
-  }
+    background-color: transparent;
+    display: block;
+    font-size: inherit;
 
-  code:before,
-  code:after {
-    content: normal;
+    // padding: 0 20px;
+    line-height: 1.2;
+
+    .clipboard-button {
+      position: absolute;
+      left: 7px;
+      bottom: 7px;
+      font-size: 1.25em;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: inline-block;
+      padding: 7px;
+    }
+
+    &:hover .clipboard-button {
+      opacity: 0.7;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 1.0;
+        transition: opacity 0.3s;
+      }
+    }
   }
 }

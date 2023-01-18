@@ -1,19 +1,29 @@
-<h1><a id='file-with-toc'></a>File with TOC</h1>
-<h2><a id='table-of-contents'></a>Table of Contents</h2>
+<h1 id="file-with-toc">File with TOC</h1>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
 <ul>
 <li><a href="#subject-1">Subject 1</a>
+
 <ul>
 <li><a href="#subject-11">Subject 1.1</a></li>
 <li><a href="#subject-12">Subject 1.2</a></li>
-</ul>
-</li>
+</ul></li>
 <li><a href="#subject-2">Subject 2</a></li>
 </ul>
-<h2><a id='subject-1'></a>Subject 1</h2>
+
+<h2 id="subject-1">Subject 1</h2>
+
 <p>Some text</p>
-<h3><a id='subject-11'></a>Subject 1.1</h3>
+
+<h3 id="subject-1-1">Subject 1.1</h3>
+
 <p>Some text</p>
-<h3><a id='subject-12'></a>Subject 1.2</h3>
+
+<h3 id="subject-1-2">Subject 1.2</h3>
+
 <p>Some text</p>
-<h2><a id='subject-2'></a>Subject 2</h2>
+
+<h2 id="subject-2">Subject 2</h2>
+
 <p>Some text</p>

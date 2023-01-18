@@ -1,7 +1,7 @@
 @import "manifest";
 
 body {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -20,7 +20,7 @@ body {
   @include desktop {
     &.with-sidebar {
       min-height: 100vh;
-      margin-left: 250px;
+      margin-left: 300px;
     }
   }
   

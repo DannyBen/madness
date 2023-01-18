@@ -1,0 +1,8 @@
+- This is a **Bold Text**
+- This is an *Italic Text*
+- This is a ~~Strikethrough Text~~
+- This is a ***Bold Italic Text***
+- This is a _Underlined Text_
+- This is a _**Bold Underlined Text**_
+- This is a ==Highlighted Text==
+- This is ^superscript

@@ -1,0 +1,116 @@
+<!-- TOC -->
+
+<p>H1 header will be added automatically
+TOC will be added automatically</p>
+
+<h2 id="blockquote-and-code">Blockquote and code</h2>
+
+<blockquote>
+<p>Blockquote
+as a multiline section
+with <strong>markdown support</strong> in it</p>
+</blockquote>
+
+<p>Inline <code>code_word</code> and block code:</p>
+
+<pre><code class="ruby">def say(message = &quot;Hi&quot;)
+  puts message
+end
+</code></pre>
+
+<h2 id="footnotes-images">Footnotes, Images</h2>
+
+<p>This needs a footnote explanation<sup id="fnref1"><a href="#fn1">1</a></sup></p>
+
+<p><img src="https://picsum.photos/200/200" alt="Random Image"></p>
+
+<h2 id="links">Links</h2>
+
+<p><em>Not all are supported</em></p>
+
+<ul>
+<li><a href="http://example.com">Standard link</a></li>
+<li><a href="http://example.com">Reference link</a></li>
+<li><a href="http://example.com">Explicit reference link</a></li>
+<li>Bracketed link <a href="http://www.example.com">http://www.example.com</a></li>
+<li>Autolink <a href="http://www.example.com">www.example.com</a></li>
+<li>Another Autolink <a href="http://example.com">http://example.com</a></li>
+</ul>
+
+<h2 id="lists">Lists</h2>
+
+<p><em>Not all are supported</em></p>
+
+<ul>
+<li>Unordered list
+
+<ul>
+<li>With</li>
+<li>nesting</li>
+</ul></li>
+<li>Another item</li>
+</ul>
+
+<ol>
+<li>Ordered</li>
+<li>List
+
+<ol>
+<li>with </li>
+<li>nesting</li>
+</ol></li>
+</ol>
+
+<ul>
+<li>[x] This is done</li>
+<li>[ ] This is not</li>
+</ul>
+
+<p>Definition List Term
+: Description</p>
+
+<h2 id="tables-and-keyboard">Tables and Keyboard</h2>
+
+<p>Press <kbd>F12</kbd> to open the console.</p>
+
+<table><thead>
+<tr>
+<th>Shortcut</th>
+<th>Result</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><kbd>F12</kbd></td>
+<td>Open console</td>
+</tr>
+</tbody></table>
+
+<h2 id="text-decorations">Text Decorations</h2>
+
+<ul>
+<li>This is a <strong>Bold Text</strong></li>
+<li>This is an <em>Italic Text</em></li>
+<li>This is a <del>Strikethrough Text</del></li>
+<li>This is a <strong><em>Bold Italic Text</em></strong></li>
+<li>This is a <u>Underlined Text</u></li>
+<li>This is a <u><strong>Bold Underlined Text</strong></u></li>
+<li>This is a <mark>Highlighted Text</mark></li>
+<li>This is <sup>superscript</sup></li>
+</ul>
+
+<h2 id="unsafe-html">Unsafe HTML</h2>
+
+<p>This is calculated by Javascript: <span id='demo'></div></p>
+
+<script>document.getElementById("demo").innerHTML = 5 + 6;</script>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn1">
+<p>Footnote explanation&nbsp;<a href="#fnref1">&#8617;</a></p>
+</li>
+
+</ol>
+</div>

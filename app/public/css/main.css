@@ -1,3 +1,497 @@
+@charset "UTF-8";
+a {
+  -webkit-text-decoration-skip: objects;
+  color: #4078c0;
+  text-decoration: none; }
+  a:active, a:hover, a:focus {
+    outline-width: 0;
+    text-decoration: underline; }
+  a:not([href]) {
+    color: inherit;
+    text-decoration: none; }
+  a.icon {
+    color: inherit; }
+
+.breadcrumbs {
+  margin-top: 6px;
+  border-bottom: 1px solid #ccc; }
+  .breadcrumbs a {
+    display: inline-block;
+    padding: 7px 0; }
+
+code {
+  padding: 0px 8px;
+  margin: 0;
+  font-size: 90%;
+  background-color: #eee;
+  border-radius: 3px;
+  display: inline-block; }
+
+pre {
+  overflow-x: auto;
+  position: relative;
+  border-radius: 3px; }
+  pre code {
+    background-color: transparent;
+    display: block;
+    font-size: inherit;
+    line-height: 1.2; }
+    pre code .clipboard-button {
+      position: absolute;
+      left: 7px;
+      bottom: 7px;
+      font-size: 1.25em;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: inline-block;
+      padding: 7px; }
+    pre code:hover .clipboard-button {
+      opacity: 0.7;
+      transition: opacity 0.3s; }
+      pre code:hover .clipboard-button:hover {
+        opacity: 1.0;
+        transition: opacity 0.3s; }
+
+@font-face {
+  font-family: 'fontello';
+  src: url("../font/fontello.eot?19183580");
+  src: url("../font/fontello.eot?19183580#iefix") format("embedded-opentype"), url("../font/fontello.woff2?19183580") format("woff2"), url("../font/fontello.woff?19183580") format("woff"), url("../font/fontello.ttf?19183580") format("truetype"), url("../font/fontello.svg?19183580#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?19183580#fontello') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
+
+.icon-home:before {
+  content: '\e806'; }
+
+/* '' */
+.icon-copy:before {
+  content: '\f24d'; }
+
+/* '' */
+.icon-search:before {
+  content: '\f50d'; }
+
+/* '' */
+.footnotes {
+  color: #666;
+  font-size: 85%; }
+
+img {
+  border-style: none;
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff; }
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb; }
+
+hr {
+  box-sizing: content-box;
+  overflow: visible;
+  height: 0;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border-bottom-color: #eee; }
+  hr::before {
+    display: table;
+    content: ""; }
+  hr::after {
+    display: table;
+    clear: both;
+    content: ""; }
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 2em; }
+
+ol ol, ul ol {
+  list-style-type: lower-roman; }
+
+ul ul ol, ul ol ol, ol ul ol, ol ol ol {
+  list-style-type: lower-alpha; }
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+dd {
+  margin-left: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold; }
+  dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px; }
+
+li > p {
+  margin-top: 16px; }
+
+nav {
+  height: 100vh;
+  width: 300px;
+  overflow-y: auto;
+  position: fixed; }
+  @media print {
+    nav {
+      display: none; } }
+  @media only screen and (max-width: 767px) {
+    nav {
+      display: none; } }
+  nav .icon-bar {
+    border-bottom: 1px dotted #ddd; }
+  nav a.document, nav span.document, nav .caption {
+    border-bottom: 1px dotted #ddd;
+    display: block;
+    padding: 5px 20px 5px 30px; }
+  nav a.icon {
+    display: inline-block;
+    font-size: 1.5em;
+    width: 50%;
+    padding: 3px 20px 3px 30px; }
+    nav a.icon.wide {
+      width: 100%; }
+  nav:after {
+    content: "";
+    height: 90px;
+    display: block; }
+
+.highlight table td {
+  padding: 5px; }
+
+.highlight table pre {
+  margin: 0; }
+
+.highlight .cm {
+  color: #999988;
+  font-style: italic; }
+
+.highlight .cp {
+  color: #999999;
+  font-weight: bold; }
+
+.highlight .c1 {
+  color: #999988;
+  font-style: italic; }
+
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic; }
+
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #999988;
+  font-style: italic; }
+
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2; }
+
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd; }
+
+.highlight .ge {
+  color: #000000;
+  font-style: italic; }
+
+.highlight .gr {
+  color: #aa0000; }
+
+.highlight .gh {
+  color: #999999; }
+
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd; }
+
+.highlight .go {
+  color: #888888; }
+
+.highlight .gp {
+  color: #555555; }
+
+.highlight .gs {
+  font-weight: bold; }
+
+.highlight .gu {
+  color: #aaaaaa; }
+
+.highlight .gt {
+  color: #aa0000; }
+
+.highlight .kc {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .kd {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .kn {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .kp {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .kr {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .kt {
+  color: #445588;
+  font-weight: bold; }
+
+.highlight .k, .highlight .kv {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .mf {
+  color: #009999; }
+
+.highlight .mh {
+  color: #009999; }
+
+.highlight .il {
+  color: #009999; }
+
+.highlight .mi {
+  color: #009999; }
+
+.highlight .mo {
+  color: #009999; }
+
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999; }
+
+.highlight .sa {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .sb {
+  color: #d14; }
+
+.highlight .sc {
+  color: #d14; }
+
+.highlight .sd {
+  color: #d14; }
+
+.highlight .s2 {
+  color: #d14; }
+
+.highlight .se {
+  color: #d14; }
+
+.highlight .sh {
+  color: #d14; }
+
+.highlight .si {
+  color: #d14; }
+
+.highlight .sx {
+  color: #d14; }
+
+.highlight .sr {
+  color: #009926; }
+
+.highlight .s1 {
+  color: #d14; }
+
+.highlight .ss {
+  color: #990073; }
+
+.highlight .s, .highlight .dl {
+  color: #d14; }
+
+.highlight .na {
+  color: #008080; }
+
+.highlight .bp {
+  color: #999999; }
+
+.highlight .nb {
+  color: #0086B3; }
+
+.highlight .nc {
+  color: #445588;
+  font-weight: bold; }
+
+.highlight .no {
+  color: #008080; }
+
+.highlight .nd {
+  color: #3c5d5d;
+  font-weight: bold; }
+
+.highlight .ni {
+  color: #800080; }
+
+.highlight .ne {
+  color: #990000;
+  font-weight: bold; }
+
+.highlight .nf, .highlight .fm {
+  color: #990000;
+  font-weight: bold; }
+
+.highlight .nl {
+  color: #990000;
+  font-weight: bold; }
+
+.highlight .nn {
+  color: #555555; }
+
+.highlight .nt {
+  color: #000080; }
+
+.highlight .vc {
+  color: #008080; }
+
+.highlight .vg {
+  color: #008080; }
+
+.highlight .vi {
+  color: #008080; }
+
+.highlight .nv, .highlight .vm {
+  color: #008080; }
+
+.highlight .ow {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .o {
+  color: #000000;
+  font-weight: bold; }
+
+.highlight .w {
+  color: #bbbbbb; }
+
+.highlight {
+  background-color: #f8f8f8; }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px; }
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  -webkit-border-radius: 3px; }
+
+@media print {
+  #mobile-search {
+    display: none; } }
+
+@media only screen and (min-width: 768px) {
+  #mobile-search {
+    display: none; } }
+
+@media only screen and (max-width: 767px) {
+  #mobile-search {
+    position: fixed;
+    font-size: 30px;
+    top: 0px;
+    right: 10px;
+    opacity: 0.5; } }
+
+.search-form {
+  margin-bottom: 20px;
+  margin-top: 20px; }
+
+.search-field {
+  outline: none;
+  padding: 8px 12px;
+  font-size: 1.5em;
+  width: 50%;
+  min-width: 200px;
+  width: 100%;
+  border: #ccc 1px solid;
+  border-radius: 3px; }
+  .search-field:focus {
+    border-color: #4078c0; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all; }
+  table th {
+    font-weight: bold; }
+  table th, table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd; }
+  table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc; }
+  table tr:nth-child(2n) {
+    background-color: #f8f8f8; }
+
 body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -47,285 +541,6 @@ code, pre, kbd {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 1em; }
 
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-  display: block;
-  width: 100%;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all; }
-  table th {
-    font-weight: bold; }
-  table th, table td {
-    padding: 6px 13px;
-    border: 1px solid #ddd; }
-  table tr {
-    background-color: #fff;
-    border-top: 1px solid #ccc; }
-  table tr:nth-child(2n) {
-    background-color: #f8f8f8; }
-
-a {
-  -webkit-text-decoration-skip: objects;
-  color: #4078c0;
-  text-decoration: none; }
-  a:active, a:hover, a:focus {
-    outline-width: 0;
-    text-decoration: underline; }
-  a:not([href]) {
-    color: inherit;
-    text-decoration: none; }
-
-ul, ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 2em; }
-
-ol ol, ul ol {
-  list-style-type: lower-roman; }
-
-ul ul ol, ul ol ol, ol ul ol, ol ol ol {
-  list-style-type: lower-alpha; }
-
-ul ul, ul ol, ol ol, ol ul {
-  margin-top: 0;
-  margin-bottom: 0; }
-
-dd {
-  margin-left: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    padding: 0;
-    margin-top: 16px;
-    font-size: 1em;
-    font-style: italic;
-    font-weight: bold; }
-  dl dd {
-    padding: 0 16px;
-    margin-bottom: 16px; }
-
-li > p {
-  margin-top: 16px; }
-
-code {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  background-color: #eee;
-  border-radius: 3px; }
-  code:before, code:after {
-    letter-spacing: -0.2em;
-    content: "\00a0"; }
-
-pre {
-  margin-left: 20px;
-  overflow: auto;
-  line-height: 1.45;
-  word-wrap: normal; }
-  pre > code {
-    padding: 0;
-    margin: 0;
-    font-size: 100%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0; }
-  pre code {
-    display: inline-block;
-    max-width: initial;
-    overflow: initial;
-    line-height: inherit;
-    word-wrap: normal;
-    border: 0; }
-  pre code:before,
-  pre code:after {
-    content: normal; }
-
-.clipboard-button {
-  position: absolute;
-  right: 0;
-  font-size: 1.25em;
-  opacity: 0.2;
-  transition: opacity 0.3s; }
-
-table.CodeRay:hover .clipboard-button {
-  opacity: 1;
-  transition: opacity 0.3s; }
-
-table.CodeRay {
-  position: relative;
-  margin-bottom: 0; }
-  table.CodeRay pre {
-    margin-bottom: 0; }
-  table.CodeRay tr, table.CodeRay td {
-    border: 0; }
-    table.CodeRay tr pre, table.CodeRay td pre {
-      margin-left: 0; }
-  table.CodeRay td.line-numbers {
-    background: #eee;
-    padding: 4px; }
-
-img {
-  border-style: none;
-  max-width: 100%;
-  box-sizing: content-box;
-  background-color: #fff; }
-
-hr {
-  box-sizing: content-box;
-  overflow: visible;
-  height: 0;
-  overflow: hidden;
-  border: 0;
-  border-bottom: 1px solid #ddd;
-  height: 4px;
-  padding: 0;
-  margin: 16px 0;
-  background-color: #e7e7e7;
-  border-bottom-color: #eee; }
-  hr::before {
-    display: table;
-    content: ""; }
-  hr::after {
-    display: table;
-    clear: both;
-    content: ""; }
-
-kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font-size: 11px;
-  line-height: 10px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb; }
-
-@media print {
-  #mobile-search {
-    display: none; } }
-
-@media only screen and (min-width: 768px) {
-  #mobile-search {
-    display: none; } }
-
-@media only screen and (max-width: 767px) {
-  #mobile-search {
-    position: fixed;
-    font-size: 30px;
-    top: 0px;
-    right: 10px;
-    opacity: 0.5; } }
-
-.search-form {
-  margin-bottom: 20px;
-  margin-top: 20px; }
-
-.search-field {
-  outline: none;
-  padding: 8px 12px;
-  font-size: 1.5em;
-  width: 50%;
-  min-width: 200px;
-  width: 100%;
-  border: #ccc 1px solid;
-  border-radius: 3px; }
-  .search-field:focus {
-    border-color: #4078c0; }
-
-.breadcrumbs {
-  margin-top: 6px;
-  border-bottom: 1px solid #ccc; }
-  .breadcrumbs a {
-    display: inline-block;
-    padding: 7px 0; }
-
-nav {
-  height: 100vh;
-  width: 250px;
-  overflow-y: auto;
-  position: fixed; }
-  @media print {
-    nav {
-      display: none; } }
-  @media only screen and (max-width: 767px) {
-    nav {
-      display: none; } }
-  nav .icon-bar {
-    border-bottom: 1px dotted #ddd; }
-  nav a.document, nav span.document, nav .caption {
-    border-bottom: 1px dotted #ddd;
-    display: block;
-    padding: 5px 20px 5px 30px; }
-  nav a.icon {
-    display: inline-block;
-    font-size: 1.5em;
-    width: 50%;
-    padding: 3px 20px 3px 30px; }
-    nav a.icon.wide {
-      width: 100%; }
-  nav:after {
-    content: "";
-    height: 90px;
-    display: block; }
-
-::-webkit-scrollbar {
-  width: 6px; }
-
-::-webkit-scrollbar-thumb {
-  background: #ddd;
-  -webkit-border-radius: 3px; }
-
-@font-face {
-  font-family: 'fontello';
-  src: url("../fonts/fontello.eot?68354463");
-  src: url("../fonts/fontello.eot?68354463#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2?68354463") format("woff2"), url("../fonts/fontello.woff?68354463") format("woff"), url("../fonts/fontello.ttf?68354463") format("truetype"), url("../fonts/fontello.svg?68354463#fontello") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  /* opacity: .8; */
-  /* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  text-transform: none;
-  /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  margin-left: .2em;
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
-  /* Font smoothing. That was taken from TWBS */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
-
-.icon-export:before {
-  content: '\e800'; }
-
-.icon-home:before {
-  content: '\e801'; }
-
-.icon-search:before {
-  content: '\e802'; }
-
 * {
   box-sizing: border-box; }
 
@@ -347,11 +562,14 @@ p, blockquote, ul, ol, dl, table, pre {
   margin-top: 0;
   margin-bottom: 16px; }
 
+mark {
+  background-color: palegreen; }
+
 .quiet {
   color: #777; }
 
 body {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto; }
 
 .main {
@@ -362,7 +580,7 @@ body {
   @media only screen and (min-width: 768px) {
     .main.with-sidebar {
       min-height: 100vh;
-      margin-left: 250px; } }
+      margin-left: 300px; } }
   .main.without-sidebar {
     max-width: 980px;
     margin: 0 auto; }
