@@ -1,5 +1,6 @@
 @charset "UTF-8";
 :root {
+  --background-color: transparent;
   --blockquote-border-color: #ddd;
   --blockquote-color: #777;
   --breadcrumbs-border-color: #ccc;
@@ -595,6 +596,7 @@ mark {
   color: var(--quiet-color); }
 
 body {
+  background-color: var(--background-color);
   max-width: 1400px;
   margin: 0 auto; }
 
