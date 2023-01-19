@@ -47,7 +47,9 @@ module Madness
       data[:expose_extensions] ? "*.{md,#{data[:expose_extensions].delete(' ')}}" : '*.md'
     end
 
-  private
+    def data
+      @data ||= defaults.merge(file_data)
+    end
 
     def defaults
       {
@@ -65,15 +67,13 @@ module Madness
         theme:             nil,
         open:              false,
         auth:              false,
-        auth_realm:        'Madness',
+        auth_zone:         'Restricted Documentation',
         expose_extensions: nil,
-        exclude:           [/^[a-z_\-0-9]+$/],
+        exclude:           ['^[a-z_\-0-9]+$'],
       }
     end
 
-    def data
-      @data ||= defaults.merge(file_data)
-    end
+  private
 
     def file_data
       result = if file_exist?

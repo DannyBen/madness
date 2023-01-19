@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe StringRefinements do
   using described_class
 

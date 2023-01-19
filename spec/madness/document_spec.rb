@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Document do
   before do
     config.reset

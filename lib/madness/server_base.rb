@@ -36,7 +36,7 @@ module Madness
     end
 
     def self.set_basic_auth
-      use Rack::Auth::Basic, config.auth_realm do |username, password|
+      use Rack::Auth::Basic, config.auth_zone do |username, password|
         config.auth.split(':') == [username, password]
       end
     end

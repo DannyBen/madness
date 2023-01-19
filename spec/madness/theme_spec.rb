@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Theme do
   context 'when a path is provided' do
     subject { described_class.new 'spec/fixtures/sample-theme' }

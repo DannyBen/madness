@@ -1,6 +1,3 @@
-require 'spec_helper'
-require 'fileutils'
-
 describe Search do
   subject { described_class.new path }
 

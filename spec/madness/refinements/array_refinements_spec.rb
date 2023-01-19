@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ArrayRefinements do
   using described_class
 

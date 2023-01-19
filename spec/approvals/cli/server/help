@@ -17,8 +17,8 @@ Options:
   --auth USER:PASS
     Enable basic authentication
 
-  --auth-realm REALM
-    The basic authentication prompt title [default: Madness]
+  --auth-zone NAME
+    The basic authentication prompt title [default: Restricted Documentation]
 
   --theme FOLDER
     Use a custom theme (either absolute or relative to the main documentation

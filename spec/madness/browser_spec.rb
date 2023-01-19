@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Browser do
   subject { described_class.new host, 3456 }
 

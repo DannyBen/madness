@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Settings do
   before { config.reset }
 
@@ -23,7 +21,7 @@ describe Settings do
       expect(config.highlighter).to be false
       expect(config.open).to be false
       expect(config.auth).to eq 'user:s3cr3t'
-      expect(config.auth_realm).to eq 'Madness'
+      expect(config.auth_zone).to eq 'Restricted Documentation'
     end
   end
 
