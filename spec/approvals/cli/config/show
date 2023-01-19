@@ -1,0 +1,17 @@
+                path:  .
+                port:  3000
+                bind:  0.0.0.0
+             sidebar:  true
+             auto_h1:  true
+            auto_nav:  true
+            auto_toc:  true
+         highlighter:  true
+           copy_code:  true
+          shortlinks:  ~
+                 toc:  ~
+               theme:  ~
+                open:  ~
+                auth:  ~
+           auth_zone:  Restricted Documentation
+   expose_extensions:  ~
+             exclude:  ["^[a-z_\\-0-9]+$"]

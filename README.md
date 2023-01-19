@@ -164,7 +164,7 @@ open: false
 auth: false
 
 # if auth is enabled, specify auth realm name
-auth_zone: Madness
+auth_zone: Restricted Documentation
 
 # show files with these extensions in the navigation and search, for example:
 # expose_extensions: pdf,docx,xlsx,txt

@@ -2,11 +2,15 @@ Manage the madness configuration file
 
 Usage:
   bashly config new
+  bashly config show
   bashly config (-h|--help)
 
 Commands:
   new
     Create a new .madness.yml configuration file
+
+  show
+    Show all configuration options
 
 Options:
   -h --help

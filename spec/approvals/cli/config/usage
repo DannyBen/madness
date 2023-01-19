@@ -1,3 +1,4 @@
 Usage:
   bashly config new
+  bashly config show
   bashly config (-h|--help)

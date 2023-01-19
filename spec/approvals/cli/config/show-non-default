@@ -1,0 +1,19 @@
+                path:  docs
+                port:  1337
+                bind:  4.3.2.1
+             sidebar:  true
+             auto_h1:  true
+            auto_nav:  true
+            auto_toc:  true
+         highlighter:  true
+           copy_code:  true
+          shortlinks:  ~
+                 toc:  Table of Contents
+               theme:  ~
+                open:  ~
+                auth:  ~
+           auth_zone:  Restricted Documentation
+   expose_extensions:  ~
+             exclude:  ["^[a-z_\\-0-9]+$"]
+
+Values in blue loaded from .madness.yml

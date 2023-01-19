@@ -12,7 +12,7 @@ module Madness
       option '-b --bind ADDRESS', 'Set server listen address [default: 0.0.0.0]'
       option '-o --open', 'Open a web browser after launching'
       option '--auth USER:PASS', 'Enable basic authentication'
-      option '--auth-realm REALM', 'The basic authentication prompt title [default: Madness]'
+      option '--auth-zone NAME', 'The basic authentication prompt title [default: Restricted Documentation]'
       option '--theme FOLDER', 'Use a custom theme (either absolute or relative to the main documentation path)'
 
       example 'madness server'
@@ -52,13 +52,13 @@ module Madness
       end
 
       def override_config(args)
-        config.path         = args['PATH'] if args['PATH']
-        config.port         = args['--port'].to_i if args['--port']
-        config.bind         = args['--bind'] if args['--bind']
-        config.auth         = args['--auth'] if args['--auth']
-        config.auth_realm   = args['--auth-realm'] if args['--auth-realm']
-        config.open         = true if args['--open']
-        config.theme        = File.expand_path(args['--theme'], config.path) if args['--theme']
+        config.path       = args['PATH'] if args['PATH']
+        config.port       = args['--port'].to_i if args['--port']
+        config.bind       = args['--bind'] if args['--bind']
+        config.auth       = args['--auth'] if args['--auth']
+        config.auth_zone  = args['--auth-zone'] if args['--auth-zone']
+        config.open       = true if args['--open']
+        config.theme      = File.expand_path(args['--theme'], config.path) if args['--theme']
       end
 
       def show_status
