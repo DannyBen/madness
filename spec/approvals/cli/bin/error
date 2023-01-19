@@ -1,0 +1,2 @@
+Errno::ENOENT
+No such file or directory @ dir_s_mkdir - /no/such/path

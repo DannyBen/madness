@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
-
 require 'madness'
 require 'colsole'
 include Colsole
 
+runner = Madness::CLI.runner
+
 begin
-  Madness::CommandLine.instance.execute ARGV
+  exit runner.run ARGV
+rescue Madness::Interrupt
+  say! "\nGoodbye"
+  exit 1
 rescue => e
   puts e.backtrace.reverse if ENV['DEBUG']
   say! "!undred!#{e.class}!txtrst!\n#{e.message}"

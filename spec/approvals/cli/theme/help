@@ -1,0 +1,13 @@
+Create files for theme customization
+
+Usage:
+  madness theme full [PATH]
+  madness config (-h|--help)
+
+Commands:
+  full
+    Create a full theme customization directory in PATH [default: _theme]
+
+Options:
+  -h --help
+    Show this help

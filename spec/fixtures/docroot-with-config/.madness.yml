@@ -1,5 +1,5 @@
 # .madness.yml
----
 path: 'docs'
 port: '1337'
 bind: '4.3.2.1'
+toc: Table of Contents

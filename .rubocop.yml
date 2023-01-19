@@ -30,25 +30,7 @@ RSpec/MultipleExpectations:
 RSpec/StubbedMock:
   Enabled: false
 
-# === TODO ===
-
-# FIXME: These files have some complexities
-Metrics/PerceivedComplexity:
-  Exclude:
-    - lib/madness/command_line.rb
-
-# FIXME: These files have some complexities
-Metrics/CyclomaticComplexity:
-  Exclude:
-    - lib/madness/command_line.rb
-
-# FIXME: These files have some complexities
+# The `override_config` here is more complex
 Metrics/AbcSize:
   Exclude:
-    - lib/madness/command_line.rb
-
-# FIXME: The `set_config` method needs to be renamed without conflicting
-#        with `config`
-Naming/AccessorMethodName:
-  Exclude:
-    - lib/madness/command_line.rb
+    - lib/madness/commands/server.rb

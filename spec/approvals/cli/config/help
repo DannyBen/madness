@@ -1,0 +1,13 @@
+Manage the madness configuration file
+
+Usage:
+  bashly config new
+  bashly config (-h|--help)
+
+Commands:
+  new
+    Create a new .madness.yml configuration file
+
+Options:
+  -h --help
+    Show this help

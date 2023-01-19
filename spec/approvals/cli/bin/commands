@@ -1,0 +1,9 @@
+Markdown Madness - Instant Markdown Server
+
+Commands:
+  server  Start the server
+  config  Manage the madness configuration file
+  theme   Create files for theme customization
+
+Help: madness COMMAND --help
+Docs: https://madness.dannyb.co
