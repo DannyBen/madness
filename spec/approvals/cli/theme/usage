@@ -1,3 +1,4 @@
 Usage:
   madness theme full [PATH]
+  madness theme css
   madness config (-h|--help)
