@@ -8,10 +8,10 @@ p {
 }
 
 blockquote {
+  color: var(--blockquote-color);
+  border-left: 4px solid var(--blockquote-border-color);
   margin: 0;
   padding: 0 15px;
-  color: #777;
-  border-left: 4px solid #ddd;
 
   &>:first-child {
     margin-top: 0;
@@ -28,9 +28,9 @@ p, blockquote, ul, ol, dl, table, pre {
 }
 
 mark {
-  background-color: palegreen;
+  background-color: var(--highlight-color);
 }
 
 .quiet {
-  color: #777;
+  color: var(--quiet-color);
 }

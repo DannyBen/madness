@@ -1,7 +1,5 @@
 a {
-  -webkit-text-decoration-skip: objects;
-
-  color: #4078c0;
+  color: var(--link-color);
   text-decoration: none;
 
   &:active, &:hover, &:focus {

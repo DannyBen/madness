@@ -4,6 +4,6 @@
   height: 6px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--scrollbar-color);
   -webkit-border-radius: 3px;
 }

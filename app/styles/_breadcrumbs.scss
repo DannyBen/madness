@@ -1,6 +1,7 @@
 .breadcrumbs {
   margin-top: 6px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--breadcrumbs-border-color);
+
   a {
     display: inline-block;
     padding: 7px 0;
