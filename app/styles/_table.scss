@@ -8,21 +8,26 @@ table {
   word-break: normal;
   word-break: keep-all;
   
-  th {
-    font-weight: bold;
-  }
-
   th, td {
     padding: 6px 13px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--table-border-color);
   }
 
+  td {
+    background-color: var(--table-bg-color);
+  }
+
+  th {
+    font-weight: bold;
+    background-color: var(--table-header-bg-color);
+  }
+
+
   tr {
-    background-color: #fff;
-    border-top: 1px solid #ccc;
+    background-color: var(--table-row-bg-color);
   }
 
   tr:nth-child(2n) {
-    background-color: #f8f8f8;
+    background-color: var(--table-alt-row-bg-color);
   }
 }

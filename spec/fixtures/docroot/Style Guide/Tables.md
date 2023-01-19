@@ -1,5 +1,5 @@
 Before any action, you need to press the <kbd>F12</kbd> key to open the 
-console.
+console. 
 
 
 | Shortcut       | Result                       |

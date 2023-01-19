@@ -22,17 +22,16 @@
 }
 
 .search-field {
+  border: 1px solid var(--search-field-border-color);
+  border-radius: 3px;
+
   outline: none;
   padding: 8px 12px;
   font-size: 1.5em;
-  width: 50%;
-  min-width: 200px;
   width: 100%;
-
-  border: #ccc 1px solid;
-  border-radius: 3px;
+  min-width: 200px;
 
   &:focus {
-    border-color: #4078c0;
+    border-color: var(--search-field-focused-border-color);
   }
 }

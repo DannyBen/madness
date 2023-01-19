@@ -7,8 +7,8 @@ nav {
     display: none;
   }
 
-  // background: #eee;
-  // border-right: 1px solid #ccc;
+  background: var(--sidebar-bg-color);
+  border-right: 1px solid var(--sidebar-border-right-color);
 
   height: 100vh;
   width: 300px;
@@ -16,11 +16,11 @@ nav {
   position: fixed;
 
   .icon-bar {
-    border-bottom: 1px dotted #ddd;
+    border-bottom: 1px dotted var(--sidebar-border-color);
   }
 
   a.document, span.document, .caption {
-    border-bottom: 1px dotted #ddd;
+    border-bottom: 1px dotted var(--sidebar-border-color);
     // &:hover {
     //   background: #e4e4e4;
     // }

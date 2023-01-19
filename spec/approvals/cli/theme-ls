@@ -34,6 +34,7 @@
 - tmp/theme-test/styles/_search.scss
 - tmp/theme-test/styles/_table.scss
 - tmp/theme-test/styles/_typography.scss
+- tmp/theme-test/styles/_variables.scss
 - tmp/theme-test/styles/main.scss
 - tmp/theme-test/views
 - tmp/theme-test/views/_breadcrumbs.slim
