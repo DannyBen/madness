@@ -10,7 +10,7 @@
 
 Madness is a command line server for rendering markdown documents in your
 browser. It is designed to facilitate easy development of internal
-markdown-based documentation site.
+markdown-based documentation sites.
 
 <!-- MADNESS_TOC -->
 
