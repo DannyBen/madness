@@ -14,6 +14,11 @@ markdown-based documentation site.
 
 <!-- MADNESS_TOC -->
 
+
+> Note: This documentation refers to the 1.0.0 pre-release version  
+> See [documentaton for v0.9.9](https://github.com/dannyben/madness/tree/v0.9.9#readme)
+> if you are using an earlier version
+
 ## Screenshots
 
 [![Screenshots](assets/screenshots.gif)](assets/screenshots.gif)
@@ -60,7 +65,7 @@ $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
 Go to any directory that contains markdown files and run:
 
 ```shell
-$ madness
+$ madness server
 ```
 
 And open <http://localhost:3000> in your browser.
@@ -108,7 +113,7 @@ your documentation directory.
 For convenience, you can generate a template config file by running:
 
 ```shell
-$ madness create config
+$ madness config new
 ```
 
 which will generate this file, with all the default options:
@@ -306,7 +311,7 @@ Madness comes with a command that copies the default theme to a folder of
 your choice, where you can customize it to your taste. Run:
 
 ```shell
-$ madness create theme my_theme
+$ madness theme full my_theme
 ```
 
 Where `my_theme` is the folder that will be created.
@@ -315,7 +320,7 @@ To use the created theme, simply run Madness with the `--theme my_theme`
 option.
 
 ```shell
-$ madness --theme my_theme
+$ madness server --theme my_theme
 ```
 
 Note that the generated theme contains the SCSS files in the `styles`
@@ -329,14 +334,15 @@ any tool to do so, or if you do not have a preference, use
 
 ### Option 2: Change CSS only
 
-If you are looking to implement a smaller CSS change, follow these steps:
+If you are looking to implement a smaller CSS change, run:
 
-- Create a directory named `css` in your root documentation directory.
-- Copy the [main.css][css] file to it.
-- Update it as you see fit.
+```shell
+$ madness theme css
+```
 
-Note that this functionality is not guaranteed to stay as is in future 
-versions of madness.
+This will create the file `css/main.css` in the current directory. Update the
+file as you see fit.
+
 
 ## Docker Image
 
@@ -346,7 +352,7 @@ This command will start the server on localhost:3000, with the current
 directory as the markdown documentation folder
 
 ```shell
-$ docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
+$ docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness server
 ```
 
 You may create an alias for convenience:

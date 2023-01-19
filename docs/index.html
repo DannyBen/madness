@@ -48,6 +48,12 @@ markdown-based documentation site.</p>
 <li><a href="#docker-image">Docker Image</a></li>
 </ul>
 
+<blockquote>
+<p>Note: This documentation refers to the 1.0.0 pre-release version<br>
+See <a href="https://github.com/dannyben/madness/tree/v0.9.9#readme">documentaton for v0.9.9</a>
+if you are using an earlier version</p>
+</blockquote>
+
 <h2 id="screenshots">Screenshots</h2>
 
 <p><a href="assets/screenshots.gif"><img src="assets/screenshots.gif" alt="Screenshots"></a></p>
@@ -85,7 +91,7 @@ highlighting.</li>
 <h2 id="usage">Usage</h2>
 
 <p>Go to any directory that contains markdown files and run:</p>
-<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness server
 </code></pre></div>
 <p>And open <a href="http://localhost:3000">http://localhost:3000</a> in your browser.</p>
 
@@ -124,7 +130,7 @@ anything. Configuration is mostly done by having a file named <code>.madness.yml
 your documentation directory.</p>
 
 <p>For convenience, you can generate a template config file by running:</p>
-<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness create config
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness config new
 </code></pre></div>
 <p>which will generate this file, with all the default options:</p>
 <div class="highlight"><pre class="highlight yaml"><code><span class="c1"># .madness.yml</span>
@@ -177,7 +183,7 @@ your documentation directory.</p>
 <span class="na">auth</span><span class="pi">:</span> <span class="no">false</span>
 
 <span class="c1"># if auth is enabled, specify auth realm name</span>
-<span class="na">auth_zone</span><span class="pi">:</span> <span class="s">Madness</span>
+<span class="na">auth_zone</span><span class="pi">:</span> <span class="s">Restricted Documentation</span>
 
 <span class="c1"># show files with these extensions in the navigation and search, for example:</span>
 <span class="c1"># expose_extensions: pdf,docx,xlsx,txt</span>
@@ -297,13 +303,13 @@ and CSS is provided as SCSS.</p>
 
 <p>Madness comes with a command that copies the default theme to a folder of
 your choice, where you can customize it to your taste. Run:</p>
-<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness create theme my_theme
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness theme full my_theme
 </code></pre></div>
 <p>Where <code>my_theme</code> is the folder that will be created.</p>
 
 <p>To use the created theme, simply run Madness with the <code>--theme my_theme</code>
 option.</p>
-<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness <span class="nt">--theme</span> my_theme
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness server <span class="nt">--theme</span> my_theme
 </code></pre></div>
 <p>Note that the generated theme contains the SCSS files in the <code>styles</code>
 subfolder, and the rendered CSS files in the <code>public/css</code> subfolder.</p>
@@ -315,16 +321,11 @@ any tool to do so, or if you do not have a preference, use
 
 <h3 id="option-2-change-css-only">Option 2: Change CSS only</h3>
 
-<p>If you are looking to implement a smaller CSS change, follow these steps:</p>
-
-<ul>
-<li>Create a directory named <code>css</code> in your root documentation directory.</li>
-<li>Copy the <a href="app/public/css/main.css">main.css</a> file to it.</li>
-<li>Update it as you see fit.</li>
-</ul>
-
-<p>Note that this functionality is not guaranteed to stay as is in future 
-versions of madness.</p>
+<p>If you are looking to implement a smaller CSS change, run:</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness theme css
+</code></pre></div>
+<p>This will create the file <code>css/main.css</code> in the current directory. Update the
+file as you see fit.</p>
 
 <h2 id="docker-image">Docker Image</h2>
 
@@ -332,7 +333,7 @@ versions of madness.</p>
 
 <p>This command will start the server on localhost:3000, with the current 
 directory as the markdown documentation folder</p>
-<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="nv">$PWD</span>:/docs <span class="nt">-p</span> 3000:3000 dannyben/madness
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="nv">$PWD</span>:/docs <span class="nt">-p</span> 3000:3000 dannyben/madness server
 </code></pre></div>
 <p>You may create an alias for convenience:</p>
 <div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">alias </span><span class="nv">madness</span><span class="o">=</span><span class="s1">'docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'</span>
