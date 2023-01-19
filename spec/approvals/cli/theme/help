@@ -2,11 +2,15 @@ Create files for theme customization
 
 Usage:
   madness theme full [PATH]
+  madness theme css
   madness config (-h|--help)
 
 Commands:
   full
     Create a full theme customization directory in PATH [default: _theme]
+
+  css
+    Create a folder with the CSS file for customization
 
 Options:
   -h --help

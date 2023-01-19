@@ -37,4 +37,34 @@ describe Commands::Theme do
       end
     end
   end
+
+  context 'with css command' do
+    let(:theme_dir) { 'tmp/css' }
+
+    before do
+      system "rm -rf #{theme_dir}" if Dir.exist? theme_dir
+      expect(Dir).not_to exist theme_dir
+    end
+
+    it 'copies the public css to css/main.css' do
+      Dir.chdir 'tmp' do
+        expect { subject.execute 'theme css' }.to output_approval('cli/theme/css-create')
+        expect(Dir).to exist 'css'
+        expect(File.read('css/main.css')).to eq File.read('../app/public/css/main.css')
+      end
+    end
+
+    context 'when dir already exists' do
+      before do
+        system "mkdir #{theme_dir}" unless Dir.exist? theme_dir
+        system "touch #{theme_dir}/main.css"
+      end
+
+      it 'does not overwrite it' do
+        Dir.chdir 'tmp' do
+          expect { subject.execute 'theme css' }.to raise_approval('cli/theme/css-exists')
+        end
+      end
+    end
+  end
 end
