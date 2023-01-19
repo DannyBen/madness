@@ -18,14 +18,30 @@ module Madness
       end
 
       def show_command
+        errors_found = false
+
         config.data.each do |key, value|
-          color = config.defaults[key] == value ? '' : '!bldblu!'
-          say "!txtgrn!#{key.to_s.rjust 20}!txtrst!:  #{color}#{value || '~'}"
+          value_color = config.defaults[key] == value ? '' : '!bldblu!'
+          if config.defaults.has_key?(key)
+            key_color = '!txtgrn!'
+          else
+            key_color = '!txtred!'
+            value_color = '!txtred!'
+            errors_found = true
+          end
+
+          say "#{key_color}#{key.to_s.rjust 20}!txtrst!:  #{value_color}#{value || '~'}"
         end
 
-        return unless config.file_exist?
+        say ''
 
-        say "\nValues in !bldblu!blue!txtrst! loaded from !txtgrn!#{config.filename}"
+        if config.file_exist?
+          say "Values in !bldblu!blue!txtrst! loaded from !txtgrn!#{config.filename}"
+        end
+
+        return unless errors_found
+        
+        say "Keys in !txtred!red!txtrst! are not recognized"
       end
     end
   end

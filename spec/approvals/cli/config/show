@@ -15,3 +15,4 @@
            auth_zone:  Restricted Documentation
    expose_extensions:  ~
              exclude:  ["^[a-z_\\-0-9]+$"]
+

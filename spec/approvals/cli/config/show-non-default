@@ -15,5 +15,7 @@
            auth_zone:  Restricted Documentation
    expose_extensions:  ~
              exclude:  ["^[a-z_\\-0-9]+$"]
+         invalid_key:  with some value
 
 Values in blue loaded from .madness.yml
+Keys in red are not recognized
