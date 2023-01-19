@@ -1,6 +1,7 @@
+         toc  generating Table of Contents
        start  the madness
          env  production
-      listen  4.3.2.1:1337
+      listen  0.0.0.0:3000
         path  ...docs
-         use  .madness.yml
+      config  .madness.yml
 ------------------------------------------------------------

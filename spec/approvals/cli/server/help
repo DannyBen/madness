@@ -1,0 +1,40 @@
+Start the server
+
+Usage:
+  madness server [PATH] [options]
+  madness init (-h|--help)
+
+Options:
+  -p --port NUMBER
+    Set server port number [default: 3000]
+
+  -b --bind ADDRESS
+    Set server listen address [default: 0.0.0.0]
+
+  -o --open
+    Open a web browser after launching
+
+  --auth USER:PASS
+    Enable basic authentication
+
+  --auth-realm REALM
+    The basic authentication prompt title [default: Madness]
+
+  --theme FOLDER
+    Use a custom theme (either absolute or relative to the main documentation
+    path)
+
+  -h --help
+    Show this help
+
+Parameters:
+  PATH
+    Path to the markdown directory [default: .]
+
+Examples:
+  madness server
+  madness server docs
+  madness server docs -p 4567
+  madness server docs --open
+  madness server --auth user:secret --port 4000
+  madness server --theme _mytheme

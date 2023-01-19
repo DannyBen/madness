@@ -1,0 +1,3 @@
+Usage:
+  madness server [PATH] [options]
+  madness init (-h|--help)

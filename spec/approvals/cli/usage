@@ -1,5 +1,0 @@
-Usage:
-  madness [PATH] [options]
-  madness create config
-  madness create theme FOLDER
-  madness (-h|--help|--version)

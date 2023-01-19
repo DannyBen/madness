@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'addressable', '~> 2.7'
   s.add_runtime_dependency 'colsole', '~> 0.5'
-  s.add_runtime_dependency 'docopt', '~> 0.6'
   s.add_runtime_dependency 'extended_yaml', '~> 0.2'
+  s.add_runtime_dependency 'mister_bin', '~> 0.7'
   s.add_runtime_dependency 'naturally', '~> 2.2'
   s.add_runtime_dependency 'os', '~> 1.0'
   s.add_runtime_dependency 'puma', '>= 5.1'
