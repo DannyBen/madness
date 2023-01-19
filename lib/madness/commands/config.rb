@@ -40,8 +40,8 @@ module Madness
         end
 
         return unless errors_found
-        
-        say "Keys in !txtred!red!txtrst! are not recognized"
+
+        say 'Keys in !txtred!red!txtrst! are not recognized'
       end
     end
   end
