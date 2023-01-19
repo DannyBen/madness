@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe MarkdownDocument do
   subject { described_class.new markdown, title: title }
 

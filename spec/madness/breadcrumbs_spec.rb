@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Breadcrumbs do
   subject { described_class.new('one/two/three') }
 

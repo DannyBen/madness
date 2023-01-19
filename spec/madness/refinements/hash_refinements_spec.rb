@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe HashRefinements do
   using described_class
   subject { { 'key' => 'value', 'another' => 'pair' } }

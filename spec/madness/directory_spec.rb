@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Directory do
   subject { described_class.new docroot }
 
