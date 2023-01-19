@@ -1,7 +1,7 @@
 Change Log
 ========================================
 
-v1.0.0.rc1 - 2023-01-18
+v1.0.0.rc2 - 2023-01-19
 ----------------------------------------
 
 - Change landing page
@@ -11,6 +11,10 @@ v1.0.0.rc1 - 2023-01-18
 - Increase sidebar width by 50px
 - Change icons
 - Switch from Commonmarker to RedCarpet renderer
+- Refactor CSS with color variables
+- Refactor command line interface
+- Add 'madness config show' command
+- Add 'madness theme css' command to copy the public css
 
 
 v0.9.9 - 2023-01-16
