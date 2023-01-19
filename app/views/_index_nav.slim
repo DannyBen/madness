@@ -1,5 +1,6 @@
-ol
-  - nav.links.each do |item|
-    li
-      a href="#{item.href}" class=('strong' if item.type == :dir)
-        = item.label 
+hr
+  ol
+    - nav.links.each do |item|
+      li
+        a href="#{item.href}" class=('strong' if item.type == :dir)
+          = item.label 

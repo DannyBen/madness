@@ -6,9 +6,5 @@
   == content
 
   - if type != :file and config.auto_nav
-    - unless type == :empty
-      hr 
-    == slim :_index_nav, locals: { nav: nav }
-
-
-
+    - if nav.links.any?
+      == slim :_index_nav, locals: { nav: nav }
