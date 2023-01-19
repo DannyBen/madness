@@ -367,7 +367,6 @@ For more information about the docker image, see:
 
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
 [dockerfile]: https://github.com/DannyBen/docker-madness
-[css]: app/public/css/main.css
-[app]: app
+[css]: https://github.com/DannyBen/madness/blob/master/app/public/css/main.css
 [sasstool]: https://github.com/DannyBen/sasstool
 
