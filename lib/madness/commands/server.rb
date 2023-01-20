@@ -40,14 +40,14 @@ module Madness
       end
 
       def build_toc
-        say_status :toc, "generating #{config.toc}"
+        say "g`▌` generating #{config.toc}"
         Madness::TableOfContents.new.build(config.toc)
       end
 
       def open_browser
         browser = Browser.new config.bind, config.port
         browser.open do |error|
-          say "!txtred!#{error}" if error
+          say "r`#{error}`" if error
         end
       end
 
@@ -62,14 +62,13 @@ module Madness
       end
 
       def show_status
-        say_status :start, 'the madness'
-        say_status :env, Madness::Server.environment
-        say_status :listen, "#{config.bind}:#{config.port}"
-        say_status :path, File.realpath(config.path)
-        say_status :config, config.filename if config.file_exist?
-        say_status :theme, config.theme if config.theme
-
-        say '-' * 60
+        say 'g`▌` starting server'
+        say "g`▌ env`    : #{Madness::Server.environment}"
+        say "g`▌ listen` : #{config.bind}:#{config.port}"
+        say "g`▌ path`   : #{File.realpath(config.path)}"
+        say "g`▌ config` : #{config.filename}" if config.file_exist?
+        say "g`▌ theme`  : #{config.theme}" if config.theme
+        say ''
       end
     end
   end

@@ -14,7 +14,7 @@ module Madness
         raise InitError, "Directory #{theme_path} already exists" if Dir.exist? theme_path
 
         FileUtils.cp_r File.expand_path('../../../app', __dir__), theme_path
-        say "!txtgrn!Created #{theme_path} theme folder"
+        say "Created g`#{theme_path}` theme folder"
       end
 
       def css_command
@@ -23,7 +23,7 @@ module Madness
 
         FileUtils.mkdir_p 'css'
         FileUtils.cp_r File.expand_path('../../../app/public/css/main.css', __dir__), 'css/main.css'
-        say '!txtgrn!Created css/main.css'
+        say 'Created g`css/main.css`'
       end
 
     private
