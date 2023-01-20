@@ -1,7 +1,7 @@
-         toc  generating Table of Contents
-       start  the madness
-         env  production
-      listen  0.0.0.0:3000
-        path  ...docs
-      config  .madness.yml
-------------------------------------------------------------
+▌ generating Table of Contents
+▌ starting server
+▌ env    : production
+▌ listen : 0.0.0.0:3000
+▌ path   : ...docs
+▌ config : .madness.yml
+

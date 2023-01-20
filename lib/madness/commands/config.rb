@@ -14,34 +14,34 @@ module Madness
         raise InitError, "Configuration file #{config.filename} already exists" if File.exist? config.filename
 
         FileUtils.cp File.expand_path('../templates/madness.yml', __dir__), config.filename
-        say "!txtgrn!Created #{config.filename} config file"
+        say "Created g`#{config.filename}` config file"
       end
 
       def show_command
         errors_found = false
 
         config.data.each do |key, value|
-          value_color = config.defaults[key] == value ? '' : '!bldblu!'
+          value_color = config.defaults[key] == value ? 'n' : 'bb'
           if config.defaults.has_key?(key)
-            key_color = '!txtgrn!'
+            key_color = 'g'
           else
-            key_color = '!txtred!'
-            value_color = '!txtred!'
+            key_color = 'r'
+            value_color = 'r'
             errors_found = true
           end
 
-          say "#{key_color}#{key.to_s.rjust 20}!txtrst!:  #{value_color}#{value || '~'}"
+          say "#{key_color}`#{key.to_s.rjust 20}`:  #{value_color}`#{value || '~'}`"
         end
 
         say ''
 
         if config.file_exist?
-          say "Values in !bldblu!blue!txtrst! loaded from !txtgrn!#{config.filename}"
+          say "Values in bb`blue` loaded from g`#{config.filename}`"
         end
 
         return unless errors_found
 
-        say 'Keys in !txtred!red!txtrst! are not recognized'
+        say 'Keys in r`red` are not recognized'
       end
     end
   end

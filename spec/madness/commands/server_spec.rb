@@ -17,7 +17,7 @@ describe Commands::Server do
   context 'without arguments' do
     it 'runs with the current folder as docroot' do
       expect(server).to receive :run!
-      expect { subject.execute %w[server] }.to output(/start.*the madness/).to_stdout
+      expect { subject.execute %w[server] }.to output(/starting server/).to_stdout
     end
   end
 
@@ -60,7 +60,7 @@ describe Commands::Server do
       expect(server).to receive :run!
       allow(Madness::Browser).to receive(:new).and_return(browser_double)
       expect(browser_double).to receive(:open).and_return false
-      expect { subject.execute %w[server --open] }.to output(/start.*the madnes/m).to_stdout
+      expect { subject.execute %w[server --open] }.to output(/starting server/).to_stdout
     end
 
     context 'when browser launching fails' do
@@ -98,7 +98,7 @@ describe Commands::Server do
       Dir.chdir 'spec/fixtures/docroot-with-config' do
         expect(TableOfContents).to receive(:new).and_return(toc_double)
         expect { subject.execute %w[server] }
-          .to output(/toc.*generating Table of Contents/)
+          .to output(/generating Table of Contents/)
           .to_stdout
       end
     end

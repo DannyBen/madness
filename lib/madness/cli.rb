@@ -7,7 +7,7 @@ module Madness
     def self.runner
       runner = MisterBin::Runner.new version: Madness::VERSION,
         header: 'Markdown Madness - Instant Markdown Server',
-        footer: "Help: !txtpur!madness COMMAND --help!txtrst!\nDocs: !undblu!https://madness.dannyb.co"
+        footer: "Help: m`madness COMMAND --help`\nDocs: bu`https://madness.dannyb.co`"
 
       # runner.route 'init',      to: Commands::Server
       runner.route 'server',    to: Commands::Server
