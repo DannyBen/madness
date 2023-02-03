@@ -16,7 +16,11 @@ nav {
   position: fixed;
 
   .icon-bar {
+    background: var(--sidebar-bg-color);
     border-bottom: 1px dotted var(--sidebar-border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
 
   a.document, span.document, .caption {
