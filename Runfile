@@ -1,19 +1,18 @@
-require_relative 'lib/madness'
+require 'madness'
 require "sasstool"
 require "slim"
 require "pretty_trace/enable-trim"
-require "runfile-tasks"
 
 title   "Madness Runfile"
 summary "Runfile tasks for building the Madness gem"
 version Madness::VERSION
 
-RunfileTasks::RubyGems.all 'madness'
-RunfileTasks::Testing.rspec
+import_gem 'runfile-tasks/gem'
+import 'debug'
 
 help   "Generate public CSS"
 usage  'css [--watch]'
-option '-w, --watch', 'Watch for changes and regenerate'
+option '--watch, -w', 'Watch for changes and regenerate'
 action :css do |args|
   if args['--watch']
     exec "filewatcher --immediate 'app/styles/*.scss' 'bundle exec run css'"
@@ -32,7 +31,7 @@ end
 
 usage  "(server|s) [--sample]"
 help   "Run server with spec docroot or the sample docroot"
-option "-s, --sample", "Use the 'sample' folder instead of the fixture"
+option "--sample, -s", "Use the 'sample' folder instead of the fixture"
 action :server, :s do |args|
   folder = args['--sample'] ? 'sample' : 'spec/fixtures/docroot'
   exec "bundle exec bin/madness server #{folder}"
@@ -92,5 +91,3 @@ action :site do
   File.write 'docs/index.html', html
   puts 'Saved docs/index.html'
 end
-
-require_relative 'debug.rb' if File.exist? 'debug.rb'

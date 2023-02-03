@@ -5,7 +5,7 @@ SimpleCov.start
 # Require the Gemfile
 require 'rubygems'
 require 'bundler'
-Bundler.require :default, :development
+Bundler.require :default, :development, :test
 
 # Sinatra testing with Rack::Test
 require 'rack/test'
