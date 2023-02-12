@@ -10,10 +10,10 @@ describe StringRefinements do
   end
 
   describe '#to_slug' do
-    subject { 'String with !23@  ' }
+    subject { '! String -- with 23 !symbols !' }
 
     it 'converts string to slug' do
-      expect(subject.to_slug).to eq 'string-with-23'
+      expect(subject.to_slug).to eq 'string-with-23-symbols'
     end
   end
 
