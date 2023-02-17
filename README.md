@@ -14,11 +14,6 @@ markdown-based documentation sites.
 
 <!-- MADNESS_TOC -->
 
-
-> Note: This documentation refers to the 1.0.0 pre-release version  
-> See [documentaton for v0.9.9](https://github.com/dannyben/madness/tree/v0.9.9#readme)
-> if you are using an earlier version
-
 ## Screenshots
 
 [![Screenshots](assets/screenshots.gif)](assets/screenshots.gif)
