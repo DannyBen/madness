@@ -1,7 +1,7 @@
 Change Log
 ========================================
 
-v1.0.0.rc2 - 2023-01-19
+v1.0.0 - 2023-02-17
 ----------------------------------------
 
 - Change landing page
@@ -15,6 +15,9 @@ v1.0.0.rc2 - 2023-01-19
 - Refactor command line interface
 - Add 'madness config show' command
 - Add 'madness theme css' command to copy the public css
+- Upgrade dependencies
+- Fix table of contents slugs
+- Add support for CSS partials and 'madness theme colors' command
 
 
 v0.9.9 - 2023-01-16
