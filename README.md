@@ -298,17 +298,38 @@ auth: <%= ENV['BASIC_AUTH'] %>
 
 ## Customizing Theme
 
-There are two ways to change how Madness looks. 
+There are three ways to change how Madness looks. 
 
+### Option 1: CSS Overrides
 
-### Option 1: Change CSS and HTML (Slim)
+Any CSS file found in the `./css` directory of your documentation root will 
+be loaded *after* the main CSS.
+
+You can use the following command to create a `css/colors.css` file, which lets
+you override all colors.
+
+```shell
+$ madness theme colors
+```
+
+### Option 2: Override the entire CSS
+
+If your documentation root contains a file named `css/main.css` it will be 
+loaded instead of the built-in madness CSS.
+
+You can get the built-in CSS file by running the following command.
+
+```shell
+$ madness theme css
+```
+
+### Option 3: Change CSS and HTML (Slim)
 
 In order to have complete control over the CSS and generated HTML, you
 can override the views and styles. Views are provided as Slim templates, 
 and CSS is provided as SCSS.
 
-Madness comes with a command that copies the default theme to a folder of
-your choice, where you can customize it to your taste. Run:
+You can get these files by running the following command.
 
 ```shell
 $ madness theme full my_theme
@@ -317,7 +338,7 @@ $ madness theme full my_theme
 Where `my_theme` is the folder that will be created.
 
 To use the created theme, simply run Madness with the `--theme my_theme`
-option.
+option (which can also be configured in the configuration file).
 
 ```shell
 $ madness server --theme my_theme
@@ -330,18 +351,6 @@ If you wish to use the SCSS files, you will need to render them yourself
 to the location of your theme styles (e.g. `public/css`) - you can use
 any tool to do so, or if you do not have a preference, use
 [SassTool][sasstool].
-
-
-### Option 2: Change CSS only
-
-If you are looking to implement a smaller CSS change, run:
-
-```shell
-$ madness theme css
-```
-
-This will create the file `css/main.css` in the current directory. Update the
-file as you see fit.
 
 
 ## Docker Image
@@ -367,9 +376,6 @@ For more information about the docker image, see:
 - [Madness image on Docker Hub][dockerhub]
 - [Madness Dockerfile and Docker Compose][dockerfile]
 
-
-
----
 
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
 [dockerfile]: https://github.com/DannyBen/docker-madness

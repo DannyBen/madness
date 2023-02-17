@@ -67,4 +67,34 @@ describe Commands::Theme do
       end
     end
   end
+
+  context 'with colors command' do
+    let(:theme_dir) { 'tmp/css' }
+
+    before do
+      system "rm -rf #{theme_dir}" if Dir.exist? theme_dir
+      expect(Dir).not_to exist theme_dir
+    end
+
+    it 'copies the _variables.scss to css/colors.css' do
+      Dir.chdir 'tmp' do
+        expect { subject.execute 'theme colors' }.to output_approval('cli/theme/colors-create')
+        expect(Dir).to exist 'css'
+        expect(File.read('css/colors.css')).to eq File.read('../app/styles/_variables.scss')
+      end
+    end
+
+    context 'when dir already exists' do
+      before do
+        system "mkdir #{theme_dir}" unless Dir.exist? theme_dir
+        system "touch #{theme_dir}/colors.css"
+      end
+
+      it 'does not overwrite it' do
+        Dir.chdir 'tmp' do
+          expect { subject.execute 'theme colors' }.to raise_approval('cli/theme/colors-exists')
+        end
+      end
+    end
+  end
 end

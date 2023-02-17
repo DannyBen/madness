@@ -13,8 +13,8 @@ end
 group :test do
   gem 'rack-test'
   gem 'rspec'
-  gem 'rspec-html-matchers'
   gem 'rspec_approvals'
+  gem 'rspec-html-matchers'
   gem 'simplecov'
 end
 

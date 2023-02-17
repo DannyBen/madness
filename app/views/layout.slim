@@ -1,11 +1,16 @@
 doctype html
 
+ruby:
+  custom_css = Dir["css/*.css"].reject { |f| File.basename(f) == 'main.css' }
+
 html
   head
     title = locals[:title]
     meta name="HandheldFriendly" content="true"
     meta name="viewport" content="width=device-width, initial-scale=1"
     link href='/css/main.css' rel='stylesheet' type='text/css'
+    - custom_css.each do |file|
+      link href="/#{file}" rel='stylesheet' type='text/css'
 
     - if config.copy_code
       script src="/js/vendor/jquery.min.js"

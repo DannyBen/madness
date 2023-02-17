@@ -3,6 +3,7 @@ Create files for theme customization
 Usage:
   madness theme full [PATH]
   madness theme css
+  madness theme colors
   madness config (-h|--help)
 
 Commands:
@@ -10,7 +11,10 @@ Commands:
     Create a full theme customization directory in PATH [default: _theme]
 
   css
-    Create a folder with the CSS file for customization
+    Create a folder with the entire CSS file for customization
+
+  colors
+    Create a folder with CSS for overriding colors only
 
 Options:
   -h --help
