@@ -3,7 +3,7 @@ name: Deploy site to GitHub Pages
 on:
   workflow_dispatch:
   push:
-    branches: ["master"]
+    branches: [master]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -13,7 +13,7 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
