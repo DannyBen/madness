@@ -42,8 +42,9 @@ markdown-based documentation sites.</p>
 <li><a href="#customizing-theme">Customizing Theme</a>
 
 <ul>
-<li><a href="#option-1-change-css-and-html-slim">Option 1: Change CSS and HTML (Slim)</a></li>
-<li><a href="#option-2-change-css-only">Option 2: Change CSS only</a></li>
+<li><a href="#option-1-css-overrides">Option 1: CSS Overrides</a></li>
+<li><a href="#option-2-override-the-entire-css">Option 2: Override the entire CSS</a></li>
+<li><a href="#option-3-change-css-and-html-slim">Option 3: Change CSS and HTML (Slim)</a></li>
 </ul></li>
 <li><a href="#docker-image">Docker Image</a></li>
 </ul>
@@ -145,27 +146,27 @@ your documentation directory.</p>
 <span class="na">bind</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
 
 <span class="c1"># enable sidebar</span>
-<span class="na">sidebar</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">sidebar</span><span class="pi">:</span> <span class="kc">true</span>
 
 <span class="c1"># add H1 title to files that do not have one</span>
-<span class="na">auto_h1</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">auto_h1</span><span class="pi">:</span> <span class="kc">true</span>
 
 <span class="c1"># append navigation to directory READMEs</span>
-<span class="na">auto_nav</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">auto_nav</span><span class="pi">:</span> <span class="kc">true</span>
 
 <span class="c1"># replace &lt;!-- TOC --&gt; in any file with its internal table of contents</span>
 <span class="c1"># set to true to enable it with the default '## Table of Contents' caption,</span>
 <span class="c1"># or set to any string that will be inserted before it as a caption.</span>
-<span class="na">auto_toc</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">auto_toc</span><span class="pi">:</span> <span class="kc">true</span>
 
 <span class="c1"># enable syntax highlighter for code snippets</span>
-<span class="na">highlighter</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">highlighter</span><span class="pi">:</span> <span class="kc">true</span>
 
 <span class="c1"># enable the copy to clipboard icon for code snippets</span>
-<span class="na">copy_code</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">copy_code</span><span class="pi">:</span> <span class="kc">true</span>
 
 <span class="c1"># convert [[Links]] to [Links](Links)</span>
-<span class="na">shortlinks</span><span class="pi">:</span> <span class="no">false</span>
+<span class="na">shortlinks</span><span class="pi">:</span> <span class="kc">false</span>
 
 <span class="c1"># generate a table of contents file with this name, for example:</span>
 <span class="c1"># toc: Table of Contents</span>
@@ -176,11 +177,11 @@ your documentation directory.</p>
 <span class="na">theme</span><span class="pi">:</span> <span class="s">~</span>
 
 <span class="c1"># open the server URL in the browser</span>
-<span class="na">open</span><span class="pi">:</span> <span class="no">false</span>
+<span class="na">open</span><span class="pi">:</span> <span class="kc">false</span>
 
 <span class="c1"># provide user:password for basic authentication, for example:</span>
 <span class="c1"># auth: admin:s3cr3t</span>
-<span class="na">auth</span><span class="pi">:</span> <span class="no">false</span>
+<span class="na">auth</span><span class="pi">:</span> <span class="kc">false</span>
 
 <span class="c1"># if auth is enabled, specify auth realm name</span>
 <span class="na">auth_zone</span><span class="pi">:</span> <span class="s">Restricted Documentation</span>
@@ -293,22 +294,38 @@ extensions:</p>
 </code></pre></div>
 <h2 id="customizing-theme">Customizing Theme</h2>
 
-<p>There are two ways to change how Madness looks. </p>
+<p>There are three ways to change how Madness looks. </p>
 
-<h3 id="option-1-change-css-and-html-slim">Option 1: Change CSS and HTML (Slim)</h3>
+<h3 id="option-1-css-overrides">Option 1: CSS Overrides</h3>
+
+<p>Any CSS file found in the <code>./css</code> directory of your documentation root will 
+be loaded <em>after</em> the main CSS.</p>
+
+<p>You can use the following command to create a <code>css/colors.css</code> file, which lets
+you override all colors.</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness theme colors
+</code></pre></div>
+<h3 id="option-2-override-the-entire-css">Option 2: Override the entire CSS</h3>
+
+<p>If your documentation root contains a file named <code>css/main.css</code> it will be 
+loaded instead of the built-in madness CSS.</p>
+
+<p>You can get the built-in CSS file by running the following command.</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness theme css
+</code></pre></div>
+<h3 id="option-3-change-css-and-html-slim">Option 3: Change CSS and HTML (Slim)</h3>
 
 <p>In order to have complete control over the CSS and generated HTML, you
 can override the views and styles. Views are provided as Slim templates, 
 and CSS is provided as SCSS.</p>
 
-<p>Madness comes with a command that copies the default theme to a folder of
-your choice, where you can customize it to your taste. Run:</p>
+<p>You can get these files by running the following command.</p>
 <div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness theme full my_theme
 </code></pre></div>
 <p>Where <code>my_theme</code> is the folder that will be created.</p>
 
 <p>To use the created theme, simply run Madness with the <code>--theme my_theme</code>
-option.</p>
+option (which can also be configured in the configuration file).</p>
 <div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness server <span class="nt">--theme</span> my_theme
 </code></pre></div>
 <p>Note that the generated theme contains the SCSS files in the <code>styles</code>
@@ -318,14 +335,6 @@ subfolder, and the rendered CSS files in the <code>public/css</code> subfolder.<
 to the location of your theme styles (e.g. <code>public/css</code>) - you can use
 any tool to do so, or if you do not have a preference, use
 <a href="https://github.com/DannyBen/sasstool">SassTool</a>.</p>
-
-<h3 id="option-2-change-css-only">Option 2: Change CSS only</h3>
-
-<p>If you are looking to implement a smaller CSS change, run:</p>
-<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>madness theme css
-</code></pre></div>
-<p>This will create the file <code>css/main.css</code> in the current directory. Update the
-file as you see fit.</p>
 
 <h2 id="docker-image">Docker Image</h2>
 
@@ -345,8 +354,6 @@ directory as the markdown documentation folder</p>
 <li><a href="https://hub.docker.com/r/dannyben/madness/">Madness image on Docker Hub</a></li>
 <li><a href="https://github.com/DannyBen/docker-madness">Madness Dockerfile and Docker Compose</a></li>
 </ul>
-
-<hr>
 
   </body>
 </html>

@@ -88,6 +88,6 @@ action :site do
   html = Slim::Template.new("assets/site/index.slim").render(nil, content: content)
   
   # Export for GitHub pages
-  File.write 'docs/index.html', html
-  puts 'Saved docs/index.html'
+  File.write 'site/index.html', html
+  puts 'Saved site/index.html'
 end
