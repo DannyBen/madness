@@ -15,7 +15,7 @@ module Madness
     end
 
     def href
-      path_without_extension.sub(/^#{docroot}/, '').to_href
+      path_without_extension.sub(/^#{docroot}/, config.base_uri).to_href
     end
 
     def dir?

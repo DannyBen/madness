@@ -19,30 +19,26 @@ module Madness
     # on the config values just before running the server.
     # The CommandLine class and the test suite should both call
     # `Server.prepare` before calling Server.run!
-    def self.prepare
-      use Madness::Static, root: "#{config.path}/", urls: %w[/], cascade: true
-      set :bind, config.bind
-      set :port, config.port
+    class << self
+      include ServerHelper
 
-      set_basic_auth if config.auth
-      set_tempalate_locations
-    end
+      def prepare
+        set :bind, config.bind
+        set :port, config.port
 
-    def self.set_tempalate_locations
-      theme = Theme.new config.theme
-
-      set :views, theme.views_path
-      set :public_folder, theme.public_path
-    end
-
-    def self.set_basic_auth
-      use Rack::Auth::Basic, config.auth_zone do |username, password|
-        config.auth.split(':') == [username, password]
+        set_basic_auth if config.auth
+        set_tempalate_locations
       end
-    end
 
-    def self.config
-      Settings.instance
+      def set_tempalate_locations
+        set :views, theme.views_path
+      end
+
+      def set_basic_auth
+        use Rack::Auth::Basic, config.auth_zone do |username, password|
+          config.auth.split(':') == [username, password]
+        end
+      end
     end
   end
 end

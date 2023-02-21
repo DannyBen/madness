@@ -8,14 +8,14 @@ html
     title = locals[:title]
     meta name="HandheldFriendly" content="true"
     meta name="viewport" content="width=device-width, initial-scale=1"
-    link href='/css/main.css' rel='stylesheet' type='text/css'
+    link href='#{config.base_uri}/css/main.css' rel='stylesheet' type='text/css'
     - custom_css.each do |file|
-      link href="/#{file}" rel='stylesheet' type='text/css'
+      link href="#{config.base_uri}/#{file}" rel='stylesheet' type='text/css'
 
     - if config.copy_code
-      script src="/js/vendor/jquery.min.js"
-      script src="/js/vendor/clipboard.min.js"
-      script src="/js/clipboard.js"
+      script src="#{config.base_uri}/js/vendor/jquery.min.js"
+      script src="#{config.base_uri}/js/vendor/clipboard.min.js"
+      script src="#{config.base_uri}/js/clipboard.js"
 
   body
     == yield

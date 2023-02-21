@@ -1,10 +1,10 @@
 nav
   .icon-bar
-    a.icon href="/" accesskey='h' class=('wide' unless nav.with_search?)
+    a.icon href="#{config.base_uri}/" accesskey='h' class=('wide' unless nav.with_search?)
       i.icon-home
 
     - if nav.with_search?
-      a.icon href="/_search" accesskey='s' style='text-align:right'
+      a.icon href="#{config.base_uri}/_search" accesskey='s' style='text-align:right'
         i.icon-search 
 
   - if nav.caption
