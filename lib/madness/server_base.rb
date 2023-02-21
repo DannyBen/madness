@@ -27,7 +27,7 @@ module Madness
         set :bind, config.bind
         set :port, config.port
         set :views, theme.views_path
-        
+
         set_basic_auth if config.auth
       end
 

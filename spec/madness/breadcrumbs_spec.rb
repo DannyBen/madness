@@ -4,7 +4,7 @@ describe Breadcrumbs do
   describe '#links' do
     let(:links) { subject.links }
 
-    it 'adds returns an array of OpenStructs' do
+    it 'returns an array of OpenStructs' do
       expect(links).to be_an Array
       expect(links.count).to eq 4
       expect(links.first).to be_an OpenStruct
@@ -38,6 +38,17 @@ describe Breadcrumbs do
         expect(links[2].href).to eq '/1. one/2. two'
         expect(links[3].label).to eq 'three'
         expect(links[3].href).to eq '/1. one/2. two/3. three'
+      end
+    end
+
+    context 'when base_uri is set' do
+      before { config.base_uri = '/docs' }
+      after  { config.base_uri = nil }
+
+      it 'prepends the links with the base_uri' do
+        expect(links[1].href).to eq '/docs/one'
+        expect(links[2].href).to eq '/docs/one/two'
+        expect(links[3].href).to eq '/docs/one/two/three'
       end
     end
   end

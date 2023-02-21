@@ -15,7 +15,10 @@ module Madness
     end
 
     def href
-      path_without_extension.sub(/^#{docroot}/, (config.base_uri || '')).to_href
+      @href ||= begin
+        result = path_without_extension.sub(/^#{docroot}/, '').to_href
+        config.base_uri ? "#{config.base_uri}#{result}" : result
+      end
     end
 
     def dir?
