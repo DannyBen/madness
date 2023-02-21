@@ -169,5 +169,22 @@ describe Server do
         end
       end
     end
+    
+    # TODO: Testing of base_uri is more complex since the Server class was
+    #       already evaluated, so the routes are already set.
+    # context 'when base_uri is set', :focus do
+    #   before do
+    #     config.reset
+    #     config.path = 'spec/fixtures/base_uri'
+    #     config.base_uri = '/docs'
+    #   end
+
+    #   it 'serves static files' do
+    #     get '/docs/Folder/bob.jpg'
+    #     expect(last_response).to be_ok
+    #     expect(last_response.content_type).to eq 'image/png'
+    #     expect(last_response.content_length).to eq 1167
+    #   end
+    # end
   end
 end
