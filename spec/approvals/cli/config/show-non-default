@@ -1,6 +1,7 @@
                 path:  docs
                 port:  1337
                 bind:  4.3.2.1
+            base_uri:  ~
              sidebar:  true
              auto_h1:  true
             auto_nav:  true

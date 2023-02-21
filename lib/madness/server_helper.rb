@@ -23,13 +23,15 @@ module Madness
     end
 
     # Search for static file, first in the users docroot, then in the template
-    # directory. 
+    # directory.
     def find_static_file(path)
+      return nil if path.end_with? '.md'
+
       candidates = [
         "#{config.path}/#{path}",
         "#{theme.public_path}/#{path}",
       ]
-      
+
       candidates.each do |candidate|
         return candidate if File.file? candidate
       end

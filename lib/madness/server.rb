@@ -6,7 +6,7 @@ module Madness
     using StringRefinements
 
     if config.base_uri
-      get "#{config.base_uri}" do
+      get config.base_uri do
         redirect "#{config.base_uri}/"
       end
     end
