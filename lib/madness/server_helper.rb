@@ -25,7 +25,7 @@ module Madness
     # Search for static file, first in the users docroot, then in the template
     # directory.
     def find_static_file(path)
-      return nil if path.end_with?('.md') || path.empty? || path.start_with?('.')
+      return nil if disallowed_static(path)
 
       candidates = [
         "#{config.path}/#{path}",
@@ -37,6 +37,10 @@ module Madness
       end
 
       nil
+    end
+
+    def disallowed_static(path)
+      path.end_with?('.md') || path.empty? || File.basename(path).start_with?('.')
     end
   end
 end

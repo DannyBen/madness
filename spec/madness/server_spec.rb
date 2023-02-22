@@ -153,6 +153,16 @@ describe Server do
       end
     end
 
+    context 'when requesting an existing dotfile' do
+      it 'avoids serving it' do
+        get '.some-dotfile'
+        expect(last_response).to be_not_found
+        expect(last_response.body).not_to include 'secrets'
+      end
+    end
+
+    # FIXME: This currently must be last - once basic auth is enabled, it is
+    #        there for all eternity.
     context 'when basic authentication is enabled' do
       before { config.auth = 'user:s3cr3t' }
 
