@@ -1,6 +1,13 @@
 Change Log
 ========================================
 
+v1.1.0 - 2023-02-22
+----------------------------------------
+
+- Change how static files are served and add base_uri config
+- Add 404 handler when using base_uri
+
+
 v1.0.0 - 2023-02-17
 ----------------------------------------
 
