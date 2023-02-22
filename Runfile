@@ -10,7 +10,13 @@ version Madness::VERSION
 import_gem 'runfile-tasks/gem'
 import 'debug'
 
-help   "Generate public CSS"
+help   'Run specs'
+action :spec do
+  system 'rspec'
+  system 'STANDALONE=1 rspec'
+end
+
+help   'Generate public CSS'
 usage  'css [--watch]'
 option '--watch, -w', 'Watch for changes and regenerate'
 action :css do |args|

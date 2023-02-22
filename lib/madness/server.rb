@@ -36,7 +36,7 @@ module Madness
       content = doc.content
 
       if (doc.type == :readme) && !path.empty? && (path[-1] != '/')
-        redirect "#{path.to_href}/"
+        redirect "#{request.path_info}/"
       end
 
       nav = Navigation.new dir
