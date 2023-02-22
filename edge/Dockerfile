@@ -10,8 +10,9 @@ RUN git clone --branch $branch --depth 1 https://github.com/DannyBen/madness.git
 RUN gem build madness.gemspec
 RUN gem install madness*.gem
 
-WORKDIR /app
+WORKDIR /docs
 RUN rm -rf /madness
 
-VOLUME /app
+VOLUME /docs
+EXPOSE 3000
 ENTRYPOINT ["madness"]

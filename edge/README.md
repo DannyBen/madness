@@ -6,7 +6,7 @@ released, you can use one of these methods:
 ## Using Docker
 
 ```bash
-alias madness_edge='docker run --rm -it --user $(id -u):$(id -g) --publish 3000:3000 --volume "$PWD:/app" dannyben/madness:edge'
+alias madness_edge='docker run --rm -it --user $(id -u):$(id -g) --publish 3000:3000 --volume "$PWD:/docs" dannyben/madness:edge'
 ```
 
 or build your own image with [this Dockerfile](Dockerfile).
