@@ -47,13 +47,13 @@ describe Server, :standalone do
     end
   end
 
-  # describe '/docs/custom.css (external file)' do
-  #   it 'is successful' do    
-  #     get '/docs/css/custom.css'
-  #     expect(last_response.content_type).to eq 'text/css;charset=utf-8'
-  #     expect(last_response.body).to match(/font-family/)
-  #   end
-  # end
+  describe '/docs/custom.css (external file)' do
+    it 'is successful' do    
+      get '/docs/css/custom.css'
+      expect(last_response.content_type).to eq 'text/css;charset=utf-8'
+      expect(last_response.body).to include '--background-color: black'
+    end
+  end
 
   describe '/docs/Folder/bob.jpg' do
     it 'is successful' do
