@@ -11,6 +11,10 @@ port: 3000
 # server listen address
 bind: 0.0.0.0
 
+# set a server root path
+# base_uri: /docs
+base_uri: ~
+
 # enable sidebar
 sidebar: true
 

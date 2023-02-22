@@ -5,7 +5,17 @@ module Madness
   class Server < ServerBase
     using StringRefinements
 
-    get '/_search' do
+    if config.base_uri
+      not_found do
+        redirect "#{config.base_uri}/"
+      end
+
+      get config.base_uri do
+        redirect "#{config.base_uri}/"
+      end
+    end
+
+    get "#{config.base_uri}/_search" do
       query = params[:q]
       results = query ? Search.new.search(query) : false
       nav = Navigation.new docroot
@@ -15,15 +25,18 @@ module Madness
       }
     end
 
-    get '/*' do
+    get "#{config.base_uri}/*" do
       path = params[:splat].first
+      static_file = find_static_file path
+
+      next send_file static_file if static_file
 
       doc     = Document.new path
       dir     = doc.dir
       content = doc.content
 
       if (doc.type == :readme) && !path.empty? && (path[-1] != '/')
-        redirect "#{path.to_href}/"
+        redirect "#{request.path_info}/"
       end
 
       nav = Navigation.new dir

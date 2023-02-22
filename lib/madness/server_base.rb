@@ -13,36 +13,29 @@ module Madness
     set :root, File.expand_path('../../', __dir__)
     set :environment, ENV['MADNESS_ENV'] || :production
     set :server, :puma
+    set :static, false
 
     # Since we cannot use any config values in the main body of the class,
     # since they will be updated later, we need to set anything that relys
     # on the config values just before running the server.
     # The CommandLine class and the test suite should both call
     # `Server.prepare` before calling Server.run!
-    def self.prepare
-      use Madness::Static, root: "#{config.path}/", urls: %w[/], cascade: true
-      set :bind, config.bind
-      set :port, config.port
+    class << self
+      include ServerHelper
 
-      set_basic_auth if config.auth
-      set_tempalate_locations
-    end
+      def prepare
+        set :bind, config.bind
+        set :port, config.port
+        set :views, theme.views_path
 
-    def self.set_tempalate_locations
-      theme = Theme.new config.theme
-
-      set :views, theme.views_path
-      set :public_folder, theme.public_path
-    end
-
-    def self.set_basic_auth
-      use Rack::Auth::Basic, config.auth_zone do |username, password|
-        config.auth.split(':') == [username, password]
+        set_basic_auth if config.auth
       end
-    end
 
-    def self.config
-      Settings.instance
+      def set_basic_auth
+        use Rack::Auth::Basic, config.auth_zone do |username, password|
+          config.auth.split(':') == [username, password]
+        end
+      end
     end
   end
 end

@@ -5,7 +5,7 @@ describe Item do
   end
 
   context 'with a folder' do
-    subject { described_class.new 'Folder/Subfolder', :dir }
+    subject { described_class.new '/Folder/Subfolder', :dir }
 
     describe '#label' do
       it 'returns the basename' do
@@ -13,7 +13,7 @@ describe Item do
       end
 
       context 'when the folder has a sorting marker' do
-        subject { described_class.new 'Sorting/1. Y U NO SORT', :dir }
+        subject { described_class.new '/Sorting/1. Y U NO SORT', :dir }
 
         it 'removes the sorting marker' do
           expect(subject.label).to eq 'Y U NO SORT'
@@ -23,7 +23,15 @@ describe Item do
 
     describe '#href' do
       it 'returns link path' do
-        expect(subject.href).to eq 'Folder/Subfolder'
+        expect(subject.href).to eq '/Folder/Subfolder'
+      end
+
+      context 'when base_uri is set' do
+        before { config.base_uri = '/docs' }
+
+        it 'prefixes the link path with the base_uri' do
+          expect(subject.href).to eq '/docs/Folder/Subfolder'
+        end
       end
     end
 
@@ -41,7 +49,7 @@ describe Item do
   end
 
   context 'with a file' do
-    subject { described_class.new 'Folder/File.md', :file }
+    subject { described_class.new '/Folder/File.md', :file }
 
     describe '#label' do
       it 'returns the basename' do
@@ -49,7 +57,7 @@ describe Item do
       end
 
       context 'when the file has a sorting marker' do
-        subject { described_class.new 'Sorting/1. X File', :file }
+        subject { described_class.new '/Sorting/1. X File', :file }
 
         it 'removes the sorting marker' do
           expect(subject.label).to eq 'X File'
@@ -59,7 +67,7 @@ describe Item do
 
     describe '#href' do
       it 'returns link path' do
-        expect(subject.href).to eq 'Folder/File'
+        expect(subject.href).to eq '/Folder/File'
       end
     end
 

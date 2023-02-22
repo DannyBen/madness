@@ -6,7 +6,7 @@ purpose of showcasing the different features of the server.
 
 To view it, simply run
 
-    $ madness
+    $ madness server
 
 in this folder.
 

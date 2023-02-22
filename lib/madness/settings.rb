@@ -56,6 +56,7 @@ module Madness
         path:              '.',
         port:              3000,
         bind:              '0.0.0.0',
+        base_uri:          nil,
         sidebar:           true,
         auto_h1:           true,
         auto_nav:          true,
