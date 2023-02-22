@@ -48,7 +48,7 @@ describe Server, :standalone do
   end
 
   describe '/docs/custom.css (external file)' do
-    it 'is successful' do    
+    it 'is successful' do
       get '/docs/css/custom.css'
       expect(last_response.content_type).to eq 'text/css;charset=utf-8'
       expect(last_response.body).to include '--background-color: black'

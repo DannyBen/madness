@@ -17,7 +17,7 @@ module Madness
     def href
       @href ||= begin
         result = path_without_extension.sub(/^#{docroot}/, '').to_href
-        config.base_uri ? "#{config.base_uri}#{result}" : result
+        "#{config.base_uri}#{result}"
       end
     end
 
