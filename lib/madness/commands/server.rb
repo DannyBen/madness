@@ -6,13 +6,13 @@ module Madness
       usage 'madness server [PATH] [options]'
       usage 'madness init (-h|--help)'
 
-      param 'PATH', 'Path to the markdown directory [default: .]'
+      param 'PATH', 'Path to the markdown directory (default: .)'
 
-      option '-p --port NUMBER', 'Set server port number [default: 3000]'
-      option '-b --bind ADDRESS', 'Set server listen address [default: 0.0.0.0]'
+      option '-p --port NUMBER', 'Set server port number (default: 3000)'
+      option '-b --bind ADDRESS', 'Set server listen address (default: 0.0.0.0)'
       option '-o --open', 'Open a web browser after launching'
       option '--auth USER:PASS', 'Enable basic authentication'
-      option '--auth-zone NAME', 'The basic authentication prompt title [default: Restricted Documentation]'
+      option '--auth-zone NAME', 'The basic authentication prompt title (default: Restricted Documentation)'
       option '--theme FOLDER', 'Use a custom theme (either absolute or relative to the main documentation path)'
 
       example 'madness server'
