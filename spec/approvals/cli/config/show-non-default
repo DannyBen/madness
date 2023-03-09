@@ -10,7 +10,7 @@
            copy_code:  true
           shortlinks:  ~
                  toc:  Table of Contents
-               theme:  ~
+               theme:  my_theme
                 open:  ~
                 auth:  ~
            auth_zone:  Restricted Documentation

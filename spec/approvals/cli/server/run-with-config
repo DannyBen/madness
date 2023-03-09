@@ -1,7 +1,8 @@
 ▌ generating Table of Contents
 ▌ starting server
 ▌ env    : production
-▌ listen : 0.0.0.0:3000
+▌ listen : 4.3.2.1:1337
 ▌ path   : ...docs
 ▌ config : .madness.yml
+▌ theme  : my_theme
 

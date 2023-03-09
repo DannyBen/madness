@@ -6,10 +6,10 @@ Usage:
 
 Options:
   -p --port NUMBER
-    Set server port number [default: 3000]
+    Set server port number (default: 3000)
 
   -b --bind ADDRESS
-    Set server listen address [default: 0.0.0.0]
+    Set server listen address (default: 0.0.0.0)
 
   -o --open
     Open a web browser after launching
@@ -18,7 +18,7 @@ Options:
     Enable basic authentication
 
   --auth-zone NAME
-    The basic authentication prompt title [default: Restricted Documentation]
+    The basic authentication realm (default: Restricted Documentation)
 
   --theme FOLDER
     Use a custom theme (either absolute or relative to the main documentation
@@ -29,7 +29,7 @@ Options:
 
 Parameters:
   PATH
-    Path to the markdown directory [default: .]
+    Path to the markdown directory (default: .)
 
 Examples:
   madness server
