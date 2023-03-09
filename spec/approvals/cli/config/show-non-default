@@ -1,4 +1,4 @@
-                path:  docs
+                path:  documentation
                 port:  1337
                 bind:  4.3.2.1
             base_uri:  ~
@@ -10,7 +10,7 @@
            copy_code:  true
           shortlinks:  ~
                  toc:  Table of Contents
-               theme:  ~
+               theme:  my_theme
                 open:  ~
                 auth:  ~
            auth_zone:  Restricted Documentation

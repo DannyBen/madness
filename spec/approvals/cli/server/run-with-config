@@ -2,6 +2,7 @@
 ▌ starting server
 ▌ env    : production
 ▌ listen : 4.3.2.1:1337
-▌ path   : ...docs
+▌ path   : ...documentation
 ▌ config : .madness.yml
+▌ theme  : my_theme
 
