@@ -283,7 +283,7 @@ describe Document do
       end
     end
   end
-  
+
   describe '#relative_file' do
     subject { described_class.new 'Folder/Subfolder/Subfile' }
 

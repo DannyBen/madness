@@ -161,6 +161,23 @@ describe Server do
       end
     end
 
+    context 'when source_link is enabled' do
+      before do
+        config.source_link = 'http://example.com/%{path}/edit'
+        config.source_link_label = 'Edit Me'
+      end
+
+      after do
+        config.source_link = nil
+        config.source_link_label = 'Page Source'
+      end
+
+      it 'adds a link to the source' do
+        get '/'
+        expect(last_response.body).to have_tag 'a', text: 'Edit Me', with: { href: 'http://example.com/README.md/edit' }
+      end
+    end
+
     # FIXME: This currently must be last - once basic auth is enabled, it is
     #        there for all eternity.
     context 'when basic authentication is enabled' do
