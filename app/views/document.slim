@@ -3,14 +3,16 @@
 
 .main class=(config.sidebar ? 'with-sidebar' : 'without-sidebar')
   == slim :_breadcrumbs, locals: { breadcrumbs: breadcrumbs }
+
+  - if source_link && source_link[:position] == 'top'
+    a.float-right href="#{source_link[:uri]}" = source_link[:label]
+
   == content
 
   - if type != :file and config.auto_nav
     - if nav.links.any?
       == slim :_index_nav, locals: { nav: nav }
 
-  - if %i[file readme].include?(type) && config.source_link
-    - uri = config.source_link % { path: doc.href }
+  - if source_link && source_link[:position] == 'bottom'
     hr
-    div
-      a href="#{uri}" = config.source_link_label
+    a href="#{source_link[:uri]}" = source_link[:label]

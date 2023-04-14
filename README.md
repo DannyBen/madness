@@ -170,6 +170,10 @@ source_link: ~
 # source_link_label: Edit Page
 source_link_label: Page Source
 
+# if source_link is enabled, you can change its position (top / bottom)
+# source_link_pos: top
+source_link_pos: bottom
+
 # open the server URL in the browser
 open: false
 

@@ -34,3 +34,8 @@ RSpec/StubbedMock:
 Metrics/AbcSize:
   Exclude:
     - lib/madness/commands/server.rb
+
+# The main server route is long
+Metrics/BlockLength:
+  Exclude:
+    - lib/madness/server.rb

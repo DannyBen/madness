@@ -11,6 +11,7 @@
           shortlinks:  ~
          source_link:  ~
    source_link_label:  Page Source
+     source_link_pos:  bottom
                  toc:  ~
                theme:  ~
                 open:  ~

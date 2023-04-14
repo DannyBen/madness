@@ -48,14 +48,23 @@ module Madness
 
       status 404 if doc.type == :missing
 
+      source_link = nil
+      if config.source_link && %i[file readme].include?(doc.type)
+        source_link = {
+          uri:      config.source_link % { path: doc.href },
+          label:    config.source_link_label,
+          position: config.source_link_pos,
+        }
+      end
+
       slim :document, locals: {
-        doc:         doc,
         content:     content,
         type:        doc.type,
         title:       doc.title,
         file:        doc.file,
         nav:         nav,
         breadcrumbs: breadcrumbs,
+        source_link: source_link,
       }
     end
   end

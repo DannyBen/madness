@@ -66,6 +66,7 @@ module Madness
         shortlinks:        false,
         source_link:       nil,
         source_link_label: 'Page Source',
+        source_link_pos:   'bottom',
         toc:               nil,
         theme:             nil,
         open:              false,
