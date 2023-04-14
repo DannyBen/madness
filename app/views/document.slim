@@ -8,3 +8,9 @@
   - if type != :file and config.auto_nav
     - if nav.links.any?
       == slim :_index_nav, locals: { nav: nav }
+
+  - if %i[file readme].include?(type) && config.source_link
+    - uri = config.source_link % { path: doc.href }
+    hr
+    div
+      a href="#{uri}" = config.source_link_label

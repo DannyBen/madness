@@ -49,6 +49,7 @@ module Madness
       status 404 if doc.type == :missing
 
       slim :document, locals: {
+        doc:         doc,
         content:     content,
         type:        doc.type,
         title:       doc.title,

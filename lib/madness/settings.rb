@@ -64,6 +64,8 @@ module Madness
         highlighter:       true,
         copy_code:         true,
         shortlinks:        false,
+        source_link:       nil,
+        source_link_label: 'Page Source',
         toc:               nil,
         theme:             nil,
         open:              false,
