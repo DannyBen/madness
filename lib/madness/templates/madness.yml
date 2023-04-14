@@ -49,7 +49,7 @@ theme: ~
 # enable a link to the page's source at the bottom of each page by setting
 # a URL pattern here. Use '%{path}' anywhere in the string to get the
 # URI-encoded path of the page.
-# source_link: example.com/%{path}
+# source_link: http://example.com/%{path}
 source_link: ~
 
 # if source_link is enabled, you can change the default link label
