@@ -39,7 +39,7 @@ module Madness
     def index!
       results = {}
 
-      Dir["#{@path}/**/#{config.dir_glob}"].sort.each do |file|
+      Dir["#{@path}/**/#{config.dir_glob}"].each do |file|
         next if skip_index? file
 
         filename = file_url(file.sub("#{@path}/", '')).downcase
