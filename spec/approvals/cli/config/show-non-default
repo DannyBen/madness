@@ -9,6 +9,9 @@
          highlighter:  true
            copy_code:  true
           shortlinks:  ~
+         source_link:  ~
+   source_link_label:  Page Source
+     source_link_pos:  bottom
                  toc:  Table of Contents
                theme:  my_theme
                 open:  ~

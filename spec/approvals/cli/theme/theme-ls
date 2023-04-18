@@ -32,6 +32,7 @@
 - tmp/theme-test/styles/_rouge.scss
 - tmp/theme-test/styles/_scrollbar.scss
 - tmp/theme-test/styles/_search.scss
+- tmp/theme-test/styles/_source_link.scss
 - tmp/theme-test/styles/_table.scss
 - tmp/theme-test/styles/_typography.scss
 - tmp/theme-test/styles/_variables.scss

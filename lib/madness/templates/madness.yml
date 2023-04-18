@@ -46,6 +46,20 @@ toc: ~
 # theme: _theme
 theme: ~
 
+# enable a link to the page's source at the bottom of each page by setting
+# a URL pattern here. Use '%{path}' anywhere in the string to get the
+# URI-encoded path of the page.
+# source_link: http://example.com/%{path}
+source_link: ~
+
+# if source_link is enabled, you can change the default link label
+# source_link_label: Edit Page
+source_link_label: Page Source
+
+# if source_link is enabled, you can change its position (top / bottom)
+# source_link_pos: top
+source_link_pos: bottom
+
 # open the server URL in the browser
 open: false
 

@@ -18,6 +18,14 @@ module Madness
       @content ||= %i[empty missing].include?(type) ? "<h1>#{title}</h1>" : markdown.to_html
     end
 
+    def relative_file
+      file[%r{^#{docroot}/(.*)}, 1]
+    end
+
+    def href
+      relative_file.to_href
+    end
+
   private
 
     # Identify file, dir and type.

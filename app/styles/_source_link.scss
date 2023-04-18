@@ -1,0 +1,8 @@
+.source-link {
+  margin-top: 13px;
+  float: right;
+  
+  @include mobile {
+    display: none;
+  }
+}

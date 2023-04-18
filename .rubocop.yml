@@ -8,7 +8,7 @@ inherit_gem:
     - rspec.yml
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
   Exclude:
     - dev/**/*
     - debug.rb
@@ -34,3 +34,8 @@ RSpec/StubbedMock:
 Metrics/AbcSize:
   Exclude:
     - lib/madness/commands/server.rb
+
+# The main server route is long
+Metrics/BlockLength:
+  Exclude:
+    - lib/madness/server.rb

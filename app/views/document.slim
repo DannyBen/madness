@@ -2,9 +2,16 @@
 == slim :_nav, locals: { nav: nav } if config.sidebar
 
 .main class=(config.sidebar ? 'with-sidebar' : 'without-sidebar')
+  - if source_link && source_link[:position] == 'top'
+    a.source-link href="#{source_link[:uri]}" = source_link[:label]
+
   == slim :_breadcrumbs, locals: { breadcrumbs: breadcrumbs }
   == content
 
   - if type != :file and config.auto_nav
     - if nav.links.any?
       == slim :_index_nav, locals: { nav: nav }
+
+  - if source_link && source_link[:position] == 'bottom'
+    hr
+    a href="#{source_link[:uri]}" = source_link[:label]

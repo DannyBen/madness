@@ -467,6 +467,12 @@ nav {
   background: var(--scrollbar-color);
   -webkit-border-radius: 3px; }
 
+.source-link {
+  margin-top: 13px;
+  float: right; }
+  @media only screen and (max-width: 767px) {
+    .source-link {
+      display: none; } }
 @media print {
   #mobile-search {
     display: none; } }
@@ -598,6 +604,9 @@ mark {
 
 .quiet {
   color: var(--quiet-color); }
+
+.float-right {
+  float: right; }
 
 body {
   background-color: var(--background-color);

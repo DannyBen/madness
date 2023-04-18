@@ -283,4 +283,20 @@ describe Document do
       end
     end
   end
+
+  describe '#relative_file' do
+    subject { described_class.new 'Folder/Subfolder/Subfile' }
+
+    it 'returns the path to the file without the docroot' do
+      expect(subject.relative_file).to eq 'Folder/Subfolder/Subfile.md'
+    end
+  end
+
+  describe '#href' do
+    subject { described_class.new 'Folder with Index' }
+
+    it 'returns a URI-encoded relative_file' do
+      expect(subject.href).to eq 'Folder%20with%20Index/index.md'
+    end
+  end
 end

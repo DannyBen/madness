@@ -24,7 +24,7 @@ describe Commands::Theme do
     it 'copies the default theme to a folder of our choice' do
       expect { subject.execute "theme full #{theme_dir}" }.to output_approval('cli/theme/full-create')
       expect(Dir).to exist theme_dir
-      expect(Dir["#{theme_dir}/**/*"].sort.to_yaml).to match_approval('cli/theme/theme-ls')
+      expect(Dir["#{theme_dir}/**/*"].to_yaml).to match_approval('cli/theme/theme-ls')
     end
 
     context 'when dir already exists' do
