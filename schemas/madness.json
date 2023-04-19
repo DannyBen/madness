@@ -34,7 +34,10 @@
                     "minLength": 1,
                     "examples": [
                         "/docs"
-                    ]
+                    ],
+                    "not": {
+                        "pattern": "//"
+                    }
                 },
                 {
                     "type": "null"
