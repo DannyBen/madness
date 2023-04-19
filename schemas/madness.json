@@ -128,7 +128,10 @@
                 },
                 {
                     "type": "string",
-                    "pattern": "^[^:]+:[^:]+$"
+                    "pattern": "^[^:]+:[^:]+$",
+                    "examples": [
+                        "admin:s3cr3t"
+                    ]
                 }
             ]
         },
