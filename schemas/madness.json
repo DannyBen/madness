@@ -115,6 +115,38 @@
                 }
             ]
         },
+        "source_link": {
+            "title": "source link",
+            "description": "A link to the page source of the current site",
+            "oneOf": [
+                {
+                    "type": "string",
+                    "minLength": 1,
+                    "examples": [
+                        "http://example.com/%{path}"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "source_link_label": {
+            "title": "source link label",
+            "type": "string",
+            "minLength": 1,
+            "default": "Page Source"
+        },
+        "source_link_pos": {
+            "title": "source link pos",
+            "description": "A link of page source position of the current site",
+            "type": "string",
+            "enum": [
+                "top",
+                "bottom"
+            ],
+            "default": "bottom"
+        },
         "open": {
             "title": "open",
             "description": "Whether to open the server URL in the browser of the current site",
