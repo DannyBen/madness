@@ -25,7 +25,7 @@
             "pattern": "^\\d+\\.\\d+\\.\\d+\\.\\d+$",
             "default": "0.0.0.0"
         },
-        "base-uri": {
+        "base_uri": {
             "title": "base uri",
             "description": "A server root path of the current site",
             "oneOf": [
@@ -47,19 +47,19 @@
             "type": "boolean",
             "default": "true"
         },
-        "auto-h1": {
+        "auto_h1": {
             "title": "auto h1",
             "description": "Whether to add H1 title to files that do not have one of the current site",
             "type": "boolean",
             "default": "true"
         },
-        "auto-nav": {
+        "auto_nav": {
             "title": "auto nav",
             "description": "Whether to append navigation to directory READMEs of the current site",
             "type": "boolean",
             "default": "true"
         },
-        "auto-toc": {
+        "auto_toc": {
             "title": "auto toc",
             "description": "Whether to enable table of contents of the current site",
             "type": "boolean",
@@ -71,7 +71,7 @@
             "type": "boolean",
             "default": "true"
         },
-        "copy-code": {
+        "copy_code": {
             "title": "copy code",
             "description": "Whether to enable the copy to clipboard icon for code snippets of the current site",
             "type": "boolean",
@@ -138,13 +138,13 @@
                 }
             ]
         },
-        "auth-zone": {
+        "auth_zone": {
             "title": "auth zone",
             "description": "An auth realm name of the current site",
             "type": "string",
             "default": "Restricted Documentation"
         },
-        "expose-extensions": {
+        "expose_extensions": {
             "title": "expose extensions",
             "description": "Whether to show files with these extensions in the navigation and search of the current site",
             "type": "string",
