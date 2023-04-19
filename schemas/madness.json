@@ -1,28 +1,31 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "definitions": {
-        "path-property": {
+    "title": "settings",
+    "description": "Settings of the current site",
+    "type": "object",
+    "properties": {
+        "path": {
             "title": "path",
             "description": "A path to the documentation root of the current site",
             "type": "string",
             "minLength": 1,
             "default": "."
         },
-        "port-property": {
+        "port": {
             "title": "port",
             "description": "A server port of the current site",
             "type": "integer",
             "minimum": 0,
             "default": "3000"
         },
-        "bind-property": {
+        "bind": {
             "title": "bind",
             "description": "A server listen address of the current site",
             "type": "string",
             "pattern": "^\\d+\\.\\d+\\.\\d+\\.\\d+$",
             "default": "0.0.0.0"
         },
-        "base-uri-property": {
+        "base-uri": {
             "title": "base uri",
             "description": "A server root path of the current site",
             "oneOf": [
@@ -38,49 +41,49 @@
                 }
             ]
         },
-        "sidebar-property": {
+        "sidebar": {
             "title": "sidebar",
             "description": "Whether to enable sidebar of the current site",
             "type": "boolean",
             "default": "true"
         },
-        "auto-h1-property": {
+        "auto-h1": {
             "title": "auto h1",
             "description": "Whether to add H1 title to files that do not have one of the current site",
             "type": "boolean",
             "default": "true"
         },
-        "auto-nav-property": {
+        "auto-nav": {
             "title": "auto nav",
             "description": "Whether to append navigation to directory READMEs of the current site",
             "type": "boolean",
             "default": "true"
         },
-        "auto-toc-property": {
+        "auto-toc": {
             "title": "auto toc",
             "description": "Whether to enable table of contents of the current site",
             "type": "boolean",
             "default": "true"
         },
-        "highlighter-property": {
+        "highlighter": {
             "title": "highlighter",
             "description": "Whether to enable syntax highlighter for code snippets of the current site",
             "type": "boolean",
             "default": "true"
         },
-        "copy-code-property": {
+        "copy-code": {
             "title": "copy code",
             "description": "Whether to enable the copy to clipboard icon for code snippets of the current site",
             "type": "boolean",
             "default": "true"
         },
-        "shortlinks-property": {
+        "shortlinks": {
             "title": "shortlinks",
             "description": "Whether to convert [[Links]] to [Links](Links) of the current site",
             "type": "boolean",
             "default": "false"
         },
-        "toc-property": {
+        "toc": {
             "title": "toc",
             "description": "Whether to generate a table of contents file with this name of the current site",
             "oneOf": [
@@ -96,7 +99,7 @@
                 }
             ]
         },
-        "theme-property": {
+        "theme": {
             "title": "theme",
             "description": "A theme directory of the current site",
             "oneOf": [
@@ -112,13 +115,13 @@
                 }
             ]
         },
-        "open-property": {
+        "open": {
             "title": "open",
             "description": "Whether to open the server URL in the browser of the current site",
             "type": "boolean",
             "default": "false"
         },
-        "auth-property": {
+        "auth": {
             "title": "auth",
             "description": "Whether to provide user:password for basic authentication of the current site",
             "oneOf": [
@@ -135,13 +138,13 @@
                 }
             ]
         },
-        "auth-zone-property": {
+        "auth-zone": {
             "title": "auth zone",
             "description": "An auth realm name of the current site",
             "type": "string",
             "default": "Restricted Documentation"
         },
-        "expose-extensions-property": {
+        "expose-extensions": {
             "title": "expose extensions",
             "description": "Whether to show files with these extensions in the navigation and search of the current site",
             "type": "string",
@@ -149,7 +152,7 @@
                 "pdf,docx,xlsx,txt"
             ]
         },
-        "exclude-property": {
+        "exclude": {
             "title": "exclude",
             "description": "Excluded directories of the current site",
             "type": "array",
@@ -162,65 +165,6 @@
                     "^[a-z_\\-0-9]+$"
                 ]
             }
-        }
-    },
-    "title": "settings",
-    "description": "Settings of the current site",
-    "type": "object",
-    "properties": {
-        "path": {
-            "$ref": "#/definitions/path-property"
-        },
-        "port": {
-            "$ref": "#/definitions/port-property"
-        },
-        "bind": {
-            "$ref": "#/definitions/bind-property"
-        },
-        "base_uri": {
-            "$ref": "#/definitions/base-uri-property"
-        },
-        "sidebar": {
-            "$ref": "#/definitions/sidebar-property"
-        },
-        "auto_h1": {
-            "$ref": "#/definitions/auto-h1-property"
-        },
-        "auto_nav": {
-            "$ref": "#/definitions/auto-nav-property"
-        },
-        "auto_toc": {
-            "$ref": "#/definitions/auto-toc-property"
-        },
-        "highlighter": {
-            "$ref": "#/definitions/highlighter-property"
-        },
-        "copy_code": {
-            "$ref": "#/definitions/copy-code-property"
-        },
-        "shortlinks": {
-            "$ref": "#/definitions/shortlinks-property"
-        },
-        "toc": {
-            "$ref": "#/definitions/toc-property"
-        },
-        "theme": {
-            "$ref": "#/definitions/theme-property"
-        },
-        "open": {
-            "$ref": "#/definitions/open-property"
-        },
-        "auth": {
-            "$ref": "#/definitions/auth-property"
-        },
-        "auth_zone": {
-            "$ref": "#/definitions/auth-zone-property"
-        },
-        "expose_extensions": {
-            "$ref": "#/definitions/expose-extensions-property"
-        },
-        "exclude": {
-            "$ref": "#/definitions/exclude-property"
         }
     }
 }
