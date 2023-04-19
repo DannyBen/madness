@@ -185,7 +185,10 @@
                     "type": "string",
                     "examples": [
                         "pdf,docx,xlsx,txt"
-                    ]
+                    ],
+                    "not": {
+                        "pattern": ",,|^,|,$"
+                    }
                 },
                 {
                     "type": "null"
