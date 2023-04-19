@@ -133,6 +133,7 @@
         },
         "source_link_label": {
             "title": "source link label",
+            "description": "A link of page source label of the current site",
             "type": "string",
             "minLength": 1,
             "default": "Page Source"
