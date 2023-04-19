@@ -147,9 +147,16 @@
         "expose_extensions": {
             "title": "expose extensions",
             "description": "Whether to show files with these extensions in the navigation and search of the current site",
-            "type": "string",
-            "examples": [
-                "pdf,docx,xlsx,txt"
+            "oneOf": [
+                {
+                    "type": "string",
+                    "examples": [
+                        "pdf,docx,xlsx,txt"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
             ]
         },
         "exclude": {
