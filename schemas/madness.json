@@ -34,7 +34,10 @@
                     "minLength": 1,
                     "examples": [
                         "/docs"
-                    ]
+                    ],
+                    "not": {
+                        "pattern": "//"
+                    }
                 },
                 {
                     "type": "null"
@@ -185,7 +188,10 @@
                     "type": "string",
                     "examples": [
                         "pdf,docx,xlsx,txt"
-                    ]
+                    ],
+                    "not": {
+                        "pattern": ",,|^,|,$"
+                    }
                 },
                 {
                     "type": "null"
