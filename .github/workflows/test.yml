@@ -27,3 +27,35 @@ jobs:
 
     - name: Run tests
       run: bundle exec rspec && STANDALONE=1 bundle exec rspec
+
+  json_schema:
+    name: Validate JSON schema
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Rush needed for easy installation of check-jsonschema
+    - name: Install rush
+      run: curl -Ls http://get.dannyb.co/rush/setup | bash
+
+    - name: Connect rush repo
+      run: rush clone dannyben --shallow --default
+
+    - name: Install check-jsonschema
+      run: rush get check-jsonschema
+
+    # libyaml needed for Ruby's YAML library
+    - name: Install OS dependencies
+      run: sudo apt-get -y install libyaml-dev
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with: 
+        ruby-version: '3.1'
+        bundler-cache: true
+
+    - name: Test schema
+      run: bundle exec run schema

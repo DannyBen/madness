@@ -15,6 +15,17 @@ action :spec do
   system 'rspec && STANDALONE=1 rspec'
 end
 
+help   'Test the madness JSON schema'
+action :schema do
+  file = 'lib/madness/templates/madness.yml'
+  command = "check-jsonschema --schemafile schemas/madness.json #{file}"
+  say "\n$ check-jsonschema bb`#{file}`"
+  success = system command
+  exit 1 unless success
+end
+
+
+
 help   'Generate public CSS'
 usage  'css [--watch]'
 option '--watch, -w', 'Watch for changes and regenerate'
