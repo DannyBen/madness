@@ -115,7 +115,7 @@
         "open-property": {
             "title": "open",
             "description": "Whether to open the server URL in the browser of the current site",
-            "type": "string",
+            "type": "boolean",
             "default": "false"
         },
         "auth-property": {
@@ -142,7 +142,6 @@
             "title": "expose extensions",
             "description": "Whether to show files with these extensions in the navigation and search of the current site",
             "type": "string",
-            "default": "~",
             "examples": [
                 "pdf,docx,xlsx,txt"
             ]
