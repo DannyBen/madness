@@ -213,135 +213,14 @@
         "auth": {
             "$ref": "#/definitions/auth-property"
         },
+        "auth_zone": {
+            "$ref": "#/definitions/auth-zone-property"
+        },
         "expose_extensions": {
             "$ref": "#/definitions/expose-extensions-property"
         },
         "exclude": {
             "$ref": "#/definitions/exclude-property"
         }
-    },
-    "if": {
-        "not": {
-            "properties": {
-                "auth": {
-                    "const": false
-                }
-            }
-        }
-    },
-    "then": {
-        "properties": {
-            "path": {
-                "$ref": "#/definitions/path-property"
-            },
-            "port": {
-                "$ref": "#/definitions/port-property"
-            },
-            "bind": {
-                "$ref": "#/definitions/bind-property"
-            },
-            "base_uri": {
-                "$ref": "#/definitions/base-uri-property"
-            },
-            "sidebar": {
-                "$ref": "#/definitions/sidebar-property"
-            },
-            "auto_h1": {
-                "$ref": "#/definitions/auto-h1-property"
-            },
-            "auto_nav": {
-                "$ref": "#/definitions/auto-nav-property"
-            },
-            "auto_toc": {
-                "$ref": "#/definitions/auto-toc-property"
-            },
-            "highlighter": {
-                "$ref": "#/definitions/highlighter-property"
-            },
-            "copy_code": {
-                "$ref": "#/definitions/copy-code-property"
-            },
-            "shortlinks": {
-                "$ref": "#/definitions/shortlinks-property"
-            },
-            "toc": {
-                "$ref": "#/definitions/toc-property"
-            },
-            "theme": {
-                "$ref": "#/definitions/theme-property"
-            },
-            "open": {
-                "$ref": "#/definitions/open-property"
-            },
-            "auth": {
-                "$ref": "#/definitions/auth-property"
-            },
-            "auth_zone": {
-                "$ref": "#/definitions/auth-zone-property"
-            },
-            "expose_extensions": {
-                "$ref": "#/definitions/expose-extensions-property"
-            },
-            "exclude": {
-                "$ref": "#/definitions/exclude-property"
-            }
-        },
-        "additionalProperties": false
-    },
-    "else": {
-        "properties": {
-            "path": {
-                "$ref": "#/definitions/path-property"
-            },
-            "port": {
-                "$ref": "#/definitions/port-property"
-            },
-            "bind": {
-                "$ref": "#/definitions/bind-property"
-            },
-            "base_uri": {
-                "$ref": "#/definitions/base-uri-property"
-            },
-            "sidebar": {
-                "$ref": "#/definitions/sidebar-property"
-            },
-            "auto_h1": {
-                "$ref": "#/definitions/auto-h1-property"
-            },
-            "auto_nav": {
-                "$ref": "#/definitions/auto-nav-property"
-            },
-            "auto_toc": {
-                "$ref": "#/definitions/auto-toc-property"
-            },
-            "highlighter": {
-                "$ref": "#/definitions/highlighter-property"
-            },
-            "copy_code": {
-                "$ref": "#/definitions/copy-code-property"
-            },
-            "shortlinks": {
-                "$ref": "#/definitions/shortlinks-property"
-            },
-            "toc": {
-                "$ref": "#/definitions/toc-property"
-            },
-            "theme": {
-                "$ref": "#/definitions/theme-property"
-            },
-            "open": {
-                "$ref": "#/definitions/open-property"
-            },
-            "auth": {
-                "$ref": "#/definitions/auth-property"
-            },
-            "expose_extensions": {
-                "$ref": "#/definitions/expose-extensions-property"
-            },
-            "exclude": {
-                "$ref": "#/definitions/exclude-property"
-            }
-        },
-        "additionalProperties": false
     }
 }
