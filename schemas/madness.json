@@ -211,5 +211,14 @@
             }
         }
     },
+    "dependencies": {
+        "auth_zone": {
+            "properties": {
+                "auth": {
+                    "type": "string"
+                }
+            }
+        }
+    },
     "additionalProperties": false
 }
