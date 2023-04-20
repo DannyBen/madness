@@ -65,7 +65,8 @@ open: false
 
 # provide user:password for basic authentication, for example:
 # auth: admin:s3cr3t
-auth: false
+# by default it's false
+auth: admin:s3cr3t
 
 # if auth is enabled, specify auth realm name
 auth_zone: Restricted Documentation
