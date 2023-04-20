@@ -213,6 +213,9 @@
     },
     "dependencies": {
         "auth_zone": {
+            "required": [
+                "auth"
+            ],
             "properties": {
                 "auth": {
                     "type": "string"
