@@ -1,33 +1,33 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "title": "settings",
-    "description": "Settings of the current site",
+    "description": "Settings of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
     "type": "object",
     "properties": {
         "path": {
             "title": "path",
-            "description": "A path to the documentation root of the current site",
+            "description": "A path to the documentation root of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "string",
             "minLength": 1,
             "default": "."
         },
         "port": {
             "title": "port",
-            "description": "A server port of the current site",
+            "description": "A server port of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "integer",
             "minimum": 0,
             "default": "3000"
         },
         "bind": {
             "title": "bind",
-            "description": "A server listen address of the current site",
+            "description": "A server listen address of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "string",
             "pattern": "^\\d+\\.\\d+\\.\\d+\\.\\d+$",
             "default": "0.0.0.0"
         },
         "base_uri": {
             "title": "base uri",
-            "description": "A server root path of the current site",
+            "description": "A server root path of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "oneOf": [
                 {
                     "type": "string",
@@ -46,49 +46,49 @@
         },
         "sidebar": {
             "title": "sidebar",
-            "description": "Whether to enable sidebar of the current site",
+            "description": "Whether to enable sidebar of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "boolean",
             "default": "true"
         },
         "auto_h1": {
             "title": "auto h1",
-            "description": "Whether to add H1 title to files that do not have one of the current site",
+            "description": "Whether to add H1 title to files that do not have one of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "boolean",
             "default": "true"
         },
         "auto_nav": {
             "title": "auto nav",
-            "description": "Whether to append navigation to directory READMEs of the current site",
+            "description": "Whether to append navigation to directory READMEs of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "boolean",
             "default": "true"
         },
         "auto_toc": {
             "title": "auto toc",
-            "description": "Whether to enable table of contents of the current site",
+            "description": "Whether to enable table of contents of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "boolean",
             "default": "true"
         },
         "highlighter": {
             "title": "highlighter",
-            "description": "Whether to enable syntax highlighter for code snippets of the current site",
+            "description": "Whether to enable syntax highlighter for code snippets of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "boolean",
             "default": "true"
         },
         "copy_code": {
             "title": "copy code",
-            "description": "Whether to enable the copy to clipboard icon for code snippets of the current site",
+            "description": "Whether to enable the copy to clipboard icon for code snippets of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "boolean",
             "default": "true"
         },
         "shortlinks": {
             "title": "shortlinks",
-            "description": "Whether to convert [[Links]] to [Links](Links) of the current site",
+            "description": "Whether to convert [[Links]] to [Links](Links) of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "boolean",
             "default": "false"
         },
         "toc": {
             "title": "toc",
-            "description": "Whether to generate a table of contents file with this name of the current site",
+            "description": "Whether to generate a table of contents file with this name of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "oneOf": [
                 {
                     "type": "string",
@@ -104,7 +104,7 @@
         },
         "theme": {
             "title": "theme",
-            "description": "A theme directory of the current site",
+            "description": "A theme directory of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "oneOf": [
                 {
                     "type": "string",
@@ -120,7 +120,7 @@
         },
         "source_link": {
             "title": "source link",
-            "description": "A link to the page source of the current site",
+            "description": "A link to the page source of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "oneOf": [
                 {
                     "type": "string",
@@ -136,14 +136,14 @@
         },
         "source_link_label": {
             "title": "source link label",
-            "description": "A link of page source label of the current site",
+            "description": "A link of page source label of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "string",
             "minLength": 1,
             "default": "Page Source"
         },
         "source_link_pos": {
             "title": "source link pos",
-            "description": "A link of page source position of the current site",
+            "description": "A link of page source position of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "string",
             "enum": [
                 "top",
@@ -153,13 +153,13 @@
         },
         "open": {
             "title": "open",
-            "description": "Whether to open the server URL in the browser of the current site",
+            "description": "Whether to open the server URL in the browser of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "boolean",
             "default": "false"
         },
         "auth": {
             "title": "auth",
-            "description": "Whether to provide user:password for basic authentication of the current site",
+            "description": "Whether to provide user:password for basic authentication of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "oneOf": [
                 {
                     "type": "boolean",
@@ -176,13 +176,13 @@
         },
         "auth_zone": {
             "title": "auth zone",
-            "description": "An auth realm name of the current site",
+            "description": "An auth realm name of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "string",
             "default": "Restricted Documentation"
         },
         "expose_extensions": {
             "title": "expose extensions",
-            "description": "Whether to show files with these extensions in the navigation and search of the current site",
+            "description": "Whether to show files with these extensions in the navigation and search of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "oneOf": [
                 {
                     "type": "string",
@@ -200,12 +200,12 @@
         },
         "exclude": {
             "title": "exclude",
-            "description": "Excluded directories of the current site",
+            "description": "Excluded directories of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "description": "An excluded directory of the current site",
+                "description": "An excluded directory of the current site\nhttps://github.com/DannyBen/madness#configuration-file",
                 "type": "string",
                 "default": "^[a-z_\\-0-9]+$"
             }
