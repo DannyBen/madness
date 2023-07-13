@@ -14,8 +14,9 @@ or build your own image with [this Dockerfile](Dockerfile).
 ## Using Ruby
 
 ```bash
-git clone --depth 1 https://github.com/DannyBen/madness.git
+git clone https://github.com/DannyBen/madness.git
 cd madness
+git checkout <the branch of the PR>   # optional, if not testing `master`
 gem build madness.gemspec
 gem install madness*.gem
 cd ..
