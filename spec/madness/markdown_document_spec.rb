@@ -20,6 +20,16 @@ describe MarkdownDocument do
       expect(subject.to_html).to match_approval('render/all-disabled')
     end
 
+    context 'when there are headings with diacritics' do
+      let(:file) { 'Diacritics' }
+
+      before { config.auto_toc = true }
+
+      it 'renders properly with matching href IDs' do
+        expect(subject.to_html).to match_approval('render/diacritics')
+      end
+    end
+
     context 'when all options are enabled' do
       before do
         config.auto_h1 = true
