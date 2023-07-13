@@ -12,7 +12,7 @@ module Madness
       end
 
       def to_slug
-        downcase.strip.gsub(/[^\w]/, '-').squeeze('-').remove(/(^-|-$)/)
+        downcase.strip.gsub(/[^[:alnum:]]/, '-').squeeze('-').remove(/(^-|-$)/)
       end
 
       # This is here so we can have one place that defines how to convert
