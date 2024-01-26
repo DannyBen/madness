@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'redcarpet', '~> 3.5'
   s.add_runtime_dependency 'requires', '~> 1.0'
   s.add_runtime_dependency 'rouge', '~> 4.0'
-  s.add_runtime_dependency 'sinatra', '~> 3.0'
+  s.add_runtime_dependency 'sinatra', '>= 3.0', '< 5'
   s.add_runtime_dependency 'slim', '>= 4.0', '< 6'
 
   s.metadata = {
