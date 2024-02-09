@@ -8,6 +8,7 @@ summary "Runfile tasks for building the Madness gem"
 version Madness::VERSION
 
 import_gem 'runfile-tasks/gem'
+import_gem 'runfile-tasks/docker', image: 'dannyben/madness', version: Madness::VERSION
 import 'debug'
 
 help   'Run specs'
