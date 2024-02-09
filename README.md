@@ -399,7 +399,7 @@ services:
 For more information about the docker image, see:
 
 - [Madness image on Docker Hub][dockerhub]
-- [Madness Dockerfile and Docker Compose][dockerfile]
+- [Madness Dockerfile][dockerfile]
 
 
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
