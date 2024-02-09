@@ -384,6 +384,18 @@ $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
 $ madness --help
 ```
 
+or use docker compose:
+
+```yaml
+# docker-compose.yml
+services:
+  web:
+    image: dannyben/madness
+    volumes: [".:/docs"]
+    ports: ["3000:3000"]
+    command: server
+```
+
 For more information about the docker image, see:
 
 - [Madness image on Docker Hub][dockerhub]
@@ -391,7 +403,7 @@ For more information about the docker image, see:
 
 
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
-[dockerfile]: https://github.com/DannyBen/docker-madness
+[dockerfile]: https://github.com/DannyBen/madness/blob/master/Dockerfile
 [css]: https://github.com/DannyBen/madness/blob/master/app/public/css/main.css
 [sasstool]: https://github.com/DannyBen/sasstool
 
