@@ -4,15 +4,10 @@ Change Log
 v1.1.4 - 2024-02-09
 ----------------------------------------
 
-- Add `rackup` as a dependency
-
-
-v1.1.3 - 2024-02-09
-----------------------------------------
-
 - Allow Sinatra 4
 - Build docker images automatically
 - Migrate Dockerfile from the docker-madness repository
+- Add `rackup` as a dependency
 
 
 v1.1.2 - 2023-04-19
