@@ -177,6 +177,20 @@ your documentation directory.</p>
 <span class="c1"># theme: _theme</span>
 <span class="na">theme</span><span class="pi">:</span> <span class="s">~</span>
 
+<span class="c1"># enable a link to the page's source at the bottom of each page by setting</span>
+<span class="c1"># a URL pattern here. Use '%{path}' anywhere in the string to get the</span>
+<span class="c1"># URI-encoded path of the page.</span>
+<span class="c1"># source_link: http://example.com/%{path}</span>
+<span class="na">source_link</span><span class="pi">:</span> <span class="s">~</span>
+
+<span class="c1"># if source_link is enabled, you can change the default link label</span>
+<span class="c1"># source_link_label: Edit Page</span>
+<span class="na">source_link_label</span><span class="pi">:</span> <span class="s">Page Source</span>
+
+<span class="c1"># if source_link is enabled, you can change its position (top / bottom)</span>
+<span class="c1"># source_link_pos: top</span>
+<span class="na">source_link_pos</span><span class="pi">:</span> <span class="s">bottom</span>
+
 <span class="c1"># open the server URL in the browser</span>
 <span class="na">open</span><span class="pi">:</span> <span class="kc">false</span>
 
@@ -349,11 +363,20 @@ directory as the markdown documentation folder</p>
 <div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">alias </span><span class="nv">madness</span><span class="o">=</span><span class="s1">'docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'</span>
 <span class="nv">$ </span>madness <span class="nt">--help</span>
 </code></pre></div>
+<p>or use docker compose:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="c1"># docker-compose.yml</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">dannyben/madness</span>
+    <span class="na">volumes</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">.:/docs"</span><span class="pi">]</span>
+    <span class="na">ports</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">3000:3000"</span><span class="pi">]</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">server</span>
+</code></pre></div>
 <p>For more information about the docker image, see:</p>
 
 <ul>
 <li><a href="https://hub.docker.com/r/dannyben/madness/">Madness image on Docker Hub</a></li>
-<li><a href="https://github.com/DannyBen/docker-madness">Madness Dockerfile and Docker Compose</a></li>
+<li><a href="https://github.com/DannyBen/madness/blob/master/Dockerfile">Madness Dockerfile and Docker Compose</a></li>
 </ul>
 
   </body>
