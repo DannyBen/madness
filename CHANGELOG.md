@@ -1,6 +1,12 @@
 Change Log
 ========================================
 
+Untagged - Latest
+----------------------------------------
+
+- Drop support for Ruby 3.0
+
+
 v1.1.4 - 2024-02-09
 ----------------------------------------
 
@@ -136,6 +142,7 @@ v0.8.4 - 2020-11-08
 - Revert puma upgrade back to < 5.0 due to puma bugs
 
 
+<!-- break v0.8.3 -->
 ## [v0.8.3](https://github.com/DannyBen/madness/tree/v0.8.3) (2020-05-06)
 
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.8.2...v0.8.3)

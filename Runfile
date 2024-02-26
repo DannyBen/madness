@@ -66,13 +66,6 @@ action :fontello do
   system 'cp tmp/fontello/fontello.css app/styles/_fontello.scss'
 end
 
-help   "Generate changelog and append old changelog"
-action :changelog do
-  system "git changelog --save"
-  # append older changelog (prior to switching to git-changelog)
-  system "cat .changelog.old.md >> CHANGELOG.md"
-end
-
 help   "Count lines of code"
 action :cloc do
   system "cloc . --exclude-dir coverage,spec,examples"
