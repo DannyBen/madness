@@ -1,0 +1,3 @@
+[codespell]
+skip = vendor,coverage,tmp,Gemfile.lock,sublime*,*.map,*.css,*.scss
+ignore-words-list = rouge,bu,sting
