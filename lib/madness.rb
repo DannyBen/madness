@@ -1,8 +1,3 @@
-if ENV['BYEBUG']
-  require 'byebug'
-  require 'lp'
-end
-
 require 'requires'
 
 requires 'madness/refinements'
