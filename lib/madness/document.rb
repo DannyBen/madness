@@ -92,8 +92,8 @@ module Madness
 
     def cover_page_candidates
       @cover_page_candidates ||= [
-        File.expand_path('index.md', base),
         File.expand_path("../#{File.basename(base)}.md", base),
+        File.expand_path('index.md', base),
         File.expand_path('README.md', base),
       ]
     end

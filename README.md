@@ -199,14 +199,14 @@ to the contents of a specific directory.
 
 The server will consider any of the following files as cover pages (prioritized):
 
-- `index.md`
 - A markdown file with the same name as the directory (adjacent to it).
+- `index.md`
 - `README.md`
 
 For example, for a directory named "API Documentation":
 
-- /API Documentation/index.md
 - /API Documentation.md
+- /API Documentation/index.md
 - /API Documentation/README.md
 
 Note that the second option (a file with the same name as the directory) forces
