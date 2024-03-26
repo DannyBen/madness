@@ -1,7 +1,8 @@
 require 'madness'
-require "sasstool"
-require "slim"
-require "pretty_trace/enable-trim"
+require 'sasstool'
+require 'slim'
+require 'pretty_trace/enable-trim'
+require 'debug' rescue nil
 
 title   "Madness Runfile"
 summary "Runfile tasks for building the Madness gem"

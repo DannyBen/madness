@@ -55,10 +55,8 @@ module Madness
       @dir  = base
       @type = :readme
 
-      if File.exist? "#{base}/index.md"
-        @file = "#{base}/index.md"
-      elsif File.exist? "#{base}/README.md"
-        @file = "#{base}/README.md"
+      if cover_page
+        @file = cover_page
       else
         @type = :empty
       end
@@ -78,6 +76,26 @@ module Madness
 
     def md_filename
       File.extname(base) == '.md' ? base : "#{base}.md"
+    end
+
+    def cover_page
+      @cover_page ||= cover_page!
+    end
+
+    def cover_page!
+      cover_page_candidates.each do |candidate|
+        return candidate if File.exist? candidate
+      end
+
+      nil
+    end
+
+    def cover_page_candidates
+      @cover_page_candidates ||= [
+        File.expand_path('index.md', base),
+        File.expand_path("../#{File.basename(base)}.md", base),
+        File.expand_path('README.md', base),
+      ]
     end
   end
 end

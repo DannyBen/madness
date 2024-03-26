@@ -17,17 +17,29 @@ module Madness
   private
 
     def files
-      result = Dir["#{dir}/#{config.dir_glob}"]
-      result.reject! do |f|
-        ['README.md', 'index.md'].include? File.basename(f)
+      @files ||= begin
+        result = Dir["#{dir}/#{config.dir_glob}"]
+        result.reject! do |f|
+          ['README.md', 'index.md'].include? File.basename(f)
+        end
+        result.nat_sort.map { |path| Item.new path, :file }
       end
-      result.nat_sort.map { |path| Item.new path, :file }
     end
 
     def dirs
-      result = Dir["#{dir}/*"].select { |f| File.directory? f }
-      result.reject! { |f| exclude? f }
-      result.nat_sort.map { |path| Item.new path, :dir }
+      @dirs ||= begin
+        result = Dir["#{dir}/*"].select { |f| File.directory? f }
+        result.reject! { |f| exclude?(f) || has_named_cover_page?(f) }
+        result.nat_sort.map { |path| Item.new path, :dir }
+      end
+    end
+
+    def paths
+      @paths ||= files.map(&:path)
+    end
+
+    def has_named_cover_page?(path)
+      paths.include? "#{path}.md"
     end
 
     def exclude?(path)
