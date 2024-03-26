@@ -65,7 +65,7 @@ describe Document do
       end
     end
 
-    context 'with a directory that has a named cover page', :focus do
+    context 'with a directory that has a named cover page' do
       subject { described_class.new 'Named Coverpage' }
 
       describe '#type' do

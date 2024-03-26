@@ -209,10 +209,6 @@ For example, for a directory named "API Documentation":
 - /API Documentation/index.md
 - /API Documentation/README.md
 
-Note that the second option (a file with the same name as the directory) forces
-this entry to be sorted as if it was a file, and not a directory in the
-navigation menus.
-
 ### Search
 
 Madness comes with a full text search page.
