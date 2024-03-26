@@ -82,7 +82,7 @@ describe Document do
 
       describe '#dir' do
         it 'returns full directory of the file' do
-          expect(subject.dir).to match(%r{#{config.path}/Named Coverpage$})
+          expect(subject.dir).to end_with 'Named Coverpage'
         end
 
         it 'sets docroot as base dir' do

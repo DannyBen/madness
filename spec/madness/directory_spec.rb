@@ -19,8 +19,8 @@ describe Directory do
     it 'omits files that are named like an existing directory' do
       list = subject.list.map { |item| File.basename item.path }
 
-      expect(list).to include "5. Covered Folder"
-      expect(list).not_to include "5. Covered Folder.md"
+      expect(list).to include '5. Covered Folder'
+      expect(list).not_to include '5. Covered Folder.md'
     end
 
     context 'when expose_extensions is set' do
