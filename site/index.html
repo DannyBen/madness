@@ -32,6 +32,7 @@ markdown-based documentation sites.</p>
 <li><a href="#features">Features</a>
 
 <ul>
+<li><a href="#cover-pages">Cover Pages</a></li>
 <li><a href="#search">Search</a></li>
 <li><a href="#images-and-static-files">Images and Static Files</a></li>
 <li><a href="#automatic-h1">Automatic H1</a></li>
@@ -102,9 +103,6 @@ highlighting.</li>
 
 <p>A documentation directory contains only markdown files (<code>*.md</code>) and sub
 directories that contain more markdown files.</p>
-
-<p>The server will consider the file <code>index.md</code> or <code>README.md</code> in any directory as
-the main file describing this directory, where <code>index.md</code> has priority.</p>
 
 <p>The navigation sidebar will show all the sub directories and files in the same
 directory as the viewed file.</p>
@@ -210,6 +208,27 @@ your documentation directory.</p>
 <span class="na">exclude</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">^[a-z_\-0-9]+$'</span><span class="pi">]</span>
 </code></pre></div>
 <h2 id="features">Features</h2>
+
+<h3 id="cover-pages">Cover Pages</h3>
+
+<p>Cover pages are specially named markdown files that serve as the introduction
+to the contents of a specific directory.</p>
+
+<p>The server will consider any of the following files as cover pages (prioritized):</p>
+
+<ul>
+<li>A markdown file with the same name as the directory (adjacent to it).</li>
+<li><code>index.md</code></li>
+<li><code>README.md</code></li>
+</ul>
+
+<p>For example, for a directory named &quot;API Documentation&quot;:</p>
+
+<ul>
+<li><code>/API Documentation.md</code></li>
+<li><code>/API Documentation/index.md</code></li>
+<li><code>/API Documentation/README.md</code></li>
+</ul>
 
 <h3 id="search">Search</h3>
 

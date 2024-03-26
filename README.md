@@ -205,9 +205,9 @@ The server will consider any of the following files as cover pages (prioritized)
 
 For example, for a directory named "API Documentation":
 
-- /API Documentation.md
-- /API Documentation/index.md
-- /API Documentation/README.md
+- `/API Documentation.md`
+- `/API Documentation/index.md`
+- `/API Documentation/README.md`
 
 ### Search
 
