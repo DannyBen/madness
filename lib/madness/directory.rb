@@ -29,20 +29,16 @@ module Madness
     def dirs
       @dirs ||= begin
         result = Dir["#{dir}/*"].select { |f| File.directory? f }
-        result.reject! { |f| exclude?(f) || has_named_cover_page?(f) }
+        result.reject! { |f| exclude? f }
         result.nat_sort.map { |path| Item.new path, :dir }
       end
     end
 
-    def paths
-      @paths ||= files.map(&:path)
-    end
-
-    def has_named_cover_page?(path)
-      paths.include? "#{path}.md"
-    end
-
     def exclude?(path)
+      excluded_by_config?(path) || has_named_cover_page?(path)
+    end
+
+    def excluded_by_config?(path)
       return false unless config.exclude.is_a? Array
 
       basename = File.basename path
@@ -50,6 +46,14 @@ module Madness
         return true if basename&.match?(Regexp.new(pattern))
       end
       false
+    end
+
+    def has_named_cover_page?(path)
+      paths.include? "#{path}.md"
+    end
+
+    def paths
+      @paths ||= files.map(&:path)
     end
 
     def config
