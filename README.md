@@ -78,9 +78,6 @@ Madness expects to be executed in a documentation directory.
 A documentation directory contains only markdown files (`*.md`) and sub
 directories that contain more markdown files.
 
-The server will consider the file `index.md` or `README.md` in any directory as
-the main file describing this directory, where `index.md` has priority.
-
 The navigation sidebar will show all the sub directories and files in the same
 directory as the viewed file.
 
@@ -194,6 +191,27 @@ exclude: ['^[a-z_\-0-9]+$']
 ```
 
 ## Features
+
+### Cover Pages
+
+Cover pages are specially named markdown files that serve as the introduction
+to the contents of a specific directory.
+
+The server will consider any of the following files as cover pages (prioritized):
+
+- `index.md`
+- A markdown file with the same name as the directory (adjacent to it).
+- `README.md`
+
+For example, for a directory named "API Documentation":
+
+- /API Documentation/index.md
+- /API Documentation.md
+- /API Documentation/README.md
+
+Note that the second option (a file with the same name as the directory) forces
+this entry to be sorted as if it was a file, and not a directory in the
+navigation menus.
 
 ### Search
 

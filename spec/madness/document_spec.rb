@@ -65,12 +65,12 @@ describe Document do
       end
     end
 
-    context 'with a directory that has a named cover page' do
+    context 'with a directory that has a named cover page', :focus do
       subject { described_class.new 'Named Coverpage' }
 
       describe '#type' do
         it 'returns :readme' do
-          expect(subject.type).to eq :file
+          expect(subject.type).to eq :readme
         end
       end
 
@@ -82,11 +82,11 @@ describe Document do
 
       describe '#dir' do
         it 'returns full directory of the file' do
-          expect(subject.dir).to end_with config.path
+          expect(subject.dir).to match(%r{#{config.path}/Named Coverpage$})
         end
 
         it 'sets docroot as base dir' do
-          expect(subject.dir).to end_with config.path
+          expect(subject.dir).to match(%r{#{config.path}/Named Coverpage$})
         end
       end
 

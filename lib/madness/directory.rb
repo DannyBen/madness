@@ -3,6 +3,7 @@ module Madness
   class Directory
     include ServerHelper
     using ArrayRefinements
+    using StringRefinements
 
     attr_reader :dir
 
@@ -22,6 +23,7 @@ module Madness
         result.reject! do |f|
           ['README.md', 'index.md'].include? File.basename(f)
         end
+        result.reject! { |f| is_cover_page? f }
         result.nat_sort.map { |path| Item.new path, :file }
       end
     end
@@ -35,10 +37,6 @@ module Madness
     end
 
     def exclude?(path)
-      excluded_by_config?(path) || has_named_cover_page?(path)
-    end
-
-    def excluded_by_config?(path)
       return false unless config.exclude.is_a? Array
 
       basename = File.basename path
@@ -48,12 +46,12 @@ module Madness
       false
     end
 
-    def has_named_cover_page?(path)
-      paths.include? "#{path}.md"
+    def is_cover_page?(path)
+      dir_paths.include? path.remove(/\.md$/)
     end
 
-    def paths
-      @paths ||= files.map(&:path)
+    def dir_paths
+      @dir_paths ||= dirs.map(&:path)
     end
 
     def config

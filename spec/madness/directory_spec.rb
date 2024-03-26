@@ -16,11 +16,11 @@ describe Directory do
       expect(list.last.label).to eq 'Last File'
     end
 
-    it 'returns only the markdown file when a directory with a similar name exists' do
+    it 'omits files that are named like an existing directory' do
       list = subject.list.map { |item| File.basename item.path }
 
-      expect(list).to include "5. Covered Folder.md"
-      expect(list).not_to include "5. Covered Folder"
+      expect(list).to include "5. Covered Folder"
+      expect(list).not_to include "5. Covered Folder.md"
     end
 
     context 'when expose_extensions is set' do
