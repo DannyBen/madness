@@ -65,7 +65,39 @@ describe Document do
       end
     end
 
-    context 'with a directory that does not contain valid index file' do
+    context 'with a directory that has a named cover page' do
+      subject { described_class.new 'Named Coverpage' }
+
+      describe '#type' do
+        it 'returns :readme' do
+          expect(subject.type).to eq :readme
+        end
+      end
+
+      describe '#file' do
+        it 'returns full path to file' do
+          expect(subject.file).to end_with 'Named Coverpage.md'
+        end
+      end
+
+      describe '#dir' do
+        it 'returns full directory of the file' do
+          expect(subject.dir).to end_with 'Named Coverpage'
+        end
+
+        it 'sets docroot as base dir' do
+          expect(subject.dir).to match(%r{#{config.path}/Named Coverpage$})
+        end
+      end
+
+      describe '#title' do
+        it 'returns proper title' do
+          expect(subject.title).to eq 'Named Coverpage'
+        end
+      end
+    end
+
+    context 'with a directory that does not contain valid cover file' do
       subject { described_class.new 'Empty Folder' }
 
       describe '#type' do
