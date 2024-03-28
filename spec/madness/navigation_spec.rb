@@ -7,8 +7,15 @@ describe Navigation do
   end
 
   describe '#links' do
-    it 'sets an array of links' do
+    it 'returns an array of links' do
       expect(subject.links).to be_an Array
+    end
+
+    it 'returns the array sorted alphabetically, directories first' do
+      expect(subject.links.map(&:label)).to eq [
+        "Folder", "Folder-Dash", "Folder Space",
+        "File-Dash", "File Space", "XFile"
+      ]
     end
 
     it 'sets proper link properties for folders' do
@@ -30,6 +37,30 @@ describe Navigation do
     it 'omits _folders' do
       result = subject.links.select { |f| f.label[0] == '_' }
       expect(result.count).to eq 0
+    end
+
+    context 'when config.sort_order = mixed' do
+      before { config.sort_order = 'mixed' }
+
+      it 'returns the array sorted alphabetically regardless of type' do
+        expect(subject.links.map(&:label)).to eq [
+          "File Space", "File-Dash", "Folder",
+          "Folder Space", "Folder-Dash", "XFile"
+        ]
+      end
+    end
+
+    context 'when config.sort_order = mixed and with numbered items' do
+      before do
+        config.sort_order = 'mixed'
+        config.path = 'spec/fixtures/nav-sorted'
+      end
+
+      it 'returns the array sorted alphabetically while obeying numeric markers' do
+        expect(subject.links.map(&:label)).to eq [
+          "Introduction", "Getting Started", "Getting Help", "Legal"
+        ]
+      end
     end
   end
 
