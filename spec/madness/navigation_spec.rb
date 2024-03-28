@@ -13,8 +13,8 @@ describe Navigation do
 
     it 'returns the array sorted alphabetically, directories first' do
       expect(subject.links.map(&:label)).to eq [
-        "Folder", "Folder-Dash", "Folder Space",
-        "File-Dash", "File Space", "XFile"
+        'Folder', 'Folder-Dash', 'Folder Space',
+        'File-Dash', 'File Space', 'XFile'
       ]
     end
 
@@ -44,8 +44,8 @@ describe Navigation do
 
       it 'returns the array sorted alphabetically regardless of type' do
         expect(subject.links.map(&:label)).to eq [
-          "File Space", "File-Dash", "Folder",
-          "Folder Space", "Folder-Dash", "XFile"
+          'File Space', 'File-Dash', 'Folder',
+          'Folder Space', 'Folder-Dash', 'XFile'
         ]
       end
     end
@@ -58,7 +58,7 @@ describe Navigation do
 
       it 'returns the array sorted alphabetically while obeying numeric markers' do
         expect(subject.links.map(&:label)).to eq [
-          "Introduction", "Getting Started", "Getting Help", "Legal"
+          'Introduction', 'Getting Started', 'Getting Help', 'Legal'
         ]
       end
     end
