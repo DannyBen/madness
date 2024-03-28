@@ -57,6 +57,7 @@ module Madness
         port:              3000,
         bind:              '0.0.0.0',
         base_uri:          nil,
+        sort_order:        'dirs_first',
         sidebar:           true,
         auto_h1:           true,
         auto_nav:          true,

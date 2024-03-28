@@ -44,6 +44,16 @@
                 }
             ]
         },
+        "sort_order": {
+            "title": "sort order",
+            "description": "The navigation sort order\nhttps://madness.dannyb.co/#configuration-file",
+            "type": "string",
+            "enum": [
+                "dirs_first",
+                "mixed"
+            ],
+            "default": "dirs_first"
+        },
         "sidebar": {
             "title": "sidebar",
             "description": "Whether to enable sidebar of the current site\nhttps://madness.dannyb.co/#configuration-file",
@@ -120,7 +130,7 @@
         },
         "source_link": {
             "title": "source link",
-            "description": "A link to the page source of the current site\nhttps://madness.dannyb.co/#configuration-file",
+            "description": "A link to the page source code\nhttps://madness.dannyb.co/#configuration-file",
             "oneOf": [
                 {
                     "type": "string",
@@ -136,14 +146,14 @@
         },
         "source_link_label": {
             "title": "source link label",
-            "description": "A link of page source label of the current site\nhttps://madness.dannyb.co/#configuration-file",
+            "description": "A label for the page source code link\nhttps://madness.dannyb.co/#configuration-file",
             "type": "string",
             "minLength": 1,
             "default": "Page Source"
         },
         "source_link_pos": {
             "title": "source link pos",
-            "description": "A link of page source position of the current site\nhttps://madness.dannyb.co/#configuration-file",
+            "description": "The position of the page source code link\nhttps://madness.dannyb.co/#configuration-file",
             "type": "string",
             "enum": [
                 "top",
