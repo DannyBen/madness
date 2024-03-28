@@ -15,6 +15,14 @@ describe StringRefinements do
     it 'converts string to slug' do
       expect(subject.to_slug).to eq 'string-with-23-symbols'
     end
+
+    context 'with diacritics' do
+      subject { '! Café MÜLLER in München ! 123 !' }
+
+      it 'converts string to slug while preserving and downcasing diacritics' do
+        expect(subject.to_slug).to eq 'café-müller-in-münchen-123'
+      end
+    end
   end
 
   describe '#label' do
