@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 group :development do
-  gem 'byebug'
+  gem 'debug'
   gem 'filewatcher-cli', require: false
   gem 'lp'
   gem 'pretty_trace'

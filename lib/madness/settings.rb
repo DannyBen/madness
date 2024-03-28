@@ -15,7 +15,7 @@ module Madness
       reset
     end
 
-    def method_missing(name, *args, &_blk)
+    def method_missing(name, *args, &_block)
       name_string = name.to_s
 
       if name_string.end_with? '='
@@ -57,6 +57,7 @@ module Madness
         port:              3000,
         bind:              '0.0.0.0',
         base_uri:          nil,
+        sort_order:        'dirs_first',
         sidebar:           true,
         auto_h1:           true,
         auto_nav:          true,

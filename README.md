@@ -78,9 +78,6 @@ Madness expects to be executed in a documentation directory.
 A documentation directory contains only markdown files (`*.md`) and sub
 directories that contain more markdown files.
 
-The server will consider the file `index.md` or `README.md` in any directory as
-the main file describing this directory, where `index.md` has priority.
-
 The navigation sidebar will show all the sub directories and files in the same
 directory as the viewed file.
 
@@ -128,6 +125,11 @@ bind: 0.0.0.0
 # set a server root path, for example:
 # base_uri: /docs
 base_uri: ~
+
+# choose navigation sort order:
+# sort_order: dirs_first     # alphabetic directories then alphabetic files
+# sort_order: mixed          # alphabetic regardless of type
+sort_order: dirs_first
 
 # enable sidebar
 sidebar: true
@@ -194,6 +196,23 @@ exclude: ['^[a-z_\-0-9]+$']
 ```
 
 ## Features
+
+### Cover Pages
+
+Cover pages are specially named markdown files that serve as the introduction
+to the contents of a specific directory.
+
+The server will consider any of the following files as cover pages (prioritized):
+
+- A markdown file with the same name as the directory (adjacent to it).
+- `index.md`
+- `README.md`
+
+For example, for a directory named "API Documentation":
+
+- `/API Documentation.md`
+- `/API Documentation/index.md`
+- `/API Documentation/README.md`
 
 ### Search
 
@@ -285,6 +304,9 @@ will be omitted when they are displayed.
 ├── 1. Some file or folder
 └── 2. Another file or folder
 ```
+
+Note that by default, directories will appear above files. If you wish to
+change this, set `sort_order: mixed` in your configuration file.
 
 ### Displaying Additional File Types
 
@@ -384,14 +406,26 @@ $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
 $ madness --help
 ```
 
+or use docker compose:
+
+```yaml
+# docker-compose.yml
+services:
+  web:
+    image: dannyben/madness
+    volumes: [".:/docs"]
+    ports: ["3000:3000"]
+    command: server
+```
+
 For more information about the docker image, see:
 
 - [Madness image on Docker Hub][dockerhub]
-- [Madness Dockerfile and Docker Compose][dockerfile]
+- [Madness Dockerfile][dockerfile]
 
 
 [dockerhub]: https://hub.docker.com/r/dannyben/madness/
-[dockerfile]: https://github.com/DannyBen/docker-madness
+[dockerfile]: https://github.com/DannyBen/madness/blob/master/Dockerfile
 [css]: https://github.com/DannyBen/madness/blob/master/app/public/css/main.css
 [sasstool]: https://github.com/DannyBen/sasstool
 

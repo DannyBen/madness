@@ -1,13 +1,15 @@
 require 'madness'
-require "sasstool"
-require "slim"
-require "pretty_trace/enable-trim"
+require 'sasstool'
+require 'slim'
+require 'pretty_trace/enable-trim'
+require 'debug' rescue nil
 
 title   "Madness Runfile"
 summary "Runfile tasks for building the Madness gem"
 version Madness::VERSION
 
 import_gem 'runfile-tasks/gem'
+import_gem 'runfile-tasks/docker', image: 'dannyben/madness', version: Madness::VERSION
 import 'debug'
 
 help   'Run specs'
@@ -63,13 +65,6 @@ action :fontello do
   end
 
   system 'cp tmp/fontello/fontello.css app/styles/_fontello.scss'
-end
-
-help   "Generate changelog and append old changelog"
-action :changelog do
-  system "git changelog --save"
-  # append older changelog (prior to switching to git-changelog)
-  system "cat .changelog.old.md >> CHANGELOG.md"
 end
 
 help   "Count lines of code"

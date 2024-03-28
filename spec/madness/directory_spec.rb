@@ -11,9 +11,16 @@ describe Directory do
       list = subject.list
 
       expect(list).to be_an Array
-      expect(list.count).to eq 6
+      expect(list.count).to eq 7
       expect(list.first).to be_an Item
       expect(list.last.label).to eq 'Last File'
+    end
+
+    it 'omits files that are named like an existing directory' do
+      list = subject.list.map { |item| File.basename item.path }
+
+      expect(list).to include '5. Covered Folder'
+      expect(list).not_to include '5. Covered Folder.md'
     end
 
     context 'when expose_extensions is set' do

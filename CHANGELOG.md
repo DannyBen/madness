@@ -1,132 +1,170 @@
 Change Log
 ========================================
 
+v1.1.5 - 2024-03-28
+----------------------------------------
+
+- Drop support for Ruby 3.0 [`7e815ab`](https://github.com/DannyBen/madness/commit/7e815ab)
+- Add support for named directory cover pages [`19ae5c5`](https://github.com/DannyBen/madness/commit/19ae5c5)
+- Revert dropping of support for Ruby 3.0 [`ae3850e`](https://github.com/DannyBen/madness/commit/ae3850e)
+- Add support for mixed sort order [`0d90b84`](https://github.com/DannyBen/madness/commit/0d90b84)
+- Compare [`v1.1.4..v1.1.5`](https://github.com/dannyben/madness/compare/v1.1.4..v1.1.5)
+
+
+v1.1.4 - 2024-02-09
+----------------------------------------
+
+- Allow Sinatra 4 [`2b86435`](https://github.com/DannyBen/madness/commit/2b86435)
+- Build docker images automatically [`27dce50`](https://github.com/DannyBen/madness/commit/27dce50)
+- Migrate Dockerfile from the docker-madness repository [`e5affa1`](https://github.com/DannyBen/madness/commit/e5affa1)
+- Add `rackup` as a dependency [`0dde217`](https://github.com/DannyBen/madness/commit/0dde217)
+- Compare [`v1.1.2..v1.1.4`](https://github.com/dannyben/madness/compare/v1.1.2..v1.1.4)
+
+
 v1.1.2 - 2023-04-19
 ----------------------------------------
 
-- Add optional 'Page Source' link to all pages
-- Drop support for Ruby 2.x
+- Add optional 'Page Source' link to all pages [`1aea6f6`](https://github.com/DannyBen/madness/commit/1aea6f6)
+- Drop support for Ruby 2.x [`926fb75`](https://github.com/DannyBen/madness/commit/926fb75)
+- Compare [`v1.1.1..v1.1.2`](https://github.com/dannyben/madness/compare/v1.1.1..v1.1.2)
 
 
 v1.1.1 - 2023-03-09
 ----------------------------------------
 
-- Fix config.port and config.bind
+- Fix config.port and config.bind [`13696d4`](https://github.com/DannyBen/madness/commit/13696d4)
+- Compare [`v1.1.0..v1.1.1`](https://github.com/dannyben/madness/compare/v1.1.0..v1.1.1)
 
 
 v1.1.0 - 2023-02-22
 ----------------------------------------
 
-- Change how static files are served and add base_uri config
-- Add 404 handler when using base_uri
+- Change how static files are served and add base_uri config [`528e2ee`](https://github.com/DannyBen/madness/commit/528e2ee)
+- Add 404 handler when using base_uri [`c42f2ea`](https://github.com/DannyBen/madness/commit/c42f2ea)
+- Compare [`v1.0.0..v1.1.0`](https://github.com/dannyben/madness/compare/v1.0.0..v1.1.0)
 
 
 v1.0.0 - 2023-02-17
 ----------------------------------------
 
-- Change landing page
-- Remove some styling related command line flags
-- Remove support for line numbers in syntax highlighting
-- Update in-page TOC: It now requires #-style headers to function, and allows setting a custom header
-- Increase sidebar width by 50px
-- Change icons
-- Switch from Commonmarker to RedCarpet renderer
-- Refactor CSS with color variables
-- Refactor command line interface
-- Add 'madness config show' command
-- Add 'madness theme css' command to copy the public css
-- Upgrade dependencies
-- Fix table of contents slugs
-- Add support for CSS partials and 'madness theme colors' command
+- Change landing page [`3e79fc8`](https://github.com/DannyBen/madness/commit/3e79fc8)
+- Remove some styling related command line flags [`ba6dbfd`](https://github.com/DannyBen/madness/commit/ba6dbfd)
+- Remove support for line numbers in syntax highlighting [`6c8913d`](https://github.com/DannyBen/madness/commit/6c8913d)
+- Update in-page TOC: It now requires #-style headers to function, and allows setting a custom header [`cb0bd7a`](https://github.com/DannyBen/madness/commit/cb0bd7a)
+- Increase sidebar width by 50px [`7036414`](https://github.com/DannyBen/madness/commit/7036414)
+- Change icons [`83a5572`](https://github.com/DannyBen/madness/commit/83a5572)
+- Switch from Commonmarker to RedCarpet renderer [`64ce488`](https://github.com/DannyBen/madness/commit/64ce488)
+- Refactor CSS with color variables [`ec967b2`](https://github.com/DannyBen/madness/commit/ec967b2)
+- Refactor command line interface [`2fd5858`](https://github.com/DannyBen/madness/commit/2fd5858)
+- Add 'madness config show' command [`cd53946`](https://github.com/DannyBen/madness/commit/cd53946)
+- Add 'madness theme css' command to copy the public css [`44ee5a5`](https://github.com/DannyBen/madness/commit/44ee5a5)
+- Upgrade dependencies [`9b577a0`](https://github.com/DannyBen/madness/commit/9b577a0)
+- Fix table of contents slugs [`fa94bb5`](https://github.com/DannyBen/madness/commit/fa94bb5)
+- Add support for CSS partials and 'madness theme colors' command [`38af6e4`](https://github.com/DannyBen/madness/commit/38af6e4)
+- Compare [`v0.9.9..v1.0.0`](https://github.com/dannyben/madness/compare/v0.9.9..v1.0.0)
 
 
 v0.9.9 - 2023-01-16
 ----------------------------------------
 
-- Update dependencies
-- Drop support for Ruby 2.6
+- Update dependencies [`7df494f`](https://github.com/DannyBen/madness/commit/7df494f)
+- Drop support for Ruby 2.6 [`731c7d5`](https://github.com/DannyBen/madness/commit/731c7d5)
+- Compare [`v0.9.8..v0.9.9`](https://github.com/dannyben/madness/compare/v0.9.8..v0.9.9)
 
 
 v0.9.8 - 2022-12-05
 ----------------------------------------
 
-- Upgrade to Sinatra 3
-- Allow puma 6
-- Refactor with rubocop
+- Upgrade to Sinatra 3 [`3cff28a`](https://github.com/DannyBen/madness/commit/3cff28a)
+- Allow puma 6 [`c18aaae`](https://github.com/DannyBen/madness/commit/c18aaae)
+- Refactor with rubocop [`f21cdf6`](https://github.com/DannyBen/madness/commit/f21cdf6)
+- Compare [`v0.9.7..v0.9.8`](https://github.com/dannyben/madness/compare/v0.9.7..v0.9.8)
 
 
 v0.9.7 - 2022-09-09
 ----------------------------------------
 
-- Remove Rack:SSL
-- Exit gracefully from exceptions
-- Remove search icon from print view
-- Add support for [[Short Links]]
+- Remove Rack:SSL [`3b8fd19`](https://github.com/DannyBen/madness/commit/3b8fd19)
+- Exit gracefully from exceptions [`a9457e1`](https://github.com/DannyBen/madness/commit/a9457e1)
+- Remove search icon from print view [`a11aaa8`](https://github.com/DannyBen/madness/commit/a11aaa8)
+- Add support for [[Short Links]] [`bd6d2ec`](https://github.com/DannyBen/madness/commit/bd6d2ec)
+- Compare [`v0.9.6..v0.9.7`](https://github.com/dannyben/madness/compare/v0.9.6..v0.9.7)
 
 
 v0.9.6 - 2022-07-01
 ----------------------------------------
 
-- Drop support for Ruby 2.5
-- Pass file path to the document template
+- Drop support for Ruby 2.5 [`4e46ce9`](https://github.com/DannyBen/madness/commit/4e46ce9)
+- Pass file path to the document template [`863cbcc`](https://github.com/DannyBen/madness/commit/863cbcc)
+- Compare [`v0.9.5..v0.9.6`](https://github.com/dannyben/madness/compare/v0.9.5..v0.9.6)
 
 
 v0.9.5 - 2022-01-21
 ----------------------------------------
 
-- Add search button in mobile view
+- Add search button in mobile view [`88392e1`](https://github.com/DannyBen/madness/commit/88392e1)
+- Compare [`v0.9.4..v0.9.5`](https://github.com/dannyben/madness/compare/v0.9.4..v0.9.5)
 
 
 v0.9.4 - 2021-09-16
 ----------------------------------------
 
-- Add configuration to control excluded directories list
+- Add configuration to control excluded directories list [`c6c35cc`](https://github.com/DannyBen/madness/commit/c6c35cc)
+- Compare [`v0.9.3..v0.9.4`](https://github.com/dannyben/madness/compare/v0.9.3..v0.9.4)
 
 
 v0.9.3 - 2021-02-05
 ----------------------------------------
 
-- Allow showing non-md files in the navigation
+- Allow showing non-md files in the navigation [`dd2b37b`](https://github.com/DannyBen/madness/commit/dd2b37b)
+- Compare [`v0.9.2..v0.9.3`](https://github.com/dannyben/madness/compare/v0.9.2..v0.9.3)
 
 
 v0.9.2 - 2021-01-13
 ----------------------------------------
 
-- Improve search so that it is an OR search by default, and allows quoted phrases for exact match
+- Improve search so that it is an OR search by default, and allows quoted phrases for exact match [`823fa1f`](https://github.com/DannyBen/madness/commit/823fa1f)
+- Compare [`v0.9.1..v0.9.2`](https://github.com/dannyben/madness/compare/v0.9.1..v0.9.2)
 
 
 v0.9.1 - 2021-01-04
 ----------------------------------------
 
-- CSS: Remove outline on focused links
+- CSS: Remove outline on focused links [`a3f33b8`](https://github.com/DannyBen/madness/commit/a3f33b8)
+- Compare [`v0.9.0..v0.9.1`](https://github.com/dannyben/madness/compare/v0.9.0..v0.9.1)
 
 
 v0.9.0 - 2020-12-31
 ----------------------------------------
 
-- Remove ferret and implement simpler search
+- Remove ferret and implement simpler search [`6780682`](https://github.com/DannyBen/madness/commit/6780682)
+- Compare [`v0.8.6..v0.9.0`](https://github.com/dannyben/madness/compare/v0.8.6..v0.9.0)
 
 
 v0.8.6 - 2020-12-26
 ----------------------------------------
 
-- Remove deprecated SASS and use plain CSS
+- Remove deprecated SASS and use plain CSS [`bef25dc`](https://github.com/DannyBen/madness/commit/bef25dc)
+- Compare [`v0.8.5..v0.8.6`](https://github.com/dannyben/madness/compare/v0.8.5..v0.8.6)
 
 
 v0.8.5 - 2020-12-03
 ----------------------------------------
 
-- Update puma to 5.1
+- Update puma to 5.1 [`8645c29`](https://github.com/DannyBen/madness/commit/8645c29)
+- Compare [`v0.8.4..v0.8.5`](https://github.com/dannyben/madness/compare/v0.8.4..v0.8.5)
 
 
 v0.8.4 - 2020-11-08
 ----------------------------------------
 
-- Update to puma 5.x
-- Add optional in-document Table of Contents
-- Revert puma upgrade back to < 5.0 due to puma bugs
+- Update to puma 5.x [`f0f9404`](https://github.com/DannyBen/madness/commit/f0f9404)
+- Add optional in-document Table of Contents [`78f21d4`](https://github.com/DannyBen/madness/commit/78f21d4)
+- Revert puma upgrade back to < 5.0 due to puma bugs [`c9aa864`](https://github.com/DannyBen/madness/commit/c9aa864)
+- Compare [`v0.8.3..v0.8.4`](https://github.com/dannyben/madness/compare/v0.8.3..v0.8.4)
 
 
+<!-- break v0.8.3 -->
 ## [v0.8.3](https://github.com/DannyBen/madness/tree/v0.8.3) (2020-05-06)
 
 [Full Changelog](https://github.com/DannyBen/madness/compare/v0.8.2...v0.8.3)

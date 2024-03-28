@@ -1,4 +1,4 @@
-# Note that this spec gets a special treatement
+# Note that this spec gets a special treatment
 # See the spec helper for details
 describe Server, :standalone do
   before :all do
