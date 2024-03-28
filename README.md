@@ -305,6 +305,9 @@ will be omitted when they are displayed.
 └── 2. Another file or folder
 ```
 
+Note that by default, directories will appear above files. If you wish to
+change this, set `sort_order: mixed` in your configuration file.
+
 ### Displaying Additional File Types
 
 If you wish the navigation and search features to also show other documents
