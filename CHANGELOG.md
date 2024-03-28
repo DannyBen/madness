@@ -1,11 +1,14 @@
 Change Log
 ========================================
 
-Untagged - Latest
+v1.1.5 - 2024-03-28
 ----------------------------------------
 
 - Drop support for Ruby 3.0 [`7e815ab`](https://github.com/DannyBen/madness/commit/7e815ab)
-- Compare [`v1.1.4..HEAD`](https://github.com/dannyben/madness/compare/v1.1.4..HEAD)
+- Add support for named directory cover pages [`19ae5c5`](https://github.com/DannyBen/madness/commit/19ae5c5)
+- Revert dropping of support for Ruby 3.0 [`ae3850e`](https://github.com/DannyBen/madness/commit/ae3850e)
+- Add support for mixed sort order [`0d90b84`](https://github.com/DannyBen/madness/commit/0d90b84)
+- Compare [`v1.1.4..v1.1.5`](https://github.com/dannyben/madness/compare/v1.1.4..v1.1.5)
 
 
 v1.1.4 - 2024-02-09
