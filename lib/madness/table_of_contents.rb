@@ -1,5 +1,5 @@
 module Madness
-  # Generate a markdown Table of Contents
+  # Generate a markdown Table of Contents for the entire site
   class TableOfContents
     include ServerHelper
 
