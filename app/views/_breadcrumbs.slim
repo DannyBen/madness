@@ -1,8 +1,8 @@
 - unless breadcrumbs.empty?
   .breadcrumbs
     - breadcrumbs.each do |item|
-      - if item.last
-        span = item.label
-      - else
+      - if item.href
         a href="#{item.href}" = item.label
         = " / "
+      - else
+        span = item.label
