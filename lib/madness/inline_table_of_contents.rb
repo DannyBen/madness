@@ -19,20 +19,24 @@ module Madness
     def markdown!
       result = ["#{caption}\n"]
       text.lines(chomp: true).each do |line|
-        next unless line.start_with?('#', '```')
-        next if inside_code_block? line
+        next unless meaningful_line? line
 
         matches = line.match(/^(?<level>\#{2,3})\s+(?<text>.+)/)
         next unless matches
 
-        level = matches[:level].size - 2
-        text = matches[:text]
-
-        spacer = '  ' * level
-        result.push "#{spacer}- [#{text}](##{text.to_slug})"
+        result.push toc_item(matches[:text], matches[:level].size - 2)
       end
 
       result.join "\n"
+    end
+
+    def meaningful_line?(line)
+      line.start_with?('#', '```') && !inside_code_block?(line)
+    end
+
+    def toc_item(text, level)
+      spacer = '  ' * level
+      "#{spacer}- [#{text}](##{text.to_slug})"
     end
 
     def caption
