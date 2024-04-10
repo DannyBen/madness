@@ -18,9 +18,7 @@ module Madness
 
     def markdown!
       result = ["#{caption}\n"]
-      text.lines(chomp: true).each do |line|
-        next unless meaningful_line? line
-
+      meaningful_lines.each do |line|
         matches = line.match(/^(?<level>\#{2,3})\s+(?<text>.+)/)
         next unless matches
 
@@ -28,6 +26,10 @@ module Madness
       end
 
       result.join "\n"
+    end
+
+    def meaningful_lines
+      text.lines(chomp: true).select { |line| meaningful_line? line }
     end
 
     def meaningful_line?(line)
