@@ -11,32 +11,30 @@ module Madness
     end
 
     def markdown
-      @markdown ||= markdown!
+      @markdown ||= ([caption, ''] + items).join "\n"
     end
 
   protected
 
-    def markdown!
-      result = ["#{caption}\n"]
-      meaningful_lines.each do |line|
-        matches = line.match(/^(?<level>\#{2,3})\s+(?<text>.+)/)
-        next unless matches
+    def items
+      @items ||= headers.map { |line| toc_item line }
+    end
 
-        result.push toc_item(matches[:text], matches[:level].size - 2)
+    def headers
+      @headers ||= text.lines(chomp: true).select do |line|
+        next if inside_code_block? line
+
+        line.match(/^(?<level>\#{2,3})\s+(?<text>.+)/)
       end
-
-      result.join "\n"
     end
 
-    def meaningful_lines
-      text.lines(chomp: true).select { |line| meaningful_line? line }
-    end
+    def toc_item(line)
+      matches = line.match(/^(?<level>\#{2,3})\s+(?<text>.+)/)
+      return nil unless matches
 
-    def meaningful_line?(line)
-      line.start_with?('#', '```') && !inside_code_block?(line)
-    end
+      text = matches[:text]
+      level = matches[:level].size - 2
 
-    def toc_item(text, level)
       spacer = '  ' * level
       "#{spacer}- [#{text}](##{text.to_slug})"
     end
