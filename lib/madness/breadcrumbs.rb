@@ -28,7 +28,7 @@ module Madness
       item = OpenStruct.new(
         {
           label: basename.to_label,
-          href:  "#{config.base_uri}/#{partial_path}",
+          href:  "#{config.base_uri}/#{partial_path}/",
         }
       )
       result = [item]

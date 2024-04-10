@@ -17,11 +17,11 @@ describe Breadcrumbs do
 
     it 'adds a link to each element' do
       expect(links[1].label).to eq 'one'
-      expect(links[1].href).to eq '/one'
+      expect(links[1].href).to eq '/one/'
       expect(links[2].label).to eq 'two'
-      expect(links[2].href).to eq '/one/two'
+      expect(links[2].href).to eq '/one/two/'
       expect(links[3].label).to eq 'three'
-      expect(links[3].href).to eq '/one/two/three'
+      expect(links[3].href).to eq '/one/two/three/'
     end
 
     it 'adds a last attribute to last element' do
@@ -33,11 +33,11 @@ describe Breadcrumbs do
 
       it 'removes sorting markers from labels' do
         expect(links[1].label).to eq 'one'
-        expect(links[1].href).to eq '/1. one'
+        expect(links[1].href).to eq '/1. one/'
         expect(links[2].label).to eq 'two'
-        expect(links[2].href).to eq '/1. one/2. two'
+        expect(links[2].href).to eq '/1. one/2. two/'
         expect(links[3].label).to eq 'three'
-        expect(links[3].href).to eq '/1. one/2. two/3. three'
+        expect(links[3].href).to eq '/1. one/2. two/3. three/'
       end
     end
 
@@ -46,9 +46,9 @@ describe Breadcrumbs do
       after  { config.base_uri = nil }
 
       it 'prepends the links with the base_uri' do
-        expect(links[1].href).to eq '/docs/one'
-        expect(links[2].href).to eq '/docs/one/two'
-        expect(links[3].href).to eq '/docs/one/two/three'
+        expect(links[1].href).to eq '/docs/one/'
+        expect(links[2].href).to eq '/docs/one/two/'
+        expect(links[3].href).to eq '/docs/one/two/three/'
       end
     end
   end
