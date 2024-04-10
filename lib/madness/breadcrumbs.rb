@@ -29,7 +29,7 @@ module Madness
       parent, basename = File.split partial_path
       href = "#{config.base_uri}/#{partial_path}"
       href = "#{href}/" unless href.end_with? '/'
-      item = Breadcrumb.new label: basename.to_label, href:  href
+      item = Breadcrumb.new label: basename.to_label, href: href
       result = [item]
       result += breadcrumbs_maker parent unless parent == '.'
       result
