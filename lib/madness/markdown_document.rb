@@ -74,30 +74,12 @@ module Madness
       config.highlighter ? HighlightRenderer : Redcarpet::Render::HTML
     end
 
-    def toc_caption
-      @toc_caption ||= if config.auto_toc.is_a?(String)
-        config.auto_toc
-      else
-        '## Table of Contents'
-      end
+    def toc
+      @toc ||= toc_handler.markdown
     end
 
-    def toc
-      result = ["#{toc_caption}\n"]
-      markdown.lines(chomp: true).each do |line|
-        next unless line.start_with? '#'
-
-        matches = line.match(/^(?<level>\#{2,3})\s+(?<text>.+)/)
-        next unless matches
-
-        level = matches[:level].size - 1
-        text = matches[:text]
-
-        spacer = '  ' * level
-        result.push "#{spacer}- [#{text}](##{text.to_slug})"
-      end
-
-      result.join "\n"
+    def toc_handler
+      @toc_handler ||= Madness::InlineTableOfContents.new markdown
     end
   end
 end

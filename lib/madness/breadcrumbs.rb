@@ -4,6 +4,8 @@ module Madness
   class Breadcrumbs
     using StringRefinements
 
+    Breadcrumb = Struct.new :label, :href, keyword_init: true
+
     attr_reader :path
 
     def initialize(path)
@@ -17,20 +19,17 @@ module Madness
   private
 
     def breadcrumbs
-      home = OpenStruct.new({ label: 'Home', href: "#{config.base_uri}/" })
+      home = Breadcrumb.new label: 'Home', href: "#{config.base_uri}/"
       result = breadcrumbs_maker(path).reverse.unshift home
-      result.last.last = true
+      result.last.href = nil
       result
     end
 
     def breadcrumbs_maker(partial_path)
       parent, basename = File.split partial_path
-      item = OpenStruct.new(
-        {
-          label: basename.to_label,
-          href:  "#{config.base_uri}/#{partial_path}",
-        }
-      )
+      href = "#{config.base_uri}/#{partial_path}"
+      href = "#{href}/" unless href.end_with? '/'
+      item = Breadcrumb.new label: basename.to_label, href: href
       result = [item]
       result += breadcrumbs_maker parent unless parent == '.'
       result
