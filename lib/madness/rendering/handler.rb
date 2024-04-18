@@ -6,7 +6,7 @@ module Madness
     class Handler
       HANDLERS = {
         redcarpet: Redcarpet,
-        pandoc: Pandoc,
+        pandoc:    Pandoc,
       }
 
       attr_reader :selector

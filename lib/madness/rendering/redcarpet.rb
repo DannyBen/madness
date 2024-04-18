@@ -16,7 +16,7 @@ module Madness
       end
 
       def options
-        @redcarpet_options ||= {
+        @options ||= {
           no_intra_emphasis:   true,
           autolink:            true,
           tables:              true,
@@ -38,7 +38,6 @@ module Madness
       def handler_class
         config.highlighter ? HighlightRenderer : ::Redcarpet::Render::HTML
       end
-
     end
   end
 end

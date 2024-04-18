@@ -14,6 +14,6 @@ module Madness
       def options
         @options ||= config.highlighter ? [] : :no_highlight
       end
-    end    
+    end
   end
 end
