@@ -36,7 +36,9 @@ module Madness
       level = matches[:level].size - 2
 
       spacer = '  ' * level
-      "#{spacer}- [#{text}](##{text.to_slug})"
+      slug = text.to_slug
+      slug = slug.remove(/^[\d\-]+/) if config.renderer == 'pandoc'
+      "#{spacer}- [#{text}](##{slug})"
     end
 
     def caption
