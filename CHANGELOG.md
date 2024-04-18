@@ -1,5 +1,18 @@
-Change Log
+Changelog
 ========================================
+
+v1.2.0 - 2024-04-18
+----------------------------------------
+
+- Fix diacritics in header IDs (slugs) [`d38fef6`](https://github.com/DannyBen/madness/commit/d38fef6)
+- Update breadcrumbs href with a trailing slash [`6ecf43d`](https://github.com/DannyBen/madness/commit/6ecf43d)
+- Refactor breadcrumbs data structure [`509b23b`](https://github.com/DannyBen/madness/commit/509b23b)
+- Fix inline Table of Contents invalid parsing of code blocks [`86b560c`](https://github.com/DannyBen/madness/commit/86b560c)
+- Add pandoc as an alternative rendering engine [`ad8bcd5`](https://github.com/DannyBen/madness/commit/ad8bcd5)
+- Fix Table of Contents for headers with diacritics (requires pandoc renderer) [`55f6665`](https://github.com/DannyBen/madness/commit/55f6665)
+- Add pandoc executable to docker image [`830f67d`](https://github.com/DannyBen/madness/commit/830f67d)
+- Compare [`v1.1.5..v1.2.0`](https://github.com/dannyben/madness/compare/v1.1.5..v1.2.0)
+
 
 v1.1.5 - 2024-03-28
 ----------------------------------------
