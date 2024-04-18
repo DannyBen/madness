@@ -49,8 +49,12 @@ describe MarkdownDocument do
         config.highlighter = true
       end
 
+      # In CI we have a different pandoc version, so we allow
+      # variance in the result
+      let(:leeway) { ENV['CI'] ? 100 : 0 }
+
       it 'renders properly' do
-        expect(subject.to_html).to match_approval('render/pandoc')
+        expect(subject.to_html).to match_approval('render/pandoc').diff(leeway)
       end
     end
   end
