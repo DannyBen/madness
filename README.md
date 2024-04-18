@@ -126,6 +126,11 @@ bind: 0.0.0.0
 # base_uri: /docs
 base_uri: ~
 
+# set the underlying markdown renderer:
+# renderer: redcarpet    # default renderer
+# renderer: pandoc       # pandoc renderer, requires pandoc command
+renderer: redcarpet
+
 # choose navigation sort order:
 # sort_order: dirs_first     # alphabetic directories then alphabetic files
 # sort_order: mixed          # alphabetic regardless of type
