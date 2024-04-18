@@ -1,0 +1,9 @@
+summary 'Test the madness JSON schema'
+
+action do
+  file = 'lib/madness/templates/madness.yml'
+  command = "check-jsonschema --schemafile schemas/madness.json #{file}"
+  say "\n$ check-jsonschema bb`#{file}`"
+  success = system command
+  exit 1 unless success
+end

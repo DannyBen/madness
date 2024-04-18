@@ -1,0 +1,36 @@
+summary 'CSS operations'
+
+help   'Generate public CSS'
+usage  'generate [--watch]'
+option '--watch, -w', 'Watch for changes and regenerate'
+action :generate do |args|
+  require 'sasstool'
+
+  if args['--watch']
+    exec "filewatcher --immediate 'app/styles/*.scss' 'bundle exec run css'"
+  else
+    target = "app/public/css"
+    Sasstool::Renderer.new("app/styles/main.scss").save target
+    puts "Saved #{target}"
+  end
+end
+
+help   "Generate rouge CSS"
+action :rouge do
+  puts 'Saving app/styles/_rouge.scss'
+  exec 'bundle exec rougify style github > app/styles/_rouge.scss'
+end
+
+help   "Generate pandoc CSS"
+action :pandoc do
+  File.write 'tmp/pandoc-style.css', '$highlighting-css$'
+  sample = <<~CODE
+    ```ruby
+    puts "hello"
+    ```
+  CODE
+  File.write 'tmp/pandoc-dummy.md', sample
+
+  puts 'Saving app/styles/_pandoc_code.scss'
+  system 'pandoc tmp/pandoc-dummy.md --metadata title=dummy --highlight-style=pygments --template=tmp/pandoc-style.css > app/styles/_pandoc_code.scss'
+end

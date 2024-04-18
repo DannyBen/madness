@@ -1,0 +1,5 @@
+summary 'Run specs using two separate configurations'
+
+action do
+  system 'rspec && STANDALONE=1 rspec'
+end

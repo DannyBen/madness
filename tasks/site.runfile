@@ -1,0 +1,28 @@
+summary "Generate the site to /docs"
+
+action do
+  require 'madness'
+  require 'slim'
+
+  # Use the README as a base, and do some TOC acrobatics to prevent the HTML
+  # generator from converting some TOC comments.
+  readme = File.read('README.md')
+    .gsub('<!-- TOC -->', '{{TOC_COMMENT}}')
+    .gsub('<!-- MADNESS_TOC -->', '<!-- TOC -->')
+    .sub(/\[!\[Gem Version\].*/, '')
+    .sub(/\[!\[Build Status\].*/, '')
+    .sub(/\[!\[Maintainability\].*/, '')
+
+  # Create the Madness page using Madness
+  content = Madness::MarkdownDocument.new(readme)
+    .to_html
+    .gsub '{{TOC_COMMENT}}', '&lt;!-- TOC --&gt;'
+
+  # Place the rendered HTML inside a slim template
+  Slim::Engine.set_options pretty: true    
+  html = Slim::Template.new("assets/site/index.slim").render(nil, content: content)
+  
+  # Export for GitHub pages
+  File.write 'site/index.html', html
+  puts 'Saved site/index.html'
+end

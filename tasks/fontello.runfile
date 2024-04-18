@@ -1,0 +1,12 @@
+summary 'Extract fontello zip'
+
+action do
+  system 'mkdir -p tmp/fontello'
+  zip = 'assets/fontello.zip'
+  system "unzip -j -o  #{zip} -d tmp/fontello"
+  %w[eot svg ttf woff woff2].each do |ext|
+    system "cp tmp/fontello/fontello.#{ext} app/public/font/"
+  end
+
+  system 'cp tmp/fontello/fontello.css app/styles/_fontello.scss'
+end

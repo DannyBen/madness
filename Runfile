@@ -1,118 +1,12 @@
-require 'madness'
-require 'sasstool'
-require 'slim'
+require 'madness/version'
 require 'pretty_trace/enable-trim'
 require 'debug' rescue nil
 
 title   "Madness Runfile"
 summary "Runfile tasks for building the Madness gem"
-version Madness::VERSION
 
 import_gem 'runfile-tasks/gem'
 import_gem 'runfile-tasks/docker', image: 'dannyben/madness', version: Madness::VERSION
-import 'debug'
+import 'tasks/*'
 
-help   'Run specs'
-action :spec do
-  system 'rspec && STANDALONE=1 rspec'
-end
-
-help   'Test the madness JSON schema'
-action :schema do
-  file = 'lib/madness/templates/madness.yml'
-  command = "check-jsonschema --schemafile schemas/madness.json #{file}"
-  say "\n$ check-jsonschema bb`#{file}`"
-  success = system command
-  exit 1 unless success
-end
-
-
-
-help   'Generate public CSS'
-usage  'css [--watch]'
-option '--watch, -w', 'Watch for changes and regenerate'
-action :css do |args|
-  if args['--watch']
-    exec "filewatcher --immediate 'app/styles/*.scss' 'bundle exec run css'"
-  else
-    target = "app/public/css"
-    Sasstool::Renderer.new("app/styles/main.scss").save target
-    puts "Saved #{target}"
-  end
-end
-
-help   "Generate rouge CSS"
-action :'css-rouge' do
-  puts 'Saving app/styles/_rouge.scss'
-  exec 'bundle exec rougify style github > app/styles/_rouge.scss'
-end
-
-help   "Generate pandoc CSS"
-action :'css-pandoc' do
-  File.write 'tmp/pandoc-style.css', '$highlighting-css$'
-  sample = <<~CODE
-    ```ruby
-    puts "hello"
-    ```
-  CODE
-  File.write 'tmp/pandoc-dummy.md', sample
-
-  puts 'Saving app/styles/_pandoc_code.scss'
-  system 'pandoc tmp/pandoc-dummy.md --metadata title=dummy --highlight-style=pygments --template=tmp/pandoc-style.css > app/styles/_pandoc_code.scss'
-end
-
-usage  "(server|s) [--sample]"
-help   "Run server with spec docroot or the sample docroot"
-option "--sample, -s", "Use the 'sample' folder instead of the fixture"
-action :server, :s do |args|
-  folder = args['--sample'] ? 'sample' : 'spec/fixtures/docroot'
-  exec "bundle exec bin/madness server #{folder}"
-end
-
-help   'Extract fontello zip'
-action :fontello do
-  system 'mkdir -p tmp/fontello'
-  zip = 'assets/fontello.zip'
-  system "unzip -j -o  #{zip} -d tmp/fontello"
-  %w[eot svg ttf woff woff2].each do |ext|
-    system "cp tmp/fontello/fontello.#{ext} app/public/font/"
-  end
-
-  system 'cp tmp/fontello/fontello.css app/styles/_fontello.scss'
-end
-
-help   "Count lines of code"
-action :cloc do
-  system "cloc . --exclude-dir coverage,spec,examples"
-end
-
-help   "Generate the screenshots animated gif"
-action :screenshots do
-  puts "Saving assets/screenshots.gif"
-  exec "convert -delay 300 -loop 0 assets/screenshots/*.png assets/screenshots.gif"
-end
-
-help   "Generate the site to /docs"
-action :site do
-  # Use the README as a base, and do some TOC acrobatics to prevent the HTML
-  # generator from converting some TOC comments.
-  readme = File.read('README.md')
-    .gsub('<!-- TOC -->', '{{TOC_COMMENT}}')
-    .gsub('<!-- MADNESS_TOC -->', '<!-- TOC -->')
-    .sub(/\[!\[Gem Version\].*/, '')
-    .sub(/\[!\[Build Status\].*/, '')
-    .sub(/\[!\[Maintainability\].*/, '')
-
-  # Create the Madness page using Madness
-  content = Madness::MarkdownDocument.new(readme)
-    .to_html
-    .gsub '{{TOC_COMMENT}}', '&lt;!-- TOC --&gt;'
-
-  # Place the rendered HTML inside a slim template
-  Slim::Engine.set_options pretty: true    
-  html = Slim::Template.new("assets/site/index.slim").render(nil, content: content)
-  
-  # Export for GitHub pages
-  File.write 'site/index.html', html
-  puts 'Saved site/index.html'
-end
+shortcut 's', 'server'

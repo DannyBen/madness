@@ -1,0 +1,8 @@
+summary "Run server with spec docroot or the sample docroot"
+
+usage  "[--sample]"
+option "--sample, -s", "Use the 'sample' folder instead of the fixture"
+action do |args|
+  folder = args['--sample'] ? 'sample' : 'spec/fixtures/docroot'
+  exec "bundle exec bin/madness server #{folder}"
+end

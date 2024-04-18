@@ -1,0 +1,6 @@
+summary "Generate the screenshots animated gif"
+
+action do
+  puts "Saving assets/screenshots.gif"
+  exec "convert -delay 300 -loop 0 assets/screenshots/*.png assets/screenshots.gif"
+end

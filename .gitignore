@@ -2,11 +2,11 @@ Gemfile.lock
 
 /cache
 /coverage
-/debug.runfile
 /dev
 /doc
 /gems
 /spec/status.txt
+/tasks/debug.runfile
 /tmp
 
 .sass-cache

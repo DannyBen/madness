@@ -1,0 +1,5 @@
+summary "Count lines of code"
+
+action do
+  system "cloc . --exclude-dir coverage,spec,examples"
+end
