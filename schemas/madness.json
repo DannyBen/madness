@@ -25,6 +25,16 @@
             "pattern": "^\\d+\\.\\d+\\.\\d+\\.\\d+$",
             "default": "0.0.0.0"
         },
+        "renderer": {
+            "title": "renderer",
+            "description": "The underlying markdown renderer to use\nhttps://madness.dannyb.co/#configuration-file",
+            "type": "string",
+            "enum": [
+                "redcarpet",
+                "pandoc"
+            ],
+            "default": "redcarpet"
+        },
         "base_uri": {
             "title": "base uri",
             "description": "A server root path of the current site\nhttps://madness.dannyb.co/#configuration-file",

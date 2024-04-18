@@ -42,6 +42,21 @@ describe MarkdownDocument do
         expect(subject.to_html).to match_approval('render/all-enabled')
       end
     end
+
+    context 'with pandoc renderer' do
+      before do
+        config.renderer = 'pandoc'
+        config.highlighter = true
+      end
+
+      # In CI we have a different pandoc version, so we allow
+      # variance in the result
+      let(:leeway) { ENV['CI'] ? 300 : 0 }
+
+      it 'renders properly' do
+        expect(subject.to_html).to match_approval('render/pandoc').diff(leeway)
+      end
+    end
   end
 
   describe '#text' do

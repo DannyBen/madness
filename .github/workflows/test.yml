@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install OS dependencies
-      run: sudo apt-get -y install libyaml-dev
+      run: sudo apt-get -y install libyaml-dev pandoc
 
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
