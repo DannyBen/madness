@@ -24,11 +24,14 @@ module Madness
     end
 
     def to_html
-      # @to_html ||= Redcarpet::Markdown.new(redcarpet_renderer, redcarpet_options).render text
-      @to_html ||= Rendering::Handler.new(:pandoc).render text
+      @to_html ||= renderer.render text
     end
 
   private
+
+    def renderer
+      @renderer ||= Rendering::Handler.new config.renderer
+    end
 
     def parse_toc(input)
       input.gsub '<!-- TOC -->', toc
@@ -50,30 +53,6 @@ module Madness
 
       lines[0].match(/^# \w+/) || (lines[1] && lines[0].match(/^\w+/) && lines[1].start_with?('='))
     end
-
-    # def redcarpet_options
-    #   @redcarpet_options ||= {
-    #     no_intra_emphasis:   true,
-    #     autolink:            true,
-    #     tables:              true,
-    #     fenced_code_blocks:  true,
-    #     strikethrough:       true,
-    #     space_after_headers: true,
-    #     superscript:         true,
-    #     underline:           true,
-    #     highlight:           true,
-    #     quote:               false,
-    #     footnotes:           true,
-    #   }
-    # end
-
-    # def redcarpet_renderer
-    #   redcarpet_handler.new with_toc_data: true
-    # end
-
-    # def redcarpet_handler
-    #   config.highlighter ? HighlightRenderer : Redcarpet::Render::HTML
-    # end
 
     def toc
       @toc ||= toc_handler.markdown

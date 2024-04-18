@@ -1,0 +1,97 @@
+<!-- TOC -->
+<p>H1 header will be added automatically TOC will be added
+automatically</p>
+<h2 id="blockquote-and-code">Blockquote and code</h2>
+<blockquote>
+<p>Blockquote as a multiline section with <strong>markdown
+support</strong> in it</p>
+</blockquote>
+<p>Inline <code>code_word</code> and block code:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">def</span> say(message <span class="kw">=</span> <span class="st">&quot;Hi&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">puts</span> message</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
+<h2 id="footnotes-images">Footnotes, Images</h2>
+<p>This needs a footnote explanation<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<figure>
+<img src="https://picsum.photos/200/200" alt="Random Image" />
+<figcaption aria-hidden="true">Random Image</figcaption>
+</figure>
+<h2 id="links">Links</h2>
+<p><em>Not all are supported</em></p>
+<ul>
+<li><a href="http://example.com">Standard link</a></li>
+<li>[Reference link]</li>
+<li>[Explicit reference link][Reference link]</li>
+<li>Bracketed link <a href="http://www.example.com"
+class="uri">http://www.example.com</a></li>
+<li>Autolink www.example.com</li>
+<li>Another Autolink http://example.com</li>
+</ul>
+<h2 id="lists">Lists</h2>
+<p><em>Not all are supported</em></p>
+<ul>
+<li>Unordered list
+<ul>
+<li>With</li>
+<li>nesting</li>
+</ul></li>
+<li>Another item</li>
+</ul>
+<ol type="1">
+<li>Ordered</li>
+<li>List</li>
+<li>with</li>
+<li>nesting</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />This is done</label></li>
+<li><label><input type="checkbox" />This is not</label></li>
+</ul>
+<dl>
+<dt>Definition List Term</dt>
+<dd>
+Description
+</dd>
+</dl>
+<h2 id="tables-and-keyboard">Tables and Keyboard</h2>
+<p>Press <kbd>F12</kbd> to open the console.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><kbd>F12</kbd></td>
+<td>Open console</td>
+</tr>
+</tbody>
+</table>
+<h2 id="text-decorations">Text Decorations</h2>
+<ul>
+<li>This is a <strong>Bold Text</strong></li>
+<li>This is an <em>Italic Text</em></li>
+<li>This is a <del>Strikethrough Text</del></li>
+<li>This is a <strong><em>Bold Italic Text</em></strong></li>
+<li>This is an <em>Underlined Text</em></li>
+<li>This is a <em><strong>Bold Underlined Text</strong></em></li>
+<li>This is a ==Highlighted Text==</li>
+<li>This is a ^superscript</li>
+</ul>
+<h2 id="unsafe-html">Unsafe HTML</h2>
+This is calculated by Javascript: <span id='demo'>
+</div>
+<script>document.getElementById("demo").innerHTML = 5 + 6;</script>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Footnote explanation [Reference link]:
+http://example.com<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>

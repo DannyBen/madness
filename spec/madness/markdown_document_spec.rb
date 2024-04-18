@@ -42,6 +42,17 @@ describe MarkdownDocument do
         expect(subject.to_html).to match_approval('render/all-enabled')
       end
     end
+
+    context 'with pandoc renderer' do
+      before do
+        config.renderer = 'pandoc'
+        config.highlighter = true
+      end
+
+      it 'renders properly' do
+        expect(subject.to_html).to match_approval('render/pandoc')
+      end
+    end
   end
 
   describe '#text' do
