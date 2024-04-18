@@ -56,6 +56,7 @@ module Madness
         path:              '.',
         port:              3000,
         bind:              '0.0.0.0',
+        renderer:          'redcarpet',
         base_uri:          nil,
         sort_order:        'dirs_first',
         sidebar:           true,

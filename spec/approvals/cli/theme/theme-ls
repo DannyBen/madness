@@ -29,6 +29,7 @@
 - tmp/theme-test/styles/_manifest.scss
 - tmp/theme-test/styles/_mixins.scss
 - tmp/theme-test/styles/_nav.scss
+- tmp/theme-test/styles/_pandoc_code.scss
 - tmp/theme-test/styles/_rouge.scss
 - tmp/theme-test/styles/_scrollbar.scss
 - tmp/theme-test/styles/_search.scss

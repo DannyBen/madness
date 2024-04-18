@@ -42,9 +42,23 @@ action :css do |args|
 end
 
 help   "Generate rouge CSS"
-action :rouge do
+action :'css-rouge' do
   puts 'Saving app/styles/_rouge.scss'
   exec 'bundle exec rougify style github > app/styles/_rouge.scss'
+end
+
+help   "Generate pandoc CSS"
+action :'css-pandoc' do
+  File.write 'tmp/pandoc-style.css', '$highlighting-css$'
+  sample = <<~CODE
+    ```ruby
+    puts "hello"
+    ```
+  CODE
+  File.write 'tmp/pandoc-dummy.md', sample
+
+  puts 'Saving app/styles/_pandoc_code.scss'
+  system 'pandoc tmp/pandoc-dummy.md --metadata title=dummy --highlight-style=pygments --template=tmp/pandoc-style.css > app/styles/_pandoc_code.scss'
 end
 
 usage  "(server|s) [--sample]"
