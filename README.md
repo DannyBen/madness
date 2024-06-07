@@ -263,7 +263,14 @@ file or a directory in the same directory as the file itself.
 #### Site-wide
 
 To generate a Table of Contents file for the entire site (for the directories
-and files), run `madness --toc FILENAME`
+and files), add something like this to your `.madness.yml` file:
+
+```yaml
+toc: Table of Contents.md
+```
+
+This directive will (re)generate the specified file whenever you start the
+server.
 
 #### In-page
 
