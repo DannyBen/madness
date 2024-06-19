@@ -1,6 +1,6 @@
 name: Docker build (edge)
 on:
-  push: { branches: master }
+  push: { branches: [master, edge] }
 
 jobs:
   docker:
