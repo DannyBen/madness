@@ -98,6 +98,19 @@ end
 <li>This is a <sup>superscript</sup></li>
 </ul>
 
+<h2 id="mermaid-diagrams">Mermaid Diagrams</h2>
+
+<p>Mermaid is supported (after enabling it in the config) by placing the diagram
+code inside a mermaid div:</p>
+
+<div class='mermaid'>
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</div>
+
 <h2 id="unsafe-html">Unsafe HTML</h2>
 
 <p>This is calculated by Javascript: <span id='demo'></div></p>

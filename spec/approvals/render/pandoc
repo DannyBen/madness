@@ -76,6 +76,17 @@ href="http://example.com">http://example.com</a></li>
 <li>This is a ==Highlighted Text==</li>
 <li>This is a ^superscript</li>
 </ul>
+<h2 id="mermaid-diagrams">Mermaid Diagrams</h2>
+<p>Mermaid is supported (after enabling it in the config) by placing the
+diagram code inside a mermaid div:</p>
+<div class='mermaid'>
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</div>
+
 <h2 id="unsafe-html">Unsafe HTML</h2>
 <p>This is calculated by Javascript: <span id='demo'></div></p>
 <script>document.getElementById("demo").innerHTML = 5 + 6;</script>
