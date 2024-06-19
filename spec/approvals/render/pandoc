@@ -1,4 +1,5 @@
 <!-- TOC -->
+
 <p>H1 header will be added automatically TOC will be added
 automatically</p>
 <h2 id="blockquote-and-code">Blockquote and code</h2>
@@ -14,20 +15,18 @@ class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="
 <h2 id="footnotes-images">Footnotes, Images</h2>
 <p>This needs a footnote explanation<a href="#fn1" class="footnote-ref"
 id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<figure>
-<img src="https://picsum.photos/200/200" alt="Random Image" />
-<figcaption aria-hidden="true">Random Image</figcaption>
-</figure>
+<p><img src="https://picsum.photos/200/200" alt="Random Image" /></p>
 <h2 id="links">Links</h2>
 <p><em>Not all are supported</em></p>
 <ul>
 <li><a href="http://example.com">Standard link</a></li>
 <li>[Reference link]</li>
 <li>[Explicit reference link][Reference link]</li>
-<li>Bracketed link <a href="http://www.example.com"
-class="uri">http://www.example.com</a></li>
-<li>Autolink www.example.com</li>
-<li>Another Autolink http://example.com</li>
+<li>Bracketed link <a
+href="http://www.example.com">http://www.example.com</a></li>
+<li>Autolink <a href="http://www.example.com">www.example.com</a></li>
+<li>Another Autolink <a
+href="http://example.com">http://example.com</a></li>
 </ul>
 <h2 id="lists">Lists</h2>
 <p><em>Not all are supported</em></p>
@@ -49,12 +48,7 @@ class="uri">http://www.example.com</a></li>
 <li><label><input type="checkbox" checked="" />This is done</label></li>
 <li><label><input type="checkbox" />This is not</label></li>
 </ul>
-<dl>
-<dt>Definition List Term</dt>
-<dd>
-Description
-</dd>
-</dl>
+<p>Definition List Term : Description</p>
 <h2 id="tables-and-keyboard">Tables and Keyboard</h2>
 <p>Press <kbd>F12</kbd> to open the console.</p>
 <table>
@@ -76,22 +70,22 @@ Description
 <li>This is a <strong>Bold Text</strong></li>
 <li>This is an <em>Italic Text</em></li>
 <li>This is a <del>Strikethrough Text</del></li>
-<li>This is a <strong><em>Bold Italic Text</em></strong></li>
+<li>This is a <em><strong>Bold Italic Text</strong></em></li>
 <li>This is an <em>Underlined Text</em></li>
 <li>This is a <em><strong>Bold Underlined Text</strong></em></li>
 <li>This is a ==Highlighted Text==</li>
 <li>This is a ^superscript</li>
 </ul>
 <h2 id="unsafe-html">Unsafe HTML</h2>
-This is calculated by Javascript: <span id='demo'>
-</div>
+<p>This is calculated by Javascript: <span id='demo'></div></p>
 <script>document.getElementById("demo").innerHTML = 5 + 6;</script>
-<aside id="footnotes" class="footnotes footnotes-end-of-document"
+
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Footnote explanation [Reference link]:
-http://example.com<a href="#fnref1" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Footnote explanation [Reference link]: <a
+href="http://example.com">http://example.com</a><a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</aside>
+</section>

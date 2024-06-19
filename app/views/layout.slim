@@ -17,5 +17,10 @@ html
       script src="#{config.base_uri}/js/vendor/clipboard.min.js"
       script src="#{config.base_uri}/js/clipboard.js"
 
+    - if config.mermaid
+      script src="#{config.base_uri}/js/vendor/mermaid.min.js"
+      javascript:
+        mermaid.initialize({startOnLoad:true});
+
   body
     == yield

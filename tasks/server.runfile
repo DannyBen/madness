@@ -4,5 +4,7 @@ usage  "[--sample]"
 option "--sample, -s", "Use the 'sample' folder instead of the fixture"
 action do |args|
   folder = args['--sample'] ? 'sample' : 'spec/fixtures/docroot'
-  exec "bundle exec bin/madness server #{folder}"
+  Dir.chdir folder do
+    exec "bundle exec madness server"
+  end
 end

@@ -51,6 +51,7 @@ $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
 - Can optionally show additional file types in the navigation menu (e.g. PDF
   files).
 - Optional support for `[[Short Link]]` syntax.
+- Optional support for Mermaid diagrams.
 - Optional basic authentication.
 - Support for extended markdown syntax, such as footnotes and syntax
   highlighting.
@@ -152,6 +153,10 @@ auto_toc: true
 
 # enable syntax highlighter for code snippets
 highlighter: true
+
+# enable mermaid diagramming and charting
+# put your diagram code inside <div class='mermaid'>...</div>
+mermaid: false
 
 # enable the copy to clipboard icon for code snippets
 copy_code: true
@@ -257,6 +262,11 @@ When the `shortlinks` option is enabled, you may use a shorthand syntax for
 specifying internal links, where `[[Anything]]` will be converted to
 `[Anything](Anything)`, which will then be rendered as an internal link to a
 file or a directory in the same directory as the file itself.
+
+### Mermaid Diagrams and Charts
+
+When the `mermaid` option is enabled, you may display any mermaid diagram in
+your document by enclosing it in a `<div class='mermaid'>...</div>` block.
 
 ### Table of Contents Generation
 

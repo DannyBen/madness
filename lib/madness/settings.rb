@@ -64,6 +64,7 @@ module Madness
         auto_nav:          true,
         auto_toc:          true,
         highlighter:       true,
+        mermaid:           false,
         copy_code:         true,
         shortlinks:        false,
         source_link:       nil,

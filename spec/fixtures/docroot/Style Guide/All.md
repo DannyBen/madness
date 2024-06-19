@@ -73,6 +73,19 @@ Press <kbd>F12</kbd> to open the console.
 - This is a ==Highlighted Text==
 - This is a ^superscript
 
+## Mermaid Diagrams
+
+Mermaid is supported (after enabling it in the config) by placing the diagram
+code inside a mermaid div:
+
+<div class='mermaid'>
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</div>
+
 ## Unsafe HTML
 
 This is calculated by Javascript: <span id='demo'></div>
