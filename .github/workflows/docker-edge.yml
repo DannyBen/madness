@@ -27,4 +27,4 @@ jobs:
           push: true
           tags: dannyben/madness:edge
           build-args: |
-            branch=${{ BRANCH_NAME }}
+            branch=${{ env.BRANCH_NAME }}
