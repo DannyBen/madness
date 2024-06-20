@@ -5,6 +5,8 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,3 +26,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: dannyben/madness:edge
+          build-args: |
+            branch=${{ BRANCH_NAME }}
