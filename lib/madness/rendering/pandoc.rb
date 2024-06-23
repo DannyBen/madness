@@ -6,7 +6,7 @@ module Madness
       include ServerHelper
 
       def render(text)
-        PandocRuby.new(text, [{ from: :markdown, to: :html }], *options).convert
+        PandocRuby.new(text, [{ from: :gfm, to: :html }], *options).convert
       end
 
     private

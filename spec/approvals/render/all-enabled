@@ -9,6 +9,7 @@
 <li><a href="#lists">Lists</a></li>
 <li><a href="#tables-and-keyboard">Tables and Keyboard</a></li>
 <li><a href="#text-decorations">Text Decorations</a></li>
+<li><a href="#mermaid-diagrams">Mermaid Diagrams</a></li>
 <li><a href="#unsafe-html">Unsafe HTML</a></li>
 </ul>
 
@@ -107,6 +108,19 @@ with <strong>markdown support</strong> in it</p>
 <li>This is a <mark>Highlighted Text</mark></li>
 <li>This is a <sup>superscript</sup></li>
 </ul>
+
+<h2 id="mermaid-diagrams">Mermaid Diagrams</h2>
+
+<p>Mermaid is supported (after enabling it in the config) by placing the diagram
+code inside a mermaid div:</p>
+
+<div class='mermaid'>
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</div>
 
 <h2 id="unsafe-html">Unsafe HTML</h2>
 

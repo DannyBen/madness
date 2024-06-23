@@ -37,6 +37,7 @@ markdown-based documentation sites.</p>
 <li><a href="#images-and-static-files">Images and Static Files</a></li>
 <li><a href="#automatic-h1">Automatic H1</a></li>
 <li><a href="#shortlinks">Shortlinks</a></li>
+<li><a href="#mermaid-diagrams-and-charts">Mermaid Diagrams and Charts</a></li>
 <li><a href="#table-of-contents-generation">Table of Contents Generation</a></li>
 <li><a href="#hidden-directories">Hidden Directories</a></li>
 <li><a href="#controlling-sort-order">Controlling Sort Order</a></li>
@@ -82,6 +83,7 @@ markdown-based documentation sites.</p>
 <li>Can optionally show additional file types in the navigation menu (e.g. PDF
 files).</li>
 <li>Optional support for <code>[[Short Link]]</code> syntax.</li>
+<li>Optional support for Mermaid diagrams.</li>
 <li>Optional basic authentication.</li>
 <li>Support for extended markdown syntax, such as footnotes and syntax
 highlighting.</li>
@@ -170,6 +172,10 @@ your documentation directory.</p>
 
 <span class="c1"># enable syntax highlighter for code snippets</span>
 <span class="na">highlighter</span><span class="pi">:</span> <span class="kc">true</span>
+
+<span class="c1"># enable mermaid diagramming and charting</span>
+<span class="c1"># put your diagram code inside &lt;div class='mermaid'&gt;...&lt;/div&gt;</span>
+<span class="na">mermaid</span><span class="pi">:</span> <span class="kc">false</span>
 
 <span class="c1"># enable the copy to clipboard icon for code snippets</span>
 <span class="na">copy_code</span><span class="pi">:</span> <span class="kc">true</span>
@@ -272,6 +278,11 @@ will be automatically added based on the file name.</p>
 specifying internal links, where <code>[[Anything]]</code> will be converted to
 <code>[Anything](Anything)</code>, which will then be rendered as an internal link to a
 file or a directory in the same directory as the file itself.</p>
+
+<h3 id="mermaid-diagrams-and-charts">Mermaid Diagrams and Charts</h3>
+
+<p>When the <code>mermaid</code> option is enabled, you may display any mermaid diagram in
+your document by enclosing it in a <code>&lt;div class=&#39;mermaid&#39;&gt;...&lt;/div&gt;</code> block.</p>
 
 <h3 id="table-of-contents-generation">Table of Contents Generation</h3>
 
