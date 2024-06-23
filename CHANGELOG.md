@@ -1,6 +1,13 @@
 Changelog
 ========================================
 
+v1.2.1 - 2024-06-23
+----------------------------------------
+
+- Add optional support for mermaid charts [`20c9dfe`](https://github.com/DannyBen/madness/commit/20c9dfe)
+- Compare [`v1.2.0..v1.2.1`](https://github.com/dannyben/madness/compare/v1.2.0..v1.2.1)
+
+
 v1.2.0 - 2024-04-18
 ----------------------------------------
 
