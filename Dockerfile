@@ -1,4 +1,4 @@
-FROM dannyben/alpine-ruby:3.2.2
+FROM dannyben/alpine-ruby:3.3.3
 
 RUN apk add --no-cache pandoc
 

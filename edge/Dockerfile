@@ -1,4 +1,4 @@
-FROM dannyben/alpine-ruby
+FROM dannyben/alpine-ruby:3.3.3
 
 ENV PS1 "\n\n>> madness \W \$ "
 RUN apk add --no-cache git
