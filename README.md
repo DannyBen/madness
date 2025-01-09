@@ -217,12 +217,14 @@ The server will consider any of the following files as cover pages (prioritized)
 - A markdown file with the same name as the directory (adjacent to it).
 - `index.md`
 - `README.md`
+- `readme.md`
 
 For example, for a directory named "API Documentation":
 
 - `/API Documentation.md`
 - `/API Documentation/index.md`
 - `/API Documentation/README.md`
+- `/API Documentation/readme.md`
 
 ### Search
 
