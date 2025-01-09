@@ -21,7 +21,7 @@ module Madness
       @files ||= begin
         result = Dir["#{dir}/#{config.dir_glob}"]
         result.reject! do |f|
-          ['README.md', 'index.md'].include? File.basename(f)
+          %w[readme.md README.md index.md].include? File.basename(f)
         end
         result.reject! { |f| is_cover_page? f }
         result.nat_sort.map { |path| Item.new path, :file }

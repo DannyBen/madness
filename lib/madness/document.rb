@@ -29,8 +29,8 @@ module Madness
   private
 
     # Identify file, dir and type.
-    # :readme  - in case the path is a directory, and it contains index.md
-    #            or README.md
+    # :readme  - in case the path is a directory, and it contains index.md,
+    #            readme.md, or README.md
     # :file    - in case the path is a *.md file
     # :empty   - in case it is a folder without README.md or index.md
     # :missing - in any other case, we don't know (will trigger 404)
@@ -95,6 +95,7 @@ module Madness
         File.expand_path("../#{File.basename(base)}.md", base),
         File.expand_path('index.md', base),
         File.expand_path('README.md', base),
+        File.expand_path('readme.md', base),
       ]
     end
   end
