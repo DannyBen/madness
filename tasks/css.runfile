@@ -7,7 +7,7 @@ action :generate do |args|
   require 'sasstool'
 
   if args['--watch']
-    exec "filewatcher --immediate 'app/styles/*.scss' 'bundle exec run css'"
+    exec "filewatcher --immediate 'app/styles/*.scss' 'bundle exec run css generate'"
   else
     target = "app/public/css"
     Sasstool::Renderer.new("app/styles/main.scss").save target
