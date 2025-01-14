@@ -2,8 +2,7 @@ body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   color: var(--font-color);
-  // font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-family: "Segoe UI", "Helvetica Neue", Helvetica,Arial, freesans, sans-serif;
+  font-family: var(--font-family);
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
@@ -59,5 +58,6 @@ h6 {
 }
 
 code, pre, kbd {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: var(--font-family-monospace);
 }
+

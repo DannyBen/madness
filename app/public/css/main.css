@@ -4,9 +4,10 @@
   --blockquote-border-color: #ddd;
   --blockquote-color: #777;
   --breadcrumbs-border-color: #ccc;
-  --clipboard-button-bg-color: white;
-  --clipboard-button-border-color: #ccc;
+  --code-border-color: #ddd;
   --font-color: #333;
+  --font-family: "Segoe UI", "Helvetica Neue", Helvetica,Arial, freesans, sans-serif;
+  --font-family-monospace: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   --footnotes-color: #666;
   --h1-border-color: #eee;
   --h1-color: #333;
@@ -65,32 +66,16 @@ code {
   display: inline-block; }
 
 pre {
-  overflow-x: auto;
   position: relative;
-  border-radius: 3px; }
+  border: 1px solid var(--code-border-color);
+  border-radius: 5px;
+  overflow-x: auto;
+  padding: 10px; }
   pre code {
     background-color: transparent;
     display: block;
-    font-size: inherit;
-    line-height: 1.2; }
-    pre code .clipboard-button {
-      background: var(--clipboard-button-bg-color);
-      border: 1px solid var(--clipboard-button-border-color);
-      position: absolute;
-      left: 7px;
-      bottom: 7px;
-      font-size: 1.25em;
-      border-radius: 5px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: inline-block;
-      padding: 7px; }
-    pre code:hover .clipboard-button {
-      opacity: 0.7;
-      transition: opacity 0.3s; }
-      pre code:hover .clipboard-button:hover {
-        opacity: 1.0;
-        transition: opacity 0.3s; }
+    line-height: 1.2;
+    position: relative; }
 
 @font-face {
   font-family: 'fontello';
@@ -252,9 +237,6 @@ pre > code.sourceCode > span {
 pre > code.sourceCode > span:empty {
   height: 1.2em; }
 
-.sourceCode {
-  overflow: visible; }
-
 code.sourceCode > span {
   color: inherit;
   text-decoration: inherit; }
@@ -273,6 +255,7 @@ pre.sourceCode {
   pre > code.sourceCode {
     white-space: pre-wrap; }
   pre > code.sourceCode > span {
+    display: inline-block;
     text-indent: -5em;
     padding-left: 5em; } }
 
@@ -726,7 +709,7 @@ body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   color: var(--font-color);
-  font-family: "Segoe UI", "Helvetica Neue", Helvetica,Arial, freesans, sans-serif;
+  font-family: var(--font-family);
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word; }
@@ -773,7 +756,7 @@ h6 {
   font-size: 1em; }
 
 code, pre, kbd {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+  font-family: var(--font-family-monospace); }
 
 * {
   box-sizing: border-box; }
