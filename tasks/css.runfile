@@ -32,5 +32,9 @@ action :pandoc do
   File.write 'tmp/pandoc-dummy.md', sample
 
   puts 'Saving app/styles/_pandoc_code.scss'
-  system 'pandoc tmp/pandoc-dummy.md --metadata title=dummy --highlight-style=pygments --template=tmp/pandoc-style.css > app/styles/_pandoc_code.scss'
+  system 'pandoc tmp/pandoc-dummy.md --metadata title=dummy --highlight-style=pygments --template=tmp/pandoc-style.css > tmp/pandoc.scss'
+
+  css = File.read 'tmp/pandoc.scss'
+  patched_css = css.gsub(/^(.sourceCode { overflow: visible; })/, '// \1')
+  File.write 'app/styles/_pandoc_code.scss', patched_css
 end

@@ -1,12 +1,12 @@
 :root {
-
   --background-color: #fff;
   --blockquote-border-color: #ddd;
   --blockquote-color: #777;
   --breadcrumbs-border-color: #ccc;
-  --clipboard-button-bg-color: white;
-  --clipboard-button-border-color: #ccc;
+  --code-border-color: #ddd;
   --font-color: #333;
+  --font-family: "Segoe UI", "Helvetica Neue", Helvetica,Arial, freesans, sans-serif;
+  --font-family-monospace: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   --footnotes-color: #666;
   --h1-border-color: #eee;
   --h1-color: #333;
@@ -36,5 +36,4 @@
   --table-border-color: #ddd;
   --table-header-bg-color: transparent;
   --table-row-bg-color: transparent;
-
 }
