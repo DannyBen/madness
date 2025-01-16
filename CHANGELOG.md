@@ -1,6 +1,16 @@
 Changelog
 ========================================
 
+v1.2.2 - 2025-01-16
+----------------------------------------
+
+- Update docker image to use multi-arch base image [`c7d7263`](https://github.com/DannyBen/madness/commit/c7d7263)
+- Add support for a lowercase `readme.md` as an index file [`84e7ed3`](https://github.com/DannyBen/madness/commit/84e7ed3)
+- Drop support for Ruby 3.0 [`01b0c6d`](https://github.com/DannyBen/madness/commit/01b0c6d)
+- Modify code block style and remove copy button in favor of a code click [`340dedf`](https://github.com/DannyBen/madness/commit/340dedf)
+- Compare [`v1.2.1..v1.2.2`](https://github.com/dannyben/madness/compare/v1.2.1..v1.2.2)
+
+
 v1.2.1 - 2024-06-23
 ----------------------------------------
 
