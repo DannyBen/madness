@@ -23,6 +23,14 @@ describe StringRefinements do
         expect(subject.to_slug).to eq 'café-müller-in-münchen-123'
       end
     end
+
+    context 'with pandoc renderer' do
+      subject { '& & Tom & & Jerry & &' }
+
+      it 'removes symbols before converting, does not squeeze dashes and leaves trailing and keeps edge dashes' do
+        expect(subject.to_slug 'pandoc').to eq '--tom---jerry--'
+      end
+    end
   end
 
   describe '#label' do
