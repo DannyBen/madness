@@ -36,10 +36,8 @@ module Madness
       level = matches[:level].size - 2
 
       spacer = '  ' * level
-      slug = text.to_slug
+      slug = text.to_slug config.renderer
 
-      # pandoc removes leading numbers and dots from header slugs, we do the same
-      slug = slug.remove(/^[\d\-]+/) if config.renderer == 'pandoc'
       "#{spacer}- [#{text}](##{slug})"
     end
 

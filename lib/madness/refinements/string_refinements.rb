@@ -11,8 +11,14 @@ module Madness
         Addressable::URI.escape self
       end
 
-      def to_slug
-        downcase.strip.gsub(/[^[:alnum:]]/, '-').squeeze('-').remove(/(^-|-$)/)
+      def to_slug(renderer = nil)
+        result = downcase.strip
+
+        if renderer == 'pandoc'
+          result.remove(/[^a-z0-9 ]/).gsub(' ', '-')
+        else
+          result.gsub(/[^[:alnum:]]/, '-').squeeze('-').remove(/(^-|-$)/)
+        end
       end
 
       # This is here so we can have one place that defines how to convert
