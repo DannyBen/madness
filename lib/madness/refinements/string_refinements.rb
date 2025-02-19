@@ -15,7 +15,7 @@ module Madness
         result = downcase.strip
 
         if renderer == 'pandoc'
-          result.remove(/[^a-z0-9 ]/).gsub(' ', '-')
+          result.remove(/[^a-z0-9 ]/).tr(' ', '-')
         else
           result.gsub(/[^[:alnum:]]/, '-').squeeze('-').remove(/(^-|-$)/)
         end

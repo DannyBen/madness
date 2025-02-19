@@ -25,7 +25,7 @@ describe StringRefinements do
     end
 
     context 'with pandoc renderer' do
-      subject { '& & Tom & & Jerry & &'}
+      subject { '& & Tom & & Jerry & &' }
 
       it 'removes symbols before converting, does not squeeze dashes and leaves trailing and keeps edge dashes' do
         expect(subject.to_slug 'pandoc').to eq '--tom---jerry--'
