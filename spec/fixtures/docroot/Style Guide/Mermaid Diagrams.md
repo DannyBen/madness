@@ -8,3 +8,13 @@ graph TD;
     B-->D;
     C-->D;
 </div>
+
+Or using the `mermaid` code block:
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```

@@ -122,6 +122,16 @@ graph TD;
     C-->D;
 </div>
 
+<p>Or by using a <code>mermaid</code> code block:</p>
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 <h2 id="unsafe-html">Unsafe HTML</h2>
 
 <p>This is calculated by Javascript: <span id='demo'></div></p>

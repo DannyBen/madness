@@ -45,7 +45,7 @@ This needs a footnote explanation[^1]
 
 1. Ordered
 2. List
-  1. with 
+  1. with
   2. nesting
 
 - [x] This is done
@@ -86,6 +86,16 @@ graph TD;
     C-->D;
 </div>
 
+Or using the `mermaid` code block:
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 ## Unsafe HTML
 
 This is calculated by Javascript: <span id='demo'></div>
@@ -95,5 +105,3 @@ This is calculated by Javascript: <span id='demo'></div>
 
 [^1]: Footnote explanation
 [Reference link]: http://example.com
-
-
