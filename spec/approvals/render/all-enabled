@@ -67,7 +67,7 @@ with <strong>markdown support</strong> in it</p>
 <li>List
 
 <ol>
-<li>with </li>
+<li>with</li>
 <li>nesting</li>
 </ol></li>
 </ol>
@@ -122,16 +122,13 @@ graph TD;
     C-->D;
 </div>
 
-<p>Or by using a <code>mermaid</code> code block:</p>
-
-```mermaid
-graph TD;
+<p>Or using the <code>mermaid</code> code block:</p>
+<pre class='mermaid'>graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
-```
-
+</pre>
 <h2 id="unsafe-html">Unsafe HTML</h2>
 
 <p>This is calculated by Javascript: <span id='demo'></div></p>

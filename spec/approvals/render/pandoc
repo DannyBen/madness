@@ -87,6 +87,12 @@ graph TD;
     C-->D;
 </div>
 
+<p>Or using the <code>mermaid</code> code block:</p>
+<pre class="mermaid"><code>graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;</code></pre>
 <h2 id="unsafe-html">Unsafe HTML</h2>
 <p>This is calculated by Javascript: <span id='demo'></div></p>
 <script>document.getElementById("demo").innerHTML = 5 + 6;</script>
