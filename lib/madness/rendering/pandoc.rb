@@ -6,6 +6,7 @@ module Madness
       include ServerHelper
 
       def render(text)
+        text = process_mermaid_blocks text
         PandocRuby.new(text, [{ from: :gfm, to: :html }], *options).convert
       end
 
@@ -13,6 +14,12 @@ module Madness
 
       def options
         @options ||= config.highlighter ? [] : :no_highlight
+      end
+
+      def process_mermaid_blocks(text)
+        text.gsub(%r{```mermaid\s+(.+?)\s+```}m) do
+          "<pre class='mermaid'>#{$1.strip}</pre>"
+        end
       end
     end
   end
