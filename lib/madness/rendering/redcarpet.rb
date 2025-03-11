@@ -36,7 +36,11 @@ module Madness
       end
 
       def handler_class
-        config.highlighter ? HighlightRenderer : ::Redcarpet::Render::HTML
+        if config.mermaid || config.highlighter
+          CustomRenderer
+        else
+          ::Redcarpet::Render::HTML
+        end
       end
     end
   end

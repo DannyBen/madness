@@ -56,7 +56,7 @@ end
 <li>List
 
 <ol>
-<li>with </li>
+<li>with</li>
 <li>nesting</li>
 </ol></li>
 </ol>
@@ -110,6 +110,15 @@ graph TD;
     B-->D;
     C-->D;
 </div>
+
+<p>Or using the <code>mermaid</code> code block:</p>
+
+<pre><code class="mermaid">graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;
+</code></pre>
 
 <h2 id="unsafe-html">Unsafe HTML</h2>
 

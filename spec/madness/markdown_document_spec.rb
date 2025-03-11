@@ -47,6 +47,7 @@ describe MarkdownDocument do
       before do
         config.renderer = 'pandoc'
         config.highlighter = true
+        config.mermaid = true
       end
 
       # In CI we have a different pandoc version, so we allow
