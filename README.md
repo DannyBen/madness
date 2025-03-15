@@ -267,8 +267,32 @@ file or a directory in the same directory as the file itself.
 
 ### Mermaid Diagrams and Charts
 
-When the `mermaid` option is enabled, you may display any mermaid diagram in
-your document by enclosing it in a `<div class='mermaid'>...</div>` block.
+When the `mermaid` option is enabled, you can embed Mermaid diagrams in your
+document using either of the following methods:
+
+1. **Using a `<div>` block with `mermaid` class**:
+
+   ```html
+   <div class="mermaid">
+     graph TD;
+     A-->B;
+     A-->C;
+     B-->D;
+     C-->D;
+   </div>
+   ```
+
+2. **Using a code fence with `mermaid` language specifier**:
+
+   ````markdown
+   ```mermaid
+   graph TD;
+   A-->B;
+   A-->C;
+   B-->D;
+   C-->D;
+   ```
+   ````
 
 ### Table of Contents Generation
 
