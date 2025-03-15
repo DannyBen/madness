@@ -18,7 +18,7 @@ module Madness
 
       def process_mermaid_blocks(text)
         text.gsub(/```mermaid\s+(.+?)\s+```/m) do
-          "<pre class='mermaid'>#{$1.strip}</pre>"
+          "<div class='mermaid'>#{$1.strip}</div>"
         end
       end
     end
