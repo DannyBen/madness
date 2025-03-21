@@ -9,7 +9,7 @@ module Madness
 
     def block_code(code, language)
       if language == 'mermaid'
-        "<pre class='mermaid'>#{code}</pre>"
+        "<div class='mermaid'>#{code}</div>"
       else
         super
       end
