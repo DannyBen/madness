@@ -1,6 +1,15 @@
 Changelog
 ========================================
 
+v1.2.3 - 2025-03-21
+----------------------------------------
+
+- Fix inline TOC for Pandoc header slug rules [`570b870`](https://github.com/DannyBen/madness/commit/570b870)
+- Add handling for mermaid code blocks [`a784264`](https://github.com/DannyBen/madness/commit/a784264)
+- Update mermaid code fence to render `div` instead of `pre` [`b0673a6`](https://github.com/DannyBen/madness/commit/b0673a6)
+- Compare [`v1.2.2..v1.2.3`](https://github.com/dannyben/madness/compare/v1.2.2..v1.2.3)
+
+
 v1.2.2 - 2025-01-16
 ----------------------------------------
 
