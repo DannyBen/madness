@@ -1,9 +1,9 @@
 Manage the madness configuration file
 
 Usage:
-  bashly config new
-  bashly config show
-  bashly config (-h|--help)
+  madness config new
+  madness config show
+  madness config (-h|--help)
 
 Commands:
   new
