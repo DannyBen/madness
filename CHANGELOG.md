@@ -1,6 +1,13 @@
 Changelog
 ========================================
 
+v1.2.4 - 2025-08-29
+----------------------------------------
+
+- Fix `madness config` command help [`98a935e`](https://github.com/DannyBen/madness/commit/98a935e)
+- Compare [`v1.2.3..v1.2.4`](https://github.com/dannyben/madness/compare/v1.2.3..v1.2.4)
+
+
 v1.2.3 - 2025-03-21
 ----------------------------------------
 
