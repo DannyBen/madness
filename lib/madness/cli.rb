@@ -1,8 +1,8 @@
 require 'mister_bin'
 
 module Madness
-  # The CLI class is used by the bashly binary and forwards incoming CLI
-  # commands to the relevant Bashly::Commands class
+  # The CLI class is used by the madness 'binary' and forwards incoming CLI
+  # commands to the relevant Madness::Commands class
   class CLI
     def self.runner
       runner = MisterBin::Runner.new version: Madness::VERSION,

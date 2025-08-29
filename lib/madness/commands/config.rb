@@ -3,9 +3,9 @@ module Madness
     class Config < Base
       summary 'Manage the madness configuration file'
 
-      usage 'bashly config new'
-      usage 'bashly config show'
-      usage 'bashly config (-h|--help)'
+      usage 'madness config new'
+      usage 'madness config show'
+      usage 'madness config (-h|--help)'
 
       command 'new', 'Create a new .madness.yml configuration file'
       command 'show', 'Show all configuration options'
