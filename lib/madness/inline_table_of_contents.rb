@@ -2,6 +2,7 @@ module Madness
   # Generate a markdown Table of Contents for a single document
   class InlineTableOfContents
     include ServerHelper
+
     using StringRefinements
 
     attr_reader :text

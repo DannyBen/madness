@@ -2,6 +2,7 @@ module Madness
   # Handle the navigation links for a given directory
   class Navigation
     include ServerHelper
+
     using ArrayRefinements
     using StringRefinements
 

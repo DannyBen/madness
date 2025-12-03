@@ -2,6 +2,7 @@ module Madness
   # Represents a directory with markdown file sand subflders.
   class Directory
     include ServerHelper
+
     using ArrayRefinements
     using StringRefinements
 

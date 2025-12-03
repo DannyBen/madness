@@ -21,7 +21,6 @@ require 'bundler'
 # The reason for this is that we need the Server class to be evaluated
 # (required) after base_uri is set.
 if ENV['STANDALONE']
-  require 'madness/refinements/hash_refinements'
   require 'madness/settings'
   Madness::Settings.instance.base_uri = '/docs'
 end
@@ -44,6 +43,7 @@ include Madness
 # Bootstrap Sinatra testing with rspec
 module RSpecMixin
   include Rack::Test::Methods
+
   def app
     described_class.prepare
     described_class
