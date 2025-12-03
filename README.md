@@ -265,7 +265,6 @@ When the `mermaid` option is enabled, you can embed Mermaid diagrams in your
 document using either of the following methods:
 
 1. **Using a `<div>` block with `mermaid` class**:
-
    ```html
    <div class="mermaid">
      graph TD;
@@ -275,9 +274,7 @@ document using either of the following methods:
      C-->D;
    </div>
    ```
-
 2. **Using a code fence with `mermaid` language specifier**:
-
    ````markdown
    ```mermaid
    graph TD;
