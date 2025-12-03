@@ -9,7 +9,7 @@
             auto_nav:  true
             auto_toc:  true
          highlighter:  true
-             mermaid:  ~
+             mermaid:  true
            copy_code:  true
           shortlinks:  ~
          source_link:  ~
