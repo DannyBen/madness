@@ -14,8 +14,6 @@
 
 <h1 id="madness-instant-markdown-server">Madness - Instant Markdown Server</h1>
 
-<hr>
-
 <p>Madness is a command line server for rendering markdown documents in your
 browser. It is designed to facilitate easy development of internal
 markdown-based documentation sites.</p>
@@ -287,27 +285,28 @@ file or a directory in the same directory as the file itself.</p>
 document using either of the following methods:</p>
 
 <ol>
-<li><strong>Using a <code>&lt;div&gt;</code> block with <code>mermaid</code> class</strong>:</li>
+<li><strong>Using a <code>&lt;div&gt;</code> block with <code>mermaid</code> class</strong>:
+<code>html
+&lt;div class=&quot;mermaid&quot;&gt;
+ graph TD;
+ A--&gt;B;
+ A--&gt;C;
+ B--&gt;D;
+ C--&gt;D;
+&lt;/div&gt;
+</code></li>
+<li><strong>Using a code fence with <code>mermaid</code> language specifier</strong>:
+<code>markdown
+```mermaid
+graph TD;
+A--&gt;B;
+A--&gt;C;
+B--&gt;D;
+C--&gt;D;
+```
+</code></li>
 </ol>
-<div class="highlight"><pre class="highlight html"><code>   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
-     graph TD;
-     A--&gt;B;
-     A--&gt;C;
-     B--&gt;D;
-     C--&gt;D;
-   <span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
-<ol>
-<li><strong>Using a code fence with <code>mermaid</code> language specifier</strong>:</li>
-</ol>
-<div class="highlight"><pre class="highlight markdown"><code>   <span class="p">```</span><span class="nl">mermaid
-</span><span class="sb">   graph TD;
-   A--&gt;B;
-   A--&gt;C;
-   B--&gt;D;
-   C--&gt;D;</span>
-   <span class="p">```</span>
-</code></pre></div>
+
 <h3 id="table-of-contents-generation">Table of Contents Generation</h3>
 
 <h4 id="site-wide">Site-wide</h4>
