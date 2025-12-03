@@ -2,6 +2,7 @@ module Madness
   # Handle a single document path.
   class Document
     include ServerHelper
+
     using StringRefinements
 
     attr_reader :base, :path, :type, :file, :dir, :title

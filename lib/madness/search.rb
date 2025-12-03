@@ -3,6 +3,7 @@ require 'shellwords'
 module Madness
   class Search
     include ServerHelper
+
     using StringRefinements
 
     def initialize(path = nil)

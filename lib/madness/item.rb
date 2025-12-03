@@ -1,6 +1,7 @@
 module Madness
   class Item
     include ServerHelper
+
     using StringRefinements
 
     attr_reader :path, :type

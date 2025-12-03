@@ -42,7 +42,7 @@ module Madness
       nav = Navigation.new dir
       breadcrumbs = Breadcrumbs.new(path).links
 
-      if (nav.links.count == 1) && (doc.type == :empty)
+      if nav.links.one? && doc.type == :empty
         redirect to(nav.links.first.href)
       end
 

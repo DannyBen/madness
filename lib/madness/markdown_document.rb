@@ -4,6 +4,7 @@ module Madness
   # Handle a pure markdown document.
   class MarkdownDocument
     include ServerHelper
+
     using StringRefinements
 
     attr_reader :markdown, :title

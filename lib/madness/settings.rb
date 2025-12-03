@@ -9,6 +9,7 @@ module Madness
   # 3. Any override provided later (for example, by the CommandLine class)
   class Settings
     include Singleton
+
     using HashRefinements
 
     def initialize
