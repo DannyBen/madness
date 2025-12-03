@@ -149,8 +149,8 @@ auto_toc: true
 highlighter: true
 
 # enable mermaid diagramming and charting
-# put your diagram code inside <div class='mermaid'>...</div>
-mermaid: false
+# put your diagram code inside ```mermaid ... ``` code fence
+mermaid: true
 
 # enable the copy to clipboard icon for code snippets
 copy_code: true
@@ -264,18 +264,6 @@ file or a directory in the same directory as the file itself.
 When the `mermaid` option is enabled, you can embed Mermaid diagrams in your
 document using either of the following methods:
 
-**Using a `<div>` block with `mermaid` class**:
-
-   ```html
-   <div class="mermaid">
-     graph TD;
-     A-->B;
-     A-->C;
-     B-->D;
-     C-->D;
-   </div>
-   ```
-
 **Using a code fence with `mermaid` language specifier**:
 
    ````markdown
@@ -287,6 +275,18 @@ document using either of the following methods:
    C-->D;
    ```
    ````
+   
+**Using a `<div>` block with `mermaid` class**:
+
+   ```html
+   <div class="mermaid">
+     graph TD;
+     A-->B;
+     A-->C;
+     B-->D;
+     C-->D;
+   </div>
+   ```
 
 ### Table of Contents Generation
 

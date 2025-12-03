@@ -43,8 +43,8 @@ auto_toc: true
 highlighter: true
 
 # enable mermaid diagramming and charting
-# put your diagram code inside <div class='mermaid'>...</div>
-mermaid: false
+# put your diagram code inside ```mermaid ... ``` code fence
+mermaid: true
 
 # enable the copy to clipboard icon for code snippets
 copy_code: true

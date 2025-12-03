@@ -12,12 +12,10 @@ with <strong>markdown support</strong> in it</p>
 </blockquote>
 
 <p>Inline <code>code_word</code> and block code:</p>
-
-<pre><code class="ruby">def say(message = &quot;Hi&quot;)
-  puts message
-end
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s2">"Hi"</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="n">message</span>
+<span class="k">end</span>
+</code></pre></div>
 <h2 id="footnotes-images">Footnotes, Images</h2>
 
 <p>This needs a footnote explanation<sup id="fnref1"><a href="#fn1">1</a></sup></p>
@@ -112,14 +110,12 @@ graph TD;
 </div>
 
 <p>Or using the <code>mermaid</code> code block:</p>
-
-<pre><code class="mermaid">graph TD;
-    A--&gt;B;
-    A--&gt;C;
-    B--&gt;D;
-    C--&gt;D;
-</code></pre>
-
+<div class='mermaid'>graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</div>
 <h2 id="unsafe-html">Unsafe HTML</h2>
 
 <p>This is calculated by Javascript: <span id='demo'></div></p>
