@@ -10,8 +10,6 @@ module Madness
   class Settings
     include Singleton
 
-    using HashRefinements
-
     def initialize
       reset
     end
@@ -85,7 +83,7 @@ module Madness
 
     def file_data
       result = if file_exist?
-        ExtendedYAML.load(filename)&.symbolize_keys
+        ExtendedYAML.load(filename)&.transform_keys(&:to_sym)
       else
         {}
       end
