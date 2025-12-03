@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.executables = ['madness']
   s.homepage    = 'https://github.com/DannyBen/madness'
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 3.1'
+  s.required_ruby_version = '>= 3.2'
 
   s.add_dependency 'addressable', '~> 2.7'
   s.add_dependency 'colsole', '~> 1.0'
