@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'naturally', '~> 2.2'
   s.add_dependency 'os', '~> 1.0'
   s.add_dependency 'pandoc-ruby', '~> 2.1'
-  s.add_dependency 'puma', '>= 5.1', '< 7'
+  s.add_dependency 'puma', '~> 7.1'
   s.add_dependency 'rackup', '~> 2.1'
   s.add_dependency 'redcarpet', '~> 3.5'
   s.add_dependency 'requires', '~> 1.0'
