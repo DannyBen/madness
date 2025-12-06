@@ -1,6 +1,16 @@
 Changelog
 ========================================
 
+v1.2.5 - 2025-12-06
+----------------------------------------
+
+- Update vendor/mermaid.min.js [`63185c4`](https://github.com/DannyBen/madness/commit/63185c4)
+- Drop support for Ruby 3.1 [`87c0479`](https://github.com/DannyBen/madness/commit/87c0479)
+- Update puma to 7.1 [`b0ab309`](https://github.com/DannyBen/madness/commit/b0ab309)
+- Enable mermaid by default [`4bf9e63`](https://github.com/DannyBen/madness/commit/4bf9e63)
+- Compare [`v1.2.4..v1.2.5`](https://github.com/dannyben/madness/compare/v1.2.4..v1.2.5)
+
+
 v1.2.4 - 2025-08-29
 ----------------------------------------
 
