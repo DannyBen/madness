@@ -35,6 +35,12 @@ $ brew gem install madness
 $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness'
 ```
 
+**Using Nix:**
+
+```shell
+$ nix run github:DannyBen/madness
+```
+
 ## Feature Highlights
 
 - Easy to use.
