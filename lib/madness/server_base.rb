@@ -1,6 +1,8 @@
 # require 'sinatra/reloader'
 require 'sinatra/base'
 require 'slim'
+require 'madness/live_reload'
+require 'madness/middleware/live_reload'
 
 module Madness
   # The base class for the sinatra server.
@@ -15,11 +17,6 @@ module Madness
     set :server, :puma
     set :static, false
 
-    # Since we cannot use any config values in the main body of the class,
-    # since they will be updated later, we need to set anything that relies
-    # on the config values just before running the server.
-    # The CommandLine class and the test suite should both call
-    # `Server.prepare` before calling Server.run!
     class << self
       include ServerHelper
 
@@ -29,6 +26,13 @@ module Madness
         set :views, theme.views_path
 
         set_basic_auth if config.auth
+        setup_live_reload if config.live_reload
+      end
+
+      def setup_live_reload
+        use Madness::Middleware::LiveReload
+        Madness::LiveReload.watch(File.expand_path(config.path, Dir.pwd))
+        at_exit { Madness::LiveReload.stop }
       end
 
       def set_basic_auth

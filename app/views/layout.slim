@@ -22,5 +22,8 @@ html
       javascript:
         mermaid.initialize({startOnLoad:true});
 
-  body
+    - if config.live_reload
+      script src="#{config.base_uri}/js/live_reload.js" defer=true
+
+  body data-base-uri="#{config.base_uri}"
     == yield

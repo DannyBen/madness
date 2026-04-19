@@ -21,8 +21,10 @@ Options:
     The basic authentication realm (default: Restricted Documentation)
 
   --theme FOLDER
-    Use a custom theme (either absolute or relative to the main documentation
-    path)
+    Use a custom theme (either absolute or relative to the main documentation path)
+
+  --no-live-reload
+    Disable live reload (enabled by default)
 
   -h --help
     Show this help
