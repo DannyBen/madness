@@ -6,6 +6,7 @@ describe Commands::Server do
   before do
     config.reset
     config.path = 'spec/fixtures/docroot'
+    config.live_reload = false
   end
 
   context 'with --help' do
@@ -78,6 +79,7 @@ describe Commands::Server do
 
     it 'does considers the config values' do
       expect(server).to receive :run!
+      allow(Madness::LiveReload).to receive(:watch)
 
       Dir.chdir 'spec/fixtures/docroot-with-config' do
         expect { subject.execute %w[server] }
@@ -94,6 +96,7 @@ describe Commands::Server do
 
     it 'calls the TOC builder' do
       expect(server).to receive :run!
+      allow(Madness::LiveReload).to receive(:watch)
 
       Dir.chdir 'spec/fixtures/docroot-with-config' do
         expect(TableOfContents).to receive(:new).and_return(toc_double)

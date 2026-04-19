@@ -14,6 +14,7 @@ module Madness
       option '--auth USER:PASS', 'Enable basic authentication'
       option '--auth-zone NAME', 'The basic authentication realm (default: Restricted Documentation)'
       option '--theme FOLDER', 'Use a custom theme (either absolute or relative to the main documentation path)'
+      option '--no-live-reload', 'Disable live reload (enabled by default)'
 
       example 'madness server'
       example 'madness server docs'
@@ -59,6 +60,7 @@ module Madness
         config.auth_zone  = args['--auth-zone'] if args['--auth-zone']
         config.open       = true if args['--open']
         config.theme      = File.expand_path(args['--theme'], config.path) if args['--theme']
+        config.live_reload = false if args['--no-live-reload']
       end
 
       def show_status

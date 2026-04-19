@@ -53,6 +53,7 @@ $ alias madness='docker run --rm -it -v $PWD:/docs -p 3000:3000 dannyben/madness
 - Optional support for `[[Short Link]]` syntax.
 - Optional support for Mermaid diagrams.
 - Optional basic authentication.
+- Live reload - automatically refreshes the browser when files change.
 - Support for extended markdown syntax, such as footnotes and syntax
   highlighting.
 
@@ -199,6 +200,9 @@ auth_zone: Restricted Documentation
 # show files with these extensions in the navigation and search, for example:
 # expose_extensions: pdf,docx,xlsx,txt
 expose_extensions: ~
+
+# enable live reload (auto-refresh on file changes)
+live_reload: true
 
 # exclude directories that match these regular expressions
 # note that this is an array

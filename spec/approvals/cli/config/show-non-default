@@ -21,6 +21,7 @@
                 auth:  ~
            auth_zone:  Restricted Documentation
    expose_extensions:  ~
+         live_reload:  true
              exclude:  ["^[a-z_\\-0-9]+$"]
          invalid_key:  with some value
 

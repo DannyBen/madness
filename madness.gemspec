@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'colsole', '~> 1.0'
   s.add_dependency 'extended_yaml', '~> 0.2'
   s.add_dependency 'mister_bin', '~> 0.7'
+  s.add_dependency 'faye-websocket', '~> 0.11'
+  s.add_dependency 'listen', '~> 3.0'
   s.add_dependency 'naturally', '~> 2.2'
   s.add_dependency 'os', '~> 1.0'
   s.add_dependency 'pandoc-ruby', '~> 2.1'

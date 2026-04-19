@@ -76,6 +76,7 @@ module Madness
         auth:              false,
         auth_zone:         'Restricted Documentation',
         expose_extensions: nil,
+        live_reload:       true,
         exclude:           ['^[a-z_\-0-9]+$'],
       }
     end

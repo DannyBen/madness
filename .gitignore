@@ -1,10 +1,9 @@
-Gemfile.lock
-
 /cache
 /coverage
 /dev
 /doc
 /gems
+.gems
 /spec/status.txt
 /tasks/debug.runfile
 /tmp
@@ -17,3 +16,4 @@ madness.log
 nohup.out
 toc.txt
 toc.html
+.envrc

@@ -74,6 +74,9 @@ source_link_label: Page Source
 # source_link_pos: top
 source_link_pos: bottom
 
+# automatically reload the browser when files change
+live_reload: true
+
 # open the server URL in the browser
 open: false
 
